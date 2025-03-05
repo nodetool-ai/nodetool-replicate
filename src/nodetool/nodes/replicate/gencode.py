@@ -378,18 +378,6 @@ replicate_nodes = [
         "overrides": {"control_image": ImageRef},
     },
     {
-        "model_id": "black-forest-labs/flux-1.1-pro-ultra",
-        "node_name": "Flux_1_1_Pro_Ultra",
-        "namespace": "image.generate",
-        "return_type": ImageRef,
-    },
-    {
-        "model_id": "black-forest-labs/flux-pro",
-        "node_name": "Flux_Pro",
-        "namespace": "image.generate",
-        "return_type": ImageRef,
-    },
-    {
         "model_id": "black-forest-labs/flux-depth-dev",
         "node_name": "Flux_Depth_Dev",
         "namespace": "image.generate",
