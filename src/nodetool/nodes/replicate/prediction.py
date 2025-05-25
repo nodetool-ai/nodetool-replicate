@@ -49,7 +49,7 @@ async def get_model_status(owner: str, name: str) -> str:
         try:
             response = await client.get(f"https://replicate.com/{owner}/{name}/status")
             return response.json()["status"]
-        except Exception as e:
+        except Exception:
             return "offline"
 
 
