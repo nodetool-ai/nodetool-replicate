@@ -1,9 +1,9 @@
-from pydantic import BaseModel, Field
+from pydantic import Field
 import typing
-from typing import Any
 import nodetool.metadata.types
 import nodetool.metadata.types as types
 from nodetool.dsl.graph import GraphNode
+import nodetool.nodes.replicate.image.enhance
 
 
 class CodeFormer(GraphNode):
@@ -36,13 +36,18 @@ class CodeFormer(GraphNode):
 class Maxim(GraphNode):
     """Multi-Axis MLP for Image Processing"""
 
+    Model: typing.ClassVar[type] = nodetool.nodes.replicate.image.enhance.Maxim.Model
+
     image: types.ImageRef | GraphNode | tuple[GraphNode, str] = Field(
         default=types.ImageRef(type="image", uri="", asset_id=None, data=None),
         description="Input image.",
     )
-    model: Model | None | GraphNode | tuple[GraphNode, str] = Field(
-        default=None, description="Choose a model."
-    )
+    model: (
+        nodetool.nodes.replicate.image.enhance.Maxim.Model
+        | None
+        | GraphNode
+        | tuple[GraphNode, str]
+    ) = Field(default=None, description="Choose a model.")
 
     @classmethod
     def get_node_type(cls):
