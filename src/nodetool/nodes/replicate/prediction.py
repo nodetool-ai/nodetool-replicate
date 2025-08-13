@@ -1,4 +1,5 @@
 from typing import AsyncGenerator
+from nodetool.workflows.base_node import ApiKeyMissingError
 import replicate
 
 import httpx
@@ -66,7 +67,8 @@ async def run_replicate(
     assert model, "Model not found"
 
     token = env.get("REPLICATE_API_TOKEN")
-    assert token, "REPLICATE_API_TOKEN is not set"
+    if not token:
+        raise ApiKeyMissingError("REPLICATE_API_TOKEN is not configured")
 
     client = replicate.Client(token)
 
