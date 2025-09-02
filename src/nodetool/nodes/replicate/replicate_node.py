@@ -11,6 +11,7 @@ from enum import Enum
 
 from pydantic import ConfigDict
 from nodetool.common.environment import Environment
+import logging
 from nodetool.metadata.types import AudioRef, ImageRef, Provider, NPArray, VideoRef
 from nodetool.workflows.processing_context import ProcessingContext
 from nodetool.workflows.base_node import BaseNode
@@ -22,7 +23,7 @@ import os
 from nodetool.nodes.replicate.prediction import run_replicate
 
 
-log = Environment.get_logger()
+log = logging.getLogger(__name__)
 
 REPLICATE_MODELS = {}
 
