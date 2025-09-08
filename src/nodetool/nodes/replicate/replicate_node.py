@@ -10,8 +10,8 @@ from openapi_pydantic.v3.parser import OpenAPIv3
 from enum import Enum
 
 from pydantic import ConfigDict
-from nodetool.common.environment import Environment
-import logging
+from nodetool.config.environment import Environment
+from nodetool.config.logging_config import get_logger
 from nodetool.metadata.types import AudioRef, ImageRef, Provider, NPArray, VideoRef
 from nodetool.workflows.processing_context import ProcessingContext
 from nodetool.workflows.base_node import BaseNode
@@ -23,7 +23,7 @@ import os
 from nodetool.nodes.replicate.prediction import run_replicate
 
 
-log = logging.getLogger(__name__)
+log = get_logger(__name__)
 
 REPLICATE_MODELS = {}
 

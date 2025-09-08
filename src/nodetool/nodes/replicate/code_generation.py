@@ -5,7 +5,7 @@ import black
 import httpx
 from openapi_pydantic.v3.parser import OpenAPIv3
 from pydantic import BaseModel
-from nodetool.common.environment import Environment
+from nodetool.config.environment import Environment
 from openapi_pydantic.v3 import DataType, Reference, Schema, parse_obj
 from .replicate_node import (
     capitalize,
