@@ -7,35 +7,21 @@ name = "nodetool-replicate"
 version = "0.6.0"
 description = "Replicate support for Nodetool"
 readme = "README.md"
-authors = [
-    {name = "Matthias Georgi", email = "matti.georgi@gmail.com"}
-]
+authors = [{ name = "Matthias Georgi", email = "matti.georgi@gmail.com" }]
 requires-python = ">=3.11"
 
-dependencies = [
-    "nodetool-core>=0.6.0,<0.7.0",
-    "replicate",
-]
+dependencies = ["nodetool-core>=0.6.0,<0.7.0", "replicate"]
 
 
 [project.optional-dependencies]
-# For development with local nodetool-core
-dev = [
-    "nodetool-core @ file:///../nodetool-core",
-]
 # For exact version pinning in production
-stable = [
-    "nodetool-core==0.6.0",
-]
+stable = ["nodetool-core==0.6.0"]
 
 [tool.hatch.metadata]
-allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/nodetool"]
-artifacts = [
-    "src/nodetool/package_metadata/nodetool-replicate.json",
-]
+artifacts = ["src/nodetool/package_metadata/nodetool-replicate.json"]
 
 [tool.ruff]
 target-version = "py311"
