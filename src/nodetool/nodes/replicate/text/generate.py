@@ -31,9 +31,86 @@ class Llama3_8B(ReplicateNode):
             "license_url": "https://github.com/meta-llama/llama3/blob/main/LICENSE",
             "name": "meta-llama-3-8b",
             "owner": "meta",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 50806621,
+            "run_count": 51025551,
             "url": "https://replicate.com/meta/meta-llama-3-8b",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    top_k: int = Field(
+        title="Top K",
+        description="The number of highest probability tokens to consider for generating the output. If > 0, only keep the top k tokens with highest probability (top-k filtering).",
+        default=50,
+    )
+    top_p: float = Field(
+        title="Top P",
+        description="A probability threshold for generating the output. If < 1.0, only keep the top tokens with cumulative probability >= top_p (nucleus filtering). Nucleus filtering is described in Holtzman et al. (http://arxiv.org/abs/1904.09751).",
+        default=0.9,
+    )
+    prompt: str = Field(title="Prompt", description="Prompt", default="")
+    max_tokens: int = Field(
+        title="Max Tokens",
+        description="The maximum number of tokens the model should generate as output.",
+        default=512,
+    )
+    min_tokens: int = Field(
+        title="Min Tokens",
+        description="The minimum number of tokens the model should generate as output.",
+        default=0,
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="The value used to modulate the next token probabilities.",
+        default=0.6,
+    )
+    prompt_template: str = Field(
+        title="Prompt Template",
+        description="Prompt template. The string `{prompt}` will be substituted for the input prompt. If you want to generate dialog output, use this template as a starting point and construct the prompt string manually, leaving `prompt_template={prompt}`.",
+        default="{prompt}",
+    )
+    presence_penalty: float = Field(
+        title="Presence Penalty", description="Presence penalty", default=1.15
+    )
+    frequency_penalty: float = Field(
+        title="Frequency Penalty", description="Frequency penalty", default=0.2
+    )
+
+
+class Llama3_8B_Instruct(ReplicateNode):
+    """An 8 billion parameter language model from Meta, fine tuned for chat completions"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["top_k", "top_p", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "meta/meta-llama-3-8b-instruct:5a6809ca6288247d06daf6365557e5e429063f32a21146b2a807c682652136b8"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/68b7dc1a-4767-4353-b066-212b0126b5de/meta-logo.png",
+            "created_at": "2024-04-17T21:44:58.480057Z",
+            "description": "An 8 billion parameter language model from Meta, fine tuned for chat completions",
+            "github_url": "https://github.com/meta-llama/llama3",
+            "license_url": "https://github.com/meta-llama/llama3/blob/main/LICENSE",
+            "name": "meta-llama-3-8b-instruct",
+            "owner": "meta",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 379769007,
+            "url": "https://replicate.com/meta/meta-llama-3-8b-instruct",
             "visibility": "public",
             "weights_url": None,
         }
@@ -106,8 +183,9 @@ class Llama3_70B(ReplicateNode):
             "license_url": "https://github.com/meta-llama/llama3/blob/main/LICENSE",
             "name": "meta-llama-3-70b",
             "owner": "meta",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 820484,
+            "run_count": 841369,
             "url": "https://replicate.com/meta/meta-llama-3-70b",
             "visibility": "public",
             "weights_url": None,
@@ -181,8 +259,9 @@ class Llama3_8B_Instruct(ReplicateNode):
             "license_url": "https://github.com/meta-llama/llama3/blob/main/LICENSE",
             "name": "meta-llama-3-8b-instruct",
             "owner": "meta",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 325600516,
+            "run_count": 379769007,
             "url": "https://replicate.com/meta/meta-llama-3-8b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -256,8 +335,9 @@ class Llama3_70B_Instruct(ReplicateNode):
             "license_url": "https://github.com/meta-llama/llama3/blob/main/LICENSE",
             "name": "meta-llama-3-70b-instruct",
             "owner": "meta",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 145312032,
+            "run_count": 160492085,
             "url": "https://replicate.com/meta/meta-llama-3-70b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -331,8 +411,9 @@ class Llama3_1_405B_Instruct(ReplicateNode):
             "license_url": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE",
             "name": "meta-llama-3.1-405b-instruct",
             "owner": "meta",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 4954794,
+            "run_count": 6447804,
             "url": "https://replicate.com/meta/meta-llama-3.1-405b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -411,8 +492,9 @@ class LlamaGuard_3_11B_Vision(ReplicateNode):
             "license_url": "https://huggingface.co/meta-llama/Llama-3.2-1B/blob/main/LICENSE.txt",
             "name": "llama-guard-3-11b-vision",
             "owner": "meta",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2312.06674",
-            "run_count": 50,
+            "run_count": 1474,
             "url": "https://replicate.com/meta/llama-guard-3-11b-vision",
             "visibility": "public",
             "weights_url": "https://huggingface.co/meta-llama/Llama-Guard-3-11B-Vision",
@@ -457,8 +539,9 @@ class LlamaGuard_3_8B(ReplicateNode):
             "license_url": "https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct/blob/main/LICENSE",
             "name": "llama-guard-3-8b",
             "owner": "meta",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2407.21783",
-            "run_count": 30683,
+            "run_count": 356535,
             "url": "https://replicate.com/meta/llama-guard-3-8b",
             "visibility": "public",
             "weights_url": "https://huggingface.co/meta-llama/Llama-Guard-3-8B",
@@ -503,8 +586,9 @@ class Snowflake_Arctic_Instruct(ReplicateNode):
             "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
             "name": "snowflake-arctic-instruct",
             "owner": "snowflake",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 1971050,
+            "run_count": 1979650,
             "url": "https://replicate.com/snowflake/snowflake-arctic-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -543,8 +627,9 @@ class Claude_3_7_Sonnet(ReplicateNode):
             "license_url": "https://www.anthropic.com/legal/consumer-terms",
             "name": "claude-3.7-sonnet",
             "owner": "anthropic",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 19522,
+            "run_count": 2684220,
             "url": "https://replicate.com/anthropic/claude-3.7-sonnet",
             "visibility": "public",
             "weights_url": None,
@@ -604,8 +689,9 @@ class Deepseek_R1(ReplicateNode):
             "license_url": "https://github.com/deepseek-ai/DeepSeek-R1/blob/main/LICENSE",
             "name": "deepseek-r1",
             "owner": "deepseek-ai",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 498955,
+            "run_count": 2027425,
             "url": "https://replicate.com/deepseek-ai/deepseek-r1",
             "visibility": "public",
             "weights_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
@@ -634,4 +720,714 @@ class Deepseek_R1(ReplicateNode):
     )
     frequency_penalty: float = Field(
         title="Frequency Penalty", description="Frequency penalty", default=0
+    )
+
+
+class GPT_5_Structured(ReplicateNode):
+    """GPT-5 with support for structured outputs, web search and custom tools"""
+
+    class Model(str, Enum):
+        GPT_5 = "gpt-5"
+        GPT_5_MINI = "gpt-5-mini"
+        GPT_5_NANO = "gpt-5-nano"
+
+    class Verbosity(str, Enum):
+        LOW = "low"
+        MEDIUM = "medium"
+        HIGH = "high"
+
+    class Reasoning_effort(str, Enum):
+        MINIMAL = "minimal"
+        LOW = "low"
+        MEDIUM = "medium"
+        HIGH = "high"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["model", "tools", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "openai/gpt-5-structured:dce923827d0d1384c9b16aeb95d3f21a34e4b5a6deffdf160d952917dbc545e1"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/60ebe2fc-dcd1-4185-90b2-bf0cc34c9688/replicate-prediction-qhzgvzbn7.jpg",
+            "created_at": "2025-08-14T15:32:22.469348Z",
+            "description": "GPT-5 with support for structured outputs, web search and custom tools",
+            "github_url": None,
+            "license_url": None,
+            "name": "gpt-5-structured",
+            "owner": "openai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 42702,
+            "url": "https://replicate.com/openai/gpt-5-structured",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    model: Model = Field(description="GPT-5 model to use.", default="gpt-5")
+    tools: list = Field(
+        title="Tools",
+        description="Tools to make available to the model. Should be a JSON object containing a list of tool definitions.",
+        default=[],
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="A simple text input to the model, equivalent to a text input with the user role. Ignored if input_item_list is provided.",
+        default=None,
+    )
+    verbosity: Verbosity = Field(
+        description="Constrains the verbosity of the model's response. Lower values will result in more concise responses, while higher values will result in more verbose responses. Currently supported values are low, medium, and high. GPT-5 supports this parameter to help control whether answers are short and to the point or long and comprehensive.",
+        default="medium",
+    )
+    image_input: list = Field(
+        title="Image Input",
+        description="List of images to send to the model",
+        default=[],
+    )
+    json_schema: dict = Field(
+        title="Json Schema",
+        description="A JSON schema that the response must conform to. For simple data structures we recommend using `simple_text_format_schema` which will be converted to a JSON schema for you.",
+        default={},
+    )
+    instructions: str | None = Field(
+        title="Instructions",
+        description="A system (or developer) message inserted into the model's context. When using along with previous_response_id, the instructions from a previous response will not be carried over to the next response. This makes it simple to swap out system (or developer) messages in new responses.",
+        default=None,
+    )
+    simple_schema: list = Field(
+        title="Simple Schema",
+        description="Create a JSON schema for the output to conform to. The schema will be created from a simple list of field specifications. Strings: 'thing' (defaults to string), 'thing:str', 'thing:string'. Booleans: 'is_a_thing:bool' or 'is_a_thing:boolean'. Numbers: 'count:number', 'count:int'. Lists: 'things:list' (defaults to list of strings), 'things:list:str', 'number_things:list:number', etc. Nested objects are not supported, use `json_schema` instead.",
+        default=[],
+    )
+    input_item_list: list = Field(
+        title="Input Item List",
+        description="A list of one or many input items to the model, containing different content types. This parameter corresponds with the `input` OpenAI API parameter. For more details see: https://platform.openai.com/docs/api-reference/responses/create#responses_create-input. Similar to the `messages` parameter, but with more flexibility in the content types.",
+        default=[],
+    )
+    reasoning_effort: Reasoning_effort = Field(
+        description="Constrains effort on reasoning for GPT-5 models. Currently supported values are minimal, low, medium, and high. The minimal value gets answers back faster without extensive reasoning first. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. For higher reasoning efforts you may need to increase your max_completion_tokens to avoid empty responses (where all the tokens are used on reasoning).",
+        default="minimal",
+    )
+    enable_web_search: bool = Field(
+        title="Enable Web Search",
+        description="Allow GPT-5 to use web search for the response.",
+        default=False,
+    )
+    max_output_tokens: int | None = Field(
+        title="Max Output Tokens",
+        description="Maximum number of completion tokens to generate. For higher reasoning efforts you may need to increase your max_completion_tokens to avoid empty responses (where all the tokens are used on reasoning).",
+        default=None,
+    )
+    previous_response_id: str | None = Field(
+        title="Previous Response Id",
+        description="The ID of a previous response to continue from.",
+        default=None,
+    )
+
+
+class GPT_5(ReplicateNode):
+    """OpenAI's new model excelling at coding, writing, and reasoning."""
+
+    class Verbosity(str, Enum):
+        LOW = "low"
+        MEDIUM = "medium"
+        HIGH = "high"
+
+    class Reasoning_effort(str, Enum):
+        MINIMAL = "minimal"
+        LOW = "low"
+        MEDIUM = "medium"
+        HIGH = "high"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["prompt", "messages", "verbosity"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "openai/gpt-5:857113f52713e87828867975887fb4d369789052c5c63076933548b2720044da"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/df3c6e87-cc46-40d9-a48f-381f80c7b10f/Screenshot_2025-08-07_at_1.04..png",
+            "created_at": "2025-08-07T01:46:29.933808Z",
+            "description": "OpenAI's new model excelling at coding, writing, and reasoning.",
+            "github_url": None,
+            "license_url": None,
+            "name": "gpt-5",
+            "owner": "openai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 127403,
+            "url": "https://replicate.com/openai/gpt-5",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    prompt: str | None = Field(
+        title="Prompt",
+        description="The prompt to send to the model. Do not use if using messages.",
+        default=None,
+    )
+    messages: list = Field(
+        title="Messages",
+        description='A JSON string representing a list of messages. For example: [{"role": "user", "content": "Hello, how are you?"}]. If provided, prompt and system_prompt are ignored.',
+        default=[],
+    )
+    verbosity: Verbosity = Field(
+        description="Constrains the verbosity of the model's response. Lower values will result in more concise responses, while higher values will result in more verbose responses. Currently supported values are low, medium, and high. GPT-5 supports this parameter to help control whether answers are short and to the point or long and comprehensive.",
+        default="medium",
+    )
+    image_input: list = Field(
+        title="Image Input",
+        description="List of images to send to the model",
+        default=[],
+    )
+    system_prompt: str | None = Field(
+        title="System Prompt",
+        description="System prompt to set the assistant's behavior",
+        default=None,
+    )
+    reasoning_effort: Reasoning_effort = Field(
+        description="Constrains effort on reasoning for GPT-5 models. Currently supported values are minimal, low, medium, and high. The minimal value gets answers back faster without extensive reasoning first. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. For higher reasoning efforts you may need to increase your max_completion_tokens to avoid empty responses (where all the tokens are used on reasoning).",
+        default="minimal",
+    )
+    max_completion_tokens: int | None = Field(
+        title="Max Completion Tokens",
+        description="Maximum number of completion tokens to generate. For higher reasoning efforts you may need to increase your max_completion_tokens to avoid empty responses (where all the tokens are used on reasoning).",
+        default=None,
+    )
+
+
+class GPT_5_Mini(ReplicateNode):
+    """Faster version of OpenAI's flagship GPT-5 model"""
+
+    class Verbosity(str, Enum):
+        LOW = "low"
+        MEDIUM = "medium"
+        HIGH = "high"
+
+    class Reasoning_effort(str, Enum):
+        MINIMAL = "minimal"
+        LOW = "low"
+        MEDIUM = "medium"
+        HIGH = "high"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["prompt", "messages", "verbosity"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "openai/gpt-5-mini:ee1342634b9ffcd6c76f6ea5b8f3ca0964b3eb469fc552ad937aa214e6d20636"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/518903fa-a7de-4876-a79e-aac7fdeae577/Screenshot_2025-08-07_at_1.04..png",
+            "created_at": "2025-08-07T01:46:38.852666Z",
+            "description": "Faster version of OpenAI's flagship GPT-5 model",
+            "github_url": None,
+            "license_url": None,
+            "name": "gpt-5-mini",
+            "owner": "openai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 45503,
+            "url": "https://replicate.com/openai/gpt-5-mini",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    prompt: str | None = Field(
+        title="Prompt",
+        description="The prompt to send to the model. Do not use if using messages.",
+        default=None,
+    )
+    messages: list = Field(
+        title="Messages",
+        description='A JSON string representing a list of messages. For example: [{"role": "user", "content": "Hello, how are you?"}]. If provided, prompt and system_prompt are ignored.',
+        default=[],
+    )
+    verbosity: Verbosity = Field(
+        description="Constrains the verbosity of the model's response. Lower values will result in more concise responses, while higher values will result in more verbose responses. Currently supported values are low, medium, and high. GPT-5 supports this parameter to help control whether answers are short and to the point or long and comprehensive.",
+        default="medium",
+    )
+    image_input: list = Field(
+        title="Image Input",
+        description="List of images to send to the model",
+        default=[],
+    )
+    system_prompt: str | None = Field(
+        title="System Prompt",
+        description="System prompt to set the assistant's behavior",
+        default=None,
+    )
+    reasoning_effort: Reasoning_effort = Field(
+        description="Constrains effort on reasoning for GPT-5 models. Currently supported values are minimal, low, medium, and high. The minimal value gets answers back faster without extensive reasoning first. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. For higher reasoning efforts you may need to increase your max_completion_tokens to avoid empty responses (where all the tokens are used on reasoning).",
+        default="minimal",
+    )
+    max_completion_tokens: int | None = Field(
+        title="Max Completion Tokens",
+        description="Maximum number of completion tokens to generate. For higher reasoning efforts you may need to increase your max_completion_tokens to avoid empty responses (where all the tokens are used on reasoning).",
+        default=None,
+    )
+
+
+class GPT_5_Nano(ReplicateNode):
+    """Fastest, most cost-effective GPT-5 model from OpenAI"""
+
+    class Verbosity(str, Enum):
+        LOW = "low"
+        MEDIUM = "medium"
+        HIGH = "high"
+
+    class Reasoning_effort(str, Enum):
+        MINIMAL = "minimal"
+        LOW = "low"
+        MEDIUM = "medium"
+        HIGH = "high"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["prompt", "messages", "verbosity"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "openai/gpt-5-nano:81858e36d5992ce06c1510cbe0a5e46c7ff17418424bd13da7c2443c4b318e40"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/fbb1068e-ae55-4d4f-9ee8-3e3da859f69f/Screenshot_2025-08-07_at_1.04.57P.png",
+            "created_at": "2025-08-07T01:46:49.288485Z",
+            "description": "Fastest, most cost-effective GPT-5 model from OpenAI",
+            "github_url": None,
+            "license_url": None,
+            "name": "gpt-5-nano",
+            "owner": "openai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 40105,
+            "url": "https://replicate.com/openai/gpt-5-nano",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    prompt: str | None = Field(
+        title="Prompt",
+        description="The prompt to send to the model. Do not use if using messages.",
+        default=None,
+    )
+    messages: list = Field(
+        title="Messages",
+        description='A JSON string representing a list of messages. For example: [{"role": "user", "content": "Hello, how are you?"}]. If provided, prompt and system_prompt are ignored.',
+        default=[],
+    )
+    verbosity: Verbosity = Field(
+        description="Constrains the verbosity of the model's response. Lower values will result in more concise responses, while higher values will result in more verbose responses. Currently supported values are low, medium, and high. GPT-5 supports this parameter to help control whether answers are short and to the point or long and comprehensive.",
+        default="medium",
+    )
+    image_input: list = Field(
+        title="Image Input",
+        description="List of images to send to the model",
+        default=[],
+    )
+    system_prompt: str | None = Field(
+        title="System Prompt",
+        description="System prompt to set the assistant's behavior",
+        default=None,
+    )
+    reasoning_effort: Reasoning_effort = Field(
+        description="Constrains effort on reasoning for GPT-5 models. Currently supported values are minimal, low, medium, and high. The minimal value gets answers back faster without extensive reasoning first. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. For higher reasoning efforts you may need to increase your max_completion_tokens to avoid empty responses (where all the tokens are used on reasoning).",
+        default="minimal",
+    )
+    max_completion_tokens: int | None = Field(
+        title="Max Completion Tokens",
+        description="Maximum number of completion tokens to generate. For higher reasoning efforts you may need to increase your max_completion_tokens to avoid empty responses (where all the tokens are used on reasoning).",
+        default=None,
+    )
+
+
+class GPT_4_1(ReplicateNode):
+    """OpenAI's Flagship GPT model for complex tasks."""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["top_p", "prompt", "messages"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "openai/gpt-4.1:90d0a88c78740b21d9c98d5b245bce12f06bb2aecf074c1b3108748c2f26ed9c"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/8dbaab0b-d3e7-4bae-8772-d7e1f879d537/gpt-4.1.webp",
+            "created_at": "2025-05-01T04:55:34.442201Z",
+            "description": "OpenAI's Flagship GPT model for complex tasks.",
+            "github_url": None,
+            "license_url": "https://openai.com/policies/",
+            "name": "gpt-4.1",
+            "owner": "openai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 117824,
+            "url": "https://replicate.com/openai/gpt-4.1",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    top_p: float = Field(
+        title="Top P",
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass. (0.1 means only the tokens comprising the top 10% probability mass are considered.)",
+        ge=0.0,
+        le=1.0,
+        default=1,
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="The prompt to send to the model. Do not use if using messages.",
+        default=None,
+    )
+    messages: list = Field(
+        title="Messages",
+        description='A JSON string representing a list of messages. For example: [{"role": "user", "content": "Hello, how are you?"}]. If provided, prompt and system_prompt are ignored.',
+        default=[],
+    )
+    image_input: list = Field(
+        title="Image Input",
+        description="List of images to send to the model",
+        default=[],
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="Sampling temperature between 0 and 2",
+        ge=0.0,
+        le=2.0,
+        default=1,
+    )
+    system_prompt: str | None = Field(
+        title="System Prompt",
+        description="System prompt to set the assistant's behavior",
+        default=None,
+    )
+    presence_penalty: float = Field(
+        title="Presence Penalty",
+        description="Presence penalty parameter - positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        ge=-2.0,
+        le=2.0,
+        default=0,
+    )
+    frequency_penalty: float = Field(
+        title="Frequency Penalty",
+        description="Frequency penalty parameter - positive values penalize the repetition of tokens.",
+        ge=-2.0,
+        le=2.0,
+        default=0,
+    )
+    max_completion_tokens: int = Field(
+        title="Max Completion Tokens",
+        description="Maximum number of completion tokens to generate",
+        default=4096,
+    )
+
+
+class GPT_4_1_Mini(ReplicateNode):
+    """Fast, affordable version of GPT-4.1"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["top_p", "prompt", "messages"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "openai/gpt-4.1-mini:2e47757e2b7aa34decf05335dc78ad7968386e8aacd345dd045b6dfeb622cd69"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/6f1609f1-ba45-4513-bfd6-7dfcb95efad8/Screenshot_2025-05-01_at_12.03.png",
+            "created_at": "2025-05-01T06:57:43.806670Z",
+            "description": "Fast, affordable version of GPT-4.1",
+            "github_url": None,
+            "license_url": "https://openai.com/policies/",
+            "name": "gpt-4.1-mini",
+            "owner": "openai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 1153729,
+            "url": "https://replicate.com/openai/gpt-4.1-mini",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    top_p: float = Field(
+        title="Top P",
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass. (0.1 means only the tokens comprising the top 10% probability mass are considered.)",
+        ge=0.0,
+        le=1.0,
+        default=1,
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="The prompt to send to the model. Do not use if using messages.",
+        default=None,
+    )
+    messages: list = Field(
+        title="Messages",
+        description='A JSON string representing a list of messages. For example: [{"role": "user", "content": "Hello, how are you?"}]. If provided, prompt and system_prompt are ignored.',
+        default=[],
+    )
+    image_input: list = Field(
+        title="Image Input",
+        description="List of images to send to the model",
+        default=[],
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="Sampling temperature between 0 and 2",
+        ge=0.0,
+        le=2.0,
+        default=1,
+    )
+    system_prompt: str | None = Field(
+        title="System Prompt",
+        description="System prompt to set the assistant's behavior",
+        default=None,
+    )
+    presence_penalty: float = Field(
+        title="Presence Penalty",
+        description="Presence penalty parameter - positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        ge=-2.0,
+        le=2.0,
+        default=0,
+    )
+    frequency_penalty: float = Field(
+        title="Frequency Penalty",
+        description="Frequency penalty parameter - positive values penalize the repetition of tokens.",
+        ge=-2.0,
+        le=2.0,
+        default=0,
+    )
+    max_completion_tokens: int = Field(
+        title="Max Completion Tokens",
+        description="Maximum number of completion tokens to generate",
+        default=4096,
+    )
+
+
+class GPT_4_1_Nano(ReplicateNode):
+    """Fastest, most cost-effective GPT-4.1 model from OpenAI"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["top_p", "prompt", "messages"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "openai/gpt-4.1-nano:ec69f9c119aaf7d5a851b4dc9d08337a16906ee397a5d3d492fd52fbc59ea2a1"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/f2c12cca-5859-407a-9189-0509526e4757/Screenshot_2025-05-01_at_12.29.png",
+            "created_at": "2025-05-01T07:26:10.557033Z",
+            "description": "Fastest, most cost-effective GPT-4.1 model from OpenAI",
+            "github_url": None,
+            "license_url": "https://openai.com/policies/",
+            "name": "gpt-4.1-nano",
+            "owner": "openai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 366855,
+            "url": "https://replicate.com/openai/gpt-4.1-nano",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    top_p: float = Field(
+        title="Top P",
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass. (0.1 means only the tokens comprising the top 10% probability mass are considered.)",
+        ge=0.0,
+        le=1.0,
+        default=1,
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="The prompt to send to the model. Do not use if using messages.",
+        default=None,
+    )
+    messages: list = Field(
+        title="Messages",
+        description='A JSON string representing a list of messages. For example: [{"role": "user", "content": "Hello, how are you?"}]. If provided, prompt and system_prompt are ignored.',
+        default=[],
+    )
+    image_input: list = Field(
+        title="Image Input",
+        description="List of images to send to the model",
+        default=[],
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="Sampling temperature between 0 and 2",
+        ge=0.0,
+        le=2.0,
+        default=1,
+    )
+    system_prompt: str | None = Field(
+        title="System Prompt",
+        description="System prompt to set the assistant's behavior",
+        default=None,
+    )
+    presence_penalty: float = Field(
+        title="Presence Penalty",
+        description="Presence penalty parameter - positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        ge=-2.0,
+        le=2.0,
+        default=0,
+    )
+    frequency_penalty: float = Field(
+        title="Frequency Penalty",
+        description="Frequency penalty parameter - positive values penalize the repetition of tokens.",
+        ge=-2.0,
+        le=2.0,
+        default=0,
+    )
+    max_completion_tokens: int = Field(
+        title="Max Completion Tokens",
+        description="Maximum number of completion tokens to generate",
+        default=4096,
+    )
+
+
+class Deepseek_V3_1(ReplicateNode):
+    """Latest hybrid thinking model from Deepseek"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["top_p", "prompt", "max_tokens"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "deepseek-ai/deepseek-v3.1:a25971b28df7bdd9891b77e1877207aa953d1dd92cc3f1903565f94b12f3f0ba"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/8d444a48-2b5e-46ba-80dd-bfbdae41ffb8/tmp2xmj7b2x.jpg",
+            "created_at": "2025-08-25T18:41:12.219732Z",
+            "description": "Latest hybrid thinking model from Deepseek",
+            "github_url": None,
+            "license_url": None,
+            "name": "deepseek-v3.1",
+            "owner": "deepseek-ai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 2927,
+            "url": "https://replicate.com/deepseek-ai/deepseek-v3.1",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    top_p: float = Field(
+        title="Top P", description="Top-p (nucleus) sampling", ge=0.0, le=1.0, default=1
+    )
+    prompt: str = Field(title="Prompt", description="Prompt", default="")
+    max_tokens: int = Field(
+        title="Max Tokens",
+        description="The maximum number of tokens the model should generate as output.",
+        ge=1.0,
+        le=16384.0,
+        default=1024,
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="The value used to modulate the next token probabilities.",
+        ge=0.0,
+        le=2.0,
+        default=0.1,
+    )
+    presence_penalty: float = Field(
+        title="Presence Penalty",
+        description="Presence penalty",
+        ge=-2.0,
+        le=2.0,
+        default=0,
+    )
+    frequency_penalty: float = Field(
+        title="Frequency Penalty",
+        description="Frequency penalty",
+        ge=-2.0,
+        le=2.0,
+        default=0,
     )

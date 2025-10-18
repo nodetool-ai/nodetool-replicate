@@ -39,8 +39,9 @@ class FaceToMany(ReplicateNode):
             "license_url": "https://github.com/fofr/cog-face-to-many/blob/main/weights_licenses.md",
             "name": "face-to-many",
             "owner": "fofr",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 12626295,
+            "run_count": 14509495,
             "url": "https://replicate.com/fofr/face-to-many",
             "visibility": "public",
             "weights_url": None,
@@ -58,7 +59,7 @@ class FaceToMany(ReplicateNode):
     image: types.ImageRef = Field(
         default=types.ImageRef(), description="An image of a person to be converted"
     )
-    style: Style = Field(description="Style to convert to", default=Style("3D"))
+    style: Style = Field(description="Style to convert to", default="3D")
     prompt: str = Field(title="Prompt", default="a person")
     lora_scale: float = Field(
         title="Lora Scale",
@@ -132,8 +133,9 @@ class BecomeImage(ReplicateNode):
             "license_url": "https://github.com/fofr/cog-become-image/blob/main/weights_licenses.md",
             "name": "become-image",
             "owner": "fofr",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 474431,
+            "run_count": 668321,
             "url": "https://replicate.com/fofr/become-image",
             "visibility": "public",
             "weights_url": None,
@@ -254,8 +256,9 @@ class PhotoMaker(ReplicateNode):
             "license_url": "https://github.com/TencentARC/PhotoMaker/blob/main/LICENSE",
             "name": "photomaker",
             "owner": "tencentarc",
+            "is_official": False,
             "paper_url": "https://huggingface.co/papers/2312.04461",
-            "run_count": 5769183,
+            "run_count": 8077107,
             "url": "https://replicate.com/tencentarc/photomaker",
             "visibility": "public",
             "weights_url": None,
@@ -286,7 +289,7 @@ class PhotoMaker(ReplicateNode):
     )
     style_name: Style_name = Field(
         description="Style template. The style template will add a style-specific prompt and negative prompt to the user's prompt.",
-        default=Style_name("Photographic (Default)"),
+        default="Photographic (Default)",
     )
     input_image: str | None = Field(
         title="Input Image",
@@ -379,8 +382,9 @@ class PhotoMakerStyle(ReplicateNode):
             "license_url": "https://github.com/TencentARC/PhotoMaker/blob/main/LICENSE",
             "name": "photomaker-style",
             "owner": "tencentarc",
+            "is_official": False,
             "paper_url": "https://huggingface.co/papers/2312.04461",
-            "run_count": 1181253,
+            "run_count": 1482980,
             "url": "https://replicate.com/tencentarc/photomaker-style",
             "visibility": "public",
             "weights_url": None,
@@ -411,7 +415,7 @@ class PhotoMakerStyle(ReplicateNode):
     )
     style_name: Style_name = Field(
         description="Style template. The style template will add a style-specific prompt and negative prompt to the user's prompt.",
-        default=Style_name("(No style)"),
+        default="(No style)",
     )
     input_image: types.ImageRef = Field(
         default=types.ImageRef(),
@@ -484,8 +488,9 @@ class FaceToSticker(ReplicateNode):
             "license_url": "https://github.com/fofr/cog-face-to-sticker/blob/main/weights_licenses.md",
             "name": "face-to-sticker",
             "owner": "fofr",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 1370085,
+            "run_count": 1567794,
             "url": "https://replicate.com/fofr/face-to-sticker",
             "visibility": "public",
             "weights_url": None,
@@ -606,8 +611,9 @@ class InstantId(ReplicateNode):
             "license_url": "https://github.com/zsxkib/InstantID/blob/main/LICENSE",
             "name": "instant-id",
             "owner": "zsxkib",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2401.07519",
-            "run_count": 805604,
+            "run_count": 963930,
             "url": "https://replicate.com/zsxkib/instant-id",
             "visibility": "public",
             "weights_url": None,
@@ -627,7 +633,7 @@ class InstantId(ReplicateNode):
     )
     prompt: str = Field(title="Prompt", description="Input prompt", default="a person")
     scheduler: Scheduler = Field(
-        description="Scheduler", default=Scheduler("EulerDiscreteScheduler")
+        description="Scheduler", default="EulerDiscreteScheduler"
     )
     enable_lcm: bool = Field(
         title="Enable Lcm",
@@ -646,10 +652,10 @@ class InstantId(ReplicateNode):
     )
     sdxl_weights: Sdxl_weights = Field(
         description="Pick which base weights you want to use",
-        default=Sdxl_weights("stable-diffusion-xl-base-1.0"),
+        default="stable-diffusion-xl-base-1.0",
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     pose_strength: float = Field(
         title="Pose Strength",
@@ -790,8 +796,9 @@ class Instant_ID_Photorealistic(ReplicateNode):
             "license_url": "https://github.com/InstantID/InstantID/blob/main/LICENSE",
             "name": "instant-id-photorealistic",
             "owner": "grandlineai",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 39827,
+            "run_count": 43429,
             "url": "https://replicate.com/grandlineai/instant-id-photorealistic",
             "visibility": "public",
             "weights_url": None,
@@ -879,8 +886,9 @@ class Instant_ID_Artistic(ReplicateNode):
             "license_url": "https://github.com/InstantID/InstantID/blob/main/LICENSE",
             "name": "instant-id-artistic",
             "owner": "grandlineai",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 5283,
+            "run_count": 11939,
             "url": "https://replicate.com/grandlineai/instant-id-artistic",
             "visibility": "public",
             "weights_url": None,

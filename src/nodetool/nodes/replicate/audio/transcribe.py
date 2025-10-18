@@ -142,8 +142,9 @@ class IncrediblyFastWhisper(ReplicateNode):
             "license_url": "https://github.com/Vaibhavs10/insanely-fast-whisper/blob/main/LICENSE",
             "name": "incredibly-fast-whisper",
             "owner": "vaibhavs10",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 3869478,
+            "run_count": 15309490,
             "url": "https://replicate.com/vaibhavs10/incredibly-fast-whisper",
             "visibility": "public",
             "weights_url": None,
@@ -155,7 +156,7 @@ class IncrediblyFastWhisper(ReplicateNode):
 
     task: Task = Field(
         description="Task to perform: transcribe or translate to another language.",
-        default=Task("transcribe"),
+        default="transcribe",
     )
     audio: types.AudioRef = Field(default=types.AudioRef(), description="Audio file")
     hf_token: str | None = Field(
@@ -165,11 +166,11 @@ class IncrediblyFastWhisper(ReplicateNode):
     )
     language: Language = Field(
         description="Language spoken in the audio, specify 'None' to perform language detection.",
-        default=Language("None"),
+        default="None",
     )
     timestamp: Timestamp = Field(
         description="Whisper supports both chunked as well as word level timestamps.",
-        default=Timestamp("chunk"),
+        default="chunk",
     )
     batch_size: int = Field(
         title="Batch Size",
@@ -180,4 +181,65 @@ class IncrediblyFastWhisper(ReplicateNode):
         title="Diarise Audio",
         description="Use Pyannote.audio to diarise the audio clips. You will need to provide hf_token below too.",
         default=False,
+    )
+
+
+class GPT4o_Transcribe(ReplicateNode):
+    """A speech-to-text model that uses GPT-4o to transcribe audio"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["prompt", "language", "audio_file"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "openai/gpt-4o-transcribe:1302d9240d7caa85f014a03f1e901b878ec6df3a37dac854699ddd6f560a4518"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/b1aa75b9-0353-401e-a38f-5e129bee9658/4o-transcribe.webp",
+            "created_at": "2025-05-20T13:56:11.066606Z",
+            "description": "A speech-to-text model that uses GPT-4o to transcribe audio",
+            "github_url": None,
+            "license_url": "https://openai.com/policies/",
+            "name": "gpt-4o-transcribe",
+            "owner": "openai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 9029,
+            "url": "https://replicate.com/openai/gpt-4o-transcribe",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    prompt: str | None = Field(
+        title="Prompt",
+        description="An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.",
+        default=None,
+    )
+    language: str | None = Field(
+        title="Language",
+        description="The language of the input audio. Supplying the input language in ISO-639-1 (e.g. en) format will improve accuracy and latency.",
+        default=None,
+    )
+    audio_file: str | None = Field(
+        title="Audio File",
+        description="The audio file to transcribe. Supported formats: mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm",
+        default=None,
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="Sampling temperature between 0 and 1",
+        ge=0.0,
+        le=1.0,
+        default=0,
     )

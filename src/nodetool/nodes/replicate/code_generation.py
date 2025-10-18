@@ -262,7 +262,7 @@ def generate_model_source_code(
             if prop.maximum is not None:
                 field_args += f"le={prop.maximum}, "
 
-            field_args += f"default={field_default(prop.default, enum_name)})"
+            field_args += f"default={field_default(prop.default)})"
 
         if is_enum_type(field_type):
             imports += f"from {field_type.__module__} import {field_type.__name__}\n"

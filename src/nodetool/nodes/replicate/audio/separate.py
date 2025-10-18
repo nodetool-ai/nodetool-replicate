@@ -71,8 +71,9 @@ class Demucs(ReplicateNode):
             "license_url": "https://github.com/ryan5453/demucs-cog/blob/main/LICENSE",
             "name": "demucs",
             "owner": "ryan5453",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2111.03600",
-            "run_count": 354480,
+            "run_count": 680198,
             "url": "https://replicate.com/ryan5453/demucs",
             "visibility": "public",
             "weights_url": None,
@@ -94,14 +95,14 @@ class Demucs(ReplicateNode):
     )
     stem: Stem = Field(
         description="If you just want to isolate one stem, you can choose it here.",
-        default=Stem("none"),
+        default="none",
     )
     audio: types.AudioRef = Field(
         default=types.AudioRef(), description="Upload the file to be processed here."
     )
     model: Model = Field(
         description="Choose the demucs audio that proccesses your audio. The readme has more information on what to choose.",
-        default=Model("htdemucs"),
+        default="htdemucs",
     )
     split: bool = Field(
         title="Split",
@@ -125,15 +126,15 @@ class Demucs(ReplicateNode):
     )
     clip_mode: Clip_mode = Field(
         description="Choose the strategy for avoiding clipping. Rescale will rescale entire signal if necessary or clamp will allow hard clipping.",
-        default=Clip_mode("rescale"),
+        default="rescale",
     )
     mp3_preset: Mp3_preset = Field(
         description="Choose the preset for the MP3 output. Higher is faster but worse quality. If MP3 is not selected as the output type, this has no effect.",
-        default=Mp3_preset(2),
+        default=2,
     )
     wav_format: Wav_format = Field(
         description="Choose format for the WAV output. If WAV is not selected as the output type, this has no effect.",
-        default=Wav_format("int24"),
+        default="int24",
     )
     mp3_bitrate: int = Field(
         title="Mp3 Bitrate",
@@ -142,5 +143,5 @@ class Demucs(ReplicateNode):
     )
     output_format: Output_format = Field(
         description="Choose the audio format you would like the result to be returned in.",
-        default=Output_format("mp3"),
+        default="mp3",
     )

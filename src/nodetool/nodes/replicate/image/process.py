@@ -31,8 +31,9 @@ class RemoveBackground(ReplicateNode):
             "license_url": "https://github.com/danielgatis/rembg/blob/main/LICENSE.txt",
             "name": "rembg",
             "owner": "cjwbw",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 8092828,
+            "run_count": 9605503,
             "url": "https://replicate.com/cjwbw/rembg",
             "visibility": "public",
             "weights_url": None,
@@ -70,8 +71,9 @@ class ModNet(ReplicateNode):
             "license_url": None,
             "name": "modnet",
             "owner": "pollinations",
+            "is_official": False,
             "paper_url": "https://arxiv.org/pdf/2011.11961.pdf",
-            "run_count": 667715,
+            "run_count": 971815,
             "url": "https://replicate.com/pollinations/modnet",
             "visibility": "public",
             "weights_url": None,
@@ -113,8 +115,9 @@ class DD_Color(ReplicateNode):
             "license_url": "https://github.com/piddnad/DDColor/blob/master/LICENSE",
             "name": "ddcolor",
             "owner": "piddnad",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2212.11613",
-            "run_count": 215563,
+            "run_count": 768259,
             "url": "https://replicate.com/piddnad/ddcolor",
             "visibility": "public",
             "weights_url": None,
@@ -128,7 +131,7 @@ class DD_Color(ReplicateNode):
         title="Image", description="Grayscale input image.", default=None
     )
     model_size: Model_size = Field(
-        description="Choose the model size.", default=Model_size("large")
+        description="Choose the model size.", default="large"
     )
 
 
@@ -166,8 +169,9 @@ class Magic_Style_Transfer(ReplicateNode):
             "license_url": None,
             "name": "magic-style-transfer",
             "owner": "fermatresearch",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 32308,
+            "run_count": 49354,
             "url": "https://replicate.com/fermatresearch/magic-style-transfer",
             "visibility": "public",
             "weights_url": None,
@@ -205,7 +209,7 @@ class Magic_Style_Transfer(ReplicateNode):
         le=1.0,
         default=0.9,
     )
-    scheduler: Scheduler = Field(description="scheduler", default=Scheduler("K_EULER"))
+    scheduler: Scheduler = Field(description="scheduler", default="K_EULER")
     lora_scale: float = Field(
         title="Lora Scale",
         description="LoRA additive scale. Only applicable on trained models.",
@@ -300,8 +304,9 @@ class ObjectRemover(ReplicateNode):
             "license_url": None,
             "name": "object_remover",
             "owner": "codeplugtech",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 6338,
+            "run_count": 13499,
             "url": "https://replicate.com/codeplugtech/object_remover",
             "visibility": "public",
             "weights_url": None,
@@ -316,4 +321,158 @@ class ObjectRemover(ReplicateNode):
     )
     mask_image: types.ImageRef = Field(
         default=types.ImageRef(), description="Mask image"
+    )
+
+
+class Nano_Banana(ReplicateNode):
+    """Google's latest image editing model in Gemini 2.5"""
+
+    class Output_format(str, Enum):
+        JPG = "jpg"
+        PNG = "png"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["prompt", "image_input", "output_format"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "google/nano-banana:0d02b13954d9a189e5145f11f7b4426a40dfb6e7f4ae83af85b977678b18f1de"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/ed879e99-71b5-4689-bed3-e7305e35a28a/this.png",
+            "created_at": "2025-08-26T21:08:24.983047Z",
+            "description": "Google's latest image editing model in Gemini 2.5",
+            "github_url": None,
+            "license_url": None,
+            "name": "nano-banana",
+            "owner": "google",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 5653336,
+            "url": "https://replicate.com/google/nano-banana",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    prompt: str | None = Field(
+        title="Prompt",
+        description="A text description of the image you want to generate",
+        default=None,
+    )
+    image_input: list = Field(
+        title="Image Input",
+        description="Input images to transform or use as reference (supports multiple images)",
+        default=[],
+    )
+    output_format: Output_format = Field(
+        description="Format of the output image", default="jpg"
+    )
+
+
+class Expand_Image(ReplicateNode):
+    """Bria Expand expands images beyond their borders in high quality. Resizing the image by generating new pixels to expand to the desired aspect ratio. Trained exclusively on licensed data for safe and risk-free commercial use"""
+
+    class Aspect_ratio(str, Enum):
+        _1_1 = "1:1"
+        _2_3 = "2:3"
+        _3_2 = "3:2"
+        _3_4 = "3:4"
+        _4_3 = "4:3"
+        _4_5 = "4:5"
+        _5_4 = "5:4"
+        _9_16 = "9:16"
+        _16_9 = "16:9"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["seed", "sync", "image"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "bria/expand-image:e64cc01c6081436b1d62d03f4e425bc91ff24890db57ab88fe48b9d095609a17"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://replicate.delivery/xezq/Kke10tmiC2yaekp8wUGz4BJ4SgDafE2zGUXDXNGanjEhqL6pA/tmpiutbqh22.png",
+            "created_at": "2025-07-03T06:08:32.245632Z",
+            "description": "Bria Expand expands images beyond their borders in high quality. Resizing the image by generating new pixels to expand to the desired aspect ratio. Trained exclusively on licensed data for safe and risk-free commercial use",
+            "github_url": None,
+            "license_url": "https://learn.bria.ai/hubfs/Terms%20and%20Conditions/Bria%20AI%20Online%20Terms%20and%20Conditions%20(March%202024)%20v1.1c.pdf?hsLang=en&_gl=1*iwvu7w*_gcl_au*MzQyMzUxMzAxLjE3NDcwNDU4NTg.*_ga*MjAxNDky",
+            "name": "expand-image",
+            "owner": "bria",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 15564,
+            "url": "https://replicate.com/bria/expand-image",
+            "visibility": "public",
+            "weights_url": "https://huggingface.co/briaai/BRIA-2.3-ControlNet-Inpainting",
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation",
+        default=None,
+    )
+    sync: bool = Field(
+        title="Sync", description="Synchronous response mode", default=True
+    )
+    image: types.ImageRef = Field(default=types.ImageRef(), description="Image file")
+    prompt: str | None = Field(
+        title="Prompt", description="Text prompt for image generation", default=None
+    )
+    image_url: str | None = Field(
+        title="Image Url", description="Image URL", default=None
+    )
+    canvas_size: list | None = Field(
+        title="Canvas Size",
+        description="Desired output canvas dimensions [width, height]. Default [1000, 1000]",
+        default=None,
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio for expansion.", default="1:1"
+    )
+    preserve_alpha: bool = Field(
+        title="Preserve Alpha",
+        description="Preserve alpha channel in output",
+        default=True,
+    )
+    negative_prompt: str | None = Field(
+        title="Negative Prompt",
+        description="Negative prompt for image generation",
+        default=None,
+    )
+    content_moderation: bool = Field(
+        title="Content Moderation",
+        description="Enable content moderation",
+        default=False,
+    )
+    original_image_size: list | None = Field(
+        title="Original Image Size",
+        description="Size of original image in canvas [width, height]",
+        default=None,
+    )
+    original_image_location: list | None = Field(
+        title="Original Image Location",
+        description="Position of original image in canvas [x, y]",
+        default=None,
     )

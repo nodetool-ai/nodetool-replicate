@@ -31,8 +31,9 @@ class CodeFormer(ReplicateNode):
             "license_url": "https://github.com/sczhou/CodeFormer/blob/master/LICENSE",
             "name": "codeformer",
             "owner": "lucataco",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2206.11253",
-            "run_count": 1099654,
+            "run_count": 6586606,
             "url": "https://replicate.com/lucataco/codeformer",
             "visibility": "public",
             "weights_url": None,
@@ -92,8 +93,9 @@ class Night_Enhancement(ReplicateNode):
             "license_url": "https://github.com/jinyeying/night-enhancement/blob/main/LICENSE",
             "name": "night-enhancement",
             "owner": "cjwbw",
+            "is_official": False,
             "paper_url": "https://arxiv.org/pdf/2207.10564.pdf",
-            "run_count": 41864,
+            "run_count": 43679,
             "url": "https://replicate.com/cjwbw/night-enhancement",
             "visibility": "public",
             "weights_url": None,
@@ -136,8 +138,9 @@ class Supir_V0Q(ReplicateNode):
             "license_url": "https://github.com/Fanghua-Yu/SUPIR/blob/master/LICENSE",
             "name": "supir-v0q",
             "owner": "cjwbw",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2401.13627",
-            "run_count": 14361,
+            "run_count": 116918,
             "url": "https://replicate.com/cjwbw/supir-v0q",
             "visibility": "public",
             "weights_url": None,
@@ -207,7 +210,7 @@ class Supir_V0Q(ReplicateNode):
         default=False,
     )
     color_fix_type: Color_fix_type = Field(
-        description="Color Fixing Type..", default=Color_fix_type("Wavelet")
+        description="Color Fixing Type..", default="Wavelet"
     )
     spt_linear_CFG: float = Field(
         title="Spt Linear Cfg",
@@ -256,8 +259,9 @@ class Supir_V0F(ReplicateNode):
             "license_url": "https://github.com/Fanghua-Yu/SUPIR/blob/master/LICENSE",
             "name": "supir-v0f",
             "owner": "cjwbw",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2401.13627",
-            "run_count": 11975,
+            "run_count": 19028,
             "url": "https://replicate.com/cjwbw/supir-v0f",
             "visibility": "public",
             "weights_url": None,
@@ -327,7 +331,7 @@ class Supir_V0F(ReplicateNode):
         default=False,
     )
     color_fix_type: Color_fix_type = Field(
-        description="Color Fixing Type..", default=Color_fix_type("Wavelet")
+        description="Color Fixing Type..", default="Wavelet"
     )
     spt_linear_CFG: float = Field(
         title="Spt Linear Cfg",
@@ -384,8 +388,9 @@ class Maxim(ReplicateNode):
             "license_url": "https://github.com/google-research/maxim/blob/main/LICENSE",
             "name": "maxim",
             "owner": "google-research",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2201.02973",
-            "run_count": 490672,
+            "run_count": 536110,
             "url": "https://replicate.com/google-research/maxim",
             "visibility": "public",
             "weights_url": None,
@@ -424,8 +429,9 @@ class OldPhotosRestoration(ReplicateNode):
             "license_url": "https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life/blob/master/LICENSE",
             "name": "bringing-old-photos-back-to-life",
             "owner": "microsoft",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2004.09484",
-            "run_count": 965655,
+            "run_count": 1117680,
             "url": "https://replicate.com/microsoft/bringing-old-photos-back-to-life",
             "visibility": "public",
             "weights_url": None,

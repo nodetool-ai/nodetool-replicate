@@ -44,8 +44,9 @@ class AdInpaint(ReplicateNode):
             "license_url": None,
             "name": "ad-inpaint",
             "owner": "logerzhu",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 506171,
+            "run_count": 620633,
             "url": "https://replicate.com/logerzhu/ad-inpaint",
             "visibility": "public",
             "weights_url": None,
@@ -55,7 +56,7 @@ class AdInpaint(ReplicateNode):
     def return_type(cls):
         return types.ImageRef
 
-    pixel: Pixel = Field(description="image total pixel", default=Pixel("512 * 512"))
+    pixel: Pixel = Field(description="image total pixel", default="512 * 512")
     scale: int = Field(
         title="Scale",
         description="Factor to scale image by (maximum: 4)",
@@ -78,7 +79,7 @@ class AdInpaint(ReplicateNode):
     )
     manual_seed: int = Field(title="Manual Seed", description="Manual Seed", default=-1)
     product_size: Product_size = Field(
-        description="Max product size", default=Product_size("Original")
+        description="Max product size", default="Original"
     )
     guidance_scale: float = Field(
         title="Guidance Scale", description="Guidance Scale", default=7.5
@@ -123,8 +124,9 @@ class ConsistentCharacter(ReplicateNode):
             "license_url": "https://github.com/fofr/cog-consistent-character/blob/main/LICENSE",
             "name": "consistent-character",
             "owner": "fofr",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 863263,
+            "run_count": 1240530,
             "url": "https://replicate.com/fofr/consistent-character",
             "visibility": "public",
             "weights_url": None,
@@ -149,7 +151,7 @@ class ConsistentCharacter(ReplicateNode):
         description="An image of a person. Best images are square close ups of a face, but they do not have to be.",
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -233,8 +235,9 @@ class PulidBase(ReplicateNode):
             "license_url": None,
             "name": "pulid-base",
             "owner": "fofr",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2404.16022",
-            "run_count": 157090,
+            "run_count": 304925,
             "url": "https://replicate.com/fofr/pulid-base",
             "visibility": "public",
             "weights_url": None,
@@ -268,10 +271,10 @@ class PulidBase(ReplicateNode):
         default=types.ImageRef(), description="The face image to use for the generation"
     )
     face_style: Face_style = Field(
-        description="Style of the face", default=Face_style("high-fidelity")
+        description="Style of the face", default="high-fidelity"
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -287,7 +290,7 @@ class PulidBase(ReplicateNode):
     )
     checkpoint_model: Checkpoint_model = Field(
         description="Model to use for the generation",
-        default=Checkpoint_model("general - dreamshaperXL_alpha2Xl10"),
+        default="general - dreamshaperXL_alpha2Xl10",
     )
     number_of_images: int = Field(
         title="Number Of Images",
@@ -367,8 +370,9 @@ class StableDiffusion(ReplicateNode):
             "license_url": "https://huggingface.co/spaces/CompVis/stable-diffusion-license",
             "name": "stable-diffusion",
             "owner": "stability-ai",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2112.10752",
-            "run_count": 110213449,
+            "run_count": 110689290,
             "url": "https://replicate.com/stability-ai/stable-diffusion",
             "visibility": "public",
             "weights_url": None,
@@ -385,11 +389,11 @@ class StableDiffusion(ReplicateNode):
     )
     width: Width = Field(
         description="Width of generated image in pixels. Needs to be a multiple of 64",
-        default=Width(768),
+        default=768,
     )
     height: Height = Field(
         description="Height of generated image in pixels. Needs to be a multiple of 64",
-        default=Height(768),
+        default=768,
     )
     prompt: str = Field(
         title="Prompt",
@@ -397,7 +401,7 @@ class StableDiffusion(ReplicateNode):
         default="a vision of paradise. unreal engine",
     )
     scheduler: Scheduler = Field(
-        description="Choose a scheduler.", default=Scheduler("DPMSolverMultistep")
+        description="Choose a scheduler.", default="DPMSolverMultistep"
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -470,8 +474,9 @@ class StableDiffusion3_5_Medium(ReplicateNode):
             "license_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium/blob/main/LICENSE.md",
             "name": "stable-diffusion-3.5-medium",
             "owner": "stability-ai",
+            "is_official": True,
             "paper_url": "https://arxiv.org/abs/2403.03206",
-            "run_count": 23082,
+            "run_count": 66622,
             "url": "https://replicate.com/stability-ai/stable-diffusion-3.5-medium",
             "visibility": "public",
             "weights_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium",
@@ -509,10 +514,10 @@ class StableDiffusion3_5_Medium(ReplicateNode):
     )
     aspect_ratio: Aspect_ratio = Field(
         description="The aspect ratio of your output image. This value is ignored if you are using an input image.",
-        default=Aspect_ratio("1:1"),
+        default="1:1",
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -571,8 +576,9 @@ class StableDiffusion3_5_Large(ReplicateNode):
             "license_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large/blob/main/LICENSE.md",
             "name": "stable-diffusion-3.5-large",
             "owner": "stability-ai",
+            "is_official": True,
             "paper_url": "https://arxiv.org/abs/2403.03206",
-            "run_count": 606855,
+            "run_count": 1641628,
             "url": "https://replicate.com/stability-ai/stable-diffusion-3.5-large",
             "visibility": "public",
             "weights_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
@@ -610,10 +616,10 @@ class StableDiffusion3_5_Large(ReplicateNode):
     )
     aspect_ratio: Aspect_ratio = Field(
         description="The aspect ratio of your output image. This value is ignored if you are using an input image.",
-        default=Aspect_ratio("1:1"),
+        default="1:1",
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -672,8 +678,9 @@ class StableDiffusion3_5_Large_Turbo(ReplicateNode):
             "license_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large-turbo/blob/main/LICENSE.md",
             "name": "stable-diffusion-3.5-large-turbo",
             "owner": "stability-ai",
+            "is_official": True,
             "paper_url": "https://arxiv.org/abs/2403.03206",
-            "run_count": 117671,
+            "run_count": 785570,
             "url": "https://replicate.com/stability-ai/stable-diffusion-3.5-large-turbo",
             "visibility": "public",
             "weights_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large-turbo",
@@ -711,10 +718,10 @@ class StableDiffusion3_5_Large_Turbo(ReplicateNode):
     )
     aspect_ratio: Aspect_ratio = Field(
         description="The aspect ratio of your output image. This value is ignored if you are using an input image.",
-        default=Aspect_ratio("1:1"),
+        default="1:1",
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -748,7 +755,7 @@ class Photon_Flash(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "luma/photon-flash:81b0e3ad4acf49cb47143ea63cce47f94cb0bdbecc13d31910654b6282e29ea1"
+        return "luma/photon-flash:4235af608e50dac14e9244198cef089049efbd83ba05f2aa4e271076a6f613ee"
 
     @classmethod
     def get_hardware(cls):
@@ -764,8 +771,9 @@ class Photon_Flash(ReplicateNode):
             "license_url": "https://lumalabs.ai/dream-machine/api/terms",
             "name": "photon-flash",
             "owner": "luma",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 43643,
+            "run_count": 160876,
             "url": "https://replicate.com/luma/photon-flash",
             "visibility": "public",
             "weights_url": None,
@@ -784,14 +792,28 @@ class Photon_Flash(ReplicateNode):
         title="Prompt", description="Text prompt for image generation", default=None
     )
     aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio of the generated image", default=Aspect_ratio("16:9")
+        description="Aspect ratio of the generated image", default="16:9"
+    )
+    image_reference: str | None = Field(
+        title="Image Reference",
+        description="Reference image to guide generation",
+        default=None,
+    )
+    style_reference: str | None = Field(
+        title="Style Reference",
+        description="Style reference image to guide generation",
+        default=None,
+    )
+    character_reference: str | None = Field(
+        title="Character Reference",
+        description="Character reference image to guide generation",
+        default=None,
     )
     image_reference_url: types.ImageRef = Field(
-        default=types.ImageRef(),
-        description="URL of a reference image to guide generation",
+        default=types.ImageRef(), description="Deprecated: Use image_reference instead"
     )
     style_reference_url: types.ImageRef = Field(
-        default=types.ImageRef(), description="URL of a style reference image"
+        default=types.ImageRef(), description="Deprecated: Use style_reference instead"
     )
     image_reference_weight: float = Field(
         title="Image Reference Weight",
@@ -808,7 +830,8 @@ class Photon_Flash(ReplicateNode):
         default=0.85,
     )
     character_reference_url: types.ImageRef = Field(
-        default=types.ImageRef(), description="URL of a character reference image"
+        default=types.ImageRef(),
+        description="Deprecated: Use character_reference instead",
     )
 
 
@@ -860,8 +883,9 @@ class StableDiffusionXL(ReplicateNode):
             "license_url": "https://github.com/Stability-AI/generative-models/blob/main/model_licenses/LICENSE-SDXL1.0",
             "name": "sdxl",
             "owner": "stability-ai",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2307.01952",
-            "run_count": 76563404,
+            "run_count": 81922282,
             "url": "https://replicate.com/stability-ai/sdxl",
             "visibility": "public",
             "weights_url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
@@ -893,9 +917,9 @@ class StableDiffusionXL(ReplicateNode):
         default="An astronaut riding a rainbow unicorn",
     )
     refine: Refine = Field(
-        description="Which refine style to use", default=Refine("no_refiner")
+        description="Which refine style to use", default="no_refiner"
     )
-    scheduler: Scheduler = Field(description="scheduler", default=Scheduler("K_EULER"))
+    scheduler: Scheduler = Field(description="scheduler", default="K_EULER")
     lora_scale: float = Field(
         title="Lora Scale",
         description="LoRA additive scale. Only applicable on trained models.",
@@ -1002,8 +1026,9 @@ class SDXL_Pixar(ReplicateNode):
             "license_url": None,
             "name": "sdxl-pixar",
             "owner": "swartype",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 640199,
+            "run_count": 655581,
             "url": "https://replicate.com/swartype/sdxl-pixar",
             "visibility": "public",
             "weights_url": None,
@@ -1035,9 +1060,9 @@ class SDXL_Pixar(ReplicateNode):
         default="An astronaut riding a rainbow unicorn",
     )
     refine: Refine = Field(
-        description="Which refine style to use", default=Refine("no_refiner")
+        description="Which refine style to use", default="no_refiner"
     )
-    scheduler: Scheduler = Field(description="scheduler", default=Scheduler("K_EULER"))
+    scheduler: Scheduler = Field(description="scheduler", default="K_EULER")
     lora_scale: float = Field(
         title="Lora Scale",
         description="LoRA additive scale. Only applicable on trained models.",
@@ -1144,8 +1169,9 @@ class SDXL_Emoji(ReplicateNode):
             "license_url": None,
             "name": "sdxl-emoji",
             "owner": "fofr",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 8867193,
+            "run_count": 10580484,
             "url": "https://replicate.com/fofr/sdxl-emoji",
             "visibility": "public",
             "weights_url": None,
@@ -1177,9 +1203,9 @@ class SDXL_Emoji(ReplicateNode):
         default="An astronaut riding a rainbow unicorn",
     )
     refine: Refine = Field(
-        description="Which refine style to use", default=Refine("no_refiner")
+        description="Which refine style to use", default="no_refiner"
     )
-    scheduler: Scheduler = Field(description="scheduler", default=Scheduler("K_EULER"))
+    scheduler: Scheduler = Field(description="scheduler", default="K_EULER")
     lora_scale: float = Field(
         title="Lora Scale",
         description="LoRA additive scale. Only applicable on trained models.",
@@ -1316,8 +1342,9 @@ class StableDiffusionInpainting(ReplicateNode):
             "license_url": "https://huggingface.co/stabilityai/stable-diffusion-2/blob/main/LICENSE-MODEL",
             "name": "stable-diffusion-inpainting",
             "owner": "stability-ai",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 19327062,
+            "run_count": 20607133,
             "url": "https://replicate.com/stability-ai/stable-diffusion-inpainting",
             "visibility": "public",
             "weights_url": None,
@@ -1342,11 +1369,11 @@ class StableDiffusionInpainting(ReplicateNode):
     )
     width: Width = Field(
         description="Width of generated image in pixels. Needs to be a multiple of 64",
-        default=Width(512),
+        default=512,
     )
     height: Height = Field(
         description="Height of generated image in pixels. Needs to be a multiple of 64",
-        default=Height(512),
+        default=512,
     )
     prompt: str = Field(
         title="Prompt",
@@ -1354,7 +1381,7 @@ class StableDiffusionInpainting(ReplicateNode):
         default="a vision of paradise. unreal engine",
     )
     scheduler: Scheduler = Field(
-        description="Choose a scheduler.", default=Scheduler("DPMSolverMultistep")
+        description="Choose a scheduler.", default="DPMSolverMultistep"
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -1449,8 +1476,9 @@ class Kandinsky_2_2(ReplicateNode):
             "license_url": "https://github.com/ai-forever/Kandinsky-2/blob/main/license",
             "name": "kandinsky-2.2",
             "owner": "ai-forever",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 10016866,
+            "run_count": 10025570,
             "url": "https://replicate.com/ai-forever/kandinsky-2.2",
             "visibility": "public",
             "weights_url": None,
@@ -1467,11 +1495,11 @@ class Kandinsky_2_2(ReplicateNode):
     )
     width: Width = Field(
         description="Width of output image. Lower the setting if hits memory limits.",
-        default=Width(512),
+        default=512,
     )
     height: Height = Field(
         description="Height of output image. Lower the setting if hits memory limits.",
-        default=Height(512),
+        default=512,
     )
     prompt: str = Field(
         title="Prompt",
@@ -1486,7 +1514,7 @@ class Kandinsky_2_2(ReplicateNode):
         default=1,
     )
     output_format: Output_format = Field(
-        description="Output image format", default=Output_format("webp")
+        description="Output image format", default="webp"
     )
     negative_prompt: str | None = Field(
         title="Negative Prompt",
@@ -1540,7 +1568,7 @@ class Flux_Schnell(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "black-forest-labs/flux-schnell:d37705b07faa788120cc576a237ef47333393ba8203a54e1ad9a4910a17e2b34"
+        return "black-forest-labs/flux-schnell:c846a69991daf4c0e5d016514849d14ee5b2e6846ce6b9d6f21369e564cfe51e"
 
     @classmethod
     def get_hardware(cls):
@@ -1556,8 +1584,9 @@ class Flux_Schnell(ReplicateNode):
             "license_url": "https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-schnell",
             "name": "flux-schnell",
             "owner": "black-forest-labs",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 238515812,
+            "run_count": 479520052,
             "url": "https://replicate.com/black-forest-labs/flux-schnell",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
@@ -1577,12 +1606,11 @@ class Flux_Schnell(ReplicateNode):
     )
     go_fast: bool = Field(
         title="Go Fast",
-        description="Run faster predictions with model optimized for speed (currently fp8 quantized); disable to run in original bf16",
+        description="Run faster predictions with model optimized for speed (currently fp8 quantized); disable to run in original bf16. Note that outputs will not be deterministic when this is enabled, even if you set a seed.",
         default=True,
     )
     megapixels: Megapixels = Field(
-        description="Approximate number of megapixels for generated image",
-        default=Megapixels("1"),
+        description="Approximate number of megapixels for generated image", default="1"
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -1592,10 +1620,10 @@ class Flux_Schnell(ReplicateNode):
         default=1,
     )
     aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio for the generated image", default=Aspect_ratio("1:1")
+        description="Aspect ratio for the generated image", default="1:1"
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -1649,7 +1677,7 @@ class Flux_Dev(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "black-forest-labs/flux-dev:7863d1ba11a1bb115732a12488486eb8bb3d54ae62cff189f1677a31dbcdfd2e"
+        return "black-forest-labs/flux-dev:6e4a938f85952bdabcc15aa329178c4d681c52bf25a0342403287dc26944661d"
 
     @classmethod
     def get_hardware(cls):
@@ -1665,8 +1693,9 @@ class Flux_Dev(ReplicateNode):
             "license_url": "https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-dev",
             "name": "flux-dev",
             "owner": "black-forest-labs",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 12701895,
+            "run_count": 26579834,
             "url": "https://replicate.com/black-forest-labs/flux-dev",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
@@ -1691,7 +1720,7 @@ class Flux_Dev(ReplicateNode):
     )
     go_fast: bool = Field(
         title="Go Fast",
-        description="Run faster predictions with model optimized for speed (currently fp8 quantized); disable to run in original bf16",
+        description="Run faster predictions with model optimized for speed (currently fp8 quantized); disable to run in original bf16. Note that outputs will not be deterministic when this is enabled, even if you set a seed.",
         default=True,
     )
     guidance: float = Field(
@@ -1702,8 +1731,7 @@ class Flux_Dev(ReplicateNode):
         default=3,
     )
     megapixels: Megapixels = Field(
-        description="Approximate number of megapixels for generated image",
-        default=Megapixels("1"),
+        description="Approximate number of megapixels for generated image", default="1"
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -1713,10 +1741,10 @@ class Flux_Dev(ReplicateNode):
         default=1,
     )
     aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio for the generated image", default=Aspect_ratio("1:1")
+        description="Aspect ratio for the generated image", default="1:1"
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -1746,628 +1774,6 @@ class Flux_Dev(ReplicateNode):
     )
 
 
-class Flux_Dev_Lora(ReplicateNode):
-    """A version of flux-dev, a text to image model, that supports fast fine-tuned lora inference"""
-
-    class Megapixels(str, Enum):
-        _1 = "1"
-        _0_25 = "0.25"
-
-    class Aspect_ratio(str, Enum):
-        _1_1 = "1:1"
-        _16_9 = "16:9"
-        _21_9 = "21:9"
-        _3_2 = "3:2"
-        _2_3 = "2:3"
-        _4_5 = "4:5"
-        _5_4 = "5:4"
-        _3_4 = "3:4"
-        _4_3 = "4:3"
-        _9_16 = "9:16"
-        _9_21 = "9:21"
-
-    class Output_format(str, Enum):
-        WEBP = "webp"
-        JPG = "jpg"
-        PNG = "png"
-
-    @classmethod
-    def get_basic_fields(cls):
-        return ["seed", "image", "prompt"]
-
-    @classmethod
-    def replicate_model_id(cls):
-        return "black-forest-labs/flux-dev-lora:9dbd61f957fb7f5026588ae306b1db961f2d1d3ba314f05bc92ded2158df0b17"
-
-    @classmethod
-    def get_hardware(cls):
-        return "None"
-
-    @classmethod
-    def get_model_info(cls):
-        return {
-            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/a79cc4a8-318c-4316-a800-097ef0bdce7a/https___replicate.del_25H5GQ7.webp",
-            "created_at": "2024-11-11T23:03:07.000926Z",
-            "description": "A version of flux-dev, a text to image model, that supports fast fine-tuned lora inference",
-            "github_url": "https://github.com/replicate/cog-flux",
-            "license_url": "https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-dev",
-            "name": "flux-dev-lora",
-            "owner": "black-forest-labs",
-            "paper_url": None,
-            "run_count": 381936,
-            "url": "https://replicate.com/black-forest-labs/flux-dev-lora",
-            "visibility": "public",
-            "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
-        }
-
-    @classmethod
-    def return_type(cls):
-        return types.ImageRef
-
-    seed: int | None = Field(
-        title="Seed",
-        description="Random seed. Set for reproducible generation",
-        default=None,
-    )
-    image: types.ImageRef = Field(
-        default=types.ImageRef(),
-        description="Input image for image to image mode. The aspect ratio of your output will match this image",
-    )
-    prompt: str | None = Field(
-        title="Prompt", description="Prompt for generated image", default=None
-    )
-    go_fast: bool = Field(
-        title="Go Fast",
-        description="Run faster predictions with model optimized for speed (currently fp8 quantized); disable to run in original bf16",
-        default=True,
-    )
-    guidance: float = Field(
-        title="Guidance",
-        description="Guidance for generated image",
-        ge=0.0,
-        le=10.0,
-        default=3,
-    )
-    lora_scale: float = Field(
-        title="Lora Scale",
-        description="Determines how strongly the main LoRA should be applied. Sane results between 0 and 1 for base inference. For go_fast we apply a 1.5x multiplier to this value; we've generally seen good performance when scaling the base value by that amount. You may still need to experiment to find the best value for your particular lora.",
-        ge=-1.0,
-        le=3.0,
-        default=1,
-    )
-    megapixels: Megapixels = Field(
-        description="Approximate number of megapixels for generated image",
-        default=Megapixels("1"),
-    )
-    num_outputs: int = Field(
-        title="Num Outputs",
-        description="Number of outputs to generate",
-        ge=1.0,
-        le=4.0,
-        default=1,
-    )
-    aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio for the generated image", default=Aspect_ratio("1:1")
-    )
-    lora_weights: str | None = Field(
-        title="Lora Weights",
-        description="Load LoRA weights. Supports Replicate models in the format <owner>/<username> or <owner>/<username>/<version>, HuggingFace URLs in the format huggingface.co/<owner>/<model-name>, CivitAI URLs in the format civitai.com/models/<id>[/<model-name>], or arbitrary .safetensors URLs from the Internet. For example, 'fofr/flux-pixar-cars'",
-        default=None,
-    )
-    output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
-    )
-    output_quality: int = Field(
-        title="Output Quality",
-        description="Quality when saving the output images, from 0 to 100. 100 is best quality, 0 is lowest quality. Not relevant for .png outputs",
-        ge=0.0,
-        le=100.0,
-        default=80,
-    )
-    prompt_strength: float = Field(
-        title="Prompt Strength",
-        description="Prompt strength when using img2img. 1.0 corresponds to full destruction of information in image",
-        ge=0.0,
-        le=1.0,
-        default=0.8,
-    )
-    num_inference_steps: int = Field(
-        title="Num Inference Steps",
-        description="Number of denoising steps. Recommended range is 28-50",
-        ge=1.0,
-        le=50.0,
-        default=28,
-    )
-    disable_safety_checker: bool = Field(
-        title="Disable Safety Checker",
-        description="Disable safety checker for generated images.",
-        default=False,
-    )
-
-
-class Flux_Schnell_Lora(ReplicateNode):
-    """The fastest image generation model tailored for fine-tuned use"""
-
-    class Megapixels(str, Enum):
-        _1 = "1"
-        _0_25 = "0.25"
-
-    class Aspect_ratio(str, Enum):
-        _1_1 = "1:1"
-        _16_9 = "16:9"
-        _21_9 = "21:9"
-        _3_2 = "3:2"
-        _2_3 = "2:3"
-        _4_5 = "4:5"
-        _5_4 = "5:4"
-        _3_4 = "3:4"
-        _4_3 = "4:3"
-        _9_16 = "9:16"
-        _9_21 = "9:21"
-
-    class Output_format(str, Enum):
-        WEBP = "webp"
-        JPG = "jpg"
-        PNG = "png"
-
-    @classmethod
-    def get_basic_fields(cls):
-        return ["seed", "prompt", "go_fast"]
-
-    @classmethod
-    def replicate_model_id(cls):
-        return "black-forest-labs/flux-schnell-lora:19482ef1ede20d3cf897574262c0e5b961e7e4216f7f143d419c39d0636a75ba"
-
-    @classmethod
-    def get_hardware(cls):
-        return "None"
-
-    @classmethod
-    def get_model_info(cls):
-        return {
-            "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/98c9bf91-5bc0-4a2d-960f-8c3fcd69f1f3/https___replicate.deliver_a20JvIo.png",
-            "created_at": "2024-11-11T23:07:50.986160Z",
-            "description": "The fastest image generation model tailored for fine-tuned use",
-            "github_url": "https://github.com/replicate/cog-flux",
-            "license_url": "https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-schnell",
-            "name": "flux-schnell-lora",
-            "owner": "black-forest-labs",
-            "paper_url": None,
-            "run_count": 608906,
-            "url": "https://replicate.com/black-forest-labs/flux-schnell-lora",
-            "visibility": "public",
-            "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
-        }
-
-    @classmethod
-    def return_type(cls):
-        return types.ImageRef
-
-    seed: int | None = Field(
-        title="Seed",
-        description="Random seed. Set for reproducible generation",
-        default=None,
-    )
-    prompt: str | None = Field(
-        title="Prompt", description="Prompt for generated image", default=None
-    )
-    go_fast: bool = Field(
-        title="Go Fast",
-        description="Run faster predictions with model optimized for speed (currently fp8 quantized); disable to run in original bf16",
-        default=True,
-    )
-    lora_scale: float = Field(
-        title="Lora Scale",
-        description="Determines how strongly the main LoRA should be applied. Sane results between 0 and 1 for base inference. For go_fast we apply a 1.5x multiplier to this value; we've generally seen good performance when scaling the base value by that amount. You may still need to experiment to find the best value for your particular lora.",
-        ge=-1.0,
-        le=3.0,
-        default=1,
-    )
-    megapixels: Megapixels = Field(
-        description="Approximate number of megapixels for generated image",
-        default=Megapixels("1"),
-    )
-    num_outputs: int = Field(
-        title="Num Outputs",
-        description="Number of outputs to generate",
-        ge=1.0,
-        le=4.0,
-        default=1,
-    )
-    aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio for the generated image", default=Aspect_ratio("1:1")
-    )
-    lora_weights: str | None = Field(
-        title="Lora Weights",
-        description="Load LoRA weights. Supports Replicate models in the format <owner>/<username> or <owner>/<username>/<version>, HuggingFace URLs in the format huggingface.co/<owner>/<model-name>, CivitAI URLs in the format civitai.com/models/<id>[/<model-name>], or arbitrary .safetensors URLs from the Internet. For example, 'fofr/flux-pixar-cars'",
-        default=None,
-    )
-    output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
-    )
-    output_quality: int = Field(
-        title="Output Quality",
-        description="Quality when saving the output images, from 0 to 100. 100 is best quality, 0 is lowest quality. Not relevant for .png outputs",
-        ge=0.0,
-        le=100.0,
-        default=80,
-    )
-    num_inference_steps: int = Field(
-        title="Num Inference Steps",
-        description="Number of denoising steps. 4 is recommended, and lower number of steps produce lower quality outputs, faster.",
-        ge=1.0,
-        le=4.0,
-        default=4,
-    )
-    disable_safety_checker: bool = Field(
-        title="Disable Safety Checker",
-        description="Disable safety checker for generated images.",
-        default=False,
-    )
-
-
-class Flux_Depth_Pro(ReplicateNode):
-    """Professional depth-aware image generation. Edit images while preserving spatial relationships."""
-
-    class Output_format(str, Enum):
-        JPG = "jpg"
-        PNG = "png"
-
-    @classmethod
-    def get_basic_fields(cls):
-        return ["seed", "steps", "prompt"]
-
-    @classmethod
-    def replicate_model_id(cls):
-        return "black-forest-labs/flux-depth-pro:9964ef120f01973d86cb9121d5b6ec94a9f1b8e386ec86d4353ae5f7bc83ae24"
-
-    @classmethod
-    def get_hardware(cls):
-        return "None"
-
-    @classmethod
-    def get_model_info(cls):
-        return {
-            "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/e365ecff-4023-49f8-96ba-abd710c4bdd9/https___replicate.deliver_xWYu8lC.jpg",
-            "created_at": "2024-11-21T09:53:00.631446Z",
-            "description": "Professional depth-aware image generation. Edit images while preserving spatial relationships.",
-            "github_url": None,
-            "license_url": "https://replicate.com/black-forest-labs/flux-depth-pro#license",
-            "name": "flux-depth-pro",
-            "owner": "black-forest-labs",
-            "paper_url": None,
-            "run_count": 76868,
-            "url": "https://replicate.com/black-forest-labs/flux-depth-pro",
-            "visibility": "public",
-            "weights_url": None,
-        }
-
-    @classmethod
-    def return_type(cls):
-        return types.ImageRef
-
-    seed: int | None = Field(
-        title="Seed",
-        description="Random seed. Set for reproducible generation",
-        default=None,
-    )
-    steps: int = Field(
-        title="Steps",
-        description="Number of diffusion steps. Higher values yield finer details but increase processing time.",
-        ge=15.0,
-        le=50.0,
-        default=50,
-    )
-    prompt: str | None = Field(
-        title="Prompt", description="Text prompt for image generation", default=None
-    )
-    guidance: float = Field(
-        title="Guidance",
-        description="Controls the balance between adherence to the text as well as image prompt and image quality/diversity. Higher values make the output more closely match the prompt but may reduce overall image quality. Lower values allow for more creative freedom but might produce results less relevant to the prompt.",
-        ge=1.0,
-        le=100.0,
-        default=15,
-    )
-    control_image: types.ImageRef = Field(
-        default=types.ImageRef(),
-        description="Image to use as control input. Must be jpeg, png, gif, or webp.",
-    )
-    output_format: Output_format = Field(
-        description="Format of the output images.", default=Output_format("jpg")
-    )
-    safety_tolerance: int = Field(
-        title="Safety Tolerance",
-        description="Safety tolerance, 1 is most strict and 6 is most permissive",
-        ge=1.0,
-        le=6.0,
-        default=2,
-    )
-    prompt_upsampling: bool = Field(
-        title="Prompt Upsampling",
-        description="Automatically modify the prompt for more creative generation",
-        default=False,
-    )
-
-
-class Flux_Canny_Pro(ReplicateNode):
-    """Professional edge-guided image generation. Control structure and composition using Canny edge detection"""
-
-    class Output_format(str, Enum):
-        JPG = "jpg"
-        PNG = "png"
-
-    @classmethod
-    def get_basic_fields(cls):
-        return ["seed", "steps", "prompt"]
-
-    @classmethod
-    def replicate_model_id(cls):
-        return "black-forest-labs/flux-canny-pro:eb672df541b42b50cb3b397d202de02a52210e6363fb1d8bc9e57fab089cee9d"
-
-    @classmethod
-    def get_hardware(cls):
-        return "None"
-
-    @classmethod
-    def get_model_info(cls):
-        return {
-            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/4c07cacc-d206-4587-9357-8e4e81cd761a/https___replicate.deli_lsMxQWe.jpg",
-            "created_at": "2024-11-21T09:53:08.913764Z",
-            "description": "Professional edge-guided image generation. Control structure and composition using Canny edge detection",
-            "github_url": None,
-            "license_url": "https://replicate.com/black-forest-labs/flux-canny-pro#license",
-            "name": "flux-canny-pro",
-            "owner": "black-forest-labs",
-            "paper_url": None,
-            "run_count": 121407,
-            "url": "https://replicate.com/black-forest-labs/flux-canny-pro",
-            "visibility": "public",
-            "weights_url": None,
-        }
-
-    @classmethod
-    def return_type(cls):
-        return types.ImageRef
-
-    seed: int | None = Field(
-        title="Seed",
-        description="Random seed. Set for reproducible generation",
-        default=None,
-    )
-    steps: int = Field(
-        title="Steps",
-        description="Number of diffusion steps. Higher values yield finer details but increase processing time.",
-        ge=15.0,
-        le=50.0,
-        default=50,
-    )
-    prompt: str | None = Field(
-        title="Prompt", description="Text prompt for image generation", default=None
-    )
-    guidance: float = Field(
-        title="Guidance",
-        description="Controls the balance between adherence to the text as well as image prompt and image quality/diversity. Higher values make the output more closely match the prompt but may reduce overall image quality. Lower values allow for more creative freedom but might produce results less relevant to the prompt.",
-        ge=1.0,
-        le=100.0,
-        default=30,
-    )
-    control_image: types.ImageRef = Field(
-        default=types.ImageRef(),
-        description="Image to use as control input. Must be jpeg, png, gif, or webp.",
-    )
-    output_format: Output_format = Field(
-        description="Format of the output images.", default=Output_format("jpg")
-    )
-    safety_tolerance: int = Field(
-        title="Safety Tolerance",
-        description="Safety tolerance, 1 is most strict and 6 is most permissive",
-        ge=1.0,
-        le=6.0,
-        default=2,
-    )
-    prompt_upsampling: bool = Field(
-        title="Prompt Upsampling",
-        description="Automatically modify the prompt for more creative generation",
-        default=False,
-    )
-
-
-class Flux_Fill_Pro(ReplicateNode):
-    """Professional inpainting and outpainting model with state-of-the-art performance. Edit or extend images with natural, seamless results."""
-
-    class Outpaint(str, Enum):
-        NONE = "None"
-        ZOOM_OUT_1_5X = "Zoom out 1.5x"
-        ZOOM_OUT_2X = "Zoom out 2x"
-        MAKE_SQUARE = "Make square"
-        LEFT_OUTPAINT = "Left outpaint"
-        RIGHT_OUTPAINT = "Right outpaint"
-        TOP_OUTPAINT = "Top outpaint"
-        BOTTOM_OUTPAINT = "Bottom outpaint"
-
-    class Output_format(str, Enum):
-        JPG = "jpg"
-        PNG = "png"
-
-    @classmethod
-    def get_basic_fields(cls):
-        return ["mask", "seed", "image"]
-
-    @classmethod
-    def replicate_model_id(cls):
-        return "black-forest-labs/flux-fill-pro:c96684b78bc3e49cf4c8e4bc03d3cea723a1942042b9d016ca6fbf3fd478c93e"
-
-    @classmethod
-    def get_hardware(cls):
-        return "None"
-
-    @classmethod
-    def get_model_info(cls):
-        return {
-            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/13571f4b-d677-404f-bff0-ad44da9d5fa0/https___replicate.deli_llwvezd.jpg",
-            "created_at": "2024-11-20T20:56:37.431006Z",
-            "description": "Professional inpainting and outpainting model with state-of-the-art performance. Edit or extend images with natural, seamless results.",
-            "github_url": None,
-            "license_url": "https://replicate.com/black-forest-labs/flux-fill-pro#license",
-            "name": "flux-fill-pro",
-            "owner": "black-forest-labs",
-            "paper_url": None,
-            "run_count": 346444,
-            "url": "https://replicate.com/black-forest-labs/flux-fill-pro",
-            "visibility": "public",
-            "weights_url": None,
-        }
-
-    @classmethod
-    def return_type(cls):
-        return types.ImageRef
-
-    mask: str | None = Field(
-        title="Mask",
-        description="A black-and-white image that describes the part of the image to inpaint. Black areas will be preserved while white areas will be inpainted. Must have the same size as image. Optional if you provide an alpha mask in the original image. Must be jpeg, png, gif, or webp.",
-        default=None,
-    )
-    seed: int | None = Field(
-        title="Seed",
-        description="Random seed. Set for reproducible generation",
-        default=None,
-    )
-    image: str | None = Field(
-        title="Image",
-        description="The image to inpaint. Can contain an alpha mask. Must be jpeg, png, gif, or webp.",
-        default=None,
-    )
-    steps: int = Field(
-        title="Steps",
-        description="Number of diffusion steps. Higher values yield finer details but increase processing time.",
-        ge=15.0,
-        le=50.0,
-        default=50,
-    )
-    prompt: str | None = Field(
-        title="Prompt", description="Text prompt for image generation", default=None
-    )
-    guidance: float = Field(
-        title="Guidance",
-        description="Controls the balance between adherence to the text prompt and image quality/diversity. Higher values make the output more closely match the prompt but may reduce overall image quality. Lower values allow for more creative freedom but might produce results less relevant to the prompt.",
-        ge=1.5,
-        le=100.0,
-        default=60,
-    )
-    outpaint: Outpaint = Field(
-        description="A quick option for outpainting an input image. Mask will be ignored.",
-        default=Outpaint("None"),
-    )
-    output_format: Output_format = Field(
-        description="Format of the output images.", default=Output_format("jpg")
-    )
-    safety_tolerance: int = Field(
-        title="Safety Tolerance",
-        description="Safety tolerance, 1 is most strict and 6 is most permissive",
-        ge=1.0,
-        le=6.0,
-        default=2,
-    )
-    prompt_upsampling: bool = Field(
-        title="Prompt Upsampling",
-        description="Automatically modify the prompt for more creative generation",
-        default=False,
-    )
-
-
-class Flux_1_1_Pro_Ultra(ReplicateNode):
-    """FLUX1.1 [pro] in ultra and raw modes. Images are up to 4 megapixels. Use raw mode for realism."""
-
-    class Aspect_ratio(str, Enum):
-        _21_9 = "21:9"
-        _16_9 = "16:9"
-        _3_2 = "3:2"
-        _4_3 = "4:3"
-        _5_4 = "5:4"
-        _1_1 = "1:1"
-        _4_5 = "4:5"
-        _3_4 = "3:4"
-        _2_3 = "2:3"
-        _9_16 = "9:16"
-        _9_21 = "9:21"
-
-    class Output_format(str, Enum):
-        JPG = "jpg"
-        PNG = "png"
-
-    @classmethod
-    def get_basic_fields(cls):
-        return ["raw", "seed", "prompt"]
-
-    @classmethod
-    def replicate_model_id(cls):
-        return "black-forest-labs/flux-1.1-pro-ultra:742022a3151e8e182b47b4176686298994726a5b7a27d09fef28ac0bb176988c"
-
-    @classmethod
-    def get_hardware(cls):
-        return "None"
-
-    @classmethod
-    def get_model_info(cls):
-        return {
-            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/8121c76b-fbff-41d9-834d-c70dea9d2191/flux-ultra-cover.jpg",
-            "created_at": "2024-11-06T19:13:05.091037Z",
-            "description": "FLUX1.1 [pro] in ultra and raw modes. Images are up to 4 megapixels. Use raw mode for realism.",
-            "github_url": None,
-            "license_url": "https://replicate.com/black-forest-labs/flux-pro#license",
-            "name": "flux-1.1-pro-ultra",
-            "owner": "black-forest-labs",
-            "paper_url": "https://blackforestlabs.ai/flux-1-1-ultra/",
-            "run_count": 7204167,
-            "url": "https://replicate.com/black-forest-labs/flux-1.1-pro-ultra",
-            "visibility": "public",
-            "weights_url": None,
-        }
-
-    @classmethod
-    def return_type(cls):
-        return types.ImageRef
-
-    raw: bool = Field(
-        title="Raw",
-        description="Generate less processed, more natural-looking images",
-        default=False,
-    )
-    seed: int | None = Field(
-        title="Seed",
-        description="Random seed. Set for reproducible generation",
-        default=None,
-    )
-    prompt: str | None = Field(
-        title="Prompt", description="Text prompt for image generation", default=None
-    )
-    aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio for the generated image", default=Aspect_ratio("1:1")
-    )
-    image_prompt: str | None = Field(
-        title="Image Prompt",
-        description="Image to use with Flux Redux. This is used together with the text prompt to guide the generation towards the composition of the image_prompt. Must be jpeg, png, gif, or webp.",
-        default=None,
-    )
-    output_format: Output_format = Field(
-        description="Format of the output images.", default=Output_format("jpg")
-    )
-    safety_tolerance: int = Field(
-        title="Safety Tolerance",
-        description="Safety tolerance, 1 is most strict and 6 is most permissive",
-        ge=1.0,
-        le=6.0,
-        default=2,
-    )
-    image_prompt_strength: float = Field(
-        title="Image Prompt Strength",
-        description="Blend between the prompt and the image prompt.",
-        ge=0.0,
-        le=1.0,
-        default=0.1,
-    )
-
-
 class Flux_Pro(ReplicateNode):
     """State-of-the-art image generation with top of the line prompt following, visual quality, image detail and output diversity."""
 
@@ -2394,7 +1800,7 @@ class Flux_Pro(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "black-forest-labs/flux-pro:32d30bf2b52f22d9f3091008faec09edd9e9a70ada42fb0c432e53842073a524"
+        return "black-forest-labs/flux-pro:1e237aa703bf3a8ab480d5b595563128807af649c50afc0b4f22a9174e90d1d6"
 
     @classmethod
     def get_hardware(cls):
@@ -2410,8 +1816,9 @@ class Flux_Pro(ReplicateNode):
             "license_url": "https://replicate.com/black-forest-labs/flux-pro#license",
             "name": "flux-pro",
             "owner": "black-forest-labs",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 9724775,
+            "run_count": 12953670,
             "url": "https://replicate.com/black-forest-labs/flux-pro",
             "visibility": "public",
             "weights_url": None,
@@ -2465,7 +1872,7 @@ class Flux_Pro(ReplicateNode):
         default=2,
     )
     aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio for the generated image", default=Aspect_ratio("1:1")
+        description="Aspect ratio for the generated image", default="1:1"
     )
     image_prompt: str | None = Field(
         title="Image Prompt",
@@ -2473,7 +1880,7 @@ class Flux_Pro(ReplicateNode):
         default=None,
     )
     output_format: Output_format = Field(
-        description="Format of the output images.", default=Output_format("webp")
+        description="Format of the output images.", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -2481,6 +1888,654 @@ class Flux_Pro(ReplicateNode):
         ge=0.0,
         le=100.0,
         default=80,
+    )
+    safety_tolerance: int = Field(
+        title="Safety Tolerance",
+        description="Safety tolerance, 1 is most strict and 6 is most permissive",
+        ge=1.0,
+        le=6.0,
+        default=2,
+    )
+    prompt_upsampling: bool = Field(
+        title="Prompt Upsampling",
+        description="Automatically modify the prompt for more creative generation",
+        default=False,
+    )
+
+
+class Flux_1_1_Pro_Ultra(ReplicateNode):
+    """FLUX1.1 [pro] in ultra and raw modes. Images are up to 4 megapixels. Use raw mode for realism."""
+
+    class Aspect_ratio(str, Enum):
+        _21_9 = "21:9"
+        _16_9 = "16:9"
+        _3_2 = "3:2"
+        _4_3 = "4:3"
+        _5_4 = "5:4"
+        _1_1 = "1:1"
+        _4_5 = "4:5"
+        _3_4 = "3:4"
+        _2_3 = "2:3"
+        _9_16 = "9:16"
+        _9_21 = "9:21"
+
+    class Output_format(str, Enum):
+        JPG = "jpg"
+        PNG = "png"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["raw", "seed", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "black-forest-labs/flux-1.1-pro-ultra:c6e5086a542c99e7e523a83d3017654e8618fe64ef427c772a1def05bb599f0c"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/8121c76b-fbff-41d9-834d-c70dea9d2191/flux-ultra-cover.jpg",
+            "created_at": "2024-11-06T19:13:05.091037Z",
+            "description": "FLUX1.1 [pro] in ultra and raw modes. Images are up to 4 megapixels. Use raw mode for realism.",
+            "github_url": None,
+            "license_url": "https://replicate.com/black-forest-labs/flux-pro#license",
+            "name": "flux-1.1-pro-ultra",
+            "owner": "black-forest-labs",
+            "is_official": True,
+            "paper_url": "https://blackforestlabs.ai/flux-1-1-ultra/",
+            "run_count": 17061527,
+            "url": "https://replicate.com/black-forest-labs/flux-1.1-pro-ultra",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    raw: bool = Field(
+        title="Raw",
+        description="Generate less processed, more natural-looking images",
+        default=False,
+    )
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation",
+        default=None,
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="Text prompt for image generation", default=None
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio for the generated image", default="1:1"
+    )
+    image_prompt: str | None = Field(
+        title="Image Prompt",
+        description="Image to use with Flux Redux. This is used together with the text prompt to guide the generation towards the composition of the image_prompt. Must be jpeg, png, gif, or webp.",
+        default=None,
+    )
+    output_format: Output_format = Field(
+        description="Format of the output images.", default="jpg"
+    )
+    safety_tolerance: int = Field(
+        title="Safety Tolerance",
+        description="Safety tolerance, 1 is most strict and 6 is most permissive",
+        ge=1.0,
+        le=6.0,
+        default=2,
+    )
+    image_prompt_strength: float = Field(
+        title="Image Prompt Strength",
+        description="Blend between the prompt and the image prompt.",
+        ge=0.0,
+        le=1.0,
+        default=0.1,
+    )
+
+
+class Flux_Dev_Lora(ReplicateNode):
+    """A version of flux-dev, a text to image model, that supports fast fine-tuned lora inference"""
+
+    class Megapixels(str, Enum):
+        _1 = "1"
+        _0_25 = "0.25"
+
+    class Aspect_ratio(str, Enum):
+        _1_1 = "1:1"
+        _16_9 = "16:9"
+        _21_9 = "21:9"
+        _3_2 = "3:2"
+        _2_3 = "2:3"
+        _4_5 = "4:5"
+        _5_4 = "5:4"
+        _3_4 = "3:4"
+        _4_3 = "4:3"
+        _9_16 = "9:16"
+        _9_21 = "9:21"
+
+    class Output_format(str, Enum):
+        WEBP = "webp"
+        JPG = "jpg"
+        PNG = "png"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["seed", "image", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "black-forest-labs/flux-dev-lora:ae0d7d645446924cf1871e3ca8796e8318f72465d2b5af9323a835df93bf0917"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/a79cc4a8-318c-4316-a800-097ef0bdce7a/https___replicate.del_25H5GQ7.webp",
+            "created_at": "2024-11-11T23:03:07.000926Z",
+            "description": "A version of flux-dev, a text to image model, that supports fast fine-tuned lora inference",
+            "github_url": "https://github.com/replicate/cog-flux",
+            "license_url": "https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-dev",
+            "name": "flux-dev-lora",
+            "owner": "black-forest-labs",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 4295070,
+            "url": "https://replicate.com/black-forest-labs/flux-dev-lora",
+            "visibility": "public",
+            "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation",
+        default=None,
+    )
+    image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="Input image for image to image mode. The aspect ratio of your output will match this image",
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="Prompt for generated image", default=None
+    )
+    go_fast: bool = Field(
+        title="Go Fast",
+        description="Run faster predictions with model optimized for speed (currently fp8 quantized); disable to run in original bf16. Note that outputs will not be deterministic when this is enabled, even if you set a seed.",
+        default=True,
+    )
+    guidance: float = Field(
+        title="Guidance",
+        description="Guidance for generated image",
+        ge=0.0,
+        le=10.0,
+        default=3,
+    )
+    extra_lora: str | None = Field(
+        title="Extra Lora",
+        description="Load LoRA weights. Supports Replicate models in the format <owner>/<username> or <owner>/<username>/<version>, HuggingFace URLs in the format huggingface.co/<owner>/<model-name>, CivitAI URLs in the format civitai.com/models/<id>[/<model-name>], or arbitrary .safetensors URLs from the Internet. For example, 'fofr/flux-pixar-cars'",
+        default=None,
+    )
+    lora_scale: float = Field(
+        title="Lora Scale",
+        description="Determines how strongly the main LoRA should be applied. Sane results between 0 and 1 for base inference. For go_fast we apply a 1.5x multiplier to this value; we've generally seen good performance when scaling the base value by that amount. You may still need to experiment to find the best value for your particular lora.",
+        ge=-1.0,
+        le=3.0,
+        default=1,
+    )
+    megapixels: Megapixels = Field(
+        description="Approximate number of megapixels for generated image", default="1"
+    )
+    num_outputs: int = Field(
+        title="Num Outputs",
+        description="Number of outputs to generate",
+        ge=1.0,
+        le=4.0,
+        default=1,
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio for the generated image", default="1:1"
+    )
+    hf_api_token: str | None = Field(
+        title="Hf Api Token",
+        description="HuggingFace API token. If you're using a hf lora that needs authentication, you'll need to provide an API token.",
+        default=None,
+    )
+    lora_weights: str | None = Field(
+        title="Lora Weights",
+        description="Load LoRA weights. Supports Replicate models in the format <owner>/<username> or <owner>/<username>/<version>, HuggingFace URLs in the format huggingface.co/<owner>/<model-name>[/<lora-weights-file.safetensors>], CivitAI URLs in the format civitai.com/models/<id>[/<model-name>], or arbitrary .safetensors URLs from the Internet, including signed URLs. For example, 'fofr/flux-pixar-cars'. Civit AI and HuggingFace LoRAs may require an API token to access, which you can provide in the `civitai_api_token` and `hf_api_token` inputs respectively.",
+        default=None,
+    )
+    output_format: Output_format = Field(
+        description="Format of the output images", default="webp"
+    )
+    output_quality: int = Field(
+        title="Output Quality",
+        description="Quality when saving the output images, from 0 to 100. 100 is best quality, 0 is lowest quality. Not relevant for .png outputs",
+        ge=0.0,
+        le=100.0,
+        default=80,
+    )
+    prompt_strength: float = Field(
+        title="Prompt Strength",
+        description="Prompt strength when using img2img. 1.0 corresponds to full destruction of information in image",
+        ge=0.0,
+        le=1.0,
+        default=0.8,
+    )
+    extra_lora_scale: float = Field(
+        title="Extra Lora Scale",
+        description="Determines how strongly the extra LoRA should be applied. Sane results between 0 and 1 for base inference. For go_fast we apply a 1.5x multiplier to this value; we've generally seen good performance when scaling the base value by that amount. You may still need to experiment to find the best value for your particular lora.",
+        ge=-1.0,
+        le=3.0,
+        default=1,
+    )
+    civitai_api_token: str | None = Field(
+        title="Civitai Api Token",
+        description="Civitai API token. If you're using a civitai lora that needs authentication, you'll need to provide an API token.",
+        default=None,
+    )
+    num_inference_steps: int = Field(
+        title="Num Inference Steps",
+        description="Number of denoising steps. Recommended range is 28-50, and lower number of steps produce lower quality outputs, faster.",
+        ge=1.0,
+        le=50.0,
+        default=28,
+    )
+    disable_safety_checker: bool = Field(
+        title="Disable Safety Checker",
+        description="Disable safety checker for generated images.",
+        default=False,
+    )
+
+
+class Flux_Schnell_Lora(ReplicateNode):
+    """The fastest image generation model tailored for fine-tuned use"""
+
+    class Megapixels(str, Enum):
+        _1 = "1"
+        _0_25 = "0.25"
+
+    class Aspect_ratio(str, Enum):
+        _1_1 = "1:1"
+        _16_9 = "16:9"
+        _21_9 = "21:9"
+        _3_2 = "3:2"
+        _2_3 = "2:3"
+        _4_5 = "4:5"
+        _5_4 = "5:4"
+        _3_4 = "3:4"
+        _4_3 = "4:3"
+        _9_16 = "9:16"
+        _9_21 = "9:21"
+
+    class Output_format(str, Enum):
+        WEBP = "webp"
+        JPG = "jpg"
+        PNG = "png"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["seed", "prompt", "go_fast"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "black-forest-labs/flux-schnell-lora:83180e3ae073b7f87cd85b8bb649337412fd006d10db49e04ea5e821e87fbeb3"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/98c9bf91-5bc0-4a2d-960f-8c3fcd69f1f3/https___replicate.deliver_a20JvIo.png",
+            "created_at": "2024-11-11T23:07:50.986160Z",
+            "description": "The fastest image generation model tailored for fine-tuned use",
+            "github_url": "https://github.com/replicate/cog-flux",
+            "license_url": "https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-schnell",
+            "name": "flux-schnell-lora",
+            "owner": "black-forest-labs",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 3155100,
+            "url": "https://replicate.com/black-forest-labs/flux-schnell-lora",
+            "visibility": "public",
+            "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation",
+        default=None,
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="Prompt for generated image", default=None
+    )
+    go_fast: bool = Field(
+        title="Go Fast",
+        description="Run faster predictions with model optimized for speed (currently fp8 quantized); disable to run in original bf16. Note that outputs will not be deterministic when this is enabled, even if you set a seed.",
+        default=True,
+    )
+    lora_scale: float = Field(
+        title="Lora Scale",
+        description="Determines how strongly the main LoRA should be applied. Sane results between 0 and 1 for base inference. For go_fast we apply a 1.5x multiplier to this value; we've generally seen good performance when scaling the base value by that amount. You may still need to experiment to find the best value for your particular lora.",
+        ge=-1.0,
+        le=3.0,
+        default=1,
+    )
+    megapixels: Megapixels = Field(
+        description="Approximate number of megapixels for generated image", default="1"
+    )
+    num_outputs: int = Field(
+        title="Num Outputs",
+        description="Number of outputs to generate",
+        ge=1.0,
+        le=4.0,
+        default=1,
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio for the generated image", default="1:1"
+    )
+    lora_weights: str | None = Field(
+        title="Lora Weights",
+        description="Load LoRA weights. Supports Replicate models in the format <owner>/<username> or <owner>/<username>/<version>, HuggingFace URLs in the format huggingface.co/<owner>/<model-name>, CivitAI URLs in the format civitai.com/models/<id>[/<model-name>], or arbitrary .safetensors URLs from the Internet. For example, 'fofr/flux-pixar-cars'",
+        default=None,
+    )
+    output_format: Output_format = Field(
+        description="Format of the output images", default="webp"
+    )
+    output_quality: int = Field(
+        title="Output Quality",
+        description="Quality when saving the output images, from 0 to 100. 100 is best quality, 0 is lowest quality. Not relevant for .png outputs",
+        ge=0.0,
+        le=100.0,
+        default=80,
+    )
+    num_inference_steps: int = Field(
+        title="Num Inference Steps",
+        description="Number of denoising steps. 4 is recommended, and lower number of steps produce lower quality outputs, faster.",
+        ge=1.0,
+        le=4.0,
+        default=4,
+    )
+    disable_safety_checker: bool = Field(
+        title="Disable Safety Checker",
+        description="Disable safety checker for generated images.",
+        default=False,
+    )
+
+
+class Flux_Depth_Pro(ReplicateNode):
+    """Professional depth-aware image generation. Edit images while preserving spatial relationships."""
+
+    class Output_format(str, Enum):
+        JPG = "jpg"
+        PNG = "png"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["seed", "steps", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "black-forest-labs/flux-depth-pro:7fb973185be54efe985eea279746857c32a7f455a3963a6ea9ee18ed982b0afa"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/e365ecff-4023-49f8-96ba-abd710c4bdd9/https___replicate.deliver_xWYu8lC.jpg",
+            "created_at": "2024-11-21T09:53:00.631446Z",
+            "description": "Professional depth-aware image generation. Edit images while preserving spatial relationships.",
+            "github_url": None,
+            "license_url": "https://replicate.com/black-forest-labs/flux-depth-pro#license",
+            "name": "flux-depth-pro",
+            "owner": "black-forest-labs",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 243221,
+            "url": "https://replicate.com/black-forest-labs/flux-depth-pro",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation",
+        default=None,
+    )
+    steps: int = Field(
+        title="Steps",
+        description="Number of diffusion steps. Higher values yield finer details but increase processing time.",
+        ge=15.0,
+        le=50.0,
+        default=50,
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="Text prompt for image generation", default=None
+    )
+    guidance: float = Field(
+        title="Guidance",
+        description="Controls the balance between adherence to the text as well as image prompt and image quality/diversity. Higher values make the output more closely match the prompt but may reduce overall image quality. Lower values allow for more creative freedom but might produce results less relevant to the prompt.",
+        ge=1.0,
+        le=100.0,
+        default=15,
+    )
+    control_image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="Image to use as control input. Must be jpeg, png, gif, or webp.",
+    )
+    output_format: Output_format = Field(
+        description="Format of the output images.", default="jpg"
+    )
+    safety_tolerance: int = Field(
+        title="Safety Tolerance",
+        description="Safety tolerance, 1 is most strict and 6 is most permissive",
+        ge=1.0,
+        le=6.0,
+        default=2,
+    )
+    prompt_upsampling: bool = Field(
+        title="Prompt Upsampling",
+        description="Automatically modify the prompt for more creative generation",
+        default=False,
+    )
+
+
+class Flux_Canny_Pro(ReplicateNode):
+    """Professional edge-guided image generation. Control structure and composition using Canny edge detection"""
+
+    class Output_format(str, Enum):
+        JPG = "jpg"
+        PNG = "png"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["seed", "steps", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "black-forest-labs/flux-canny-pro:d042532044840da9fdd8761d2a9e829ebec76662818d0929a035cc3cf14e2661"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/4c07cacc-d206-4587-9357-8e4e81cd761a/https___replicate.deli_lsMxQWe.jpg",
+            "created_at": "2024-11-21T09:53:08.913764Z",
+            "description": "Professional edge-guided image generation. Control structure and composition using Canny edge detection",
+            "github_url": None,
+            "license_url": "https://replicate.com/black-forest-labs/flux-canny-pro#license",
+            "name": "flux-canny-pro",
+            "owner": "black-forest-labs",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 346281,
+            "url": "https://replicate.com/black-forest-labs/flux-canny-pro",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation",
+        default=None,
+    )
+    steps: int = Field(
+        title="Steps",
+        description="Number of diffusion steps. Higher values yield finer details but increase processing time.",
+        ge=15.0,
+        le=50.0,
+        default=50,
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="Text prompt for image generation", default=None
+    )
+    guidance: float = Field(
+        title="Guidance",
+        description="Controls the balance between adherence to the text as well as image prompt and image quality/diversity. Higher values make the output more closely match the prompt but may reduce overall image quality. Lower values allow for more creative freedom but might produce results less relevant to the prompt.",
+        ge=1.0,
+        le=100.0,
+        default=30,
+    )
+    control_image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="Image to use as control input. Must be jpeg, png, gif, or webp.",
+    )
+    output_format: Output_format = Field(
+        description="Format of the output images.", default="jpg"
+    )
+    safety_tolerance: int = Field(
+        title="Safety Tolerance",
+        description="Safety tolerance, 1 is most strict and 6 is most permissive",
+        ge=1.0,
+        le=6.0,
+        default=2,
+    )
+    prompt_upsampling: bool = Field(
+        title="Prompt Upsampling",
+        description="Automatically modify the prompt for more creative generation",
+        default=False,
+    )
+
+
+class Flux_Fill_Pro(ReplicateNode):
+    """Professional inpainting and outpainting model with state-of-the-art performance. Edit or extend images with natural, seamless results."""
+
+    class Outpaint(str, Enum):
+        NONE = "None"
+        ZOOM_OUT_1_5X = "Zoom out 1.5x"
+        ZOOM_OUT_2X = "Zoom out 2x"
+        MAKE_SQUARE = "Make square"
+        LEFT_OUTPAINT = "Left outpaint"
+        RIGHT_OUTPAINT = "Right outpaint"
+        TOP_OUTPAINT = "Top outpaint"
+        BOTTOM_OUTPAINT = "Bottom outpaint"
+
+    class Output_format(str, Enum):
+        JPG = "jpg"
+        PNG = "png"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["mask", "seed", "image"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "black-forest-labs/flux-fill-pro:10b45d01bb46cffc8d7893b36d720e369d732bb2e48ca3db469a18929eff359d"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/13571f4b-d677-404f-bff0-ad44da9d5fa0/https___replicate.deli_llwvezd.jpg",
+            "created_at": "2024-11-20T20:56:37.431006Z",
+            "description": "Professional inpainting and outpainting model with state-of-the-art performance. Edit or extend images with natural, seamless results.",
+            "github_url": None,
+            "license_url": "https://replicate.com/black-forest-labs/flux-fill-pro#license",
+            "name": "flux-fill-pro",
+            "owner": "black-forest-labs",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 2903217,
+            "url": "https://replicate.com/black-forest-labs/flux-fill-pro",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    mask: str | None = Field(
+        title="Mask",
+        description="A black-and-white image that describes the part of the image to inpaint. Black areas will be preserved while white areas will be inpainted. Must have the same size as image. Optional if you provide an alpha mask in the original image. Must be jpeg, png, gif, or webp.",
+        default=None,
+    )
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation",
+        default=None,
+    )
+    image: str | None = Field(
+        title="Image",
+        description="The image to inpaint. Can contain an alpha mask. Must be jpeg, png, gif, or webp.",
+        default=None,
+    )
+    steps: int = Field(
+        title="Steps",
+        description="Number of diffusion steps. Higher values yield finer details but increase processing time.",
+        ge=15.0,
+        le=50.0,
+        default=50,
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="Text prompt for image generation", default=None
+    )
+    guidance: float = Field(
+        title="Guidance",
+        description="Controls the balance between adherence to the text prompt and image quality/diversity. Higher values make the output more closely match the prompt but may reduce overall image quality. Lower values allow for more creative freedom but might produce results less relevant to the prompt.",
+        ge=1.5,
+        le=100.0,
+        default=60,
+    )
+    outpaint: Outpaint = Field(
+        description="A quick option for outpainting an input image. Mask will be ignored.",
+        default="None",
+    )
+    output_format: Output_format = Field(
+        description="Format of the output images.", default="jpg"
     )
     safety_tolerance: int = Field(
         title="Safety Tolerance",
@@ -2515,7 +2570,7 @@ class Flux_Depth_Dev(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "black-forest-labs/flux-depth-dev:6c9c6d40f94361ad4e4aa537e3165770a83254c7f8e93f4b72c9c04287a4e4f5"
+        return "black-forest-labs/flux-depth-dev:fc4f1401056237174d207056c49cd2afd44ede232ba286a3d40eb6376b726600"
 
     @classmethod
     def get_hardware(cls):
@@ -2531,8 +2586,9 @@ class Flux_Depth_Dev(ReplicateNode):
             "license_url": "https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-dev",
             "name": "flux-depth-dev",
             "owner": "black-forest-labs",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 104062,
+            "run_count": 676030,
             "url": "https://replicate.com/black-forest-labs/flux-depth-dev",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev",
@@ -2559,7 +2615,7 @@ class Flux_Depth_Dev(ReplicateNode):
     )
     megapixels: Megapixels = Field(
         description="Approximate number of megapixels for generated image. Use match_input to match the size of the input (with an upper limit of 1440x1440 pixels)",
-        default=Megapixels("1"),
+        default="1",
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -2573,7 +2629,7 @@ class Flux_Depth_Dev(ReplicateNode):
         description="Image used to control the generation. The depth map will be automatically generated.",
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -2624,7 +2680,7 @@ class Hyper_Flux_8Step(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "bytedance/hyper-flux-8step:81946b1e09b256c543b35f37333a30d0d02ee2cd8c4f77cd915873a1ca622bad"
+        return "bytedance/hyper-flux-8step:16084e9731223a4367228928a6cb393b21736da2a0ca6a5a492ce311f0a97143"
 
     @classmethod
     def get_hardware(cls):
@@ -2640,8 +2696,9 @@ class Hyper_Flux_8Step(ReplicateNode):
             "license_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/LICENSE.md",
             "name": "hyper-flux-8step",
             "owner": "bytedance",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2404.13686",
-            "run_count": 6774530,
+            "run_count": 16758732,
             "url": "https://replicate.com/bytedance/hyper-flux-8step",
             "visibility": "public",
             "weights_url": "https://huggingface.co/ByteDance/Hyper-SD",
@@ -2651,24 +2708,24 @@ class Hyper_Flux_8Step(ReplicateNode):
     def return_type(cls):
         return types.ImageRef
 
-    seed: int | None = Field(
+    seed: int = Field(
         title="Seed",
         description="Random seed. Set for reproducible generation",
-        default=None,
+        default=0,
     )
-    width: int | None = Field(
+    width: int = Field(
         title="Width",
         description="Width of the generated image. Optional, only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16)",
         ge=256.0,
         le=1440.0,
-        default=None,
+        default=848,
     )
-    height: int | None = Field(
+    height: int = Field(
         title="Height",
         description="Height of the generated image. Optional, only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16)",
         ge=256.0,
         le=1440.0,
-        default=None,
+        default=848,
     )
     prompt: str | None = Field(
         title="Prompt", description="Prompt for generated image", default=None
@@ -2682,10 +2739,10 @@ class Hyper_Flux_8Step(ReplicateNode):
     )
     aspect_ratio: Aspect_ratio = Field(
         description="Aspect ratio for the generated image. The size will always be 1 megapixel, i.e. 1024x1024 if aspect ratio is 1:1. To use arbitrary width and height, set aspect ratio to 'custom'.",
-        default=Aspect_ratio("1:1"),
+        default="1:1",
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     guidance_scale: float = Field(
         title="Guidance Scale",
@@ -2767,8 +2824,9 @@ class Flux_Mona_Lisa(ReplicateNode):
             "license_url": None,
             "name": "flux-mona-lisa",
             "owner": "fofr",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 3154,
+            "run_count": 3569,
             "url": "https://replicate.com/fofr/flux-mona-lisa",
             "visibility": "public",
             "weights_url": None,
@@ -2793,7 +2851,7 @@ class Flux_Mona_Lisa(ReplicateNode):
     )
     model: Model = Field(
         description="Which model to run inference with. The dev model performs best with around 28 inference steps but the schnell model only needs 4 steps.",
-        default=Model("dev"),
+        default="dev",
     )
     width: int | None = Field(
         title="Width",
@@ -2832,8 +2890,7 @@ class Flux_Mona_Lisa(ReplicateNode):
         default=1,
     )
     megapixels: Megapixels = Field(
-        description="Approximate number of megapixels for generated image",
-        default=Megapixels("1"),
+        description="Approximate number of megapixels for generated image", default="1"
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -2844,10 +2901,10 @@ class Flux_Mona_Lisa(ReplicateNode):
     )
     aspect_ratio: Aspect_ratio = Field(
         description="Aspect ratio for the generated image. If custom is selected, uses height and width below & will run in bf16 mode",
-        default=Aspect_ratio("1:1"),
+        default="1:1",
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     guidance_scale: float = Field(
         title="Guidance Scale",
@@ -2948,8 +3005,9 @@ class Flux_Cinestill(ReplicateNode):
             "license_url": None,
             "name": "flux-cinestill",
             "owner": "adirik",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 82555,
+            "run_count": 112093,
             "url": "https://replicate.com/adirik/flux-cinestill",
             "visibility": "public",
             "weights_url": None,
@@ -2974,7 +3032,7 @@ class Flux_Cinestill(ReplicateNode):
     )
     model: Model = Field(
         description="Which model to run inference with. The dev model performs best with around 28 inference steps but the schnell model only needs 4 steps.",
-        default=Model("dev"),
+        default="dev",
     )
     width: int | None = Field(
         title="Width",
@@ -3013,8 +3071,7 @@ class Flux_Cinestill(ReplicateNode):
         default=1,
     )
     megapixels: Megapixels = Field(
-        description="Approximate number of megapixels for generated image",
-        default=Megapixels("1"),
+        description="Approximate number of megapixels for generated image", default="1"
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -3025,10 +3082,10 @@ class Flux_Cinestill(ReplicateNode):
     )
     aspect_ratio: Aspect_ratio = Field(
         description="Aspect ratio for the generated image. If custom is selected, uses height and width below & will run in bf16 mode",
-        default=Aspect_ratio("1:1"),
+        default="1:1",
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     guidance_scale: float = Field(
         title="Guidance Scale",
@@ -3129,8 +3186,9 @@ class Flux_Black_Light(ReplicateNode):
             "license_url": None,
             "name": "flux-black-light",
             "owner": "fofr",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 1014762,
+            "run_count": 2153418,
             "url": "https://replicate.com/fofr/flux-black-light",
             "visibility": "public",
             "weights_url": None,
@@ -3155,7 +3213,7 @@ class Flux_Black_Light(ReplicateNode):
     )
     model: Model = Field(
         description="Which model to run inference with. The dev model performs best with around 28 inference steps but the schnell model only needs 4 steps.",
-        default=Model("dev"),
+        default="dev",
     )
     width: int | None = Field(
         title="Width",
@@ -3194,8 +3252,7 @@ class Flux_Black_Light(ReplicateNode):
         default=1,
     )
     megapixels: Megapixels = Field(
-        description="Approximate number of megapixels for generated image",
-        default=Megapixels("1"),
+        description="Approximate number of megapixels for generated image", default="1"
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -3206,10 +3263,10 @@ class Flux_Black_Light(ReplicateNode):
     )
     aspect_ratio: Aspect_ratio = Field(
         description="Aspect ratio for the generated image. If custom is selected, uses height and width below & will run in bf16 mode",
-        default=Aspect_ratio("1:1"),
+        default="1:1",
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     guidance_scale: float = Field(
         title="Guidance Scale",
@@ -3310,8 +3367,9 @@ class Flux_360(ReplicateNode):
             "license_url": None,
             "name": "flux-360",
             "owner": "igorriti",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 12849,
+            "run_count": 17471,
             "url": "https://replicate.com/igorriti/flux-360",
             "visibility": "public",
             "weights_url": "https://huggingface.co/igorriti/flux-360",
@@ -3336,7 +3394,7 @@ class Flux_360(ReplicateNode):
     )
     model: Model = Field(
         description="Which model to run inference with. The dev model performs best with around 28 inference steps but the schnell model only needs 4 steps.",
-        default=Model("dev"),
+        default="dev",
     )
     width: int | None = Field(
         title="Width",
@@ -3375,8 +3433,7 @@ class Flux_360(ReplicateNode):
         default=1,
     )
     megapixels: Megapixels = Field(
-        description="Approximate number of megapixels for generated image",
-        default=Megapixels("1"),
+        description="Approximate number of megapixels for generated image", default="1"
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -3387,10 +3444,10 @@ class Flux_360(ReplicateNode):
     )
     aspect_ratio: Aspect_ratio = Field(
         description="Aspect ratio for the generated image. If custom is selected, uses height and width below & will run in bf16 mode",
-        default=Aspect_ratio("1:1"),
+        default="1:1",
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     guidance_scale: float = Field(
         title="Guidance Scale",
@@ -3482,13 +3539,31 @@ class Recraft_V3(ReplicateNode):
         REALISTIC_IMAGE_ENTERPRISE = "realistic_image/enterprise"
         REALISTIC_IMAGE_MOTION_BLUR = "realistic_image/motion_blur"
 
+    class Aspect_ratio(str, Enum):
+        NOT_SET = "Not set"
+        _1_1 = "1:1"
+        _4_3 = "4:3"
+        _3_4 = "3:4"
+        _3_2 = "3:2"
+        _2_3 = "2:3"
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+        _1_2 = "1:2"
+        _2_1 = "2:1"
+        _7_5 = "7:5"
+        _5_7 = "5:7"
+        _4_5 = "4:5"
+        _5_4 = "5:4"
+        _3_5 = "3:5"
+        _5_3 = "5:3"
+
     @classmethod
     def get_basic_fields(cls):
         return ["size", "style", "prompt"]
 
     @classmethod
     def replicate_model_id(cls):
-        return "recraft-ai/recraft-v3:e06217725b21e2c059a09b3f44b4aef56574173aee9976c9726bdc0f474d7f46"
+        return "recraft-ai/recraft-v3:0fea59248a8a1ddb8197792577f6627ec65482abc49f50c6e9da40ca8729d24d"
 
     @classmethod
     def get_hardware(cls):
@@ -3504,8 +3579,9 @@ class Recraft_V3(ReplicateNode):
             "license_url": "https://www.recraft.ai/terms",
             "name": "recraft-v3",
             "owner": "recraft-ai",
+            "is_official": True,
             "paper_url": "https://recraft.ai",
-            "run_count": 1661112,
+            "run_count": 5772722,
             "url": "https://replicate.com/recraft-ai/recraft-v3",
             "visibility": "public",
             "weights_url": None,
@@ -3516,13 +3592,15 @@ class Recraft_V3(ReplicateNode):
         return types.ImageRef
 
     size: Size = Field(
-        description="Width and height of the generated image", default=Size("1024x1024")
+        description="Width and height of the generated image. Size is ignored if an aspect ratio is set.",
+        default="1024x1024",
     )
-    style: Style = Field(
-        description="Style of the generated image.", default=Style("any")
-    )
+    style: Style = Field(description="Style of the generated image.", default="any")
     prompt: str | None = Field(
         title="Prompt", description="Text prompt for image generation", default=None
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio of the generated image", default="Not set"
     )
 
 
@@ -3576,13 +3654,31 @@ class Recraft_20B(ReplicateNode):
         DIGITAL_ILLUSTRATION_VOXEL = "digital_illustration/voxel"
         DIGITAL_ILLUSTRATION_WATERCOLOR = "digital_illustration/watercolor"
 
+    class Aspect_ratio(str, Enum):
+        NOT_SET = "Not set"
+        _1_1 = "1:1"
+        _4_3 = "4:3"
+        _3_4 = "3:4"
+        _3_2 = "3:2"
+        _2_3 = "2:3"
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+        _1_2 = "1:2"
+        _2_1 = "2:1"
+        _7_5 = "7:5"
+        _5_7 = "5:7"
+        _4_5 = "4:5"
+        _5_4 = "5:4"
+        _3_5 = "3:5"
+        _5_3 = "5:3"
+
     @classmethod
     def get_basic_fields(cls):
         return ["size", "style", "prompt"]
 
     @classmethod
     def replicate_model_id(cls):
-        return "recraft-ai/recraft-20b:4441c81fea73ada6fcba2efef13b37b567894c18666120a534d0f34a96a40ee1"
+        return "recraft-ai/recraft-20b:490786c27cc3bb60da5868e2c9ccdf28870d5e0b50be8d68a6740e90b85c1f2c"
 
     @classmethod
     def get_hardware(cls):
@@ -3598,8 +3694,9 @@ class Recraft_20B(ReplicateNode):
             "license_url": "https://www.recraft.ai/terms",
             "name": "recraft-20b",
             "owner": "recraft-ai",
+            "is_official": True,
             "paper_url": "https://recraft.ai",
-            "run_count": 71665,
+            "run_count": 270710,
             "url": "https://replicate.com/recraft-ai/recraft-20b",
             "visibility": "public",
             "weights_url": None,
@@ -3610,13 +3707,17 @@ class Recraft_20B(ReplicateNode):
         return types.ImageRef
 
     size: Size = Field(
-        description="Width and height of the generated image", default=Size("1024x1024")
+        description="Width and height of the generated image. Size is ignored if an aspect ratio is set.",
+        default="1024x1024",
     )
     style: Style = Field(
-        description="Style of the generated image.", default=Style("realistic_image")
+        description="Style of the generated image.", default="realistic_image"
     )
     prompt: str | None = Field(
         title="Prompt", description="Text prompt for image generation", default=None
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio of the generated image", default="Not set"
     )
 
 
@@ -3663,13 +3764,31 @@ class Recraft_20B_SVG(ReplicateNode):
         ICON_OUTLINE_GRADIENT = "icon/outline_gradient"
         ICON_UNEVEN_FILL = "icon/uneven_fill"
 
+    class Aspect_ratio(str, Enum):
+        NOT_SET = "Not set"
+        _1_1 = "1:1"
+        _4_3 = "4:3"
+        _3_4 = "3:4"
+        _3_2 = "3:2"
+        _2_3 = "2:3"
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+        _1_2 = "1:2"
+        _2_1 = "2:1"
+        _7_5 = "7:5"
+        _5_7 = "5:7"
+        _4_5 = "4:5"
+        _5_4 = "5:4"
+        _3_5 = "3:5"
+        _5_3 = "5:3"
+
     @classmethod
     def get_basic_fields(cls):
         return ["size", "style", "prompt"]
 
     @classmethod
     def replicate_model_id(cls):
-        return "recraft-ai/recraft-20b-svg:110b949db40d2d140280a4484c8c70eca855128ad04c06a8a8a680701121110e"
+        return "recraft-ai/recraft-20b-svg:7117a9c982052bc25c5e869896b20d8108c847fef4c3be7c6b129e68a7382106"
 
     @classmethod
     def get_hardware(cls):
@@ -3685,8 +3804,9 @@ class Recraft_20B_SVG(ReplicateNode):
             "license_url": "https://www.recraft.ai/terms",
             "name": "recraft-20b-svg",
             "owner": "recraft-ai",
+            "is_official": True,
             "paper_url": "https://recraft.ai/",
-            "run_count": 12094,
+            "run_count": 50212,
             "url": "https://replicate.com/recraft-ai/recraft-20b-svg",
             "visibility": "public",
             "weights_url": None,
@@ -3697,14 +3817,17 @@ class Recraft_20B_SVG(ReplicateNode):
         return types.SVGRef
 
     size: Size = Field(
-        description="Width and height of the generated image", default=Size("1024x1024")
+        description="Width and height of the generated image. Size is ignored if an aspect ratio is set.",
+        default="1024x1024",
     )
     style: Style = Field(
-        description="Style of the generated image.",
-        default=Style("vector_illustration"),
+        description="Style of the generated image.", default="vector_illustration"
     )
     prompt: str | None = Field(
         title="Prompt", description="Text prompt for image generation", default=None
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio of the generated image", default="Not set"
     )
 
 
@@ -3735,13 +3858,31 @@ class Recraft_V3_SVG(ReplicateNode):
         LINE_CIRCUIT = "line_circuit"
         LINOCUT = "linocut"
 
+    class Aspect_ratio(str, Enum):
+        NOT_SET = "Not set"
+        _1_1 = "1:1"
+        _4_3 = "4:3"
+        _3_4 = "3:4"
+        _3_2 = "3:2"
+        _2_3 = "2:3"
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+        _1_2 = "1:2"
+        _2_1 = "2:1"
+        _7_5 = "7:5"
+        _5_7 = "5:7"
+        _4_5 = "4:5"
+        _5_4 = "5:4"
+        _3_5 = "3:5"
+        _5_3 = "5:3"
+
     @classmethod
     def get_basic_fields(cls):
         return ["size", "style", "prompt"]
 
     @classmethod
     def replicate_model_id(cls):
-        return "recraft-ai/recraft-v3-svg:16f118e8ee05d9a03a2845fe533f0d45cbc6a7774f126bfb3dfbe857a4feec6b"
+        return "recraft-ai/recraft-v3-svg:81deed12bf1c7e762e46f53df3f85b4369abf876b1df1777ce795e0d7d5849e4"
 
     @classmethod
     def get_hardware(cls):
@@ -3757,8 +3898,9 @@ class Recraft_V3_SVG(ReplicateNode):
             "license_url": "https://recraft.ai/terms",
             "name": "recraft-v3-svg",
             "owner": "recraft-ai",
+            "is_official": True,
             "paper_url": "https://recraft.ai",
-            "run_count": 69660,
+            "run_count": 274401,
             "url": "https://replicate.com/recraft-ai/recraft-v3-svg",
             "visibility": "public",
             "weights_url": None,
@@ -3769,13 +3911,15 @@ class Recraft_V3_SVG(ReplicateNode):
         return types.SVGRef
 
     size: Size = Field(
-        description="Width and height of the generated image", default=Size("1024x1024")
+        description="Width and height of the generated image. Size is ignored if an aspect ratio is set.",
+        default="1024x1024",
     )
-    style: Style = Field(
-        description="Style of the generated image.", default=Style("any")
-    )
+    style: Style = Field(description="Style of the generated image.", default="any")
     prompt: str | None = Field(
         title="Prompt", description="Text prompt for image generation", default=None
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio of the generated image", default="Not set"
     )
 
 
@@ -3798,7 +3942,7 @@ class Flux_Canny_Dev(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "black-forest-labs/flux-canny-dev:33ba5ec347347b22d091ba1b063221a71d140007d1491622061b5d2f5eae1445"
+        return "black-forest-labs/flux-canny-dev:aeb2a8dbfe2580e25d41d8881cc1df1a0b1e52c87de99c1a65fc587ac3918179"
 
     @classmethod
     def get_hardware(cls):
@@ -3814,8 +3958,9 @@ class Flux_Canny_Dev(ReplicateNode):
             "license_url": "https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-dev",
             "name": "flux-canny-dev",
             "owner": "black-forest-labs",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 46065,
+            "run_count": 140541,
             "url": "https://replicate.com/black-forest-labs/flux-canny-dev",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-Canny-dev",
@@ -3842,7 +3987,7 @@ class Flux_Canny_Dev(ReplicateNode):
     )
     megapixels: Megapixels = Field(
         description="Approximate number of megapixels for generated image. Use match_input to match the size of the input (with an upper limit of 1440x1440 pixels)",
-        default=Megapixels("1"),
+        default="1",
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -3856,7 +4001,7 @@ class Flux_Canny_Dev(ReplicateNode):
         description="Image used to control the generation. The canny edge detection will be automatically generated.",
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -3898,7 +4043,7 @@ class Flux_Fill_Dev(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "black-forest-labs/flux-fill-dev:d12b153b2dcfd3e1662c95ef08ed32f1951e32dcbb8e80fbdfdb5d32a321bfb2"
+        return "black-forest-labs/flux-fill-dev:a053f84125613d83e65328a289e14eb6639e10725c243e8fb0c24128e5573f4c"
 
     @classmethod
     def get_hardware(cls):
@@ -3914,8 +4059,9 @@ class Flux_Fill_Dev(ReplicateNode):
             "license_url": "https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-dev",
             "name": "flux-fill-dev",
             "owner": "black-forest-labs",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 137464,
+            "run_count": 874830,
             "url": "https://replicate.com/black-forest-labs/flux-fill-dev",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev",
@@ -3959,7 +4105,7 @@ class Flux_Fill_Dev(ReplicateNode):
     )
     megapixels: Megapixels = Field(
         description="Approximate number of megapixels for generated image. Use match_input to match the size of the input (with an upper limit of 1440x1440 pixels)",
-        default=Megapixels("1"),
+        default="1",
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -3974,7 +4120,7 @@ class Flux_Fill_Dev(ReplicateNode):
         default=None,
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -4028,7 +4174,7 @@ class Flux_Redux_Schnell(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "black-forest-labs/flux-redux-schnell:39b438ada2ef04507604f2b6fe76f442ee0a1b64783037ba61de1f23e4c55ade"
+        return "black-forest-labs/flux-redux-schnell:8a9ff6ce228b950c7079005fd0804f54c74c0113cda3f3c07eff10ab943f32a1"
 
     @classmethod
     def get_hardware(cls):
@@ -4044,8 +4190,9 @@ class Flux_Redux_Schnell(ReplicateNode):
             "license_url": "https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-schnell",
             "name": "flux-redux-schnell",
             "owner": "black-forest-labs",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 21104,
+            "run_count": 58577,
             "url": "https://replicate.com/black-forest-labs/flux-redux-schnell",
             "visibility": "public",
             "weights_url": None,
@@ -4061,8 +4208,7 @@ class Flux_Redux_Schnell(ReplicateNode):
         default=None,
     )
     megapixels: Megapixels = Field(
-        description="Approximate number of megapixels for generated image",
-        default=Megapixels("1"),
+        description="Approximate number of megapixels for generated image", default="1"
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -4076,10 +4222,10 @@ class Flux_Redux_Schnell(ReplicateNode):
         description="Input image to condition your output on. This replaces prompt for FLUX.1 Redux models",
     )
     aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio for the generated image", default=Aspect_ratio("1:1")
+        description="Aspect ratio for the generated image", default="1:1"
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -4133,7 +4279,7 @@ class Flux_Redux_Dev(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "black-forest-labs/flux-redux-dev:0e522c0b709bd26a0727a7b7c38391e50cef5ef4016550c93fdd29a72d147981"
+        return "black-forest-labs/flux-redux-dev:96b56814e57dfa601f3f524f82a2b336ef49012cda68828cb37cde66f481b7cb"
 
     @classmethod
     def get_hardware(cls):
@@ -4149,8 +4295,9 @@ class Flux_Redux_Dev(ReplicateNode):
             "license_url": "https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-dev",
             "name": "flux-redux-dev",
             "owner": "black-forest-labs",
+            "is_official": True,
             "paper_url": None,
-            "run_count": 116479,
+            "run_count": 251140,
             "url": "https://replicate.com/black-forest-labs/flux-redux-dev",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev",
@@ -4173,8 +4320,7 @@ class Flux_Redux_Dev(ReplicateNode):
         default=3,
     )
     megapixels: Megapixels = Field(
-        description="Approximate number of megapixels for generated image",
-        default=Megapixels("1"),
+        description="Approximate number of megapixels for generated image", default="1"
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -4188,10 +4334,10 @@ class Flux_Redux_Dev(ReplicateNode):
         description="Input image to condition your output on. This replaces prompt for FLUX.1 Redux models",
     )
     aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio for the generated image", default=Aspect_ratio("1:1")
+        description="Aspect ratio for the generated image", default="1:1"
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -4239,8 +4385,9 @@ class SDXL_Controlnet(ReplicateNode):
             "license_url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/LICENSE.md",
             "name": "sdxl-controlnet",
             "owner": "lucataco",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 2253439,
+            "run_count": 3245250,
             "url": "https://replicate.com/lucataco/sdxl-controlnet",
             "visibility": "public",
             "weights_url": None,
@@ -4370,8 +4517,9 @@ class SDXL_Ad_Inpaint(ReplicateNode):
             "license_url": "https://github.com/huggingface/hfapi/blob/master/LICENSE",
             "name": "sdxl-ad-inpaint",
             "owner": "catacolabs",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 370470,
+            "run_count": 399798,
             "url": "https://replicate.com/catacolabs/sdxl-ad-inpaint",
             "visibility": "public",
             "weights_url": None,
@@ -4393,17 +4541,17 @@ class SDXL_Ad_Inpaint(ReplicateNode):
         default=None,
     )
     img_size: Img_size = Field(
-        description="Possible SDXL image sizes", default=Img_size("1024, 1024")
+        description="Possible SDXL image sizes", default="1024, 1024"
     )
     apply_img: bool = Field(
         title="Apply Img",
         description="Applies the original product image to the final result",
         default=True,
     )
-    scheduler: Scheduler = Field(description="scheduler", default=Scheduler("K_EULER"))
+    scheduler: Scheduler = Field(description="scheduler", default="K_EULER")
     product_fill: Product_fill = Field(
         description="What percentage of the image width to fill with product",
-        default=Product_fill("Original"),
+        default="Original",
     )
     guidance_scale: float = Field(
         title="Guidance Scale", description="Guidance Scale", default=7.5
@@ -4492,8 +4640,9 @@ class Kandinsky(ReplicateNode):
             "license_url": "https://github.com/ai-forever/Kandinsky-2/blob/main/license",
             "name": "kandinsky-2.2",
             "owner": "ai-forever",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 10016866,
+            "run_count": 10025570,
             "url": "https://replicate.com/ai-forever/kandinsky-2.2",
             "visibility": "public",
             "weights_url": None,
@@ -4510,11 +4659,11 @@ class Kandinsky(ReplicateNode):
     )
     width: Width = Field(
         description="Width of output image. Lower the setting if hits memory limits.",
-        default=Width(512),
+        default=512,
     )
     height: Height = Field(
         description="Height of output image. Lower the setting if hits memory limits.",
-        default=Height(512),
+        default=512,
     )
     prompt: str = Field(
         title="Prompt",
@@ -4529,7 +4678,7 @@ class Kandinsky(ReplicateNode):
         default=1,
     )
     output_format: Output_format = Field(
-        description="Output image format", default=Output_format("webp")
+        description="Output image format", default="webp"
     )
     negative_prompt: str | None = Field(
         title="Negative Prompt",
@@ -4571,7 +4720,7 @@ class StableDiffusionXLLightning(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "bytedance/sdxl-lightning-4step:5599ed30703defd1d160a25a63321b4dec97101d98b4674bcc56e41f62f35637"
+        return "bytedance/sdxl-lightning-4step:6f7a773af6fc3e8de9d5a3c00be77c17308914bf67772726aff83496ba1e3bbe"
 
     @classmethod
     def get_hardware(cls):
@@ -4587,8 +4736,9 @@ class StableDiffusionXLLightning(ReplicateNode):
             "license_url": "https://huggingface.co/ByteDance/SDXL-Lightning/blob/main/LICENSE.md",
             "name": "sdxl-lightning-4step",
             "owner": "bytedance",
+            "is_official": False,
             "paper_url": "https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_report.pdf",
-            "run_count": 808571480,
+            "run_count": 1025961470,
             "url": "https://replicate.com/bytedance/sdxl-lightning-4step",
             "visibility": "public",
             "weights_url": "https://huggingface.co/ByteDance/SDXL-Lightning",
@@ -4598,10 +4748,10 @@ class StableDiffusionXLLightning(ReplicateNode):
     def return_type(cls):
         return types.ImageRef
 
-    seed: int | None = Field(
+    seed: int = Field(
         title="Seed",
         description="Random seed. Leave blank to randomize the seed",
-        default=None,
+        default=0,
     )
     width: int = Field(
         title="Width",
@@ -4622,7 +4772,7 @@ class StableDiffusionXLLightning(ReplicateNode):
         description="Input prompt",
         default="self-portrait of a woman, lightning in the background",
     )
-    scheduler: Scheduler = Field(description="scheduler", default=Scheduler("K_EULER"))
+    scheduler: Scheduler = Field(description="scheduler", default="K_EULER")
     num_outputs: int = Field(
         title="Num Outputs",
         description="Number of images to output.",
@@ -4691,8 +4841,9 @@ class PlaygroundV2(ReplicateNode):
             "license_url": "https://huggingface.co/playgroundai/playground-v2.5-1024px-aesthetic/blob/main/LICENSE.md",
             "name": "playground-v2.5-1024px-aesthetic",
             "owner": "playgroundai",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2206.00364",
-            "run_count": 2201201,
+            "run_count": 2651203,
             "url": "https://replicate.com/playgroundai/playground-v2.5-1024px-aesthetic",
             "visibility": "public",
             "weights_url": "https://huggingface.co/playgroundai/playground-v2.5-1024px-aesthetic",
@@ -4736,7 +4887,7 @@ class PlaygroundV2(ReplicateNode):
     )
     scheduler: Scheduler = Field(
         description="Scheduler. DPMSolver++ or DPM++2MKarras is recommended for most cases",
-        default=Scheduler("DPMSolver++"),
+        default="DPMSolver++",
     )
     num_outputs: int = Field(
         title="Num Outputs",
@@ -4817,8 +4968,9 @@ class Proteus_V_02(ReplicateNode):
             "license_url": "https://huggingface.co/datasets/choosealicense/licenses/blob/main/markdown/gpl-3.0.md",
             "name": "proteus-v0.2",
             "owner": "datacte",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 9148840,
+            "run_count": 10742634,
             "url": "https://replicate.com/datacte/proteus-v0.2",
             "visibility": "public",
             "weights_url": None,
@@ -4849,9 +5001,7 @@ class Proteus_V_02(ReplicateNode):
         description="Input prompt",
         default="black fluffy gorgeous dangerous cat animal creature, large orange eyes, big fluffy ears, piercing gaze, full moon, dark ambiance, best quality, extremely detailed",
     )
-    scheduler: Scheduler = Field(
-        description="scheduler", default=Scheduler("KarrasDPM")
-    )
+    scheduler: Scheduler = Field(description="scheduler", default="KarrasDPM")
     num_outputs: int = Field(
         title="Num Outputs",
         description="Number of images to output.",
@@ -4932,8 +5082,9 @@ class Proteus_V_03(ReplicateNode):
             "license_url": "https://huggingface.co/models?license=license:gpl-3.0",
             "name": "proteus-v0.3",
             "owner": "datacte",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 3084436,
+            "run_count": 4433251,
             "url": "https://replicate.com/datacte/proteus-v0.3",
             "visibility": "public",
             "weights_url": "https://huggingface.co/dataautogpt3/ProteusV0.3",
@@ -4970,9 +5121,7 @@ class Proteus_V_03(ReplicateNode):
         description="Input prompt",
         default="Anime full body portrait of a swordsman holding his weapon in front of him. He is facing the camera with a fierce look on his face. Anime key visual (best quality, HD, ~+~aesthetic~+~:1.2)",
     )
-    scheduler: Scheduler = Field(
-        description="scheduler", default=Scheduler("DPM++2MSDE")
-    )
+    scheduler: Scheduler = Field(description="scheduler", default="DPM++2MSDE")
     num_outputs: int = Field(
         title="Num Outputs",
         description="Number of images to output.",
@@ -5048,8 +5197,9 @@ class StickerMaker(ReplicateNode):
             "license_url": "https://github.com/fofr/cog-stickers/blob/main/LICENSE",
             "name": "sticker-maker",
             "owner": "fofr",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 819365,
+            "run_count": 1475296,
             "url": "https://replicate.com/fofr/sticker-maker",
             "visibility": "public",
             "weights_url": None,
@@ -5069,7 +5219,7 @@ class StickerMaker(ReplicateNode):
     height: int = Field(title="Height", default=1152)
     prompt: str = Field(title="Prompt", default="a cute cat")
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -5129,8 +5279,9 @@ class StyleTransfer(ReplicateNode):
             "license_url": "https://github.com/fofr/cog-style-transfer/blob/main/LICENSE",
             "name": "style-transfer",
             "owner": "fofr",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 662337,
+            "run_count": 1134295,
             "url": "https://replicate.com/fofr/style-transfer",
             "visibility": "public",
             "weights_url": None,
@@ -5145,9 +5296,7 @@ class StyleTransfer(ReplicateNode):
         description="Set a seed for reproducibility. Random by default.",
         default=None,
     )
-    model: Model = Field(
-        description="Model to use for the generation", default=Model("fast")
-    )
+    model: Model = Field(description="Model to use for the generation", default="fast")
     width: int = Field(
         title="Width",
         description="Width of the output image (ignored if structure image given)",
@@ -5167,7 +5316,7 @@ class StyleTransfer(ReplicateNode):
         default=types.ImageRef(), description="Copy the style from this image"
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("webp")
+        description="Format of the output images", default="webp"
     )
     output_quality: int = Field(
         title="Output Quality",
@@ -5238,8 +5387,9 @@ class Illusions(ReplicateNode):
             "license_url": None,
             "name": "illusions",
             "owner": "fofr",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 45978,
+            "run_count": 58091,
             "url": "https://replicate.com/fofr/illusions",
             "visibility": "public",
             "weights_url": None,
@@ -5287,7 +5437,7 @@ class Illusions(ReplicateNode):
     )
     sizing_strategy: Sizing_strategy = Field(
         description="Decide how to resize images – use width/height, resize based on input image or control image",
-        default=Sizing_strategy("width/height"),
+        default="width/height",
     )
     controlnet_start: float = Field(
         title="Controlnet Start",
@@ -5313,7 +5463,6 @@ class Ideogram_V2(ReplicateNode):
         _576X1408 = "576x1408"
         _576X1472 = "576x1472"
         _576X1536 = "576x1536"
-        _640X1024 = "640x1024"
         _640X1344 = "640x1344"
         _640X1408 = "640x1408"
         _640X1472 = "640x1472"
@@ -5324,13 +5473,9 @@ class Ideogram_V2(ReplicateNode):
         _704X1344 = "704x1344"
         _704X1408 = "704x1408"
         _704X1472 = "704x1472"
-        _720X1280 = "720x1280"
         _736X1312 = "736x1312"
-        _768X1024 = "768x1024"
         _768X1088 = "768x1088"
-        _768X1152 = "768x1152"
         _768X1216 = "768x1216"
-        _768X1232 = "768x1232"
         _768X1280 = "768x1280"
         _768X1344 = "768x1344"
         _832X960 = "832x960"
@@ -5349,8 +5494,6 @@ class Ideogram_V2(ReplicateNode):
         _960X896 = "960x896"
         _960X1024 = "960x1024"
         _960X1088 = "960x1088"
-        _1024X640 = "1024x640"
-        _1024X768 = "1024x768"
         _1024X832 = "1024x832"
         _1024X896 = "1024x896"
         _1024X960 = "1024x960"
@@ -5361,17 +5504,14 @@ class Ideogram_V2(ReplicateNode):
         _1088X960 = "1088x960"
         _1120X896 = "1120x896"
         _1152X704 = "1152x704"
-        _1152X768 = "1152x768"
         _1152X832 = "1152x832"
         _1152X864 = "1152x864"
         _1152X896 = "1152x896"
         _1216X704 = "1216x704"
         _1216X768 = "1216x768"
         _1216X832 = "1216x832"
-        _1232X768 = "1232x768"
         _1248X832 = "1248x832"
         _1280X704 = "1280x704"
-        _1280X720 = "1280x720"
         _1280X768 = "1280x768"
         _1280X800 = "1280x800"
         _1312X736 = "1312x736"
@@ -5421,7 +5561,7 @@ class Ideogram_V2(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "ideogram-ai/ideogram-v2:d07f7f3ad03f2ec100edeaa91e26ac731d7d00ec369e6a475b80c04bd1101d5d"
+        return "ideogram-ai/ideogram-v2:39ec2c0b3642ba5bc9357978a8fd060c7e363643c192776e38dd9b2b2c403442"
 
     @classmethod
     def get_hardware(cls):
@@ -5437,8 +5577,9 @@ class Ideogram_V2(ReplicateNode):
             "license_url": "https://about.ideogram.ai/legal/api-tos",
             "name": "ideogram-v2",
             "owner": "ideogram-ai",
+            "is_official": True,
             "paper_url": "https://ideogram.ai/",
-            "run_count": 570500,
+            "run_count": 2410715,
             "url": "https://replicate.com/ideogram-ai/ideogram-v2",
             "visibility": "public",
             "weights_url": "https://ideogram.ai/",
@@ -5455,25 +5596,27 @@ class Ideogram_V2(ReplicateNode):
     seed: int | None = Field(
         title="Seed",
         description="Random seed. Set for reproducible generation",
+        le=2147483647.0,
         default=None,
     )
     image: types.ImageRef = Field(
-        default=types.ImageRef(), description="An image file to use for inpainting."
+        default=types.ImageRef(),
+        description="An image file to use for inpainting. You must also use a mask.",
     )
     prompt: str | None = Field(
         title="Prompt", description="Text prompt for image generation", default=None
     )
     resolution: Resolution = Field(
         description="Resolution. Overrides aspect ratio. Ignored if an inpainting image is given.",
-        default=Resolution("None"),
+        default="None",
     )
     style_type: Style_type = Field(
         description="The styles help define the specific aesthetic of the image you want to generate.",
-        default=Style_type("None"),
+        default="None",
     )
     aspect_ratio: Aspect_ratio = Field(
         description="Aspect ratio. Ignored if a resolution or inpainting image is given.",
-        default=Aspect_ratio("1:1"),
+        default="1:1",
     )
     negative_prompt: str | None = Field(
         title="Negative Prompt",
@@ -5482,7 +5625,7 @@ class Ideogram_V2(ReplicateNode):
     )
     magic_prompt_option: Magic_prompt_option = Field(
         description="Magic Prompt will interpret your prompt and optimize it to maximize variety and quality of the images generated. You can also use it to write prompts in different languages.",
-        default=Magic_prompt_option("Auto"),
+        default="Auto",
     )
 
 
@@ -5495,7 +5638,6 @@ class Ideogram_V2_Turbo(ReplicateNode):
         _576X1408 = "576x1408"
         _576X1472 = "576x1472"
         _576X1536 = "576x1536"
-        _640X1024 = "640x1024"
         _640X1344 = "640x1344"
         _640X1408 = "640x1408"
         _640X1472 = "640x1472"
@@ -5506,13 +5648,9 @@ class Ideogram_V2_Turbo(ReplicateNode):
         _704X1344 = "704x1344"
         _704X1408 = "704x1408"
         _704X1472 = "704x1472"
-        _720X1280 = "720x1280"
         _736X1312 = "736x1312"
-        _768X1024 = "768x1024"
         _768X1088 = "768x1088"
-        _768X1152 = "768x1152"
         _768X1216 = "768x1216"
-        _768X1232 = "768x1232"
         _768X1280 = "768x1280"
         _768X1344 = "768x1344"
         _832X960 = "832x960"
@@ -5531,8 +5669,6 @@ class Ideogram_V2_Turbo(ReplicateNode):
         _960X896 = "960x896"
         _960X1024 = "960x1024"
         _960X1088 = "960x1088"
-        _1024X640 = "1024x640"
-        _1024X768 = "1024x768"
         _1024X832 = "1024x832"
         _1024X896 = "1024x896"
         _1024X960 = "1024x960"
@@ -5543,17 +5679,14 @@ class Ideogram_V2_Turbo(ReplicateNode):
         _1088X960 = "1088x960"
         _1120X896 = "1120x896"
         _1152X704 = "1152x704"
-        _1152X768 = "1152x768"
         _1152X832 = "1152x832"
         _1152X864 = "1152x864"
         _1152X896 = "1152x896"
         _1216X704 = "1216x704"
         _1216X768 = "1216x768"
         _1216X832 = "1216x832"
-        _1232X768 = "1232x768"
         _1248X832 = "1248x832"
         _1280X704 = "1280x704"
-        _1280X720 = "1280x720"
         _1280X768 = "1280x768"
         _1280X800 = "1280x800"
         _1312X736 = "1312x736"
@@ -5603,7 +5736,7 @@ class Ideogram_V2_Turbo(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "ideogram-ai/ideogram-v2-turbo:fbb188a06a69327a5daa9d82162b31528823d918705aefeeebd17856f856cfac"
+        return "ideogram-ai/ideogram-v2-turbo:35eacd3dbd088d6421f7ee27646701b5e03ec5a9a0f68f43112fa228d6fc2522"
 
     @classmethod
     def get_hardware(cls):
@@ -5619,8 +5752,9 @@ class Ideogram_V2_Turbo(ReplicateNode):
             "license_url": "https://about.ideogram.ai/legal/api-tos",
             "name": "ideogram-v2-turbo",
             "owner": "ideogram-ai",
+            "is_official": True,
             "paper_url": "https://ideogram.ai/",
-            "run_count": 1047108,
+            "run_count": 2526126,
             "url": "https://replicate.com/ideogram-ai/ideogram-v2-turbo",
             "visibility": "public",
             "weights_url": "https://ideogram.ai/",
@@ -5637,25 +5771,27 @@ class Ideogram_V2_Turbo(ReplicateNode):
     seed: int | None = Field(
         title="Seed",
         description="Random seed. Set for reproducible generation",
+        le=2147483647.0,
         default=None,
     )
     image: types.ImageRef = Field(
-        default=types.ImageRef(), description="An image file to use for inpainting."
+        default=types.ImageRef(),
+        description="An image file to use for inpainting. You must also use a mask.",
     )
     prompt: str | None = Field(
         title="Prompt", description="Text prompt for image generation", default=None
     )
     resolution: Resolution = Field(
         description="Resolution. Overrides aspect ratio. Ignored if an inpainting image is given.",
-        default=Resolution("None"),
+        default="None",
     )
     style_type: Style_type = Field(
         description="The styles help define the specific aesthetic of the image you want to generate.",
-        default=Style_type("None"),
+        default="None",
     )
     aspect_ratio: Aspect_ratio = Field(
         description="Aspect ratio. Ignored if a resolution or inpainting image is given.",
-        default=Aspect_ratio("1:1"),
+        default="1:1",
     )
     negative_prompt: str | None = Field(
         title="Negative Prompt",
@@ -5664,7 +5800,7 @@ class Ideogram_V2_Turbo(ReplicateNode):
     )
     magic_prompt_option: Magic_prompt_option = Field(
         description="Magic Prompt will interpret your prompt and optimize it to maximize variety and quality of the images generated. You can also use it to write prompts in different languages.",
-        default=Magic_prompt_option("Auto"),
+        default="Auto",
     )
 
 
@@ -5677,7 +5813,6 @@ class Ideogram_V2A(ReplicateNode):
         _576X1408 = "576x1408"
         _576X1472 = "576x1472"
         _576X1536 = "576x1536"
-        _640X1024 = "640x1024"
         _640X1344 = "640x1344"
         _640X1408 = "640x1408"
         _640X1472 = "640x1472"
@@ -5688,13 +5823,9 @@ class Ideogram_V2A(ReplicateNode):
         _704X1344 = "704x1344"
         _704X1408 = "704x1408"
         _704X1472 = "704x1472"
-        _720X1280 = "720x1280"
         _736X1312 = "736x1312"
-        _768X1024 = "768x1024"
         _768X1088 = "768x1088"
-        _768X1152 = "768x1152"
         _768X1216 = "768x1216"
-        _768X1232 = "768x1232"
         _768X1280 = "768x1280"
         _768X1344 = "768x1344"
         _832X960 = "832x960"
@@ -5713,8 +5844,6 @@ class Ideogram_V2A(ReplicateNode):
         _960X896 = "960x896"
         _960X1024 = "960x1024"
         _960X1088 = "960x1088"
-        _1024X640 = "1024x640"
-        _1024X768 = "1024x768"
         _1024X832 = "1024x832"
         _1024X896 = "1024x896"
         _1024X960 = "1024x960"
@@ -5725,17 +5854,14 @@ class Ideogram_V2A(ReplicateNode):
         _1088X960 = "1088x960"
         _1120X896 = "1120x896"
         _1152X704 = "1152x704"
-        _1152X768 = "1152x768"
         _1152X832 = "1152x832"
         _1152X864 = "1152x864"
         _1152X896 = "1152x896"
         _1216X704 = "1216x704"
         _1216X768 = "1216x768"
         _1216X832 = "1216x832"
-        _1232X768 = "1232x768"
         _1248X832 = "1248x832"
         _1280X704 = "1280x704"
-        _1280X720 = "1280x720"
         _1280X768 = "1280x768"
         _1280X800 = "1280x800"
         _1312X736 = "1312x736"
@@ -5785,7 +5911,7 @@ class Ideogram_V2A(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "ideogram-ai/ideogram-v2a:4f8774263c3eef920c94916a3cb6a064ed04b06a7aef2af1ffebe0803ada3497"
+        return "ideogram-ai/ideogram-v2a:1751e040eb5e766b3eea4f9e69160987e1854c28a87a08882c930ecc6cef0305"
 
     @classmethod
     def get_hardware(cls):
@@ -5801,8 +5927,9 @@ class Ideogram_V2A(ReplicateNode):
             "license_url": "https://about.ideogram.ai/legal/api-tos",
             "name": "ideogram-v2a",
             "owner": "ideogram-ai",
+            "is_official": True,
             "paper_url": "https://ideogram.ai/",
-            "run_count": 18721,
+            "run_count": 1518198,
             "url": "https://replicate.com/ideogram-ai/ideogram-v2a",
             "visibility": "public",
             "weights_url": None,
@@ -5823,19 +5950,19 @@ class Ideogram_V2A(ReplicateNode):
     )
     resolution: Resolution = Field(
         description="Resolution. Overrides aspect ratio. Ignored if an inpainting image is given.",
-        default=Resolution("None"),
+        default="None",
     )
     style_type: Style_type = Field(
         description="The styles help define the specific aesthetic of the image you want to generate.",
-        default=Style_type("None"),
+        default="None",
     )
     aspect_ratio: Aspect_ratio = Field(
         description="Aspect ratio. Ignored if a resolution or inpainting image is given.",
-        default=Aspect_ratio("1:1"),
+        default="1:1",
     )
     magic_prompt_option: Magic_prompt_option = Field(
         description="Magic Prompt will interpret your prompt and optimize it to maximize variety and quality of the images generated. You can also use it to write prompts in different languages.",
-        default=Magic_prompt_option("Auto"),
+        default="Auto",
     )
 
 
@@ -5849,6 +5976,10 @@ class Imagen_3(ReplicateNode):
         _3_4 = "3:4"
         _4_3 = "4:3"
 
+    class Output_format(str, Enum):
+        JPG = "jpg"
+        PNG = "png"
+
     class Safety_filter_level(str, Enum):
         BLOCK_LOW_AND_ABOVE = "block_low_and_above"
         BLOCK_MEDIUM_AND_ABOVE = "block_medium_and_above"
@@ -5856,11 +5987,11 @@ class Imagen_3(ReplicateNode):
 
     @classmethod
     def get_basic_fields(cls):
-        return ["prompt", "aspect_ratio", "negative_prompt"]
+        return ["prompt", "aspect_ratio", "output_format"]
 
     @classmethod
     def replicate_model_id(cls):
-        return "google/imagen-3:4902bedfc8567f151e7cc0bb500a4480a4fb0575a10baf7e947e02e8b52d0413"
+        return "google/imagen-3:3e0b477743ff405dc5b77dd73456d7ef96705a9aad479c668d57743ce1d4ca96"
 
     @classmethod
     def get_hardware(cls):
@@ -5876,8 +6007,9 @@ class Imagen_3(ReplicateNode):
             "license_url": None,
             "name": "imagen-3",
             "owner": "google",
+            "is_official": True,
             "paper_url": "https://deepmind.google/technologies/imagen-3/",
-            "run_count": 138154,
+            "run_count": 1536755,
             "url": "https://replicate.com/google/imagen-3",
             "visibility": "public",
             "weights_url": None,
@@ -5891,14 +6023,818 @@ class Imagen_3(ReplicateNode):
         title="Prompt", description="Text prompt for image generation", default=None
     )
     aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio of the generated image", default=Aspect_ratio("1:1")
+        description="Aspect ratio of the generated image", default="1:1"
     )
-    negative_prompt: str | None = Field(
-        title="Negative Prompt",
-        description="Text prompt for what to discourage in the generated images",
-        default=None,
+    output_format: Output_format = Field(
+        description="Format of the output image", default="jpg"
     )
     safety_filter_level: Safety_filter_level = Field(
         description="block_low_and_above is strictest, block_medium_and_above blocks some prompts, block_only_high is most permissive but some prompts will still be blocked",
-        default=Safety_filter_level("block_medium_and_above"),
+        default="block_only_high",
+    )
+
+
+class Qwen_Image(ReplicateNode):
+    """An image generation foundation model in the Qwen series that achieves significant advances in complex text rendering."""
+
+    class Image_size(str, Enum):
+        OPTIMIZE_FOR_QUALITY = "optimize_for_quality"
+        OPTIMIZE_FOR_SPEED = "optimize_for_speed"
+
+    class Aspect_ratio(str, Enum):
+        _1_1 = "1:1"
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+        _4_3 = "4:3"
+        _3_4 = "3:4"
+        _3_2 = "3:2"
+        _2_3 = "2:3"
+
+    class Output_format(str, Enum):
+        WEBP = "webp"
+        JPG = "jpg"
+        PNG = "png"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["seed", "image", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "qwen/qwen-image:905e345fe1dfe10d628daac2140dd8dea471c0d99793ef0fdc46a15c688b62fb"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/62e062a1-f4e4-4192-9f0c-56408f092fec/replicate-prediction-97qabd8z.webp",
+            "created_at": "2025-08-04T17:23:39.724770Z",
+            "description": "An image generation foundation model in the Qwen series that achieves significant advances in complex text rendering.",
+            "github_url": "https://github.com/QwenLM/Qwen-Image",
+            "license_url": "https://choosealicense.com/licenses/apache-2.0/",
+            "name": "qwen-image",
+            "owner": "qwen",
+            "is_official": True,
+            "paper_url": "https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/Qwen_Image.pdf",
+            "run_count": 381758,
+            "url": "https://replicate.com/qwen/qwen-image",
+            "visibility": "public",
+            "weights_url": "https://huggingface.co/Qwen/Qwen-Image",
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation",
+        default=None,
+    )
+    image: types.ImageRef = Field(
+        default=types.ImageRef(), description="Input image for img2img pipeline"
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="Prompt for generated image", default=None
+    )
+    go_fast: bool = Field(
+        title="Go Fast",
+        description="Run faster predictions with additional optimizations.",
+        default=True,
+    )
+    guidance: float = Field(
+        title="Guidance",
+        description="Guidance for generated image. Lower values can give more realistic images. Good values to try are 2, 2.5, 3 and 3.5",
+        ge=0.0,
+        le=10.0,
+        default=3,
+    )
+    strength: float = Field(
+        title="Strength",
+        description="Strength for img2img pipeline",
+        ge=0.0,
+        le=1.0,
+        default=0.9,
+    )
+    image_size: Image_size = Field(
+        description="Image size for the generated image", default="optimize_for_quality"
+    )
+    lora_scale: float = Field(
+        title="Lora Scale",
+        description="Determines how strongly the main LoRA should be applied.",
+        default=1,
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio for the generated image", default="16:9"
+    )
+    lora_weights: str | None = Field(
+        title="Lora Weights",
+        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/Viktor1717/scandinavian-interior-style1/resolve/main/my_first_flux_lora_v1.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
+        default=None,
+    )
+    output_format: Output_format = Field(
+        description="Format of the output images", default="webp"
+    )
+    enhance_prompt: bool = Field(
+        title="Enhance Prompt",
+        description="Enhance the prompt with positive magic.",
+        default=False,
+    )
+    output_quality: int = Field(
+        title="Output Quality",
+        description="Quality when saving the output images, from 0 to 100. 100 is best quality, 0 is lowest quality. Not relevant for .png outputs",
+        ge=0.0,
+        le=100.0,
+        default=80,
+    )
+    negative_prompt: str = Field(
+        title="Negative Prompt",
+        description="Negative prompt for generated image",
+        default=" ",
+    )
+    replicate_weights: str | None = Field(
+        title="Replicate Weights",
+        description="Load LoRA weights from Replicate training. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet.",
+        default=None,
+    )
+    num_inference_steps: int = Field(
+        title="Num Inference Steps",
+        description="Number of denoising steps. Recommended range is 28-50, and lower number of steps produce lower quality outputs, faster.",
+        ge=1.0,
+        le=50.0,
+        default=30,
+    )
+    disable_safety_checker: bool = Field(
+        title="Disable Safety Checker",
+        description="Disable safety checker for generated images.",
+        default=False,
+    )
+
+
+class Qwen_Image_Edit(ReplicateNode):
+    """Edit images using a prompt. This model extends Qwen-Image’s unique text rendering capabilities to image editing tasks, enabling precise text editing"""
+
+    class Aspect_ratio(str, Enum):
+        _1_1 = "1:1"
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+        _4_3 = "4:3"
+        _3_4 = "3:4"
+        MATCH_INPUT_IMAGE = "match_input_image"
+
+    class Output_format(str, Enum):
+        WEBP = "webp"
+        JPG = "jpg"
+        PNG = "png"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["seed", "image", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "qwen/qwen-image-edit:f1d0e682b391956e6e8399320775082e4511adf1f2f0f2250d823dae5fa5ff42"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/29bbf095-fce5-4328-8117-9d79a41149c2/replicate-prediction-f28b7ty1.webp",
+            "created_at": "2025-08-18T18:09:48.916882Z",
+            "description": "Edit images using a prompt. This model extends Qwen-Image’s unique text rendering capabilities to image editing tasks, enabling precise text editing",
+            "github_url": None,
+            "license_url": "https://github.com/QwenLM/Qwen-Image/blob/main/LICENSE",
+            "name": "qwen-image-edit",
+            "owner": "qwen",
+            "is_official": True,
+            "paper_url": "https://arxiv.org/abs/2508.02324",
+            "run_count": 305878,
+            "url": "https://replicate.com/qwen/qwen-image-edit",
+            "visibility": "public",
+            "weights_url": "https://huggingface.co/Qwen/Qwen-Image-Edit",
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation",
+        default=None,
+    )
+    image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="Image to use as reference. Must be jpeg, png, gif, or webp.",
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="Text instruction on how to edit the given image.",
+        default=None,
+    )
+    go_fast: bool = Field(
+        title="Go Fast",
+        description="Run faster predictions with additional optimizations.",
+        default=True,
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio for the generated image", default="match_input_image"
+    )
+    output_format: Output_format = Field(
+        description="Format of the output images", default="webp"
+    )
+    output_quality: int = Field(
+        title="Output Quality",
+        description="Quality when saving the output images, from 0 to 100. 100 is best quality, 0 is lowest quality. Not relevant for .png outputs",
+        ge=0.0,
+        le=100.0,
+        default=95,
+    )
+    disable_safety_checker: bool = Field(
+        title="Disable Safety Checker",
+        description="Disable safety checker for generated images.",
+        default=False,
+    )
+
+
+class Seedream_4(ReplicateNode):
+    """Unified text-to-image generation and precise single-sentence editing at up to 4K resolution"""
+
+    class Size(str, Enum):
+        _1K = "1K"
+        _2K = "2K"
+        _4K = "4K"
+        CUSTOM = "custom"
+
+    class Aspect_ratio(str, Enum):
+        MATCH_INPUT_IMAGE = "match_input_image"
+        _1_1 = "1:1"
+        _4_3 = "4:3"
+        _3_4 = "3:4"
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+        _3_2 = "3:2"
+        _2_3 = "2:3"
+        _21_9 = "21:9"
+
+    class Sequential_image_generation(str, Enum):
+        DISABLED = "disabled"
+        AUTO = "auto"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["size", "width", "height"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "bytedance/seedream-4:254faac883c3a411e95cc95d0fb02274a81e388aaa4394b3ce5b7d2a9f7a6569"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/55be80c2-0d5c-496b-8570-8cc101268fc4/tmp4lklv3vn.jpg",
+            "created_at": "2025-09-09T11:23:42.672377Z",
+            "description": "Unified text-to-image generation and precise single-sentence editing at up to 4K resolution",
+            "github_url": None,
+            "license_url": None,
+            "name": "seedream-4",
+            "owner": "bytedance",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 329053,
+            "url": "https://replicate.com/bytedance/seedream-4",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    size: Size = Field(
+        description="Image resolution: 1K (1024px), 2K (2048px), 4K (4096px), or 'custom' for specific dimensions.",
+        default="2K",
+    )
+    width: int = Field(
+        title="Width",
+        description="Custom image width (only used when size='custom'). Range: 1024-4096 pixels.",
+        ge=1024.0,
+        le=4096.0,
+        default=2048,
+    )
+    height: int = Field(
+        title="Height",
+        description="Custom image height (only used when size='custom'). Range: 1024-4096 pixels.",
+        ge=1024.0,
+        le=4096.0,
+        default=2048,
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="Text prompt for image generation", default=None
+    )
+    max_images: int = Field(
+        title="Max Images",
+        description="Maximum number of images to generate when sequential_image_generation='auto'. Range: 1-15. Total images (input + generated) cannot exceed 15.",
+        ge=1.0,
+        le=15.0,
+        default=1,
+    )
+    image_input: list = Field(
+        title="Image Input",
+        description="Input image(s) for image-to-image generation. List of 1-10 images for single or multi-reference generation.",
+        default=[],
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Image aspect ratio. Only used when size is not 'custom'. Use 'match_input_image' to automatically match the input image's aspect ratio.",
+        default="match_input_image",
+    )
+    sequential_image_generation: Sequential_image_generation = Field(
+        description="Group image generation mode. 'disabled' generates a single image. 'auto' lets the model decide whether to generate multiple related images (e.g., story scenes, character variations).",
+        default="disabled",
+    )
+
+
+class Imagen_4_Fast(ReplicateNode):
+    """Use this fast version of Imagen 4 when speed and cost are more important than quality"""
+
+    class Aspect_ratio(str, Enum):
+        _1_1 = "1:1"
+        _9_16 = "9:16"
+        _16_9 = "16:9"
+        _3_4 = "3:4"
+        _4_3 = "4:3"
+
+    class Output_format(str, Enum):
+        JPG = "jpg"
+        PNG = "png"
+
+    class Safety_filter_level(str, Enum):
+        BLOCK_LOW_AND_ABOVE = "block_low_and_above"
+        BLOCK_MEDIUM_AND_ABOVE = "block_medium_and_above"
+        BLOCK_ONLY_HIGH = "block_only_high"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["prompt", "aspect_ratio", "output_format"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "google/imagen-4-fast:66d2e7bb79b1133740ff901fb1f8967b9befe70e3ae7ef056e4bc30ddf3dcf9e"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/73c5af65-f578-4113-b62c-2a56971cff2f/replicate-prediction-trmpwr78.webp",
+            "created_at": "2025-06-12T09:24:39.272587Z",
+            "description": "Use this fast version of Imagen 4 when speed and cost are more important than quality",
+            "github_url": None,
+            "license_url": None,
+            "name": "imagen-4-fast",
+            "owner": "google",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 741596,
+            "url": "https://replicate.com/google/imagen-4-fast",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    prompt: str | None = Field(
+        title="Prompt", description="Text prompt for image generation", default=None
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio of the generated image", default="1:1"
+    )
+    output_format: Output_format = Field(
+        description="Format of the output image", default="jpg"
+    )
+    safety_filter_level: Safety_filter_level = Field(
+        description="block_low_and_above is strictest, block_medium_and_above blocks some prompts, block_only_high is most permissive but some prompts will still be blocked",
+        default="block_only_high",
+    )
+
+
+class Ideogram_V3_Turbo(ReplicateNode):
+    """Turbo is the fastest and cheapest Ideogram v3. v3 creates images with stunning realism, creative designs, and consistent styles"""
+
+    class Resolution(str, Enum):
+        NONE = "None"
+        _512X1536 = "512x1536"
+        _576X1408 = "576x1408"
+        _576X1472 = "576x1472"
+        _576X1536 = "576x1536"
+        _640X1344 = "640x1344"
+        _640X1408 = "640x1408"
+        _640X1472 = "640x1472"
+        _640X1536 = "640x1536"
+        _704X1152 = "704x1152"
+        _704X1216 = "704x1216"
+        _704X1280 = "704x1280"
+        _704X1344 = "704x1344"
+        _704X1408 = "704x1408"
+        _704X1472 = "704x1472"
+        _736X1312 = "736x1312"
+        _768X1088 = "768x1088"
+        _768X1216 = "768x1216"
+        _768X1280 = "768x1280"
+        _768X1344 = "768x1344"
+        _800X1280 = "800x1280"
+        _832X960 = "832x960"
+        _832X1024 = "832x1024"
+        _832X1088 = "832x1088"
+        _832X1152 = "832x1152"
+        _832X1216 = "832x1216"
+        _832X1248 = "832x1248"
+        _864X1152 = "864x1152"
+        _896X960 = "896x960"
+        _896X1024 = "896x1024"
+        _896X1088 = "896x1088"
+        _896X1120 = "896x1120"
+        _896X1152 = "896x1152"
+        _960X832 = "960x832"
+        _960X896 = "960x896"
+        _960X1024 = "960x1024"
+        _960X1088 = "960x1088"
+        _1024X832 = "1024x832"
+        _1024X896 = "1024x896"
+        _1024X960 = "1024x960"
+        _1024X1024 = "1024x1024"
+        _1088X768 = "1088x768"
+        _1088X832 = "1088x832"
+        _1088X896 = "1088x896"
+        _1088X960 = "1088x960"
+        _1120X896 = "1120x896"
+        _1152X704 = "1152x704"
+        _1152X832 = "1152x832"
+        _1152X864 = "1152x864"
+        _1152X896 = "1152x896"
+        _1216X704 = "1216x704"
+        _1216X768 = "1216x768"
+        _1216X832 = "1216x832"
+        _1248X832 = "1248x832"
+        _1280X704 = "1280x704"
+        _1280X768 = "1280x768"
+        _1280X800 = "1280x800"
+        _1312X736 = "1312x736"
+        _1344X640 = "1344x640"
+        _1344X704 = "1344x704"
+        _1344X768 = "1344x768"
+        _1408X576 = "1408x576"
+        _1408X640 = "1408x640"
+        _1408X704 = "1408x704"
+        _1472X576 = "1472x576"
+        _1472X640 = "1472x640"
+        _1472X704 = "1472x704"
+        _1536X512 = "1536x512"
+        _1536X576 = "1536x576"
+        _1536X640 = "1536x640"
+
+    class Style_type(str, Enum):
+        NONE = "None"
+        AUTO = "Auto"
+        GENERAL = "General"
+        REALISTIC = "Realistic"
+        DESIGN = "Design"
+
+    class Aspect_ratio(str, Enum):
+        _1_3 = "1:3"
+        _3_1 = "3:1"
+        _1_2 = "1:2"
+        _2_1 = "2:1"
+        _9_16 = "9:16"
+        _16_9 = "16:9"
+        _10_16 = "10:16"
+        _16_10 = "16:10"
+        _2_3 = "2:3"
+        _3_2 = "3:2"
+        _3_4 = "3:4"
+        _4_3 = "4:3"
+        _4_5 = "4:5"
+        _5_4 = "5:4"
+        _1_1 = "1:1"
+
+    class Style_preset(str, Enum):
+        NONE = "None"
+        _80S_ILLUSTRATION = "80s Illustration"
+        _90S_NOSTALGIA = "90s Nostalgia"
+        ABSTRACT_ORGANIC = "Abstract Organic"
+        ANALOG_NOSTALGIA = "Analog Nostalgia"
+        ART_BRUT = "Art Brut"
+        ART_DECO = "Art Deco"
+        ART_POSTER = "Art Poster"
+        AURA = "Aura"
+        AVANT_GARDE = "Avant Garde"
+        BAUHAUS = "Bauhaus"
+        BLUEPRINT = "Blueprint"
+        BLURRY_MOTION = "Blurry Motion"
+        BRIGHT_ART = "Bright Art"
+        C4D_CARTOON = "C4D Cartoon"
+        CHILDREN_S_BOOK = "Children's Book"
+        COLLAGE = "Collage"
+        COLORING_BOOK_I = "Coloring Book I"
+        COLORING_BOOK_II = "Coloring Book II"
+        CUBISM = "Cubism"
+        DARK_AURA = "Dark Aura"
+        DOODLE = "Doodle"
+        DOUBLE_EXPOSURE = "Double Exposure"
+        DRAMATIC_CINEMA = "Dramatic Cinema"
+        EDITORIAL = "Editorial"
+        EMOTIONAL_MINIMAL = "Emotional Minimal"
+        ETHEREAL_PARTY = "Ethereal Party"
+        EXPIRED_FILM = "Expired Film"
+        FLAT_ART = "Flat Art"
+        FLAT_VECTOR = "Flat Vector"
+        FOREST_REVERIE = "Forest Reverie"
+        GEO_MINIMALIST = "Geo Minimalist"
+        GLASS_PRISM = "Glass Prism"
+        GOLDEN_HOUR = "Golden Hour"
+        GRAFFITI_I = "Graffiti I"
+        GRAFFITI_II = "Graffiti II"
+        HALFTONE_PRINT = "Halftone Print"
+        HIGH_CONTRAST = "High Contrast"
+        HIPPIE_ERA = "Hippie Era"
+        ICONIC = "Iconic"
+        JAPANDI_FUSION = "Japandi Fusion"
+        JAZZY = "Jazzy"
+        LONG_EXPOSURE = "Long Exposure"
+        MAGAZINE_EDITORIAL = "Magazine Editorial"
+        MINIMAL_ILLUSTRATION = "Minimal Illustration"
+        MIXED_MEDIA = "Mixed Media"
+        MONOCHROME = "Monochrome"
+        NIGHTLIFE = "Nightlife"
+        OIL_PAINTING = "Oil Painting"
+        OLD_CARTOONS = "Old Cartoons"
+        PAINT_GESTURE = "Paint Gesture"
+        POP_ART = "Pop Art"
+        RETRO_ETCHING = "Retro Etching"
+        RIVIERA_POP = "Riviera Pop"
+        SPOTLIGHT_80S = "Spotlight 80s"
+        STYLIZED_RED = "Stylized Red"
+        SURREAL_COLLAGE = "Surreal Collage"
+        TRAVEL_POSTER = "Travel Poster"
+        VINTAGE_GEO = "Vintage Geo"
+        VINTAGE_POSTER = "Vintage Poster"
+        WATERCOLOR = "Watercolor"
+        WEIRD = "Weird"
+        WOODBLOCK_PRINT = "Woodblock Print"
+
+    class Magic_prompt_option(str, Enum):
+        AUTO = "Auto"
+        ON = "On"
+        OFF = "Off"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["mask", "seed", "image"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "ideogram-ai/ideogram-v3-turbo:c238db25556f295de040a59b462cc212bb8ceb282bf2fc6bee6fbaf4ab014f23"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/b55e9f9e-5f43-4cf8-99c8-c33cc8486f23/tmp0s1h52uw-1.webp",
+            "created_at": "2025-04-30T13:21:08.936269Z",
+            "description": "Turbo is the fastest and cheapest Ideogram v3. v3 creates images with stunning realism, creative designs, and consistent styles",
+            "github_url": None,
+            "license_url": "https://about.ideogram.ai/legal/api-tos",
+            "name": "ideogram-v3-turbo",
+            "owner": "ideogram-ai",
+            "is_official": True,
+            "paper_url": "https://about.ideogram.ai/3.0",
+            "run_count": 1759749,
+            "url": "https://replicate.com/ideogram-ai/ideogram-v3-turbo",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    mask: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="A black and white image. Black pixels are inpainted, white pixels are preserved. The mask will be resized to match the image size.",
+    )
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation",
+        le=2147483647.0,
+        default=None,
+    )
+    image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="An image file to use for inpainting. You must also use a mask.",
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="Text prompt for image generation", default=None
+    )
+    resolution: Resolution = Field(
+        description="Resolution. Overrides aspect ratio. Ignored if an inpainting image is given.",
+        default="None",
+    )
+    style_type: Style_type = Field(
+        description="The styles help define the specific aesthetic of the image you want to generate.",
+        default="None",
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio. Ignored if a resolution or inpainting image is given.",
+        default="1:1",
+    )
+    style_preset: Style_preset = Field(
+        description="Apply a predefined artistic style to the generated image (V3 models only).",
+        default="None",
+    )
+    magic_prompt_option: Magic_prompt_option = Field(
+        description="Magic Prompt will interpret your prompt and optimize it to maximize variety and quality of the images generated. You can also use it to write prompts in different languages.",
+        default="Auto",
+    )
+    style_reference_images: list | None = Field(
+        title="Style Reference Images",
+        description="A list of images to use as style references.",
+        default=None,
+    )
+
+
+class Flux_Kontext_Pro(ReplicateNode):
+    """A state-of-the-art text-based image editing model that delivers high-quality outputs with excellent prompt following and consistent results for transforming images through natural language"""
+
+    class Aspect_ratio(str, Enum):
+        MATCH_INPUT_IMAGE = "match_input_image"
+        _1_1 = "1:1"
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+        _4_3 = "4:3"
+        _3_4 = "3:4"
+        _3_2 = "3:2"
+        _2_3 = "2:3"
+        _4_5 = "4:5"
+        _5_4 = "5:4"
+        _21_9 = "21:9"
+        _9_21 = "9:21"
+        _2_1 = "2:1"
+        _1_2 = "1:2"
+
+    class Output_format(str, Enum):
+        JPG = "jpg"
+        PNG = "png"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["seed", "prompt", "input_image"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "black-forest-labs/flux-kontext-pro:2dfe45debca13e5ecfad755ef6ca9943fc56a6effb306f4c6e2ea4762df6e53e"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/e74eecd6-daf1-4050-9f04-36313bd6f007/two-people-cropped.webp",
+            "created_at": "2025-05-27T08:26:25.135215Z",
+            "description": "A state-of-the-art text-based image editing model that delivers high-quality outputs with excellent prompt following and consistent results for transforming images through natural language",
+            "github_url": None,
+            "license_url": None,
+            "name": "flux-kontext-pro",
+            "owner": "black-forest-labs",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 22556785,
+            "url": "https://replicate.com/black-forest-labs/flux-kontext-pro",
+            "visibility": "public",
+            "weights_url": "https://huggingface.co/black-forest-labs",
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation",
+        default=None,
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="Text description of what you want to generate, or the instruction on how to edit the given image.",
+        default=None,
+    )
+    input_image: str | None = Field(
+        title="Input Image",
+        description="Image to use as reference. Must be jpeg, png, gif, or webp.",
+        default=None,
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio of the generated image. Use 'match_input_image' to match the aspect ratio of the input image.",
+        default="match_input_image",
+    )
+    output_format: Output_format = Field(
+        description="Output format for the generated image", default="png"
+    )
+    safety_tolerance: int = Field(
+        title="Safety Tolerance",
+        description="Safety tolerance, 0 is most strict and 6 is most permissive. 2 is currently the maximum allowed when input images are used.",
+        ge=0.0,
+        le=6.0,
+        default=2,
+    )
+    prompt_upsampling: bool = Field(
+        title="Prompt Upsampling",
+        description="Automatic prompt improvement",
+        default=False,
+    )
+
+
+class Minimax_Image_01(ReplicateNode):
+    """Minimax's first image model, with character reference support"""
+
+    class Aspect_ratio(str, Enum):
+        _1_1 = "1:1"
+        _16_9 = "16:9"
+        _4_3 = "4:3"
+        _3_2 = "3:2"
+        _2_3 = "2:3"
+        _3_4 = "3:4"
+        _9_16 = "9:16"
+        _21_9 = "21:9"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["prompt", "aspect_ratio", "number_of_images"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "minimax/image-01:47ca89ad46682c1dd0ca335601cd7ea2eb10fb94ce4e0a5abafa7e74f23ae7b6"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/926994db-2c8e-4b7d-934f-2f86b2480e55/43b05178-4b2a-42d9-9130-4fedae65.webp",
+            "created_at": "2025-03-03T14:05:29.816962Z",
+            "description": "Minimax's first image model, with character reference support",
+            "github_url": None,
+            "license_url": None,
+            "name": "image-01",
+            "owner": "minimax",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 1525946,
+            "url": "https://replicate.com/minimax/image-01",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    prompt: str | None = Field(
+        title="Prompt", description="Text prompt for generation", default=None
+    )
+    aspect_ratio: Aspect_ratio = Field(description="Image aspect ratio", default="1:1")
+    number_of_images: int = Field(
+        title="Number Of Images",
+        description="Number of images to generate",
+        ge=1.0,
+        le=9.0,
+        default=1,
+    )
+    prompt_optimizer: bool = Field(
+        title="Prompt Optimizer", description="Use prompt optimizer", default=True
+    )
+    subject_reference: str | None = Field(
+        title="Subject Reference",
+        description="An optional character reference image (human face) to use as the subject in the generated image(s).",
+        default=None,
     )

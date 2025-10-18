@@ -31,8 +31,9 @@ class RealEsrGan(ReplicateNode):
             "license_url": "https://github.com/replicate/cog-real-esrgan/blob/main/LICENSE",
             "name": "real-esrgan-a100",
             "owner": "daanelson",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 13505014,
+            "run_count": 14614084,
             "url": "https://replicate.com/daanelson/real-esrgan-a100",
             "visibility": "public",
             "weights_url": None,
@@ -88,8 +89,9 @@ class GFPGAN(ReplicateNode):
             "license_url": "https://github.com/TencentARC/GFPGAN/blob/master/LICENSE",
             "name": "gfpgan",
             "owner": "tencentarc",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2101.04061",
-            "run_count": 86750171,
+            "run_count": 95065199,
             "url": "https://replicate.com/tencentarc/gfpgan",
             "visibility": "public",
             "weights_url": None,
@@ -103,7 +105,7 @@ class GFPGAN(ReplicateNode):
     scale: float = Field(title="Scale", description="Rescaling factor", default=2)
     version: Version = Field(
         description="GFPGAN version. v1.3: better quality. v1.4: more details and better identity.",
-        default=Version("v1.4"),
+        default="v1.4",
     )
 
 
@@ -219,8 +221,9 @@ class ClarityUpscaler(ReplicateNode):
             "license_url": "https://github.com/philz1337x/clarity-upscaler/blob/main/LICENSE.txt",
             "name": "clarity-upscaler",
             "owner": "philz1337x",
+            "is_official": False,
             "paper_url": "https://clarityai.co",
-            "run_count": 9864042,
+            "run_count": 20009000,
             "url": "https://replicate.com/philz1337x/clarity-upscaler",
             "visibility": "public",
             "weights_url": None,
@@ -250,7 +253,7 @@ class ClarityUpscaler(ReplicateNode):
         title="Dynamic", description="HDR, try from 3 - 9", ge=1.0, le=50.0, default=6
     )
     handfix: Handfix = Field(
-        description="Use clarity to fix hands in the image", default=Handfix("disabled")
+        description="Use clarity to fix hands in the image", default="disabled"
     )
     pattern: bool = Field(
         title="Pattern",
@@ -266,11 +269,9 @@ class ClarityUpscaler(ReplicateNode):
     )
     sd_model: Sd_model = Field(
         description="Stable Diffusion model checkpoint",
-        default=Sd_model("juggernaut_reborn.safetensors [338b85bc4f]"),
+        default="juggernaut_reborn.safetensors [338b85bc4f]",
     )
-    scheduler: Scheduler = Field(
-        description="scheduler", default=Scheduler("DPM++ 3M SDE Karras")
-    )
+    scheduler: Scheduler = Field(description="scheduler", default="DPM++ 3M SDE Karras")
     creativity: float = Field(
         title="Creativity",
         description="Creativity, try from 0.3 - 0.9",
@@ -300,14 +301,14 @@ class ClarityUpscaler(ReplicateNode):
     )
     tiling_width: Tiling_width = Field(
         description="Fractality, set lower tile width for a high Fractality",
-        default=Tiling_width(112),
+        default=112,
     )
     output_format: Output_format = Field(
-        description="Format of the output images", default=Output_format("png")
+        description="Format of the output images", default="png"
     )
     tiling_height: Tiling_height = Field(
         description="Fractality, set lower tile height for a high Fractality",
-        default=Tiling_height(144),
+        default=144,
     )
     custom_sd_model: str = Field(title="Custom Sd Model", default="")
     negative_prompt: str = Field(
@@ -365,8 +366,9 @@ class MagicImageRefiner(ReplicateNode):
             "license_url": None,
             "name": "magic-image-refiner",
             "owner": "fermatresearch",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 922987,
+            "run_count": 943882,
             "url": "https://replicate.com/fermatresearch/magic-image-refiner",
             "visibility": "public",
             "weights_url": None,
@@ -395,9 +397,7 @@ class MagicImageRefiner(ReplicateNode):
     prompt: str | None = Field(
         title="Prompt", description="Prompt for the model", default=None
     )
-    scheduler: Scheduler = Field(
-        description="Choose a scheduler.", default=Scheduler("DDIM")
-    )
+    scheduler: Scheduler = Field(description="Choose a scheduler.", default="DDIM")
     creativity: float = Field(
         title="Creativity",
         description="Denoising strength. 1 means total destruction of the original image",
@@ -410,9 +410,7 @@ class MagicImageRefiner(ReplicateNode):
         description="In this mode, the ControlNet encoder will try best to recognize the content of the input image even if you remove all prompts. The `guidance_scale` between 3.0 and 5.0 is recommended.",
         default=False,
     )
-    resolution: Resolution = Field(
-        description="Image resolution", default=Resolution("original")
-    )
+    resolution: Resolution = Field(description="Image resolution", default="original")
     resemblance: float = Field(
         title="Resemblance",
         description="Conditioning scale for controlnet",
@@ -464,8 +462,9 @@ class ruDallE_SR(ReplicateNode):
             "license_url": "https://github.com/chenxwh/rudalle-sr/blob/main/LICENSE.txt",
             "name": "rudalle-sr",
             "owner": "cjwbw",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2107.10833",
-            "run_count": 483300,
+            "run_count": 484657,
             "url": "https://replicate.com/cjwbw/rudalle-sr",
             "visibility": "public",
             "weights_url": None,
@@ -476,7 +475,7 @@ class ruDallE_SR(ReplicateNode):
         return types.ImageRef
 
     image: types.ImageRef = Field(default=types.ImageRef(), description="Input image")
-    scale: Scale = Field(description="Choose up-scaling factor", default=Scale(4))
+    scale: Scale = Field(description="Choose up-scaling factor", default=4)
 
 
 class HighResolutionControlNetTile(ReplicateNode):
@@ -519,8 +518,9 @@ class HighResolutionControlNetTile(ReplicateNode):
             "license_url": None,
             "name": "high-resolution-controlnet-tile",
             "owner": "fermatresearch",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 605582,
+            "run_count": 640821,
             "url": "https://replicate.com/fermatresearch/high-resolution-controlnet-tile",
             "visibility": "public",
             "weights_url": None,
@@ -542,13 +542,11 @@ class HighResolutionControlNetTile(ReplicateNode):
         default=types.ImageRef(), description="Control image for scribble controlnet"
     )
     steps: int = Field(title="Steps", description="Steps", default=8)
-    format: Format = Field(description="Format of the output.", default=Format("jpg"))
+    format: Format = Field(description="Format of the output.", default="jpg")
     prompt: str | None = Field(
         title="Prompt", description="Prompt for the model", default=None
     )
-    scheduler: Scheduler = Field(
-        description="Choose a scheduler.", default=Scheduler("DDIM")
-    )
+    scheduler: Scheduler = Field(description="Choose a scheduler.", default="DDIM")
     creativity: float = Field(
         title="Creativity",
         description="Denoising strength. 1 means total destruction of the original image",
@@ -561,9 +559,7 @@ class HighResolutionControlNetTile(ReplicateNode):
         description="In this mode, the ControlNet encoder will try best to recognize the content of the input image even if you remove all prompts.",
         default=False,
     )
-    resolution: Resolution = Field(
-        description="Image resolution", default=Resolution(2560)
-    )
+    resolution: Resolution = Field(description="Image resolution", default=2560)
     resemblance: float = Field(
         title="Resemblance",
         description="Conditioning scale for controlnet",
@@ -671,8 +667,9 @@ class UltimateSDUpscale(ReplicateNode):
             "license_url": None,
             "name": "ultimate-sd-upscale",
             "owner": "fewjative",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 159119,
+            "run_count": 163771,
             "url": "https://replicate.com/fewjative/ultimate-sd-upscale",
             "visibility": "public",
             "weights_url": None,
@@ -689,26 +686,20 @@ class UltimateSDUpscale(ReplicateNode):
     image: types.ImageRef = Field(default=types.ImageRef(), description="Input image")
     steps: int = Field(title="Steps", description="Steps", default=20)
     denoise: float = Field(title="Denoise", description="Denoise", default=0.2)
-    upscaler: Upscaler = Field(
-        description="Upscaler", default=Upscaler("4x-UltraSharp")
-    )
+    upscaler: Upscaler = Field(description="Upscaler", default="4x-UltraSharp")
     mask_blur: int = Field(title="Mask Blur", description="Mask Blur", default=8)
-    mode_type: Mode_type = Field(description="Mode Type", default=Mode_type("Linear"))
-    scheduler: Scheduler = Field(description="Scheduler", default=Scheduler("normal"))
+    mode_type: Mode_type = Field(description="Mode Type", default="Linear")
+    scheduler: Scheduler = Field(description="Scheduler", default="normal")
     tile_width: int = Field(title="Tile Width", description="Tile Width", default=512)
     upscale_by: float = Field(title="Upscale By", description="Upscale By", default=2)
     tile_height: int = Field(
         title="Tile Height", description="Tile Height", default=512
     )
-    sampler_name: Sampler_name = Field(
-        description="Sampler", default=Sampler_name("euler")
-    )
+    sampler_name: Sampler_name = Field(description="Sampler", default="euler")
     tile_padding: int = Field(
         title="Tile Padding", description="Tile Padding", default=32
     )
-    seam_fix_mode: Seam_fix_mode = Field(
-        description="Seam Fix Mode", default=Seam_fix_mode("None")
-    )
+    seam_fix_mode: Seam_fix_mode = Field(description="Seam Fix Mode", default="None")
     seam_fix_width: int = Field(
         title="Seam Fix Width", description="Seam Fix Width", default=64
     )
@@ -781,8 +772,9 @@ class SwinIR(ReplicateNode):
             "license_url": "https://github.com/JingyunLiang/SwinIR/blob/main/LICENSE",
             "name": "swinir",
             "owner": "jingyunliang",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2108.10257",
-            "run_count": 5917155,
+            "run_count": 6092943,
             "url": "https://replicate.com/jingyunliang/swinir",
             "visibility": "public",
             "weights_url": None,
@@ -800,11 +792,10 @@ class SwinIR(ReplicateNode):
     image: types.ImageRef = Field(default=types.ImageRef(), description="input image")
     noise: Noise = Field(
         description="noise level, activated for Grayscale Image Denoising and Color Image Denoising. Leave it as default or arbitrary if other tasks are selected",
-        default=Noise(15),
+        default=15,
     )
     task_type: Task_type = Field(
-        description="Choose a task",
-        default=Task_type("Real-World Image Super-Resolution-Large"),
+        description="Choose a task", default="Real-World Image Super-Resolution-Large"
     )
 
 
@@ -838,8 +829,9 @@ class Swin2SR(ReplicateNode):
             "license_url": "https://github.com/mv-lab/swin2sr/blob/main/LICENSE",
             "name": "swin2sr",
             "owner": "mv-lab",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2209.11345",
-            "run_count": 3559014,
+            "run_count": 3571744,
             "url": "https://replicate.com/mv-lab/swin2sr",
             "visibility": "public",
             "weights_url": None,
@@ -849,5 +841,5 @@ class Swin2SR(ReplicateNode):
     def return_type(cls):
         return types.ImageRef
 
-    task: Task = Field(description="Choose a task", default=Task("real_sr"))
+    task: Task = Field(description="Choose a task", default="real_sr")
     image: types.ImageRef = Field(default=types.ImageRef(), description="Input image")

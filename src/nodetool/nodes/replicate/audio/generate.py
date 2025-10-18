@@ -57,8 +57,9 @@ class RealisticVoiceCloning(ReplicateNode):
             "license_url": "https://github.com/SociallyIneptWeeb/AICoverGen/blob/main/LICENSE",
             "name": "realistic-voice-cloning",
             "owner": "zsxkib",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 619690,
+            "run_count": 1026648,
             "url": "https://replicate.com/zsxkib/realistic-voice-cloning",
             "visibility": "public",
             "weights_url": None,
@@ -77,7 +78,7 @@ class RealisticVoiceCloning(ReplicateNode):
     )
     rvc_model: Rvc_model = Field(
         description="RVC model for a specific voice. If using a custom model, this should match the name of the downloaded model. If a 'custom_rvc_model_download_url' is provided, this will be automatically set to the name of the downloaded model.",
-        default=Rvc_model("Squidward"),
+        default="Squidward",
     )
     index_rate: float = Field(
         title="Index Rate",
@@ -98,7 +99,7 @@ class RealisticVoiceCloning(ReplicateNode):
     )
     pitch_change: Pitch_change = Field(
         description="Adjust pitch of AI vocals. Options: `no-change`, `male-to-female`, `female-to-male`.",
-        default=Pitch_change("no-change"),
+        default="no-change",
     )
     rms_mix_rate: float = Field(
         title="Rms Mix Rate",
@@ -116,7 +117,7 @@ class RealisticVoiceCloning(ReplicateNode):
     )
     output_format: Output_format = Field(
         description="wav for best quality and large file size, mp3 for decent quality and small file size.",
-        default=Output_format("mp3"),
+        default="mp3",
     )
     reverb_damping: float = Field(
         title="Reverb Damping",
@@ -156,7 +157,7 @@ class RealisticVoiceCloning(ReplicateNode):
     )
     pitch_detection_algorithm: Pitch_detection_algorithm = Field(
         description="Best option is rmvpe (clarity in vocals), then mangio-crepe (smoother vocals).",
-        default=Pitch_detection_algorithm("rmvpe"),
+        default="rmvpe",
     )
     instrumental_volume_change: float = Field(
         title="Instrumental Volume Change",
@@ -311,8 +312,9 @@ class TortoiseTTS(ReplicateNode):
             "license_url": "https://github.com/afiaka87/tortoise-tts/blob/main/LICENSE",
             "name": "tortoise-tts",
             "owner": "afiaka87",
+            "is_official": False,
             "paper_url": "https://github.com/neonbjb/tortoise-tts",
-            "run_count": 167587,
+            "run_count": 172255,
             "url": "https://replicate.com/afiaka87/tortoise-tts",
             "visibility": "public",
             "weights_url": None,
@@ -334,19 +336,19 @@ class TortoiseTTS(ReplicateNode):
     )
     preset: Preset = Field(
         description="Which voice preset to use. See the documentation for more information.",
-        default=Preset("fast"),
+        default="fast",
     )
     voice_a: Voice_a = Field(
         description="Selects the voice to use for generation. Use `random` to select a random voice. Use `custom_voice` to use a custom voice.",
-        default=Voice_a("random"),
+        default="random",
     )
     voice_b: Voice_b = Field(
         description="(Optional) Create new voice from averaging the latents for `voice_a`, `voice_b` and `voice_c`. Use `disabled` to disable voice mixing.",
-        default=Voice_b("disabled"),
+        default="disabled",
     )
     voice_c: Voice_c = Field(
         description="(Optional) Create new voice from averaging the latents for `voice_a`, `voice_b` and `voice_c`. Use `disabled` to disable voice mixing.",
-        default=Voice_c("disabled"),
+        default="disabled",
     )
     cvvp_amount: float = Field(
         title="Cvvp Amount",
@@ -386,8 +388,9 @@ class StyleTTS2(ReplicateNode):
             "license_url": "https://github.com/yl4579/StyleTTS2/blob/main/LICENSE",
             "name": "styletts2",
             "owner": "adirik",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.07691",
-            "run_count": 129814,
+            "run_count": 131616,
             "url": "https://replicate.com/adirik/styletts2",
             "visibility": "public",
             "weights_url": None,
@@ -477,8 +480,9 @@ class Riffusion(ReplicateNode):
             "license_url": "https://github.com/riffusion/riffusion/blob/main/LICENSE",
             "name": "riffusion",
             "owner": "riffusion",
+            "is_official": False,
             "paper_url": "https://www.riffusion.com/about",
-            "run_count": 1002412,
+            "run_count": 1044734,
             "url": "https://replicate.com/riffusion/riffusion",
             "visibility": "public",
             "weights_url": None,
@@ -516,7 +520,7 @@ class Riffusion(ReplicateNode):
         default=0.75,
     )
     seed_image_id: Seed_image_id = Field(
-        description="Seed spectrogram to use", default=Seed_image_id("vibes")
+        description="Seed spectrogram to use", default="vibes"
     )
     num_inference_steps: int = Field(
         title="Num Inference Steps",
@@ -567,8 +571,9 @@ class MusicGen(ReplicateNode):
             "license_url": "https://github.com/facebookresearch/audiocraft/blob/main/LICENSE_weights",
             "name": "musicgen",
             "owner": "meta",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.05284",
-            "run_count": 2309694,
+            "run_count": 3013095,
             "url": "https://replicate.com/meta/musicgen",
             "visibility": "public",
             "weights_url": None,
@@ -619,11 +624,10 @@ class MusicGen(ReplicateNode):
         default=False,
     )
     model_version: Model_version = Field(
-        description="Model to use for generation",
-        default=Model_version("stereo-melody-large"),
+        description="Model to use for generation", default="stereo-melody-large"
     )
     output_format: Output_format = Field(
-        description="Output format for generated audio.", default=Output_format("wav")
+        description="Output format for generated audio.", default="wav"
     )
     continuation_end: int | None = Field(
         title="Continuation End",
@@ -643,8 +647,7 @@ class MusicGen(ReplicateNode):
         default=False,
     )
     normalization_strategy: Normalization_strategy = Field(
-        description="Strategy for normalizing audio.",
-        default=Normalization_strategy("loudness"),
+        description="Strategy for normalizing audio.", default="loudness"
     )
     classifier_free_guidance: int = Field(
         title="Classifier Free Guidance",
@@ -654,15 +657,15 @@ class MusicGen(ReplicateNode):
 
 
 class MMAudio(ReplicateNode):
-    """Add sound to video. An advanced AI model that synthesizes high-quality audio from video content, enabling seamless video-to-audio transformation"""
+    """Add sound to video using the MMAudio V2 model. An advanced AI model that synthesizes high-quality audio from video content, enabling seamless video-to-audio transformation."""
 
     @classmethod
     def get_basic_fields(cls):
-        return ["seed", "video", "prompt"]
+        return ["seed", "image", "video"]
 
     @classmethod
     def replicate_model_id(cls):
-        return "zsxkib/mmaudio:4b9f801a167b1f6cc2db6ba7ffdeb307630bf411841d4e8300e63ca992de0be9"
+        return "zsxkib/mmaudio:62871fb59889b2d7c13777f08deb3b36bdff88f7e1d53a50ad7694548a41b484"
 
     @classmethod
     def get_hardware(cls):
@@ -673,13 +676,14 @@ class MMAudio(ReplicateNode):
         return {
             "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/34262841-19bf-443c-9892-72488fec1ef2/mmaudio-cover.webp",
             "created_at": "2024-12-11T14:46:16.273908Z",
-            "description": "Add sound to video. An advanced AI model that synthesizes high-quality audio from video content, enabling seamless video-to-audio transformation",
-            "github_url": "https://github.com/hkchengrex/MMAudio",
+            "description": "Add sound to video using the MMAudio V2 model. An advanced AI model that synthesizes high-quality audio from video content, enabling seamless video-to-audio transformation.",
+            "github_url": "https://github.com/zsxkib/cog-mmaudio",
             "license_url": "https://github.com/hkchengrex/MMAudio#MIT-1-ov-file",
             "name": "mmaudio",
             "owner": "zsxkib",
+            "is_official": False,
             "paper_url": "https://hkchengrex.github.io/MMAudio",
-            "run_count": 159859,
+            "run_count": 3135924,
             "url": "https://replicate.com/zsxkib/mmaudio",
             "visibility": "public",
             "weights_url": "https://huggingface.co/hkchengrex/MMAudio/tree/main",
@@ -689,10 +693,16 @@ class MMAudio(ReplicateNode):
     def return_type(cls):
         return types.AudioRef
 
-    seed: int = Field(
+    seed: int | None = Field(
         title="Seed",
-        description="Random seed. Use -1 to randomize the seed",
-        default=-1,
+        description="Random seed. Use -1 or leave blank to randomize the seed",
+        ge=-1.0,
+        default=None,
+    )
+    image: str | None = Field(
+        title="Image",
+        description="Optional image file for image-to-audio generation (experimental)",
+        default=None,
     )
     video: str | None = Field(
         title="Video",
@@ -703,13 +713,13 @@ class MMAudio(ReplicateNode):
         title="Prompt", description="Text prompt for generated audio", default=""
     )
     duration: float = Field(
-        title="Duration", description="Duration of output in seconds", default=8
+        title="Duration", description="Duration of output in seconds", ge=1.0, default=8
     )
     num_steps: int = Field(
         title="Num Steps", description="Number of inference steps", default=25
     )
     cfg_strength: float = Field(
-        title="Cfg Strength", description="Guidance strength (CFG)", default=4.5
+        title="Cfg Strength", description="Guidance strength (CFG)", ge=1.0, default=4.5
     )
     negative_prompt: str = Field(
         title="Negative Prompt",

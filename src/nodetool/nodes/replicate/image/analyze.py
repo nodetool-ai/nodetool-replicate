@@ -35,8 +35,9 @@ class SDXLClipInterrogator(ReplicateNode):
             "license_url": "https://github.com/pharmapsychotic/clip-interrogator/blob/main/LICENSE",
             "name": "sdxl-clip-interrogator",
             "owner": "lucataco",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 845970,
+            "run_count": 848344,
             "url": "https://replicate.com/lucataco/sdxl-clip-interrogator",
             "visibility": "public",
             "weights_url": None,
@@ -48,7 +49,7 @@ class SDXLClipInterrogator(ReplicateNode):
 
     mode: Mode = Field(
         description="Prompt Mode: fast takes 1-2 seconds, best takes 15-25 seconds.",
-        default=Mode("best"),
+        default="best",
     )
     image: types.ImageRef = Field(default=types.ImageRef(), description="Input image")
 
@@ -78,8 +79,9 @@ class Img2Prompt(ReplicateNode):
             "license_url": "https://github.com/pharmapsychotic/clip-interrogator/blob/main/LICENSE",
             "name": "img2prompt",
             "owner": "methexis-inc",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 2641248,
+            "run_count": 2654039,
             "url": "https://replicate.com/methexis-inc/img2prompt",
             "visibility": "public",
             "weights_url": None,
@@ -117,8 +119,9 @@ class Moondream2(ReplicateNode):
             "license_url": "https://github.com/vikhyat/moondream?tab=Apache-2.0-1-ov-file#readme",
             "name": "moondream2",
             "owner": "lucataco",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 333951,
+            "run_count": 3114450,
             "url": "https://replicate.com/lucataco/moondream2",
             "visibility": "public",
             "weights_url": None,
@@ -152,15 +155,16 @@ class NSFWImageDetection(ReplicateNode):
     @classmethod
     def get_model_info(cls):
         return {
-            "cover_image_url": "https://replicate.delivery/pbxt/JurYNQcIfISvpS6WtaOcwZXw1ifEudlLyQqiLj5N1Zq977Q3/falcon.jpg",
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/41507351-883e-4a5a-8d62-2fe69ef0b7fc/falcon.jpg",
             "created_at": "2023-11-21T14:53:34.798862Z",
             "description": "Fine-Tuned Vision Transformer (ViT) for NSFW Image Classification",
             "github_url": "https://github.com/lucataco/cog-nsfw_image_detection",
             "license_url": "https://huggingface.co/models?license=license:apache-2.0",
             "name": "nsfw_image_detection",
             "owner": "falcons-ai",
+            "is_official": True,
             "paper_url": "https://arxiv.org/abs/2010.11929",
-            "run_count": 57124454,
+            "run_count": 63829470,
             "url": "https://replicate.com/falcons-ai/nsfw_image_detection",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Falconsai/nsfw_image_detection",
@@ -203,8 +207,9 @@ class Blip(ReplicateNode):
             "license_url": "https://github.com/salesforce/BLIP/blob/main/LICENSE.txt",
             "name": "blip",
             "owner": "salesforce",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2201.12086",
-            "run_count": 161029756,
+            "run_count": 167989821,
             "url": "https://replicate.com/salesforce/blip",
             "visibility": "public",
             "weights_url": None,
@@ -214,7 +219,7 @@ class Blip(ReplicateNode):
     def return_type(cls):
         return str
 
-    task: Task = Field(description="Choose a task.", default=Task("image_captioning"))
+    task: Task = Field(description="Choose a task.", default="image_captioning")
     image: types.ImageRef = Field(default=types.ImageRef(), description="Input image")
     caption: str | None = Field(
         title="Caption",
@@ -253,8 +258,9 @@ class Blip2(ReplicateNode):
             "license_url": None,
             "name": "blip-2",
             "owner": "andreasjansson",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2301.12597",
-            "run_count": 29462651,
+            "run_count": 30685755,
             "url": "https://replicate.com/andreasjansson/blip-2",
             "visibility": "public",
             "weights_url": None,
@@ -332,8 +338,9 @@ class ClipInterrogator(ReplicateNode):
             "license_url": "https://github.com/pharmapsychotic/clip-interrogator/blob/main/LICENSE",
             "name": "clip-interrogator",
             "owner": "pharmapsychotic",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 3111091,
+            "run_count": 4449419,
             "url": "https://replicate.com/pharmapsychotic/clip-interrogator",
             "visibility": "public",
             "weights_url": None,
@@ -345,12 +352,12 @@ class ClipInterrogator(ReplicateNode):
 
     mode: Mode = Field(
         description="Prompt mode (best takes 10-20 seconds, fast takes 1-2 seconds).",
-        default=Mode("best"),
+        default="best",
     )
     image: types.ImageRef = Field(default=types.ImageRef(), description="Input image")
     clip_model_name: Clip_model_name = Field(
         description="Choose ViT-L for Stable Diffusion 1, ViT-H for Stable Diffusion 2, or ViT-bigG for Stable Diffusion XL.",
-        default=Clip_model_name("ViT-L-14/openai"),
+        default="ViT-L-14/openai",
     )
 
 
@@ -379,8 +386,9 @@ class Llava13b(ReplicateNode):
             "license_url": "https://ai.meta.com/llama/license/",
             "name": "llava-13b",
             "owner": "yorickvp",
+            "is_official": False,
             "paper_url": "https://arxiv.org/abs/2310.03744",
-            "run_count": 23531581,
+            "run_count": 30632354,
             "url": "https://replicate.com/yorickvp/llava-13b",
             "visibility": "public",
             "weights_url": None,
@@ -440,8 +448,9 @@ class ClipFeatures(ReplicateNode):
             "license_url": None,
             "name": "clip-features",
             "owner": "andreasjansson",
+            "is_official": False,
             "paper_url": None,
-            "run_count": 81268730,
+            "run_count": 104790007,
             "url": "https://replicate.com/andreasjansson/clip-features",
             "visibility": "public",
             "weights_url": None,
