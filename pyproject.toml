@@ -21,7 +21,7 @@ stable = ["nodetool-core==0.6.2-rc.12"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/nodetool"]
-artifacts = ["src/nodetool/package_metadata/nodetool-replicate.json"]
+artifacts = ["src/nodetool/package_metadata/nodetool-replicate.json", "package_metadata/nodetool-replicate.json"]
 
 [tool.ruff]
 target-version = "py311"
