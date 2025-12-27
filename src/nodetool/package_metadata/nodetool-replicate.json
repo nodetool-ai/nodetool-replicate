@@ -1,7 +1,7 @@
 {
   "name": "nodetool-replicate",
   "description": "Replicate support for Nodetool",
-  "version": "0.6.2-rc.14",
+  "version": "0.6.2-rc.15",
   "authors": [
     "Matthias Georgi <matti.georgi@gmail.com>"
   ],
@@ -22,7 +22,8 @@
             "type": "audio",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Audio",
           "description": "Audio file to create waveform from"
@@ -965,7 +966,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Optional input image to use as the starting frame"
@@ -1133,7 +1135,8 @@
             "type": "audio",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Audio",
           "description": "Input audio file (.wav)"
@@ -1148,6 +1151,7 @@
             "uri": "",
             "asset_id": null,
             "data": null,
+            "metadata": null,
             "duration": null,
             "format": null
           },
@@ -1236,7 +1240,8 @@
             "type": "audio",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Audio",
           "description": "Input audio file (.wav)"
@@ -1251,6 +1256,7 @@
             "uri": "",
             "asset_id": null,
             "data": null,
+            "metadata": null,
             "duration": null,
             "format": null
           },
@@ -1374,7 +1380,8 @@
             "type": "audio",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Song File",
           "description": "Reference song, should contain music and vocals. Must be a .wav or .mp3 file longer than 15 seconds."
@@ -1388,7 +1395,8 @@
             "type": "audio",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Voice File",
           "description": "Voice reference. Must be a .wav or .mp3 file longer than 15 seconds. If only a voice reference is given, an a cappella vocal hum will be generated."
@@ -1700,7 +1708,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "End Image Url",
           "description": "URL of an image to use as the ending frame"
@@ -1724,7 +1733,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Start Image Url",
           "description": "URL of an image to use as the starting frame"
@@ -1775,6 +1785,7 @@
             "uri": "",
             "asset_id": null,
             "data": null,
+            "metadata": null,
             "duration": null,
             "format": null
           },
@@ -2122,7 +2133,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Image for use as the initial frame of the video."
@@ -2293,7 +2305,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image to generate video from."
@@ -2747,6 +2760,7 @@
             "uri": "",
             "asset_id": null,
             "data": null,
+            "metadata": null,
             "duration": null,
             "format": null
           },
@@ -2797,6 +2811,7 @@
             "uri": "",
             "asset_id": null,
             "data": null,
+            "metadata": null,
             "duration": null,
             "format": null
           },
@@ -2921,7 +2936,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image Path",
           "description": "input image"
@@ -3044,7 +3060,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Subject",
           "description": "An image of a person. Best images are square close ups of a face, but they do not have to be."
@@ -3303,7 +3320,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "Image mask for image inpainting mode. If provided, aspect_ratio, width, and height inputs are ignored."
@@ -3327,7 +3345,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for image to image or inpainting mode. If provided, aspect_ratio, width, and height inputs are ignored."
@@ -3593,7 +3612,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "Image mask for image inpainting mode. If provided, aspect_ratio, width, and height inputs are ignored."
@@ -3617,7 +3637,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for image to image or inpainting mode. If provided, aspect_ratio, width, and height inputs are ignored."
@@ -3940,7 +3961,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Control Image",
           "description": "Image used to control the generation. The canny edge detection will be automatically generated."
@@ -4078,7 +4100,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Control Image",
           "description": "Image to use as control input. Must be jpeg, png, gif, or webp."
@@ -4162,7 +4185,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "Image mask for image inpainting mode. If provided, aspect_ratio, width, and height inputs are ignored."
@@ -4186,7 +4210,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for image to image or inpainting mode. If provided, aspect_ratio, width, and height inputs are ignored."
@@ -4509,7 +4534,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Control Image",
           "description": "Image used to control the generation. The depth map will be automatically generated."
@@ -4647,7 +4673,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Control Image",
           "description": "Image to use as control input. Must be jpeg, png, gif, or webp."
@@ -4932,7 +4959,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for image to image mode. The aspect ratio of your output will match this image"
@@ -5637,7 +5665,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "Image mask for image inpainting mode. If provided, aspect_ratio, width, and height inputs are ignored."
@@ -5661,7 +5690,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for image to image or inpainting mode. If provided, aspect_ratio, width, and height inputs are ignored."
@@ -6164,7 +6194,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Redux Image",
           "description": "Input image to condition your output on. This replaces prompt for FLUX.1 Redux models"
@@ -6318,7 +6349,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Redux Image",
           "description": "Input image to condition your output on. This replaces prompt for FLUX.1 Redux models"
@@ -6945,7 +6977,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "A black and white image. Black pixels are inpainted, white pixels are preserved. The mask will be resized to match the image size."
@@ -6970,7 +7003,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "An image file to use for inpainting. You must also use a mask."
@@ -7373,7 +7407,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "A black and white image. Black pixels are inpainted, white pixels are preserved. The mask will be resized to match the image size."
@@ -7398,7 +7433,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "An image file to use for inpainting. You must also use a mask."
@@ -7606,7 +7642,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "A black and white image. Black pixels are inpainted, white pixels are preserved. The mask will be resized to match the image size."
@@ -7631,7 +7668,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "An image file to use for inpainting. You must also use a mask."
@@ -7926,7 +7964,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Optional img2img"
@@ -7964,7 +8003,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask Image",
           "description": "Optional mask for inpainting"
@@ -7987,7 +8027,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Control Image",
           "description": "Control image"
@@ -8790,7 +8831,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image Reference Url",
           "description": "Deprecated: Use image_reference instead"
@@ -8804,7 +8846,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Style Reference Url",
           "description": "Deprecated: Use style_reference instead"
@@ -8840,7 +8883,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Character Reference Url",
           "description": "Deprecated: Use character_reference instead"
@@ -8910,7 +8954,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for img2img or inpaint mode"
@@ -9082,7 +9127,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "Input mask for inpaint mode. Black areas will be preserved, white areas will be inpainted."
@@ -9106,7 +9152,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for img2img or inpaint mode"
@@ -9273,7 +9320,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "Input mask for inpaint mode. Black areas will be preserved, white areas will be inpainted."
@@ -9297,7 +9345,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for img2img or inpaint mode"
@@ -9502,7 +9551,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Face Image",
           "description": "The face image to use for the generation"
@@ -9642,7 +9692,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for img2img pipeline"
@@ -9869,7 +9920,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Image to use as reference. Must be jpeg, png, gif, or webp."
@@ -10524,7 +10576,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Remove background from this image"
@@ -10742,7 +10795,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for img2img or inpaint mode"
@@ -10832,7 +10886,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "Input mask for inpaint mode. Black areas will be preserved, white areas will be inpainted."
@@ -10856,7 +10911,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for img2img or inpaint mode"
@@ -11080,7 +11136,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "Input mask for inpaint mode. Black areas will be preserved, white areas will be inpainted."
@@ -11104,7 +11161,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for img2img or inpaint mode"
@@ -11660,7 +11718,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for image to image mode. The aspect ratio of your output will match this image."
@@ -11809,7 +11868,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for image to image mode. The aspect ratio of your output will match this image."
@@ -11958,7 +12018,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for image to image mode. The aspect ratio of your output will match this image."
@@ -12086,7 +12147,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "Black and white image to use as mask for inpainting over the image provided. White pixels are inpainted and black pixels are preserved."
@@ -12110,7 +12172,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Initial image to generate variations of. Will be resized to height x width"
@@ -12295,7 +12358,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "Input mask for inpaint mode. Black areas will be preserved, white areas will be inpainted."
@@ -12319,7 +12383,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image for img2img or inpaint mode"
@@ -12868,7 +12933,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Style Image",
           "description": "Copy the style from this image"
@@ -12917,7 +12983,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Structure Image",
           "description": "An optional image to copy structure from. Output images will use the same aspect ratio."
@@ -13000,7 +13067,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -13088,7 +13156,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image."
@@ -13161,7 +13230,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image."
@@ -13218,7 +13288,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "input image."
@@ -13287,7 +13358,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Low quality input image."
@@ -13492,7 +13564,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Low quality input image."
@@ -13706,7 +13779,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "input image"
@@ -14025,7 +14099,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Img",
           "description": "Input"
@@ -14121,7 +14196,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Control image for scribble controlnet"
@@ -14319,7 +14395,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask",
           "description": "When provided, refines some section of the image. Must be the same size as the image"
@@ -14343,7 +14420,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Image to refine"
@@ -14494,7 +14572,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -14579,7 +14658,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -14637,7 +14717,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "input image"
@@ -14738,7 +14819,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -15029,7 +15111,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -15137,7 +15220,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Image to process"
@@ -15263,7 +15347,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Image file"
@@ -15422,7 +15507,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -15445,7 +15531,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Ip Image",
           "description": "Input image for img2img or inpaint mode"
@@ -15650,7 +15737,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "input image"
@@ -15767,7 +15855,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Org Image",
           "description": "Original input image"
@@ -15781,7 +15870,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Mask Image",
           "description": "Mask image"
@@ -15830,7 +15920,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -15893,7 +15984,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -15963,7 +16055,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image to query or caption"
@@ -16125,7 +16218,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -16190,7 +16284,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -16238,7 +16333,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -16329,7 +16425,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -16445,7 +16542,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -16504,7 +16602,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "An image of a person to be converted"
@@ -16526,7 +16625,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image To Become",
           "description": "Any image to convert the person to"
@@ -16681,7 +16781,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "An image of a person to be converted"
@@ -16841,7 +16942,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "An image of a person to be converted to a sticker"
@@ -17002,7 +17104,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input face image"
@@ -17052,7 +17155,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Pose Image",
           "description": "(Optional) reference pose image"
@@ -17343,7 +17447,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -17477,7 +17582,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Image",
           "description": "Input image"
@@ -17848,7 +17954,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Input Image",
           "description": "The input image, for example a photo of your face."
@@ -17873,7 +17980,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Input Image2",
           "description": "Additional input image (optional)"
@@ -17887,7 +17995,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Input Image3",
           "description": "Additional input image (optional)"
@@ -17901,7 +18010,8 @@
             "type": "image",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Input Image4",
           "description": "Additional input image (optional)"
@@ -18346,7 +18456,8 @@
             "type": "audio",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Song Input",
           "description": "Upload your audio file here."
@@ -18721,7 +18832,8 @@
             "type": "audio",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Reference",
           "description": "Reference speech to copy style from"
@@ -18973,7 +19085,8 @@
             "type": "audio",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Custom Voice",
           "description": "(Optional) Create a custom voice based on an mp3 file of a speaker. Audio should be at least 15 seconds, only contain one speaker, and be in mp3 format. Overrides the `voice_a` input."
@@ -19044,7 +19157,8 @@
             "type": "audio",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Input File",
           "description": "Audio to upsample"
@@ -19133,7 +19247,8 @@
             "type": "audio",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Audio",
           "description": "Upload the file to be processed here."
@@ -19419,7 +19534,8 @@
             "type": "audio",
             "uri": "",
             "asset_id": null,
-            "data": null
+            "data": null,
+            "metadata": null
           },
           "title": "Audio",
           "description": "Audio file"
