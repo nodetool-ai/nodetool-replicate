@@ -1084,6 +1084,24 @@ replicate_nodes = [
         "namespace": "text.generate",
         "return_type": str,
     },
+    {
+        "model_id": "black-forest-labs/flux-2-pro",
+        "node_name": "Flux_2_Pro",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "black-forest-labs/flux-2-flex",
+        "node_name": "Flux_2_Flex",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "google/veo-3.1",
+        "node_name": "Veo_3_1",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+    },
 ]
 
 if __name__ == "__main__":
