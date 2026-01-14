@@ -15,6 +15,6 @@ jobs:
       - name: Install dependencies
         env:
           UV_EXTRA_INDEX_URL: https://nodetool-ai.github.io/nodetool-registry/simple/
-        run: uv sync --frozen
+        run: uv sync --frozen --index-strategy unsafe-best-match
       - name: Run tests
         run: uv run pytest -q
