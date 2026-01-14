@@ -1,0 +1,105 @@
+name: Replicate Model Sync
+
+on:
+  schedule:
+    - cron: "45 */6 * * *" # Every 6 hours at minute 45
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  opencode:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libgl1 libglib2.0-0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Run OpenCode
+        uses: anomalyco/opencode/github@latest
+        env:
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
+        with:
+          model: minimax/MiniMax-M2.1
+          prompt: |
+            # Replicate Model Sync (Scheduled)
+
+            You are an autonomous agent that adds new Replicate models to the **nodetool-replicate** repository.
+
+            ## Step 0: Avoid Duplicate Work
+            1. Run `git branch -a` to check existing branches
+            2. If there's an open PR for similar work, continue on that branch instead of duplicating
+
+            ## Step 1: Read Memory (Required)
+            - `.github/opencode-memory/README.md`
+            - `.github/opencode-memory/repository-context.md`
+            - `.github/opencode-memory/node-creation-guide.md`
+            - `.github/opencode-memory/features.md`
+
+            ## Step 2: Discover New Models
+            1. Use the Replicate API or browse https://replicate.com/explore
+            2. Focus on:
+               - Featured/Official models from major providers (OpenAI, Anthropic, Google, Meta, Stability, etc.)
+               - Popular models with high run counts
+               - Recent models (released in last 30 days)
+            3. Check `src/nodetool/nodes/replicate/gencode.py` to see which models already exist
+            4. Pick 1-3 new models that are NOT already in the `replicate_nodes` list
+
+            ## Step 3: Add New Models
+            1. Edit `src/nodetool/nodes/replicate/gencode.py`
+            2. Add entries to the `replicate_nodes` list following the guide
+            3. Determine:
+               - Correct `model_id` from Replicate URL
+               - Appropriate `node_name` (PascalCase)
+               - Correct `namespace` (image.generate, video.generate, etc.)
+               - Correct `return_type` (ImageRef, VideoRef, AudioRef, str)
+               - Any `overrides` for file input parameters
+
+            ## Step 4: Regenerate Nodes
+            ```bash
+            # Generate the node Python files from gencode.py definitions
+            python -m nodetool.nodes.replicate.gencode
+
+            # Generate package metadata JSON (src/nodetool/package_metadata/)
+            nodetool package scan
+
+            # Generate DSL code (src/nodetool/dsl/)
+            nodetool codegen
+            ```
+
+            ## Step 5: Quality Checks
+            ```bash
+            ruff check .
+            black --check .
+            # Fix any issues before committing
+            black .
+            ```
+
+            ## Step 6: Update Memory
+            Add entries to `.github/opencode-memory/features.md` documenting what was added.
+
+            ## Guidelines
+            - Add only 1-3 models per run to keep PRs focused
+            - Prefer models from official/verified providers
+            - Skip models that have no stable version
+            - If a model fails to generate, skip it and try another
+            - Always run linting before committing
