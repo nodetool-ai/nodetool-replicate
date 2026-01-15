@@ -3162,7 +3162,7 @@ wheels = [
 
 [[package]]
 name = "nodetool-core"
-version = "0.6.2rc22"
+version = "0.6.2rc25"
 source = { registry = "https://nodetool-ai.github.io/nodetool-registry/simple/" }
 dependencies = [
     { name = "aioconsole" },
@@ -3171,6 +3171,7 @@ dependencies = [
     { name = "aiosqlite" },
     { name = "annotated-types" },
     { name = "anthropic" },
+    { name = "attrs" },
     { name = "authlib" },
     { name = "boto3" },
     { name = "bs4" },
@@ -3265,12 +3266,12 @@ dependencies = [
     { name = "websockets" },
 ]
 wheels = [
-    { url = "https://github.com/nodetool-ai/nodetool-core/releases/download/v0.6.2-rc.22/nodetool_core-0.6.2rc22-py3-none-any.whl" },
+    { url = "https://github.com/nodetool-ai/nodetool-core/releases/download/v0.6.2-rc.25/nodetool_core-0.6.2rc25-py3-none-any.whl" },
 ]
 
 [[package]]
 name = "nodetool-replicate"
-version = "0.6.2rc22"
+version = "0.6.2rc25"
 source = { editable = "." }
 dependencies = [
     { name = "nodetool-core" },
@@ -3284,8 +3285,8 @@ stable = [
 
 [package.metadata]
 requires-dist = [
-    { name = "nodetool-core", specifier = "==0.6.2rc22" },
-    { name = "nodetool-core", marker = "extra == 'stable'", specifier = "==0.6.2rc22" },
+    { name = "nodetool-core", specifier = "==0.6.2rc25" },
+    { name = "nodetool-core", marker = "extra == 'stable'", specifier = "==0.6.2rc25" },
     { name = "replicate" },
 ]
 provides-extras = ["stable"]

@@ -59,7 +59,7 @@ class RealisticVoiceCloning(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": None,
-            "run_count": 1026648,
+            "run_count": 1403103,
             "url": "https://replicate.com/zsxkib/realistic-voice-cloning",
             "visibility": "public",
             "weights_url": None,
@@ -314,7 +314,7 @@ class TortoiseTTS(ReplicateNode):
             "owner": "afiaka87",
             "is_official": False,
             "paper_url": "https://github.com/neonbjb/tortoise-tts",
-            "run_count": 172255,
+            "run_count": 173080,
             "url": "https://replicate.com/afiaka87/tortoise-tts",
             "visibility": "public",
             "weights_url": None,
@@ -390,7 +390,7 @@ class StyleTTS2(ReplicateNode):
             "owner": "adirik",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.07691",
-            "run_count": 131616,
+            "run_count": 132129,
             "url": "https://replicate.com/adirik/styletts2",
             "visibility": "public",
             "weights_url": None,
@@ -482,7 +482,7 @@ class Riffusion(ReplicateNode):
             "owner": "riffusion",
             "is_official": False,
             "paper_url": "https://www.riffusion.com/about",
-            "run_count": 1044734,
+            "run_count": 1070374,
             "url": "https://replicate.com/riffusion/riffusion",
             "visibility": "public",
             "weights_url": None,
@@ -573,7 +573,7 @@ class MusicGen(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.05284",
-            "run_count": 3013095,
+            "run_count": 3236778,
             "url": "https://replicate.com/meta/musicgen",
             "visibility": "public",
             "weights_url": None,
@@ -683,7 +683,7 @@ class MMAudio(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": "https://hkchengrex.github.io/MMAudio",
-            "run_count": 3135924,
+            "run_count": 4551663,
             "url": "https://replicate.com/zsxkib/mmaudio",
             "visibility": "public",
             "weights_url": "https://huggingface.co/hkchengrex/MMAudio/tree/main",
@@ -725,4 +725,188 @@ class MMAudio(ReplicateNode):
         title="Negative Prompt",
         description="Negative prompt to avoid certain sounds",
         default="music",
+    )
+
+
+class Speech_02_HD(ReplicateNode):
+    """Text-to-Audio (T2A) that offers voice synthesis, emotional expression, and multilingual capabilities. Optimized for high-fidelity applications like voiceovers and audiobooks."""
+
+    class Bitrate(int, Enum):
+        _32000 = 32000
+        _64000 = 64000
+        _128000 = 128000
+        _256000 = 256000
+
+    class Channel(str, Enum):
+        MONO = "mono"
+        STEREO = "stereo"
+
+    class Emotion(str, Enum):
+        AUTO = "auto"
+        HAPPY = "happy"
+        SAD = "sad"
+        ANGRY = "angry"
+        FEARFUL = "fearful"
+        DISGUSTED = "disgusted"
+        SURPRISED = "surprised"
+        CALM = "calm"
+        FLUENT = "fluent"
+        NEUTRAL = "neutral"
+
+    class Sample_rate(int, Enum):
+        _8000 = 8000
+        _16000 = 16000
+        _22050 = 22050
+        _24000 = 24000
+        _32000 = 32000
+        _44100 = 44100
+
+    class Audio_format(str, Enum):
+        MP3 = "mp3"
+        WAV = "wav"
+        FLAC = "flac"
+        PCM = "pcm"
+
+    class Language_boost(str, Enum):
+        NONE = "None"
+        AUTOMATIC = "Automatic"
+        CHINESE = "Chinese"
+        CHINESE_YUE = "Chinese,Yue"
+        CANTONESE = "Cantonese"
+        ENGLISH = "English"
+        ARABIC = "Arabic"
+        RUSSIAN = "Russian"
+        SPANISH = "Spanish"
+        FRENCH = "French"
+        PORTUGUESE = "Portuguese"
+        GERMAN = "German"
+        TURKISH = "Turkish"
+        DUTCH = "Dutch"
+        UKRAINIAN = "Ukrainian"
+        VIETNAMESE = "Vietnamese"
+        INDONESIAN = "Indonesian"
+        JAPANESE = "Japanese"
+        ITALIAN = "Italian"
+        KOREAN = "Korean"
+        THAI = "Thai"
+        POLISH = "Polish"
+        ROMANIAN = "Romanian"
+        GREEK = "Greek"
+        CZECH = "Czech"
+        FINNISH = "Finnish"
+        HINDI = "Hindi"
+        BULGARIAN = "Bulgarian"
+        DANISH = "Danish"
+        HEBREW = "Hebrew"
+        MALAY = "Malay"
+        PERSIAN = "Persian"
+        SLOVAK = "Slovak"
+        SWEDISH = "Swedish"
+        CROATIAN = "Croatian"
+        FILIPINO = "Filipino"
+        HUNGARIAN = "Hungarian"
+        NORWEGIAN = "Norwegian"
+        SLOVENIAN = "Slovenian"
+        CATALAN = "Catalan"
+        NYNORSK = "Nynorsk"
+        TAMIL = "Tamil"
+        AFRIKAANS = "Afrikaans"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["text", "pitch", "speed"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "minimax/speech-02-hd:fdd081f807e655246ef42adbcb3ee9334e7fdc710428684771f90d69992cabb3"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/5c681b84-f36d-43aa-8b50-ae66ce49baa1/j8nyxm83p5rmc0cpjb2t4mwqg8.webp",
+            "created_at": "2025-05-02T14:56:09.397095Z",
+            "description": "Text-to-Audio (T2A) that offers voice synthesis, emotional expression, and multilingual capabilities. Optimized for high-fidelity applications like voiceovers and audiobooks.",
+            "github_url": None,
+            "license_url": "https://intl.minimaxi.com/protocol/terms-of-service",
+            "name": "speech-02-hd",
+            "owner": "minimax",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 1391442,
+            "url": "https://replicate.com/minimax/speech-02-hd",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.AudioRef
+
+    text: str | None = Field(
+        title="Text",
+        description="Text to narrate (max 10,000 characters). Use markers like <#0.5#> to insert pauses in seconds.",
+        default=None,
+    )
+    pitch: int = Field(
+        title="Pitch",
+        description="Semitone offset applied to the voice (−12 to +12).",
+        ge=-12.0,
+        le=12.0,
+        default=0,
+    )
+    speed: float = Field(
+        title="Speed",
+        description="Speech speed multiplier (0.5–2.0). Lower is slower, higher is faster.",
+        ge=0.5,
+        le=2.0,
+        default=1,
+    )
+    volume: float = Field(
+        title="Volume",
+        description="Relative loudness. 1.0 is default MiniMax gain. Range 0–10.",
+        ge=0.0,
+        le=10.0,
+        default=1,
+    )
+    bitrate: Bitrate = Field(
+        description="MP3 bitrate in bits per second. Only used when audio_format is mp3.",
+        default=128000,
+    )
+    channel: Channel = Field(
+        description="mono for 1 channel (default), stereo for 2 channels.",
+        default="mono",
+    )
+    emotion: Emotion = Field(
+        description="Desired delivery style. Use auto to let MiniMax choose, or pick a specific emotion.",
+        default="auto",
+    )
+    voice_id: str = Field(
+        title="Voice Id",
+        description="Voice to synthesize. Pick any MiniMax system voice or a voice_id returned by https://replicate.com/minimax/voice-cloning.",
+        default="Wise_Woman",
+    )
+    sample_rate: Sample_rate = Field(
+        description="Audio sample rate in Hz.", default=32000
+    )
+    audio_format: Audio_format = Field(
+        description="File format for the generated audio. Choose mp3 for general use, wav/flac for lossless, or pcm for raw bytes.",
+        default="mp3",
+    )
+    language_boost: Language_boost = Field(
+        description="Optional language hint. Choose Automatic to let MiniMax detect the language, or pick a specific locale.",
+        default="None",
+    )
+    subtitle_enable: bool = Field(
+        title="Subtitle Enable",
+        description="Return MiniMax subtitle metadata with sentence timestamps (non-streaming only).",
+        default=False,
+    )
+    english_normalization: bool = Field(
+        title="English Normalization",
+        description="Improve number/date reading for English text (adds a small amount of latency).",
+        default=False,
     )
