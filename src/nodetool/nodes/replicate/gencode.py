@@ -1084,6 +1084,26 @@ replicate_nodes = [
         "namespace": "text.generate",
         "return_type": str,
     },
+    # === New Models from Replicate Explore (Scheduled Sync) ===
+    {
+        "model_id": "google/veo-3.1",
+        "node_name": "Veo_3_1",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+    },
+    {
+        "model_id": "black-forest-labs/flux-2-pro",
+        "node_name": "Flux_2_Pro",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "google/nano-banana-pro",
+        "node_name": "Nano_Banana_Pro",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
 ]
 
 if __name__ == "__main__":
