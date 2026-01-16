@@ -20,6 +20,22 @@ Repository configured with OpenCode memory and automated sync workflow.
 
 ---
 
+## 2026-01-16 - New Featured Models Added
+
+- Model ID: `black-forest-labs/flux-2-klein-4b`
+- Namespace: `image.generate`
+- Description: FLUX.2 Klein 4B - Black Forest Labs' very fast image generation model with 4 steps distilled for sub-second inference
+
+- Model ID: `black-forest-labs/flux-2-max`
+- Namespace: `image.generate`
+- Description: FLUX.2 Max - Black Forest Labs' highest fidelity image model with 187.6K runs
+
+- Model ID: `openai/gpt-image-1.5`
+- Namespace: `image.generate`
+- Description: GPT Image 1.5 - OpenAI's latest image generation model with 1.2M runs, better instruction following and prompt adherence
+
+---
+
 ## 2026-01-14 - New Featured Models Added
 
 - Model ID: `black-forest-labs/flux-2-pro`
