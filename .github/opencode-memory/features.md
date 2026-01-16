@@ -20,16 +20,12 @@ Repository configured with OpenCode memory and automated sync workflow.
 
 ---
 
-## 2026-01-14 - New Featured Models Added
+## 2026-01-16 - New Featured Models Added
 
-- Model ID: `black-forest-labs/flux-2-pro`
-- Namespace: `image.generate`
-- Description: FLUX.2 Pro - Black Forest Labs' most advanced image generation model with multi-reference editing and precise control
-
-- Model ID: `black-forest-labs/flux-2-flex`
-- Namespace: `image.generate`
-- Description: FLUX.2 Flex - Max-quality image generation with support for ten reference images
-
-- Model ID: `google/veo-3.1`
+- Model ID: `openai/sora-2`
 - Namespace: `video.generate`
-- Description: Google's improved video model with higher-fidelity video, context-aware audio, reference image and last frame support
+- Description: OpenAI's flagship video generation model with synchronized audio, physics simulation, and multi-shot sequences
+
+- Model ID: `google/lyria-2`
+- Namespace: `audio.generate`
+- Description: Google's music generation model producing 48kHz stereo audio from text prompts
