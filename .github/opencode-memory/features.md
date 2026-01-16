@@ -33,3 +33,15 @@ Repository configured with OpenCode memory and automated sync workflow.
 - Model ID: `google/veo-3.1`
 - Namespace: `video.generate`
 - Description: Google's improved video model with higher-fidelity video, context-aware audio, reference image and last frame support
+
+- Model ID: `black-forest-labs/flux-2-klein-4b-base`
+- Namespace: `image.generate`
+- Description: FLUX.2 Klein 4B Base - Un-distilled version optimized for fine-tuning, customization, and post-training workflows
+
+- Model ID: `black-forest-labs/flux-2-klein-9b-base`
+- Namespace: `image.generate`
+- Description: FLUX.2 Klein 9B Base - Foundation model for maximum flexibility and control
+
+- Model ID: `wan-video/wan-2.6-t2v`
+- Namespace: `video.generate`
+- Description: Alibaba Wan 2.6 text-to-video generation model with high-fidelity output

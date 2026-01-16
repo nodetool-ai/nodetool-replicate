@@ -1102,6 +1102,24 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    {
+        "model_id": "black-forest-labs/flux-2-klein-4b-base",
+        "node_name": "Flux_2_Klein_4B_Base",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "black-forest-labs/flux-2-klein-9b-base",
+        "node_name": "Flux_2_Klein_9B_Base",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "wan-video/wan-2.6-t2v",
+        "node_name": "Wan_2_6_T2V",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+    },
 ]
 
 if __name__ == "__main__":
