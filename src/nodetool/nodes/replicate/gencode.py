@@ -1102,6 +1102,18 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    {
+        "model_id": "openai/sora-2",
+        "node_name": "Sora_2",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+    },
+    {
+        "model_id": "google/lyria-2",
+        "node_name": "Lyria_2",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
 ]
 
 if __name__ == "__main__":
