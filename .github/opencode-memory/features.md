@@ -14,22 +14,22 @@ Each entry should follow this format:
 
 ---
 
-## Initial Setup - 2025-01-14
+## Initial Setup - 2026-01-14
 
 Repository configured with OpenCode memory and automated sync workflow.
 
 ---
 
-## 2026-01-14 - New Featured Models Added
+## 2026-01-17 - New Featured Models Added
 
-- Model ID: `black-forest-labs/flux-2-pro`
+- Model ID: `black-forest-labs/flux-2-klein-4b`
 - Namespace: `image.generate`
-- Description: FLUX.2 Pro - Black Forest Labs' most advanced image generation model with multi-reference editing and precise control
+- Description: FLUX.2 Klein - Black Forest Labs' very fast image generation model with 4 steps distilled, sub-second inference for production
 
-- Model ID: `black-forest-labs/flux-2-flex`
+- Model ID: `black-forest-labs/flux-2-max`
 - Namespace: `image.generate`
-- Description: FLUX.2 Flex - Max-quality image generation with support for ten reference images
+- Description: FLUX.2 Max - Black Forest Labs' highest fidelity image model with maximum detail and quality
 
-- Model ID: `google/veo-3.1`
+- Model ID: `kwaivgi/kling-v2.6`
 - Namespace: `video.generate`
-- Description: Google's improved video model with higher-fidelity video, context-aware audio, reference image and last frame support
+- Description: Kling 2.6 Pro - Top-tier image-to-video model with cinematic visuals, fluid motion, and native audio generation
