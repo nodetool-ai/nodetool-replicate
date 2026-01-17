@@ -1102,6 +1102,25 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    # === New models added 2026-01-17 ===
+    {
+        "model_id": "black-forest-labs/flux-2-klein-4b",
+        "node_name": "Flux_2_Klein_4B",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "black-forest-labs/flux-2-max",
+        "node_name": "Flux_2_Max",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "google/gemini-3-pro",
+        "node_name": "Gemini_3_Pro",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
 ]
 
 if __name__ == "__main__":
