@@ -33,3 +33,15 @@ Repository configured with OpenCode memory and automated sync workflow.
 - Model ID: `google/veo-3.1`
 - Namespace: `video.generate`
 - Description: Google's improved video model with higher-fidelity video, context-aware audio, reference image and last frame support
+
+---
+
+## 2026-01-18 - OpenAI GPT-Image-1.5 and Resemble AI Chatterbox-Turbo
+
+- Model ID: `openai/gpt-image-1.5`
+- Namespace: `image.generate`
+- Description: OpenAI's latest image generation model with better instruction following and adherence to prompts (1.3M runs, Official)
+
+- Model ID: `resemble-ai/chatterbox-turbo`
+- Namespace: `audio.generate`
+- Description: The fastest open source TTS model without sacrificing quality (30.6K runs, Official)
