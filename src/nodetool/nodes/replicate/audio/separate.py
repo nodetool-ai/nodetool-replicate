@@ -73,7 +73,7 @@ class Demucs(ReplicateNode):
             "owner": "ryan5453",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2111.03600",
-            "run_count": 680198,
+            "run_count": 1012722,
             "url": "https://replicate.com/ryan5453/demucs",
             "visibility": "public",
             "weights_url": None,
