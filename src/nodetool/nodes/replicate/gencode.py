@@ -1102,6 +1102,19 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    {
+        "model_id": "google/nano-banana-pro",
+        "node_name": "Nano_Banana_Pro",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "bytedance/seedream-4.5",
+        "node_name": "Seedream_4_5",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
 ]
 
 if __name__ == "__main__":
