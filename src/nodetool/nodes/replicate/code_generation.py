@@ -240,7 +240,6 @@ def generate_model_source_code(
             field_type = overrides[name]
             field_args = f" = Field(default=types.{field_type.__name__}(), description={repr(prop.description)})"
         else:
-            enum_name = None
             if prop.type:
                 field_type = convert_datatype_to_type(prop.type, is_optional)
             elif prop.allOf:
@@ -248,7 +247,6 @@ def generate_model_source_code(
                 if hasattr(ref_type, "ref"):
                     ref = ref_type.ref  # type: ignore
                     field_type = type_lookup[ref]
-                    enum_name = field_type.__name__
                     if is_optional:
                         field_type = Union[field_type, None]
 
