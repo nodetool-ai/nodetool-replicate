@@ -33,7 +33,7 @@ class RealEsrGan(ReplicateNode):
             "owner": "daanelson",
             "is_official": False,
             "paper_url": None,
-            "run_count": 14614084,
+            "run_count": 15287789,
             "url": "https://replicate.com/daanelson/real-esrgan-a100",
             "visibility": "public",
             "weights_url": None,
@@ -91,7 +91,7 @@ class GFPGAN(ReplicateNode):
             "owner": "tencentarc",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2101.04061",
-            "run_count": 95065199,
+            "run_count": 106601148,
             "url": "https://replicate.com/tencentarc/gfpgan",
             "visibility": "public",
             "weights_url": None,
@@ -223,7 +223,7 @@ class ClarityUpscaler(ReplicateNode):
             "owner": "philz1337x",
             "is_official": False,
             "paper_url": "https://clarityai.co",
-            "run_count": 20009000,
+            "run_count": 25821147,
             "url": "https://replicate.com/philz1337x/clarity-upscaler",
             "visibility": "public",
             "weights_url": None,
@@ -368,7 +368,7 @@ class MagicImageRefiner(ReplicateNode):
             "owner": "fermatresearch",
             "is_official": False,
             "paper_url": None,
-            "run_count": 943882,
+            "run_count": 949429,
             "url": "https://replicate.com/fermatresearch/magic-image-refiner",
             "visibility": "public",
             "weights_url": None,
@@ -464,7 +464,7 @@ class ruDallE_SR(ReplicateNode):
             "owner": "cjwbw",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2107.10833",
-            "run_count": 484657,
+            "run_count": 485600,
             "url": "https://replicate.com/cjwbw/rudalle-sr",
             "visibility": "public",
             "weights_url": None,
@@ -520,7 +520,7 @@ class HighResolutionControlNetTile(ReplicateNode):
             "owner": "fermatresearch",
             "is_official": False,
             "paper_url": None,
-            "run_count": 640821,
+            "run_count": 650131,
             "url": "https://replicate.com/fermatresearch/high-resolution-controlnet-tile",
             "visibility": "public",
             "weights_url": None,
@@ -669,7 +669,7 @@ class UltimateSDUpscale(ReplicateNode):
             "owner": "fewjative",
             "is_official": False,
             "paper_url": None,
-            "run_count": 163771,
+            "run_count": 165451,
             "url": "https://replicate.com/fewjative/ultimate-sd-upscale",
             "visibility": "public",
             "weights_url": None,
@@ -774,7 +774,7 @@ class SwinIR(ReplicateNode):
             "owner": "jingyunliang",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2108.10257",
-            "run_count": 6092943,
+            "run_count": 6238085,
             "url": "https://replicate.com/jingyunliang/swinir",
             "visibility": "public",
             "weights_url": None,
@@ -800,7 +800,7 @@ class SwinIR(ReplicateNode):
 
 
 class Swin2SR(ReplicateNode):
-    """3 Million Runs! AI Photorealistic Image Super-Resolution and Restoration"""
+    """3.5 Million Runs! AI Photorealistic Image Super-Resolution and Restoration"""
 
     class Task(str, Enum):
         CLASSICAL_SR = "classical_sr"
@@ -824,14 +824,14 @@ class Swin2SR(ReplicateNode):
         return {
             "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/aabde67b-bf5c-4fc8-a4bd-8b2dcba60be6/swin2sr-cover3.png",
             "created_at": "2022-10-28T22:59:05.692845Z",
-            "description": "3 Million Runs! AI Photorealistic Image Super-Resolution and Restoration",
+            "description": "3.5 Million Runs! AI Photorealistic Image Super-Resolution and Restoration",
             "github_url": "https://github.com/mv-lab/swin2sr",
             "license_url": "https://github.com/mv-lab/swin2sr/blob/main/LICENSE",
             "name": "swin2sr",
             "owner": "mv-lab",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2209.11345",
-            "run_count": 3571744,
+            "run_count": 3575326,
             "url": "https://replicate.com/mv-lab/swin2sr",
             "visibility": "public",
             "weights_url": None,

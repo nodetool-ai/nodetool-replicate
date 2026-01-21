@@ -20,7 +20,19 @@ Repository configured with OpenCode memory and automated sync workflow.
 
 ---
 
-## 2026-01-14 - New Featured Models Added
+## 2026-01-19 - New Featured Models Added
+
+- Model ID: `black-forest-labs/flux-2-klein-4b`
+- Namespace: `image.generate`
+- Description: FLUX.2 Klein 4B - Very fast image generation model, 4 steps distilled, sub-second inference for production (228.7K runs)
+
+- Model ID: `black-forest-labs/flux-2-max`
+- Namespace: `image.generate`
+- Description: FLUX.2 Max - The highest fidelity image model from Black Forest Labs (206.5K runs)
+
+- Model ID: `google/nano-banana-pro`
+- Namespace: `image.generate`
+- Description: Nano Banana Pro - Google's state of the art image generation and editing model (9.6M runs)
 
 - Model ID: `black-forest-labs/flux-2-pro`
 - Namespace: `image.generate`

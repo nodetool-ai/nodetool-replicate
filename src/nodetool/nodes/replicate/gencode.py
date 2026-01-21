@@ -1102,6 +1102,25 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    {
+        "model_id": "black-forest-labs/flux-2-klein-4b",
+        "node_name": "Flux_2_Klein_4B",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "black-forest-labs/flux-2-max",
+        "node_name": "Flux_2_Max",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "google/nano-banana-pro",
+        "node_name": "Nano_Banana_Pro",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
 ]
 
 if __name__ == "__main__":

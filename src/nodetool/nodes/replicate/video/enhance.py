@@ -15,7 +15,7 @@ class Runway_Upscale_V1(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "runwayml/upscale-v1:fa9349e2ac7516dc97dda94befcd929f5c97280bb0727019905f62a3c1fb72b7"
+        return "runwayml/upscale-v1:079ac0e1e0f92616024bc63f2fd60142fc9967c7dcc3fce274875f60e10c958e"
 
     @classmethod
     def get_hardware(cls):
@@ -33,7 +33,7 @@ class Runway_Upscale_V1(ReplicateNode):
             "owner": "runwayml",
             "is_official": True,
             "paper_url": None,
-            "run_count": 4938,
+            "run_count": 26323,
             "url": "https://replicate.com/runwayml/upscale-v1",
             "visibility": "public",
             "weights_url": None,
@@ -81,7 +81,7 @@ class Topaz_Video_Upscale(ReplicateNode):
             "owner": "topazlabs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 720556,
+            "run_count": 812065,
             "url": "https://replicate.com/topazlabs/video-upscale",
             "visibility": "public",
             "weights_url": None,
