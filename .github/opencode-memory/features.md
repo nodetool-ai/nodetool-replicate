@@ -20,7 +20,7 @@ Repository configured with OpenCode memory and automated sync workflow.
 
 ---
 
-## 2026-01-14 - New Featured Models Added
+## 2026-01-20 - New Featured Models Added
 
 - Model ID: `black-forest-labs/flux-2-pro`
 - Namespace: `image.generate`
@@ -33,3 +33,11 @@ Repository configured with OpenCode memory and automated sync workflow.
 - Model ID: `google/veo-3.1`
 - Namespace: `video.generate`
 - Description: Google's improved video model with higher-fidelity video, context-aware audio, reference image and last frame support
+
+- Model ID: `google/nano-banana-pro`
+- Namespace: `image.generate`
+- Description: Google's state of the art image generation and editing model with accurate text, advanced reasoning, and professional-grade creative controls (9.7M runs)
+
+- Model ID: `bytedance/seedream-4.5`
+- Namespace: `image.generate`
+- Description: Bytedance's upgraded image model with stronger spatial understanding and world knowledge, cinematic aesthetics, and precise instruction following (1.9M runs)
