@@ -59,7 +59,7 @@ class RealisticVoiceCloning(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": None,
-            "run_count": 1026648,
+            "run_count": 1411792,
             "url": "https://replicate.com/zsxkib/realistic-voice-cloning",
             "visibility": "public",
             "weights_url": None,
@@ -314,7 +314,7 @@ class TortoiseTTS(ReplicateNode):
             "owner": "afiaka87",
             "is_official": False,
             "paper_url": "https://github.com/neonbjb/tortoise-tts",
-            "run_count": 172255,
+            "run_count": 173091,
             "url": "https://replicate.com/afiaka87/tortoise-tts",
             "visibility": "public",
             "weights_url": None,
@@ -390,7 +390,7 @@ class StyleTTS2(ReplicateNode):
             "owner": "adirik",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.07691",
-            "run_count": 131616,
+            "run_count": 132130,
             "url": "https://replicate.com/adirik/styletts2",
             "visibility": "public",
             "weights_url": None,
@@ -482,7 +482,7 @@ class Riffusion(ReplicateNode):
             "owner": "riffusion",
             "is_official": False,
             "paper_url": "https://www.riffusion.com/about",
-            "run_count": 1044734,
+            "run_count": 1070865,
             "url": "https://replicate.com/riffusion/riffusion",
             "visibility": "public",
             "weights_url": None,
@@ -573,7 +573,7 @@ class MusicGen(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.05284",
-            "run_count": 3013095,
+            "run_count": 3240849,
             "url": "https://replicate.com/meta/musicgen",
             "visibility": "public",
             "weights_url": None,
@@ -683,7 +683,7 @@ class MMAudio(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": "https://hkchengrex.github.io/MMAudio",
-            "run_count": 3135924,
+            "run_count": 4568945,
             "url": "https://replicate.com/zsxkib/mmaudio",
             "visibility": "public",
             "weights_url": "https://huggingface.co/hkchengrex/MMAudio/tree/main",
@@ -725,4 +725,56 @@ class MMAudio(ReplicateNode):
         title="Negative Prompt",
         description="Negative prompt to avoid certain sounds",
         default="music",
+    )
+
+
+class Lyria_2(ReplicateNode):
+    """Lyria 2 is a music generation model that produces 48kHz stereo audio through text-based prompts"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["seed", "prompt", "negative_prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "google/lyria-2:bb621623ee2772c96d300b2a303c9e444b482f6b0fafcc7424923e1429971120"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/f3428ac0-77ec-4f35-9595-0bf6f06ba3e9/lyria-cover.webp",
+            "created_at": "2025-05-22T14:49:00.673182Z",
+            "description": "Lyria 2 is a music generation model that produces 48kHz stereo audio through text-based prompts",
+            "github_url": None,
+            "license_url": None,
+            "name": "lyria-2",
+            "owner": "google",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 55092,
+            "url": "https://replicate.com/google/lyria-2",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.AudioRef
+
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Omit for random generations",
+        default=None,
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="Text prompt for audio generation", default=None
+    )
+    negative_prompt: str | None = Field(
+        title="Negative Prompt",
+        description="Description of what to exclude from the generated audio",
+        default=None,
     )
