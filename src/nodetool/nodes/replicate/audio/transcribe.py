@@ -144,7 +144,7 @@ class IncrediblyFastWhisper(ReplicateNode):
             "owner": "vaibhavs10",
             "is_official": False,
             "paper_url": None,
-            "run_count": 15309490,
+            "run_count": 23627557,
             "url": "https://replicate.com/vaibhavs10/incredibly-fast-whisper",
             "visibility": "public",
             "weights_url": None,
@@ -193,7 +193,7 @@ class GPT4o_Transcribe(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-4o-transcribe:1302d9240d7caa85f014a03f1e901b878ec6df3a37dac854699ddd6f560a4518"
+        return "openai/gpt-4o-transcribe:cc7638666fc85e9defb010d99e304c0c0e94dcdbd3d31385f28f2730b4cdcc6d"
 
     @classmethod
     def get_hardware(cls):
@@ -211,7 +211,7 @@ class GPT4o_Transcribe(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 9029,
+            "run_count": 34490,
             "url": "https://replicate.com/openai/gpt-4o-transcribe",
             "visibility": "public",
             "weights_url": None,

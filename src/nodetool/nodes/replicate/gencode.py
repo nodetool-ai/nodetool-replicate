@@ -1102,6 +1102,26 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    # === New models from Replicate Explore ===
+    {
+        "model_id": "google/nano-banana-pro",
+        "node_name": "Nano_Banana_Pro",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
+    {
+        "model_id": "prunaai/z-image-turbo",
+        "node_name": "Z_Image_Turbo",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "google/gemini-3-pro",
+        "node_name": "Gemini_3_Pro",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
 ]
 
 if __name__ == "__main__":
