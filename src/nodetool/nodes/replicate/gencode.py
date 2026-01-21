@@ -1102,6 +1102,24 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    {
+        "model_id": "openai/gpt-5.2",
+        "node_name": "GPT_5_2",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "bytedance/seedream-4.5",
+        "node_name": "Seedream_4_5",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "prunaai/z-image-turbo",
+        "node_name": "Z_Image_Turbo",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
 ]
 
 if __name__ == "__main__":

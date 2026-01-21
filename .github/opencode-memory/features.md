@@ -14,22 +14,16 @@ Each entry should follow this format:
 
 ---
 
-## Initial Setup - 2025-01-14
+## 2026-01-21 - New Featured Models Added
 
-Repository configured with OpenCode memory and automated sync workflow.
+- Model ID: `openai/gpt-5.2`
+- Namespace: `text.generate`
+- Description: OpenAI's most advanced frontier model for professional work and long-running agents, excelling at coding, knowledge work, and tool usage
 
----
-
-## 2026-01-14 - New Featured Models Added
-
-- Model ID: `black-forest-labs/flux-2-pro`
+- Model ID: `bytedance/seedream-4.5`
 - Namespace: `image.generate`
-- Description: FLUX.2 Pro - Black Forest Labs' most advanced image generation model with multi-reference editing and precise control
+- Description: Bytedance's upgraded image model with stronger spatial understanding and world knowledge, supporting up to 4K resolution
 
-- Model ID: `black-forest-labs/flux-2-flex`
+- Model ID: `prunaai/z-image-turbo`
 - Namespace: `image.generate`
-- Description: FLUX.2 Flex - Max-quality image generation with support for ten reference images
-
-- Model ID: `google/veo-3.1`
-- Namespace: `video.generate`
-- Description: Google's improved video model with higher-fidelity video, context-aware audio, reference image and last frame support
+- Description: PrunaAI-optimized text-to-image model from Tongyi-MAI, delivering super fast 6B parameter generation with excellent text rendering
