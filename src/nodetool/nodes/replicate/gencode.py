@@ -1102,6 +1102,18 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    {
+        "model_id": "openai/gpt-image-1",
+        "node_name": "GPT_Image_1",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "minimax/speech-02-hd",
+        "node_name": "Speech_02_HD",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
 ]
 
 if __name__ == "__main__":
