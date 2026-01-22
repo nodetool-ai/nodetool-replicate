@@ -20,6 +20,18 @@ Repository configured with OpenCode memory and automated sync workflow.
 
 ---
 
+## 2026-01-22 - Featured Official Models Added
+
+- Model ID: `google/nano-banana-pro`
+- Namespace: `image.generate`
+- Description: Google's state of the art image generation and editing model with 9.9M runs
+
+- Model ID: `openai/gpt-image-1.5`
+- Namespace: `image.generate`
+- Description: OpenAI's latest image generation model with better instruction following (1.5M runs)
+
+---
+
 ## 2026-01-14 - New Featured Models Added
 
 - Model ID: `black-forest-labs/flux-2-pro`
