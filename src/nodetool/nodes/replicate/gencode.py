@@ -1102,6 +1102,25 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    # === New Models - 2026-01-22 ===
+    {
+        "model_id": "openai/gpt-image-1.5",
+        "node_name": "GPT_Image_1_5",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "google/nano-banana-pro",
+        "node_name": "Nano_Banana_Pro",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "black-forest-labs/flux-2-klein-4b",
+        "node_name": "Flux_2_Klein_4b",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
 ]
 
 if __name__ == "__main__":
