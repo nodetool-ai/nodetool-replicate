@@ -33,3 +33,19 @@ Repository configured with OpenCode memory and automated sync workflow.
 - Model ID: `google/veo-3.1`
 - Namespace: `video.generate`
 - Description: Google's improved video model with higher-fidelity video, context-aware audio, reference image and last frame support
+
+---
+
+## 2026-01-22 - New Official Models Added
+
+- Model ID: `google/gemini-3-pro`
+- Namespace: `text.generate`
+- Description: Google's advanced reasoning Gemini model with 602K runs
+
+- Model ID: `black-forest-labs/flux-2-klein-4b`
+- Namespace: `image.generate`
+- Description: Very fast image generation model - 4 steps distilled, sub-second inference with 618K runs
+
+- Model ID: `prunaai/z-image-turbo`
+- Namespace: `image.generate`
+- Description: Super fast text-to-image model of 6B parameters with 12M runs
