@@ -30,7 +30,7 @@ jobs:
 
       - name: Install Python dependencies
         env:
-          NODETOOL_CORE_REF: v0.6.2
+          NODETOOL_CORE_REF: v0.6.3-rc.1
           UV_EXTRA_INDEX_URL: https://nodetool-ai.github.io/nodetool-registry/simple/
         run: |
           uv sync --frozen --no-dev --index-strategy unsafe-best-match
