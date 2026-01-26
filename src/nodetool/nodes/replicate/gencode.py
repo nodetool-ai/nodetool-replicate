@@ -1102,6 +1102,25 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    {
+        "model_id": "black-forest-labs/flux-2-klein-4b-base",
+        "node_name": "Flux_2_Klein_4B_Base",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "openai/gpt-image-1.5",
+        "node_name": "GPT_Image_1_5",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "kwaivgi/kling-v2.6",
+        "node_name": "Kling_V2_6",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef},
+    },
 ]
 
 if __name__ == "__main__":

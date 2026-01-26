@@ -33,3 +33,19 @@ Repository configured with OpenCode memory and automated sync workflow.
 - Model ID: `google/veo-3.1`
 - Namespace: `video.generate`
 - Description: Google's improved video model with higher-fidelity video, context-aware audio, reference image and last frame support
+
+---
+
+## 2026-01-19 - Featured Models Sync
+
+- Model ID: `black-forest-labs/flux-2-klein-4b-base`
+- Namespace: `image.generate`
+- Description: Un-distilled version of FLUX.2 [klein]. Optimized for fine-tuning, customization, and post-training workflows
+
+- Model ID: `openai/gpt-image-1.5`
+- Namespace: `image.generate`
+- Description: OpenAI's latest image generation model with better instruction following and adherence to prompts
+
+- Model ID: `kwaivgi/kling-v2.6`
+- Namespace: `video.generate`
+- Description: Kling 2.6 Pro: Top-tier image-to-video with cinematic visuals, fluid motion, and native audio generation

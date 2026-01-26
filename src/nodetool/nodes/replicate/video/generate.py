@@ -25,7 +25,7 @@ class Ray(ReplicateNode):
     @classmethod
     def replicate_model_id(cls):
         return (
-            "luma/ray:ec16dc44af18758ec1ff7998f5779896f84f5834ea53991d15f65711686a9a79"
+            "luma/ray:ace5984f3394f17c2a712644b0eb9983c4baaf94c6c30a0f94692d2c37bd8964"
         )
 
     @classmethod
@@ -44,7 +44,7 @@ class Ray(ReplicateNode):
             "owner": "luma",
             "is_official": True,
             "paper_url": "https://lumalabs.ai/dream-machine",
-            "run_count": 53087,
+            "run_count": 69464,
             "url": "https://replicate.com/luma/ray",
             "visibility": "public",
             "weights_url": None,
@@ -56,7 +56,7 @@ class Ray(ReplicateNode):
 
     loop: bool = Field(
         title="Loop",
-        description="Whether the video should loop, with the last frame matching the first frame for smooth, continuous playback. This input is ignored if end_image_url or end_video_id are set.",
+        description="Whether the video should loop, with the last frame matching the first frame for smooth, continuous playback. This input is ignored if end_image or end_video_id are set.",
         default=False,
     )
     prompt: str | None = Field(
@@ -78,21 +78,19 @@ class Ray(ReplicateNode):
     )
     end_video_id: str | None = Field(
         title="End Video Id",
-        description="Prepend a new video generation to the beginning of an existing one (Also called 'reverse extend'). You can combine this with start_image_url, or start_video_id.",
+        description="Prepend a new video generation to the beginning of an existing one (Also called 'reverse extend'). You can combine this with start_image, or start_video_id.",
         default=None,
     )
     end_image_url: types.ImageRef = Field(
-        default=types.ImageRef(),
-        description="URL of an image to use as the ending frame",
+        default=types.ImageRef(), description="Deprecated: Use end_image instead"
     )
     start_video_id: str | None = Field(
         title="Start Video Id",
-        description="Continue or extend a video generation with a new generation. You can combine this with end_image_url, or end_video_id.",
+        description="Continue or extend a video generation with a new generation. You can combine this with end_image, or end_video_id.",
         default=None,
     )
     start_image_url: types.ImageRef = Field(
-        default=types.ImageRef(),
-        description="URL of an image to use as the starting frame",
+        default=types.ImageRef(), description="Deprecated: Use start_image instead"
     )
 
 
@@ -164,7 +162,7 @@ class HotshotXL(ReplicateNode):
             "owner": "lucataco",
             "is_official": False,
             "paper_url": "https://huggingface.co/hotshotco/SDXL-512",
-            "run_count": 782529,
+            "run_count": 892466,
             "url": "https://replicate.com/lucataco/hotshot-xl",
             "visibility": "public",
             "weights_url": None,
@@ -237,7 +235,7 @@ class Zeroscope_V2_XL(ReplicateNode):
             "owner": "anotherjesse",
             "is_official": False,
             "paper_url": "https://huggingface.co/cerspense/zeroscope_v2_576w",
-            "run_count": 293579,
+            "run_count": 301821,
             "url": "https://replicate.com/anotherjesse/zeroscope-v2-xl",
             "visibility": "public",
             "weights_url": None,
@@ -335,7 +333,7 @@ class RobustVideoMatting(ReplicateNode):
             "owner": "arielreplicate",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2108.11515",
-            "run_count": 59497,
+            "run_count": 73056,
             "url": "https://replicate.com/arielreplicate/robust_video_matting",
             "visibility": "public",
             "weights_url": None,
@@ -378,7 +376,7 @@ class AudioToWaveform(ReplicateNode):
             "owner": "fofr",
             "is_official": False,
             "paper_url": "https://gradio.app/docs/#make_waveform",
-            "run_count": 383547,
+            "run_count": 384002,
             "url": "https://replicate.com/fofr/audio-to-waveform",
             "visibility": "public",
             "weights_url": None,
@@ -440,7 +438,7 @@ class Hunyuan_Video(ReplicateNode):
             "owner": "tencent",
             "is_official": False,
             "paper_url": "https://github.com/Tencent/HunyuanVideo/blob/main/assets/hunyuanvideo.pdf",
-            "run_count": 112508,
+            "run_count": 116245,
             "url": "https://replicate.com/tencent/hunyuan-video",
             "visibility": "public",
             "weights_url": "https://huggingface.co/tencent/HunyuanVideo",
@@ -506,7 +504,7 @@ class Video_01_Live(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "minimax/video-01-live:b3fd893b518666a710738c15185940144fce6987432a31768a8e0ffba7f3359b"
+        return "minimax/video-01-live:7574e16b8f1ad52c6332ecb264c0f132e555f46c222255a738131ec1bb614092"
 
     @classmethod
     def get_hardware(cls):
@@ -524,7 +522,7 @@ class Video_01_Live(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 165159,
+            "run_count": 173010,
             "url": "https://replicate.com/minimax/video-01-live",
             "visibility": "public",
             "weights_url": None,
@@ -556,7 +554,7 @@ class Video_01(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "minimax/video-01:608bbe118537f175d1078bbe8cb0b4f656992c14fc80b6a07f53c9a8ad304159"
+        return "minimax/video-01:5aa835260ff7f40f4069c41185f72036accf99e29957bb4a3b3a911f3b6c1912"
 
     @classmethod
     def get_hardware(cls):
@@ -574,7 +572,7 @@ class Video_01(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 582391,
+            "run_count": 645908,
             "url": "https://replicate.com/minimax/video-01",
             "visibility": "public",
             "weights_url": None,
@@ -623,7 +621,7 @@ class Music_01(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "minimax/music-01:eeef7ff294e74ded3e28b88f98fdc59c82cff3b134fa35d0d2699239e96680d1"
+        return "minimax/music-01:0254c7e2f54315b667dbae03da7c155822ba29ffe0457be5bc246d564be486bd"
 
     @classmethod
     def get_hardware(cls):
@@ -641,7 +639,7 @@ class Music_01(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 353804,
+            "run_count": 493690,
             "url": "https://replicate.com/minimax/music-01",
             "visibility": "public",
             "weights_url": None,
@@ -747,12 +745,12 @@ class LTX_Video(ReplicateNode):
             "created_at": "2024-11-29T14:15:01.460922Z",
             "description": "LTX-Video is the first DiT-based video generation model capable of generating high-quality videos in real-time. It produces 24 FPS videos at a 768x512 resolution faster than they can be watched.",
             "github_url": "https://github.com/Lightricks/LTX-Video",
-            "license_url": "https://github.com/Lightricks/LTX-Video/blob/main/LICENSE",
+            "license_url": "https://website.ltx.video/api-license-agreement",
             "name": "ltx-video",
             "owner": "lightricks",
             "is_official": False,
             "paper_url": None,
-            "run_count": 157441,
+            "run_count": 164319,
             "url": "https://replicate.com/lightricks/ltx-video",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Lightricks/LTX-Video",
@@ -829,7 +827,7 @@ class Wan_2_1_I2V_480p(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "wavespeedai/wan-2.1-i2v-480p:f6644fcfc305f4f9e29e789f01f62dfa43d1775c22db64705a05d6bf85957366"
+        return "wavespeedai/wan-2.1-i2v-480p:e2870aa4965fd9ddfd87c16a3c8ab952c18e745e63f3f3b123c2dc8b538ad2b5"
 
     @classmethod
     def get_hardware(cls):
@@ -847,7 +845,7 @@ class Wan_2_1_I2V_480p(ReplicateNode):
             "owner": "wavespeedai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 414154,
+            "run_count": 434191,
             "url": "https://replicate.com/wavespeedai/wan-2.1-i2v-480p",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-14B",
@@ -962,7 +960,7 @@ class Wan_2_1_1_3B(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": "https://wanxai.com/",
-            "run_count": 42222,
+            "run_count": 46459,
             "url": "https://replicate.com/wan-video/wan-2.1-1.3b",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B",
@@ -1053,7 +1051,7 @@ class Pixverse_V5(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "pixverse/pixverse-v5:cbd55e12a3d9f06a08e5fc1ff8f58a56f4dd4c6bd068eb15ad60e8082affb67c"
+        return "pixverse/pixverse-v5:450181c56fcbf920d8d5ba9d7c5653537a009b626652c1a0a909924a785e3389"
 
     @classmethod
     def get_hardware(cls):
@@ -1071,7 +1069,7 @@ class Pixverse_V5(ReplicateNode):
             "owner": "pixverse",
             "is_official": True,
             "paper_url": None,
-            "run_count": 14438,
+            "run_count": 750313,
             "url": "https://replicate.com/pixverse/pixverse-v5",
             "visibility": "public",
             "weights_url": None,
@@ -1142,7 +1140,7 @@ class Gen4_Turbo(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "runwayml/gen4-turbo:62ba5f8b3b84f81130debeafc0767ea6353d15a3d78b4b4025df3a58bb9fafb2"
+        return "runwayml/gen4-turbo:6257a44f7b6390e47eb18a1c11f55d221fc90ec056d9acfe490ec9924739533c"
 
     @classmethod
     def get_hardware(cls):
@@ -1160,7 +1158,7 @@ class Gen4_Turbo(ReplicateNode):
             "owner": "runwayml",
             "is_official": True,
             "paper_url": None,
-            "run_count": 15898,
+            "run_count": 51505,
             "url": "https://replicate.com/runwayml/gen4-turbo",
             "visibility": "public",
             "weights_url": None,
@@ -1206,7 +1204,7 @@ class Gen4_Aleph(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "runwayml/gen4-aleph:82078624c15734512ce1dc9eaeaac286d514427b135145d72a5aa0bd6658ada4"
+        return "runwayml/gen4-aleph:68cabc3b111f47bd881cffaca63ad0b1e7834c77737e042cec6eca18962ce1d2"
 
     @classmethod
     def get_hardware(cls):
@@ -1224,7 +1222,7 @@ class Gen4_Aleph(ReplicateNode):
             "owner": "runwayml",
             "is_official": True,
             "paper_url": "https://runwayml.com/research/introducing-runway-aleph",
-            "run_count": 10340,
+            "run_count": 116285,
             "url": "https://replicate.com/runwayml/gen4-aleph",
             "visibility": "public",
             "weights_url": None,
@@ -1272,7 +1270,7 @@ class Kling_V2_1(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "kwaivgi/kling-v2.1:f045f3203a6faeb8a1b47dd4069fa397a8c83c41b418967f5ba095c57322ccb9"
+        return "kwaivgi/kling-v2.1:daad218feb714b03e2a1ac445986aebb9d05243cd00da2af17be2e4049f48f69"
 
     @classmethod
     def get_hardware(cls):
@@ -1290,7 +1288,7 @@ class Kling_V2_1(ReplicateNode):
             "owner": "kwaivgi",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1257619,
+            "run_count": 3198352,
             "url": "https://replicate.com/kwaivgi/kling-v2.1",
             "visibility": "public",
             "weights_url": None,
@@ -1384,7 +1382,7 @@ class Kling_Lip_Sync(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "kwaivgi/kling-lip-sync:504d6566765fc8b77581a3ba861d8b0b5d4315d2c1ba0e6374720e3034b6de9e"
+        return "kwaivgi/kling-lip-sync:8311467f07043d4b3feb44584d2586bfa2fc70203eca612ed26f84d0b55df3ce"
 
     @classmethod
     def get_hardware(cls):
@@ -1402,7 +1400,7 @@ class Kling_Lip_Sync(ReplicateNode):
             "owner": "kwaivgi",
             "is_official": True,
             "paper_url": None,
-            "run_count": 12996,
+            "run_count": 27668,
             "url": "https://replicate.com/kwaivgi/kling-lip-sync",
             "visibility": "public",
             "weights_url": None,
@@ -1463,7 +1461,7 @@ class Hailuo_02(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "minimax/hailuo-02:c43b610efe40d08a28d2c07cb3515dab1cd3324dfc7418f3304a092571071d22"
+        return "minimax/hailuo-02:baaadb886e09b1e711387e270d841930e8253f08775bc6cb176580658f0f2fd9"
 
     @classmethod
     def get_hardware(cls):
@@ -1481,7 +1479,7 @@ class Hailuo_02(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 95634,
+            "run_count": 304726,
             "url": "https://replicate.com/minimax/hailuo-02",
             "visibility": "public",
             "weights_url": None,
@@ -1534,7 +1532,7 @@ class Wan_2_2_T2V_Fast(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "wan-video/wan-2.2-t2v-fast:1adb67211e01b96e48f9ab2bc5da80cac6f07604f2117ffafa729808850ffc0e"
+        return "wan-video/wan-2.2-t2v-fast:c483b1f7b892065bc58ebadb6381abf557f6b1f517d2ff0febb3fb635cf49b4d"
 
     @classmethod
     def get_hardware(cls):
@@ -1552,7 +1550,7 @@ class Wan_2_2_T2V_Fast(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": None,
-            "run_count": 68296,
+            "run_count": 162629,
             "url": "https://replicate.com/wan-video/wan-2.2-t2v-fast",
             "visibility": "public",
             "weights_url": None,
@@ -1578,7 +1576,7 @@ class Wan_2_2_T2V_Fast(ReplicateNode):
     )
     resolution: Resolution = Field(
         description="Resolution of video. 16:9 corresponds to 832x480px, and 9:16 is 480x832px",
-        default="720p",
+        default="480p",
     )
     aspect_ratio: Aspect_ratio = Field(
         description="Aspect ratio of video. 16:9 corresponds to 832x480px, and 9:16 is 480x832px",
@@ -1591,6 +1589,11 @@ class Wan_2_2_T2V_Fast(ReplicateNode):
         le=20.0,
         default=12,
     )
+    optimize_prompt: bool = Field(
+        title="Optimize Prompt",
+        description="Translate prompt to Chinese before generation",
+        default=False,
+    )
     frames_per_second: int = Field(
         title="Frames Per Second",
         description="Frames per second. Note that the pricing of this model is based on the video duration at 16 fps",
@@ -1598,10 +1601,35 @@ class Wan_2_2_T2V_Fast(ReplicateNode):
         le=30.0,
         default=16,
     )
+    interpolate_output: bool = Field(
+        title="Interpolate Output",
+        description="Interpolate the generated video to 30 FPS using ffmpeg",
+        default=True,
+    )
     disable_safety_checker: bool = Field(
         title="Disable Safety Checker",
         description="Disable safety checker for generated video.",
         default=False,
+    )
+    lora_scale_transformer: float = Field(
+        title="Lora Scale Transformer",
+        description="Determines how strongly the transformer LoRA should be applied.",
+        default=1,
+    )
+    lora_scale_transformer_2: float = Field(
+        title="Lora Scale Transformer 2",
+        description="Determines how strongly the transformer_2 LoRA should be applied.",
+        default=1,
+    )
+    lora_weights_transformer: str | None = Field(
+        title="Lora Weights Transformer",
+        description="Load LoRA weights for transformer. Supports arbitrary .safetensors URLs from the Internet (for example, 'https://huggingface.co/Viktor1717/scandinavian-interior-style1/resolve/main/my_first_flux_lora_v1.safetensors')",
+        default=None,
+    )
+    lora_weights_transformer_2: str | None = Field(
+        title="Lora Weights Transformer 2",
+        description="Load LoRA weights for transformer_2. Supports arbitrary .safetensors URLs from the Internet. Can be different from transformer LoRA.",
+        default=None,
     )
 
 
@@ -1612,17 +1640,13 @@ class Wan_2_2_I2V_Fast(ReplicateNode):
         _480P = "480p"
         _720P = "720p"
 
-    class Aspect_ratio(str, Enum):
-        _16_9 = "16:9"
-        _9_16 = "9:16"
-
     @classmethod
     def get_basic_fields(cls):
         return ["seed", "image", "prompt"]
 
     @classmethod
     def replicate_model_id(cls):
-        return "wan-video/wan-2.2-i2v-fast:b609b267d986d762a6d8679ac036d29e6d4454218df558db3aa4d0396ba55c59"
+        return "wan-video/wan-2.2-i2v-fast:4eaf2b01d3bf70d8a2e00b219efeb7cb415855ad18b7dacdc4cae664a73a6eea"
 
     @classmethod
     def get_hardware(cls):
@@ -1640,7 +1664,7 @@ class Wan_2_2_I2V_Fast(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": None,
-            "run_count": 946371,
+            "run_count": 6038679,
             "url": "https://replicate.com/wan-video/wan-2.2-i2v-fast",
             "visibility": "public",
             "weights_url": None,
@@ -1660,6 +1684,11 @@ class Wan_2_2_I2V_Fast(ReplicateNode):
         title="Prompt", description="Prompt for video generation", default=None
     )
     go_fast: bool = Field(title="Go Fast", description="Go fast", default=True)
+    last_image: str | None = Field(
+        title="Last Image",
+        description="Optional last image to condition the video generation. If provided, creates smoother transitions between frames.",
+        default=None,
+    )
     num_frames: int = Field(
         title="Num Frames",
         description="Number of video frames. 81 frames give the best results",
@@ -1669,11 +1698,7 @@ class Wan_2_2_I2V_Fast(ReplicateNode):
     )
     resolution: Resolution = Field(
         description="Resolution of video. 16:9 corresponds to 832x480px, and 9:16 is 480x832px",
-        default="720p",
-    )
-    aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio of video. 16:9 corresponds to 832x480px, and 9:16 is 480x832px",
-        default="16:9",
+        default="480p",
     )
     sample_shift: float = Field(
         title="Sample Shift",
@@ -1689,10 +1714,35 @@ class Wan_2_2_I2V_Fast(ReplicateNode):
         le=30.0,
         default=16,
     )
+    interpolate_output: bool = Field(
+        title="Interpolate Output",
+        description="Interpolate the generated video to 30 FPS using ffmpeg",
+        default=False,
+    )
     disable_safety_checker: bool = Field(
         title="Disable Safety Checker",
         description="Disable safety checker for generated video.",
         default=False,
+    )
+    lora_scale_transformer: float = Field(
+        title="Lora Scale Transformer",
+        description="Determines how strongly the transformer LoRA should be applied.",
+        default=1,
+    )
+    lora_scale_transformer_2: float = Field(
+        title="Lora Scale Transformer 2",
+        description="Determines how strongly the transformer_2 LoRA should be applied.",
+        default=1,
+    )
+    lora_weights_transformer: str | None = Field(
+        title="Lora Weights Transformer",
+        description="Load LoRA weights for the HIGH transformer. Supports arbitrary .safetensors URLs from the Internet (for example, 'https://huggingface.co/TheRaf7/instagirl-v2/resolve/main/Instagirlv2.0_hinoise.safetensors')",
+        default=None,
+    )
+    lora_weights_transformer_2: str | None = Field(
+        title="Lora Weights Transformer 2",
+        description="Load LoRA weights for the LOW transformer_2. Supports arbitrary .safetensors URLs from the Internet. Can be different from transformer LoRA. (for example, 'https://huggingface.co/TheRaf7/instagirl-v2/resolve/main/Instagirlv2.0_lownoise.safetensors')",
+        default=None,
     )
 
 
@@ -1712,7 +1762,7 @@ class Lipsync_2(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "sync/lipsync-2:e4f176abd783cefe6a3964de7c951fa2b51a953e0b22431d36658c44d9233d3d"
+        return "sync/lipsync-2:3190ef7dc0cbca29458d0032c032ef140a840087141cf10333e8d19a213f9194"
 
     @classmethod
     def get_hardware(cls):
@@ -1730,7 +1780,7 @@ class Lipsync_2(ReplicateNode):
             "owner": "sync",
             "is_official": True,
             "paper_url": None,
-            "run_count": 3382,
+            "run_count": 15782,
             "url": "https://replicate.com/sync/lipsync-2",
             "visibility": "public",
             "weights_url": None,
@@ -1780,7 +1830,7 @@ class Lipsync_2_Pro(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "sync/lipsync-2-pro:aac7db23beb06b0e7c286657f36e2dd3262d3850f868afec4f7d660adb9e106c"
+        return "sync/lipsync-2-pro:eaad6bceea4938d05f5d984b22897e5a7d389d4fff9a70888af5718502b57d39"
 
     @classmethod
     def get_hardware(cls):
@@ -1798,7 +1848,7 @@ class Lipsync_2_Pro(ReplicateNode):
             "owner": "sync",
             "is_official": True,
             "paper_url": None,
-            "run_count": 560,
+            "run_count": 9740,
             "url": "https://replicate.com/sync/lipsync-2-pro",
             "visibility": "public",
             "weights_url": None,
@@ -1829,4 +1879,165 @@ class Lipsync_2_Pro(ReplicateNode):
         title="Active Speaker",
         description="Whether to detect active speaker (i.e. whoever is speaking in the clip will be used for lipsync)",
         default=False,
+    )
+
+
+class Veo_3_1(ReplicateNode):
+    """New and improved version of Veo 3, with higher-fidelity video, context-aware audio, reference image and last frame support"""
+
+    class Duration(int, Enum):
+        _4 = 4
+        _6 = 6
+        _8 = 8
+
+    class Resolution(str, Enum):
+        _720P = "720p"
+        _1080P = "1080p"
+
+    class Aspect_ratio(str, Enum):
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["seed", "image", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "google/veo-3.1:ed5b1767b711dd15d954b162af1e890d27882680f463a85e94f02d604012b972"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/7600d853-2847-4c46-afc9-faef04fea2c5/veo3.1-sm.mp4",
+            "created_at": "2025-10-10T12:09:23.785590Z",
+            "description": "New and improved version of Veo 3, with higher-fidelity video, context-aware audio, reference image and last frame support",
+            "github_url": None,
+            "license_url": None,
+            "name": "veo-3.1",
+            "owner": "google",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 290689,
+            "url": "https://replicate.com/google/veo-3.1",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.VideoRef
+
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Omit for random generations",
+        default=None,
+    )
+    image: str | None = Field(
+        title="Image",
+        description="Input image to start generating from. Ideal images are 16:9 or 9:16 and 1280x720 or 720x1280, depending on the aspect ratio you choose.",
+        default=None,
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="Text prompt for video generation", default=None
+    )
+    duration: Duration = Field(description="Video duration in seconds", default=8)
+    last_frame: str | None = Field(
+        title="Last Frame",
+        description="Ending image for interpolation. When provided with an input image, creates a transition between the two images.",
+        default=None,
+    )
+    resolution: Resolution = Field(
+        description="Resolution of the generated video", default="1080p"
+    )
+    aspect_ratio: Aspect_ratio = Field(description="Video aspect ratio", default="16:9")
+    generate_audio: bool = Field(
+        title="Generate Audio",
+        description="Generate audio with the video",
+        default=True,
+    )
+    negative_prompt: str | None = Field(
+        title="Negative Prompt",
+        description="Description of what to exclude from the generated video",
+        default=None,
+    )
+    reference_images: list = Field(
+        title="Reference Images",
+        description="1 to 3 reference images for subject-consistent generation (reference-to-video, or R2V). Reference images only work with 16:9 aspect ratio and 8-second duration. Last frame is ignored if reference images are provided.",
+        default=[],
+    )
+
+
+class Kling_V2_6(ReplicateNode):
+    """Kling 2.6 Pro: Top-tier image-to-video with cinematic visuals, fluid motion, and native audio generation"""
+
+    class Duration(int, Enum):
+        _5 = 5
+        _10 = 10
+
+    class Aspect_ratio(str, Enum):
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+        _1_1 = "1:1"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["prompt", "duration", "start_image"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "kwaivgi/kling-v2.6:b13f36d030496dd78d2986ba8b2b22a44222b3f58c15fb63ef7d6b4aa3a53319"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://replicate.delivery/xezq/MRjiFeEoaLTsI6YuhqqbVbKid6EO2NQA9MkGuKfE4WZht14VA/tmpt21qn3q_.mp4",
+            "created_at": "2025-12-31T21:53:26.723295Z",
+            "description": "Kling 2.6 Pro: Top-tier image-to-video with cinematic visuals, fluid motion, and native audio generation",
+            "github_url": None,
+            "license_url": None,
+            "name": "kling-v2.6",
+            "owner": "kwaivgi",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 22063,
+            "url": "https://replicate.com/kwaivgi/kling-v2.6",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.VideoRef
+
+    prompt: str | None = Field(
+        title="Prompt", description="Text prompt for video generation", default=None
+    )
+    duration: Duration = Field(
+        description="Duration of the video in seconds", default=5
+    )
+    start_image: str | None = Field(
+        title="Start Image", description="First frame of the video", default=None
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio of the video. Ignored if start_image is provided.",
+        default="16:9",
+    )
+    generate_audio: bool = Field(
+        title="Generate Audio",
+        description="Generate audio for the video. When enabled, the model will create synchronized audio based on the video content.",
+        default=True,
+    )
+    negative_prompt: str = Field(
+        title="Negative Prompt",
+        description="Things you do not want to see in the video",
+        default="",
     )
