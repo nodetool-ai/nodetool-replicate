@@ -1102,6 +1102,19 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    {
+        "model_id": "google/nano-banana-pro",
+        "node_name": "Nano_Banana_Pro",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
+    {
+        "model_id": "openai/gpt-image-1.5",
+        "node_name": "GPT_Image_1_5",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
 ]
 
 if __name__ == "__main__":
