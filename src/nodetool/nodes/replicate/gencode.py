@@ -1102,6 +1102,24 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    {
+        "model_id": "black-forest-labs/flux-2-klein-4b",
+        "node_name": "Flux_2_Klein_4B",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "black-forest-labs/flux-2-max",
+        "node_name": "Flux_2_Max",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "openai/gpt-image-1.5",
+        "node_name": "Gpt_Image_1_5",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
 ]
 
 if __name__ == "__main__":

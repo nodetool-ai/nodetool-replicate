@@ -22,7 +22,6 @@ import os
 
 from nodetool.nodes.replicate.prediction import run_replicate
 
-
 log = get_logger(__name__)
 
 REPLICATE_MODELS = {}
