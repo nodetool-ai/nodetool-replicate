@@ -20,16 +20,16 @@ Repository configured with OpenCode memory and automated sync workflow.
 
 ---
 
-## 2026-01-14 - New Featured Models Added
+## 2026-01-21 - New Featured/Popular Models Added
 
-- Model ID: `black-forest-labs/flux-2-pro`
+- Model ID: `google/nano-banana-pro`
 - Namespace: `image.generate`
-- Description: FLUX.2 Pro - Black Forest Labs' most advanced image generation model with multi-reference editing and precise control
+- Description: Google's state-of-the-art image generation and editing model with advanced capabilities
 
-- Model ID: `black-forest-labs/flux-2-flex`
+- Model ID: `black-forest-labs/flux-2-klein-4b`
 - Namespace: `image.generate`
-- Description: FLUX.2 Flex - Max-quality image generation with support for ten reference images
+- Description: FLUX.2 Klein - Very fast image generation model, 4 steps distilled for sub-second inference
 
-- Model ID: `google/veo-3.1`
-- Namespace: `video.generate`
-- Description: Google's improved video model with higher-fidelity video, context-aware audio, reference image and last frame support
+- Model ID: `google/gemini-3-pro`
+- Namespace: `text.generate`
+- Description: Google's most advanced reasoning Gemini model for complex tasks
