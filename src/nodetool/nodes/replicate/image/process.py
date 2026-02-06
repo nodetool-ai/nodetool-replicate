@@ -33,7 +33,7 @@ class RemoveBackground(ReplicateNode):
             "owner": "cjwbw",
             "is_official": False,
             "paper_url": None,
-            "run_count": 9605503,
+            "run_count": 10412952,
             "url": "https://replicate.com/cjwbw/rembg",
             "visibility": "public",
             "weights_url": None,
@@ -73,7 +73,7 @@ class ModNet(ReplicateNode):
             "owner": "pollinations",
             "is_official": False,
             "paper_url": "https://arxiv.org/pdf/2011.11961.pdf",
-            "run_count": 971815,
+            "run_count": 1536501,
             "url": "https://replicate.com/pollinations/modnet",
             "visibility": "public",
             "weights_url": None,
@@ -117,7 +117,7 @@ class DD_Color(ReplicateNode):
             "owner": "piddnad",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2212.11613",
-            "run_count": 768259,
+            "run_count": 1676609,
             "url": "https://replicate.com/piddnad/ddcolor",
             "visibility": "public",
             "weights_url": None,
@@ -171,7 +171,7 @@ class Magic_Style_Transfer(ReplicateNode):
             "owner": "fermatresearch",
             "is_official": False,
             "paper_url": None,
-            "run_count": 49354,
+            "run_count": 51713,
             "url": "https://replicate.com/fermatresearch/magic-style-transfer",
             "visibility": "public",
             "weights_url": None,
@@ -306,7 +306,7 @@ class ObjectRemover(ReplicateNode):
             "owner": "codeplugtech",
             "is_official": False,
             "paper_url": None,
-            "run_count": 13499,
+            "run_count": 17937,
             "url": "https://replicate.com/codeplugtech/object_remover",
             "visibility": "public",
             "weights_url": None,
@@ -327,17 +327,30 @@ class ObjectRemover(ReplicateNode):
 class Nano_Banana(ReplicateNode):
     """Google's latest image editing model in Gemini 2.5"""
 
+    class Aspect_ratio(str, Enum):
+        MATCH_INPUT_IMAGE = "match_input_image"
+        _1_1 = "1:1"
+        _2_3 = "2:3"
+        _3_2 = "3:2"
+        _3_4 = "3:4"
+        _4_3 = "4:3"
+        _4_5 = "4:5"
+        _5_4 = "5:4"
+        _9_16 = "9:16"
+        _16_9 = "16:9"
+        _21_9 = "21:9"
+
     class Output_format(str, Enum):
         JPG = "jpg"
         PNG = "png"
 
     @classmethod
     def get_basic_fields(cls):
-        return ["prompt", "image_input", "output_format"]
+        return ["prompt", "image_input", "aspect_ratio"]
 
     @classmethod
     def replicate_model_id(cls):
-        return "google/nano-banana:0d02b13954d9a189e5145f11f7b4426a40dfb6e7f4ae83af85b977678b18f1de"
+        return "google/nano-banana:d05a591283da31be3eea28d5634ef9e26989b351718b6489bd308426ebd0a3e8"
 
     @classmethod
     def get_hardware(cls):
@@ -355,7 +368,7 @@ class Nano_Banana(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 5653336,
+            "run_count": 74001035,
             "url": "https://replicate.com/google/nano-banana",
             "visibility": "public",
             "weights_url": None,
@@ -374,6 +387,9 @@ class Nano_Banana(ReplicateNode):
         title="Image Input",
         description="Input images to transform or use as reference (supports multiple images)",
         default=[],
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio of the generated image", default="match_input_image"
     )
     output_format: Output_format = Field(
         description="Format of the output image", default="jpg"
@@ -400,7 +416,7 @@ class Expand_Image(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "bria/expand-image:e64cc01c6081436b1d62d03f4e425bc91ff24890db57ab88fe48b9d095609a17"
+        return "bria/expand-image:18d2dffd371ca05b45b7a4e9d82bae0f1f356563633f48d48dca4ccf82ec489d"
 
     @classmethod
     def get_hardware(cls):
@@ -418,7 +434,7 @@ class Expand_Image(ReplicateNode):
             "owner": "bria",
             "is_official": True,
             "paper_url": None,
-            "run_count": 15564,
+            "run_count": 334597,
             "url": "https://replicate.com/bria/expand-image",
             "visibility": "public",
             "weights_url": "https://huggingface.co/briaai/BRIA-2.3-ControlNet-Inpainting",
