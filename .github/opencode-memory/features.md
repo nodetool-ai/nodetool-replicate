@@ -33,3 +33,17 @@ Repository configured with OpenCode memory and automated sync workflow.
 - Model ID: `google/veo-3.1`
 - Namespace: `video.generate`
 - Description: Google's improved video model with higher-fidelity video, context-aware audio, reference image and last frame support
+
+## 2026-01-20 - New Featured Models Added
+
+- Model ID: `black-forest-labs/flux-2-klein-4b`
+- Namespace: `image.generate`
+- Description: FLUX.2 Klein - Very fast image generation model, 4 steps distilled, sub-second inference for production and near real-time applications
+
+- Model ID: `black-forest-labs/flux-2-max`
+- Namespace: `image.generate`
+- Description: FLUX.2 Max - The highest fidelity image model from Black Forest Labs
+
+- Model ID: `bytedance/seedance-1.5-pro`
+- Namespace: `video.generate`
+- Description: Seedance 1.5 Pro - Joint audio-video model that accurately follows complex instructions
