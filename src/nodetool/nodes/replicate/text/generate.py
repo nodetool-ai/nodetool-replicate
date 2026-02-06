@@ -33,7 +33,7 @@ class Llama3_8B(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 51025551,
+            "run_count": 51165548,
             "url": "https://replicate.com/meta/meta-llama-3-8b",
             "visibility": "public",
             "weights_url": None,
@@ -109,7 +109,7 @@ class Llama3_8B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 379769007,
+            "run_count": 396756467,
             "url": "https://replicate.com/meta/meta-llama-3-8b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -185,7 +185,7 @@ class Llama3_70B(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 841369,
+            "run_count": 853102,
             "url": "https://replicate.com/meta/meta-llama-3-70b",
             "visibility": "public",
             "weights_url": None,
@@ -261,7 +261,7 @@ class Llama3_8B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 379769007,
+            "run_count": 396756467,
             "url": "https://replicate.com/meta/meta-llama-3-8b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -337,7 +337,7 @@ class Llama3_70B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 160492085,
+            "run_count": 164545785,
             "url": "https://replicate.com/meta/meta-llama-3-70b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -395,7 +395,7 @@ class Llama3_1_405B_Instruct(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "meta/meta-llama-3.1-405b-instruct:e6cb7fc3ed90eae2c879c48deda8f49152391ad66349fe7694be24089c29f71c"
+        return "meta/meta-llama-3.1-405b-instruct:4ff591d23f09abef843c126a3c526bffb037a4e854e0af5af133a4d0f4243181"
 
     @classmethod
     def get_hardware(cls):
@@ -413,7 +413,7 @@ class Llama3_1_405B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 6447804,
+            "run_count": 6995169,
             "url": "https://replicate.com/meta/meta-llama-3.1-405b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -454,10 +454,15 @@ class Llama3_1_405B_Instruct(ReplicateNode):
         description="System prompt to send to the model. This is prepended to the prompt and helps guide system behavior. Ignored for non-chat models.",
         default="You are a helpful assistant.",
     )
-    stop_sequences: str | None = Field(
+    stop_sequences: str = Field(
         title="Stop Sequences",
         description="A comma-separated list of sequences to stop generation at. For example, '<end>,<stop>' will stop generation at the first instance of 'end' or '<stop>'.",
-        default=None,
+        default="",
+    )
+    prompt_template: str = Field(
+        title="Prompt Template",
+        description="A template to format the prompt with. If not provided, the default prompt template will be used.",
+        default="",
     )
     presence_penalty: float = Field(
         title="Presence Penalty", description="Presence penalty", default=0
@@ -494,7 +499,7 @@ class LlamaGuard_3_11B_Vision(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2312.06674",
-            "run_count": 1474,
+            "run_count": 1506,
             "url": "https://replicate.com/meta/llama-guard-3-11b-vision",
             "visibility": "public",
             "weights_url": "https://huggingface.co/meta-llama/Llama-Guard-3-11B-Vision",
@@ -541,7 +546,7 @@ class LlamaGuard_3_8B(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2407.21783",
-            "run_count": 356535,
+            "run_count": 360016,
             "url": "https://replicate.com/meta/llama-guard-3-8b",
             "visibility": "public",
             "weights_url": "https://huggingface.co/meta-llama/Llama-Guard-3-8B",
@@ -588,7 +593,7 @@ class Snowflake_Arctic_Instruct(ReplicateNode):
             "owner": "snowflake",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1979650,
+            "run_count": 1996672,
             "url": "https://replicate.com/snowflake/snowflake-arctic-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -629,7 +634,7 @@ class Claude_3_7_Sonnet(ReplicateNode):
             "owner": "anthropic",
             "is_official": True,
             "paper_url": None,
-            "run_count": 2684220,
+            "run_count": 3624478,
             "url": "https://replicate.com/anthropic/claude-3.7-sonnet",
             "visibility": "public",
             "weights_url": None,
@@ -673,7 +678,7 @@ class Deepseek_R1(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "deepseek-ai/deepseek-r1:d0426501ce0499770ac3d3494e9f3c7c03f9b10e569212f6148a4fd337ec3ece"
+        return "deepseek-ai/deepseek-r1:fec99f91f58ce5302af6d4cfd8638846925f47e0cd39a4554637806e8379766d"
 
     @classmethod
     def get_hardware(cls):
@@ -691,7 +696,7 @@ class Deepseek_R1(ReplicateNode):
             "owner": "deepseek-ai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 2027425,
+            "run_count": 2168163,
             "url": "https://replicate.com/deepseek-ai/deepseek-r1",
             "visibility": "public",
             "weights_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
@@ -708,7 +713,7 @@ class Deepseek_R1(ReplicateNode):
     max_tokens: int = Field(
         title="Max Tokens",
         description="The maximum number of tokens the model should generate as output.",
-        default=20480,
+        default=2048,
     )
     temperature: float = Field(
         title="Temperature",
@@ -748,7 +753,7 @@ class GPT_5_Structured(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-5-structured:dce923827d0d1384c9b16aeb95d3f21a34e4b5a6deffdf160d952917dbc545e1"
+        return "openai/gpt-5-structured:4e32e66191d7bdfcabf4398892aa77f0352964520ae6bc545ed60add03090d91"
 
     @classmethod
     def get_hardware(cls):
@@ -766,7 +771,7 @@ class GPT_5_Structured(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 42702,
+            "run_count": 355412,
             "url": "https://replicate.com/openai/gpt-5-structured",
             "visibility": "public",
             "weights_url": None,
@@ -857,7 +862,7 @@ class GPT_5(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-5:857113f52713e87828867975887fb4d369789052c5c63076933548b2720044da"
+        return "openai/gpt-5:e66760af5e83560f7d8d71e3420dce9362cea9ac41a492e5ba41e40405b62c55"
 
     @classmethod
     def get_hardware(cls):
@@ -866,7 +871,7 @@ class GPT_5(ReplicateNode):
     @classmethod
     def get_model_info(cls):
         return {
-            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/df3c6e87-cc46-40d9-a48f-381f80c7b10f/Screenshot_2025-08-07_at_1.04..png",
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/93d32638-644c-4926-8d07-ad01eec112fb/gpt-5-sm.jpg",
             "created_at": "2025-08-07T01:46:29.933808Z",
             "description": "OpenAI's new model excelling at coding, writing, and reasoning.",
             "github_url": None,
@@ -875,7 +880,7 @@ class GPT_5(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 127403,
+            "run_count": 979204,
             "url": "https://replicate.com/openai/gpt-5",
             "visibility": "public",
             "weights_url": None,
@@ -940,7 +945,7 @@ class GPT_5_Mini(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-5-mini:ee1342634b9ffcd6c76f6ea5b8f3ca0964b3eb469fc552ad937aa214e6d20636"
+        return "openai/gpt-5-mini:ea9e381ae5a1370344caf7103b2efd367cc37f30e42b7acc6c3bcb2b140182e1"
 
     @classmethod
     def get_hardware(cls):
@@ -958,7 +963,7 @@ class GPT_5_Mini(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 45503,
+            "run_count": 730122,
             "url": "https://replicate.com/openai/gpt-5-mini",
             "visibility": "public",
             "weights_url": None,
@@ -1023,7 +1028,7 @@ class GPT_5_Nano(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-5-nano:81858e36d5992ce06c1510cbe0a5e46c7ff17418424bd13da7c2443c4b318e40"
+        return "openai/gpt-5-nano:7ac1cc959145e65a06f2931cc378602226a85b286c00431baa32905550501923"
 
     @classmethod
     def get_hardware(cls):
@@ -1041,7 +1046,7 @@ class GPT_5_Nano(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 40105,
+            "run_count": 3818902,
             "url": "https://replicate.com/openai/gpt-5-nano",
             "visibility": "public",
             "weights_url": None,
@@ -1095,7 +1100,7 @@ class GPT_4_1(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-4.1:90d0a88c78740b21d9c98d5b245bce12f06bb2aecf074c1b3108748c2f26ed9c"
+        return "openai/gpt-4.1:12500eb28df96f9b9a30ae89f02652414f9d692ad391cea2c326015aa719e1a2"
 
     @classmethod
     def get_hardware(cls):
@@ -1113,7 +1118,7 @@ class GPT_4_1(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 117824,
+            "run_count": 273768,
             "url": "https://replicate.com/openai/gpt-4.1",
             "visibility": "public",
             "weights_url": None,
@@ -1187,7 +1192,7 @@ class GPT_4_1_Mini(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-4.1-mini:2e47757e2b7aa34decf05335dc78ad7968386e8aacd345dd045b6dfeb622cd69"
+        return "openai/gpt-4.1-mini:029d04e27c11b0898c24e0d8ae12c93dee8edbf3ff59a839e8a4a896691b733a"
 
     @classmethod
     def get_hardware(cls):
@@ -1205,7 +1210,7 @@ class GPT_4_1_Mini(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1153729,
+            "run_count": 1394996,
             "url": "https://replicate.com/openai/gpt-4.1-mini",
             "visibility": "public",
             "weights_url": None,
@@ -1279,7 +1284,7 @@ class GPT_4_1_Nano(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-4.1-nano:ec69f9c119aaf7d5a851b4dc9d08337a16906ee397a5d3d492fd52fbc59ea2a1"
+        return "openai/gpt-4.1-nano:d16a8857696f4bb42006b2f3799b590111a7365280f9b7f0c898f8e2ee3b8ea2"
 
     @classmethod
     def get_hardware(cls):
@@ -1297,7 +1302,7 @@ class GPT_4_1_Nano(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 366855,
+            "run_count": 1023895,
             "url": "https://replicate.com/openai/gpt-4.1-nano",
             "visibility": "public",
             "weights_url": None,
@@ -1365,13 +1370,17 @@ class GPT_4_1_Nano(ReplicateNode):
 class Deepseek_V3_1(ReplicateNode):
     """Latest hybrid thinking model from Deepseek"""
 
+    class Thinking(str, Enum):
+        MEDIUM = "medium"
+        NONE = "None"
+
     @classmethod
     def get_basic_fields(cls):
-        return ["top_p", "prompt", "max_tokens"]
+        return ["top_p", "prompt", "thinking"]
 
     @classmethod
     def replicate_model_id(cls):
-        return "deepseek-ai/deepseek-v3.1:a25971b28df7bdd9891b77e1877207aa953d1dd92cc3f1903565f94b12f3f0ba"
+        return "deepseek-ai/deepseek-v3.1:279f6b0991efaba468503a13d7726829cd76ea12076af7521a41578c2f19f581"
 
     @classmethod
     def get_hardware(cls):
@@ -1389,7 +1398,7 @@ class Deepseek_V3_1(ReplicateNode):
             "owner": "deepseek-ai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 2927,
+            "run_count": 250430,
             "url": "https://replicate.com/deepseek-ai/deepseek-v3.1",
             "visibility": "public",
             "weights_url": None,
@@ -1400,34 +1409,30 @@ class Deepseek_V3_1(ReplicateNode):
         return str
 
     top_p: float = Field(
-        title="Top P", description="Top-p (nucleus) sampling", ge=0.0, le=1.0, default=1
+        title="Top P", description="Top-p (nucleus) sampling", default=1
     )
-    prompt: str = Field(title="Prompt", description="Prompt", default="")
+    prompt: str = Field(
+        title="Prompt",
+        description="Prompt",
+        default="Why are you better than Deepseek v3?",
+    )
+    thinking: Thinking = Field(
+        description="Reasoning effort level for DeepSeek models. Use 'medium' for enhanced reasoning or leave as None for default behavior.",
+        default="None",
+    )
     max_tokens: int = Field(
         title="Max Tokens",
         description="The maximum number of tokens the model should generate as output.",
-        ge=1.0,
-        le=16384.0,
         default=1024,
     )
     temperature: float = Field(
         title="Temperature",
         description="The value used to modulate the next token probabilities.",
-        ge=0.0,
-        le=2.0,
         default=0.1,
     )
     presence_penalty: float = Field(
-        title="Presence Penalty",
-        description="Presence penalty",
-        ge=-2.0,
-        le=2.0,
-        default=0,
+        title="Presence Penalty", description="Presence penalty", default=0
     )
     frequency_penalty: float = Field(
-        title="Frequency Penalty",
-        description="Frequency penalty",
-        ge=-2.0,
-        le=2.0,
-        default=0,
+        title="Frequency Penalty", description="Frequency penalty", default=0
     )

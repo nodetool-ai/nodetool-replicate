@@ -20,6 +20,13 @@ Repository configured with OpenCode memory and automated sync workflow.
 
 ---
 
+## 2026-01-19 - Scheduled Model Sync
+
+- Model ID: `N/A`
+- Description: Scanned Replicate explore page for new models. Identified potential candidates (microsoft/phi-4, deepmind/truthfulqa, minimax/mxbai-embed-v1) but these models either don't exist on Replicate or have incorrect model IDs. No new models added this run.
+
+---
+
 ## 2026-01-14 - New Featured Models Added
 
 - Model ID: `black-forest-labs/flux-2-pro`
