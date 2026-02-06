@@ -20,6 +20,18 @@ Repository configured with OpenCode memory and automated sync workflow.
 
 ---
 
+## 2026-01-15 - New Featured Models Added
+
+- Model ID: `openai/gpt-image-1`
+- Namespace: `image.generate`
+- Description: OpenAI's official image generation model, bringing their advanced AI capabilities to high-quality image synthesis
+
+- Model ID: `minimax/speech-02-hd`
+- Namespace: `audio.generate`
+- Description: MiniMax's high-definition text-to-speech synthesis model with natural, human-like voice output
+
+---
+
 ## 2026-01-14 - New Featured Models Added
 
 - Model ID: `black-forest-labs/flux-2-pro`
