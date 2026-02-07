@@ -67,7 +67,7 @@ cd src/nodetool/nodes/replicate
 python gencode.py
 
 # Or generate specific namespace only (faster)
-python gencode.py --namespace image.3d
+python gencode.py --namespace 'image.3d'
 
 # Update metadata and DSL
 cd ../../../../

@@ -40,10 +40,10 @@ jobs:
           
           # Generate Replicate node classes from model definitions
           # This runs before the firewall is enabled, allowing access to replicate.com API
-          python src/nodetool/nodes/replicate/gencode.py || echo "Code generation skipped (no token or API unavailable)"
+          python src/nodetool/nodes/replicate/gencode.py
           
-          # Update package metadata if generation succeeded
-          nodetool package scan || true
+          # Update package metadata
+          nodetool package scan
           
-          # Generate DSL code if generation succeeded
-          nodetool codegen || true
+          # Generate DSL code
+          nodetool codegen
