@@ -32,7 +32,19 @@ jobs:
         env:
           NODETOOL_CORE_REF: v0.6.3-rc.18
           UV_EXTRA_INDEX_URL: https://nodetool-ai.github.io/nodetool-registry/simple/
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
         run: |
+          set -e  # Exit immediately if any command fails
           uv sync --frozen --no-dev --index-strategy unsafe-best-match
           uv pip install "nodetool-core @ git+https://github.com/nodetool-ai/nodetool-core.git@${NODETOOL_CORE_REF}"
           uv pip install -e . --no-deps
+          
+          # Generate Replicate node classes from model definitions
+          # This runs before the firewall is enabled, allowing access to replicate.com API
+          python src/nodetool/nodes/replicate/gencode.py
+          
+          # Update package metadata
+          nodetool package scan
+          
+          # Generate DSL code
+          nodetool codegen
