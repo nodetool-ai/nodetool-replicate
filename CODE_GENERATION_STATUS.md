@@ -3,7 +3,7 @@
 ## Current State
 
 ### ✅ Completed
-1. **23 new Replicate model definitions added** (from PR #31)
+1. **23 new Replicate model definitions added** (from base branch)
    - Image generation/processing models (AnimateDiff, InstructPix2Pix, ControlNet_Scribble, etc.)
    - 3D generation models (InstantMesh, SplatterImage, Flux_3D) in new `image.3d` namespace
    - Video processing models (StableVideoDiffusion, VideoToVideo)
@@ -67,6 +67,7 @@ cd src/nodetool/nodes/replicate
 python gencode.py
 
 # Or generate specific namespace only (faster)
+# Note: Quotes are needed if namespace contains dots to prevent shell interpretation
 python gencode.py --namespace 'image.3d'
 
 # Update metadata and DSL
