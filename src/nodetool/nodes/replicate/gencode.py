@@ -1102,6 +1102,170 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
+    # Additional Popular Models (Added 2026-02-07)
+    # Image Generation & Editing
+    {
+        "model_id": "lucataco/animate-diff",
+        "node_name": "AnimateDiff",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "timothybrooks/instruct-pix2pix",
+        "node_name": "InstructPix2Pix",
+        "namespace": "image.process",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "jagilley/controlnet-scribble",
+        "node_name": "ControlNet_Scribble",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "schananas/grounded-segment-anything",
+        "node_name": "GroundedSegmentAnything",
+        "namespace": "image.analyze",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "camenduru/animagine-xl-3.1",
+        "node_name": "Animagine_XL_3_1",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "lucataco/realvisxl-v4.0",
+        "node_name": "RealVisXL_V4",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "lucataco/sdxl-inpainting",
+        "node_name": "SDXL_Inpainting",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
+    {
+        "model_id": "andreasjansson/stable-diffusion-inpainting",
+        "node_name": "StableDiffusion_Inpainting",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
+    # Video Generation & Processing
+    {
+        "model_id": "nateraw/stable-video-diffusion",
+        "node_name": "StableVideoDiffusion",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "fofr/video-to-video",
+        "node_name": "VideoToVideo",
+        "namespace": "video.enhance",
+        "return_type": VideoRef,
+        "overrides": {"video": VideoRef},
+    },
+    # 3D Generation Models
+    {
+        "model_id": "tencentarc/instantmesh",
+        "node_name": "InstantMesh",
+        "namespace": "image.3d",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "szymanowiczs/splatter-image",
+        "node_name": "SplatterImage",
+        "namespace": "image.3d",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "adirik/flux-3d",
+        "node_name": "Flux_3D",
+        "namespace": "image.3d",
+        "return_type": ImageRef,
+    },
+    # Audio & Music Models
+    {
+        "model_id": "meta/musicgen-melody",
+        "node_name": "MusicGen_Melody",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+        "overrides": {"audio": AudioRef},
+    },
+    # Object Detection & Segmentation Models
+    {
+        "model_id": "lucataco/sam-hq",
+        "node_name": "SAM_HQ",
+        "namespace": "image.analyze",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "zsxkib/grounded-sam",
+        "node_name": "GroundedSAM",
+        "namespace": "image.analyze",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "xinyu1205/recognize-anything",
+        "node_name": "RecognizeAnything",
+        "namespace": "image.analyze",
+        "return_type": "str",
+        "overrides": {"image": ImageRef},
+    },
+    # Text & Code Generation Models
+    {
+        "model_id": "replicate/codellama-13b-instruct",
+        "node_name": "CodeLlama_13B_Instruct",
+        "namespace": "text.generate",
+        "return_type": "str",
+    },
+    {
+        "model_id": "replicate/codellama-34b-instruct",
+        "node_name": "CodeLlama_34B_Instruct",
+        "namespace": "text.generate",
+        "return_type": "str",
+    },
+    {
+        "model_id": "yorickvp/llava-v1.6-34b",
+        "node_name": "LLaVA_V1_6_34B",
+        "namespace": "image.analyze",
+        "return_type": "str",
+        "overrides": {"image": ImageRef},
+    },
+    # Face & Portrait Models
+    {
+        "model_id": "fofr/face-to-all",
+        "node_name": "FaceToAll",
+        "namespace": "image.face",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "cuuupid/liveportrait",
+        "node_name": "LivePortrait",
+        "namespace": "image.face",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef, "video": VideoRef},
+    },
+    # Workflow & Advanced Models
+    {
+        "model_id": "fofr/any-comfyui-workflow",
+        "node_name": "AnyComfyUIWorkflow",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
 ]
 
 if __name__ == "__main__":
