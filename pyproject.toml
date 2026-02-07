@@ -25,6 +25,9 @@ include = [
     "src/nodetool/package_metadata/*.json",
 ]
 
+[tool.uv]
+extra-index-url = ["https://nodetool-ai.github.io/nodetool-registry/simple/"]
+
 [tool.ruff]
 target-version = "py311"
 
