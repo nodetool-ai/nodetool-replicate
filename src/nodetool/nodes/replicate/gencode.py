@@ -1102,7 +1102,8 @@ replicate_nodes = [
         "namespace": "video.generate",
         "return_type": VideoRef,
     },
-    # New Image Generation & Editing Models
+    # Additional Popular Models (Added 2026-02-07)
+    # Image Generation & Editing
     {
         "model_id": "lucataco/animate-diff",
         "node_name": "AnimateDiff",
@@ -1157,7 +1158,7 @@ replicate_nodes = [
         "return_type": ImageRef,
         "overrides": {"image": ImageRef, "mask": ImageRef},
     },
-    # Video Generation & Processing Models
+    # Video Generation & Processing
     {
         "model_id": "nateraw/stable-video-diffusion",
         "node_name": "StableVideoDiffusion",

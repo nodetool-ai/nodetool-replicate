@@ -95,11 +95,17 @@ This will:
 
 ### Generate Specific Namespace
 
-To regenerate only a specific namespace:
+To regenerate only a specific namespace (useful when you only added models to one category):
 
 ```bash
 python gencode.py --namespace image.generate
 ```
+
+This will only fetch schemas and generate code for models in the specified namespace, which is faster than regenerating everything. Available namespaces include:
+- `image.generate`, `image.process`, `image.analyze`, `image.enhance`, `image.upscale`, `image.face`, `image.ocr`, `image.3d`
+- `video.generate`, `video.enhance`
+- `audio.generate`, `audio.transcribe`, `audio.separate`, `audio.enhance`
+- `text.generate`
 
 ### After Generation
 
@@ -143,11 +149,17 @@ Let's add a new image generation model:
 ```bash
 export REPLICATE_API_TOKEN="your-token"
 cd src/nodetool/nodes/replicate
+
+# Option 1: Generate only the image.generate namespace (faster)
 python gencode.py --namespace image.generate
+
+# Option 2: Generate all namespaces (slower but comprehensive)
+python gencode.py
 ```
 
 3. **Generate metadata and DSL:**
 ```bash
+cd ../../..  # Return to repository root
 nodetool package scan
 nodetool codegen
 ```
