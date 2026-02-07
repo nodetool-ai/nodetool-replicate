@@ -91,7 +91,7 @@ To verify the setup is correct, check:
 
 ## Model Count
 
-- **Before**: 154 model definitions
-- **After**: 177 model definitions (+23)
+- **Before**: 159 model definitions
+- **After**: 182 model definitions (+23)
 
-Total Nodes: **177**
+Total Nodes: **182**
