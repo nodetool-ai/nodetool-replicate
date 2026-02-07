@@ -124,9 +124,43 @@ The node includes built-in error handling for common issues:
 - Input validation errors
 - Network connectivity problems
 
+## New Features
+
+### Recently Added Models (177+ total nodes)
+
+#### 3D Generation
+- **InstantMesh**: Generate 3D meshes from images
+- **SplatterImage**: Create 3D gaussian splats from single images
+- **Flux_3D**: 3D-aware image generation
+
+#### Advanced Image Processing
+- **InstructPix2Pix**: Edit images using text instructions
+- **ControlNet_Scribble**: Generate images from scribble sketches
+- **AnimateDiff**: Create animations from images
+- **GroundedSegmentAnything**: Advanced segmentation with text prompts
+- **SAM_HQ**: High-quality segmentation with Segment Anything Model
+
+#### Video Processing
+- **StableVideoDiffusion**: Generate videos from images
+- **VideoToVideo**: Transform videos with AI
+
+#### Code Generation
+- **CodeLlama**: 13B and 34B instruction-tuned models for code generation
+
+#### Face & Portrait
+- **FaceToAll**: Transform faces into various artistic styles
+- **LivePortrait**: Animate portraits with driving videos
+
+#### Advanced Features
+- **AnyComfyUI Workflow**: Run custom ComfyUI workflows
+- **MusicGen_Melody**: Generate music with melody conditioning
+- **RecognizeAnything**: Detect and recognize objects in images
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+For information on adding new Replicate models, see [CODEGEN.md](CODEGEN.md).
 
 ## License
 
