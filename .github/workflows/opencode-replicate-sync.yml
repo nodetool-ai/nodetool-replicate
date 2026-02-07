@@ -6,7 +6,7 @@ on:
   workflow_dispatch: # Allow manual trigger
 
 jobs:
-  opencode:
+  replicate-sync:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -34,13 +34,18 @@ jobs:
         run: |
           uv sync --all-extras --dev --extra-index-url https://nodetool-ai.github.io/nodetool-registry/simple/ --index-strategy unsafe-best-match
 
-      - name: Run OpenCode
-        uses: anomalyco/opencode/github@latest
+      - name: Run Assistant
+        uses: anthropics/claude-code-action@v1
         env:
+          ANTHROPIC_BASE_URL: https://api.z.ai/api/anthropic
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
           MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
         with:
-          model: minimax/MiniMax-M2.1
+          anthropic_api_key: ${{ secrets.ZAI_API_KEY }}
+          additional_permissions: |
+            actions: read
+          claude_args: |
+            --allowedTools "Bash,WebFetch,Edit,Read,Replace"
           prompt: |
             # Replicate Model Sync (Scheduled)
 

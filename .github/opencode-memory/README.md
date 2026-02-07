@@ -1,6 +1,6 @@
-# OpenCode Memory
+# Agent Memory
 
-This directory contains context and instructions for the OpenCode autonomous agent that maintains this repository.
+This directory contains context and instructions for the Claude Code autonomous agent that maintains this repository.
 
 ## Purpose
 
@@ -15,4 +15,4 @@ The agent periodically scans [Replicate Explore](https://replicate.com/explore) 
 
 ## Related Workflows
 
-- `.github/workflows/opencode-replicate-sync.yml` - Scheduled workflow that runs the agent
+- `.github/workflows/opencode-replicate-sync.yml` - Scheduled workflow that runs the Claude Code agent

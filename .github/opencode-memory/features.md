@@ -1,6 +1,6 @@
 # Features Log
 
-This file tracks nodes and features added by the automated OpenCode agent.
+This file tracks nodes and features added by the automated Claude Code agent.
 
 ## Format
 
@@ -16,7 +16,7 @@ Each entry should follow this format:
 
 ## Initial Setup - 2025-01-14
 
-Repository configured with OpenCode memory and automated sync workflow.
+Repository configured with Claude Code memory and automated sync workflow.
 
 ---
 
