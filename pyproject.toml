@@ -10,7 +10,11 @@ readme = "README.md"
 authors = [{ name = "Matthias Georgi", email = "matti.georgi@gmail.com" }]
 requires-python = ">=3.11"
 
-dependencies = ["nodetool-core==0.6.3-rc.25", "replicate"]
+dependencies = [
+    "black>=26.1.0",
+    "nodetool-core==0.6.3-rc.25",
+    "replicate",
+]
 
 
 [project.optional-dependencies]
@@ -34,3 +38,9 @@ target-version = "py311"
 [tool.ruff.lint]
 extend-select = ["E", "F"]
 ignore = ["E402", "E721", "E501", "F401", "F811"]
+
+[dependency-groups]
+dev = [
+    "black>=26.1.0",
+    "ruff>=0.15.2",
+]

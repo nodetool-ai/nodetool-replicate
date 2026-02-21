@@ -33,7 +33,7 @@ class Llama3_8B(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 51165162,
+            "run_count": 51247071,
             "url": "https://replicate.com/meta/meta-llama-3-8b",
             "visibility": "public",
             "weights_url": None,
@@ -109,7 +109,7 @@ class Llama3_8B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 396685436,
+            "run_count": 400127200,
             "url": "https://replicate.com/meta/meta-llama-3-8b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -185,7 +185,7 @@ class Llama3_70B(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 853075,
+            "run_count": 855568,
             "url": "https://replicate.com/meta/meta-llama-3-70b",
             "visibility": "public",
             "weights_url": None,
@@ -261,7 +261,7 @@ class Llama3_8B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 396685436,
+            "run_count": 400127200,
             "url": "https://replicate.com/meta/meta-llama-3-8b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -337,7 +337,7 @@ class Llama3_70B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 164535332,
+            "run_count": 165603090,
             "url": "https://replicate.com/meta/meta-llama-3-70b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -413,7 +413,7 @@ class Llama3_1_405B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 6991963,
+            "run_count": 7118854,
             "url": "https://replicate.com/meta/meta-llama-3.1-405b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -499,7 +499,7 @@ class LlamaGuard_3_11B_Vision(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2312.06674",
-            "run_count": 1506,
+            "run_count": 1511,
             "url": "https://replicate.com/meta/llama-guard-3-11b-vision",
             "visibility": "public",
             "weights_url": "https://huggingface.co/meta-llama/Llama-Guard-3-11B-Vision",
@@ -546,7 +546,7 @@ class LlamaGuard_3_8B(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2407.21783",
-            "run_count": 359973,
+            "run_count": 362818,
             "url": "https://replicate.com/meta/llama-guard-3-8b",
             "visibility": "public",
             "weights_url": "https://huggingface.co/meta-llama/Llama-Guard-3-8B",
@@ -593,7 +593,7 @@ class Snowflake_Arctic_Instruct(ReplicateNode):
             "owner": "snowflake",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1996663,
+            "run_count": 1996955,
             "url": "https://replicate.com/snowflake/snowflake-arctic-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -634,7 +634,7 @@ class Claude_3_7_Sonnet(ReplicateNode):
             "owner": "anthropic",
             "is_official": True,
             "paper_url": None,
-            "run_count": 3614469,
+            "run_count": 3798655,
             "url": "https://replicate.com/anthropic/claude-3.7-sonnet",
             "visibility": "public",
             "weights_url": None,
@@ -696,7 +696,7 @@ class Deepseek_R1(ReplicateNode):
             "owner": "deepseek-ai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 2167773,
+            "run_count": 2188684,
             "url": "https://replicate.com/deepseek-ai/deepseek-r1",
             "visibility": "public",
             "weights_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
@@ -753,7 +753,7 @@ class GPT_5_Structured(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-5-structured:4e32e66191d7bdfcabf4398892aa77f0352964520ae6bc545ed60add03090d91"
+        return "openai/gpt-5-structured:9f4cd9ec1133f55d442aeb426e42df5180a56e79a33183623611d62d4c3b44ae"
 
     @classmethod
     def get_hardware(cls):
@@ -771,7 +771,7 @@ class GPT_5_Structured(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 355034,
+            "run_count": 377851,
             "url": "https://replicate.com/openai/gpt-5-structured",
             "visibility": "public",
             "weights_url": None,
@@ -862,7 +862,7 @@ class GPT_5(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-5:e66760af5e83560f7d8d71e3420dce9362cea9ac41a492e5ba41e40405b62c55"
+        return "openai/gpt-5:feacd077889bbeea463bb0314810093c23b2e1b49af8ca6f82975f8c36a2ebd0"
 
     @classmethod
     def get_hardware(cls):
@@ -880,7 +880,7 @@ class GPT_5(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 974752,
+            "run_count": 1233047,
             "url": "https://replicate.com/openai/gpt-5",
             "visibility": "public",
             "weights_url": None,
@@ -945,7 +945,7 @@ class GPT_5_Mini(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-5-mini:ea9e381ae5a1370344caf7103b2efd367cc37f30e42b7acc6c3bcb2b140182e1"
+        return "openai/gpt-5-mini:8fd5dbfbc0f88570a4ba7f9d529aa02b10ca1f92d77c4ada0a56e549ffda0bae"
 
     @classmethod
     def get_hardware(cls):
@@ -963,7 +963,7 @@ class GPT_5_Mini(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 721981,
+            "run_count": 1170181,
             "url": "https://replicate.com/openai/gpt-5-mini",
             "visibility": "public",
             "weights_url": None,
@@ -1028,7 +1028,7 @@ class GPT_5_Nano(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-5-nano:7ac1cc959145e65a06f2931cc378602226a85b286c00431baa32905550501923"
+        return "openai/gpt-5-nano:034fc01c1d162ba028187fc496eb079e6c1329c1c8f686d971eba9d01e7ffb96"
 
     @classmethod
     def get_hardware(cls):
@@ -1046,7 +1046,7 @@ class GPT_5_Nano(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 3800504,
+            "run_count": 4761261,
             "url": "https://replicate.com/openai/gpt-5-nano",
             "visibility": "public",
             "weights_url": None,
@@ -1100,7 +1100,7 @@ class GPT_4_1(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-4.1:12500eb28df96f9b9a30ae89f02652414f9d692ad391cea2c326015aa719e1a2"
+        return "openai/gpt-4.1:f7e65222875892b7893e5c7581bdde9056c78cd77171a315c369b63b8907a619"
 
     @classmethod
     def get_hardware(cls):
@@ -1118,7 +1118,7 @@ class GPT_4_1(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 273323,
+            "run_count": 282571,
             "url": "https://replicate.com/openai/gpt-4.1",
             "visibility": "public",
             "weights_url": None,
@@ -1192,7 +1192,7 @@ class GPT_4_1_Mini(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-4.1-mini:029d04e27c11b0898c24e0d8ae12c93dee8edbf3ff59a839e8a4a896691b733a"
+        return "openai/gpt-4.1-mini:aca77ca43d7155cf9480ea2f697adf1c9c008ab5a471050cedb90dadfb5dc4cc"
 
     @classmethod
     def get_hardware(cls):
@@ -1210,7 +1210,7 @@ class GPT_4_1_Mini(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1389302,
+            "run_count": 1607328,
             "url": "https://replicate.com/openai/gpt-4.1-mini",
             "visibility": "public",
             "weights_url": None,
@@ -1284,7 +1284,7 @@ class GPT_4_1_Nano(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-4.1-nano:d16a8857696f4bb42006b2f3799b590111a7365280f9b7f0c898f8e2ee3b8ea2"
+        return "openai/gpt-4.1-nano:756e9851b24d755bc245572b53d1f40121719eed75663c38ea6628202720a54b"
 
     @classmethod
     def get_hardware(cls):
@@ -1302,7 +1302,7 @@ class GPT_4_1_Nano(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1019699,
+            "run_count": 1192871,
             "url": "https://replicate.com/openai/gpt-4.1-nano",
             "visibility": "public",
             "weights_url": None,
@@ -1398,7 +1398,7 @@ class Deepseek_V3_1(ReplicateNode):
             "owner": "deepseek-ai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 244313,
+            "run_count": 312252,
             "url": "https://replicate.com/deepseek-ai/deepseek-v3.1",
             "visibility": "public",
             "weights_url": None,
@@ -1435,4 +1435,80 @@ class Deepseek_V3_1(ReplicateNode):
     )
     frequency_penalty: float = Field(
         title="Frequency Penalty", description="Frequency penalty", default=0
+    )
+
+
+class Kimi_K2_5(ReplicateNode):
+    """Moonshot AI's latest open model. It unifies vision and text, thinking and non-thinking modes, and single-agent and multi-agent execution into one model"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["image", "top_p", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "moonshotai/kimi-k2.5:b4d8427a98a2de294f719d281c5218daebd44895b308ace34792d0746f6670ba"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/3a15b232-3fd0-49e9-b514-10cf7fdef852/moonshot-kimik25.png",
+            "created_at": "2026-01-27T17:29:38.568271Z",
+            "description": "Moonshot AI's latest open model. It unifies vision and text, thinking and non-thinking modes, and single-agent and multi-agent execution into one model",
+            "github_url": None,
+            "license_url": None,
+            "name": "kimi-k2.5",
+            "owner": "moonshotai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 15649,
+            "url": "https://replicate.com/moonshotai/kimi-k2.5",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    image: str | None = Field(
+        title="Image",
+        description="Image file to analyze (optional). Will be resized if larger than 1024px.",
+        default=None,
+    )
+    top_p: float = Field(
+        title="Top P", description="Top-p (nucleus) sampling", ge=0.0, le=1.0, default=1
+    )
+    prompt: str = Field(title="Prompt", description="Text prompt", default="")
+    max_tokens: int = Field(
+        title="Max Tokens",
+        description="Maximum number of tokens to generate.",
+        ge=1.0,
+        le=131072.0,
+        default=1024,
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="Sampling temperature.",
+        ge=0.0,
+        le=2.0,
+        default=0.1,
+    )
+    presence_penalty: float = Field(
+        title="Presence Penalty",
+        description="Presence penalty",
+        ge=-2.0,
+        le=2.0,
+        default=0,
+    )
+    frequency_penalty: float = Field(
+        title="Frequency Penalty",
+        description="Frequency penalty",
+        ge=-2.0,
+        le=2.0,
+        default=0,
     )

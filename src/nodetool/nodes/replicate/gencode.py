@@ -1121,6 +1121,25 @@ replicate_nodes = [
         "namespace": "audio.generate",
         "return_type": AudioRef,
     },
+    # === Added 2026-02-21 ===
+    {
+        "model_id": "xai/grok-imagine-video",
+        "node_name": "Grok_Imagine_Video",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+    },
+    {
+        "model_id": "moonshotai/kimi-k2.5",
+        "node_name": "Kimi_K2_5",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "elevenlabs/music",
+        "node_name": "Elevenlabs_Music",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
 ]
 
 if __name__ == "__main__":

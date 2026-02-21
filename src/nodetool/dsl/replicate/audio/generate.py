@@ -19,6 +19,53 @@ import nodetool.nodes.replicate.audio.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Elevenlabs_Music(
+    SingleOutputGraphNode[types.AudioRef], GraphNode[types.AudioRef]
+):
+    """
+    Compose a song from a prompt or a composition plan
+    """
+
+    Output_format: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.audio.generate.Elevenlabs_Music.Output_format
+    )
+
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Description of the music you want to generate"
+    )
+    output_format: (
+        nodetool.nodes.replicate.audio.generate.Elevenlabs_Music.Output_format
+    ) = Field(
+        default=nodetool.nodes.replicate.audio.generate.Elevenlabs_Music.Output_format(
+            "mp3_standard"
+        ),
+        description="Audio output format: mp3_standard (128kbps MP3, balanced quality/size), mp3_high_quality (192kbps MP3, higher quality), wav_16khz (16kHz WAV, good for voice), wav_22khz (22kHz WAV), wav_24khz (24kHz WAV), wav_cd_quality (44.1kHz WAV, uncompressed CD quality)",
+    )
+    music_length_ms: int | OutputHandle[int] = connect_field(
+        default=10000,
+        description="Target duration of the music in milliseconds (optional, defaults to ~10 seconds)",
+    )
+    force_instrumental: bool | OutputHandle[bool] = connect_field(
+        default=True,
+        description="If true, removes vocal elements from the generated music",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.audio.generate.Elevenlabs_Music
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.audio.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Lyria_2(SingleOutputGraphNode[types.AudioRef], GraphNode[types.AudioRef]):
     """
     Lyria 2 is a music generation model that produces 48kHz stereo audio through text-based prompts
