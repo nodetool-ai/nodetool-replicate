@@ -576,6 +576,50 @@ import nodetool.nodes.replicate.text.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Kimi_K2_5(SingleOutputGraphNode[str], GraphNode[str]):
+    """
+    Moonshot AI's latest open model. It unifies vision and text, thinking and non-thinking modes, and single-agent and multi-agent execution into one model
+    """
+
+    image: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Image file to analyze (optional). Will be resized if larger than 1024px.",
+    )
+    top_p: float | OutputHandle[float] = connect_field(
+        default=1, description="Top-p (nucleus) sampling"
+    )
+    prompt: str | OutputHandle[str] = connect_field(
+        default="", description="Text prompt"
+    )
+    max_tokens: int | OutputHandle[int] = connect_field(
+        default=1024, description="Maximum number of tokens to generate."
+    )
+    temperature: float | OutputHandle[float] = connect_field(
+        default=0.1, description="Sampling temperature."
+    )
+    presence_penalty: float | OutputHandle[float] = connect_field(
+        default=0, description="Presence penalty"
+    )
+    frequency_penalty: float | OutputHandle[float] = connect_field(
+        default=0, description="Frequency penalty"
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.text.generate.Kimi_K2_5
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.text.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Llama3_1_405B_Instruct(SingleOutputGraphNode[str], GraphNode[str]):
     """
     Meta's flagship 405 billion parameter language model, fine-tuned for chat completions

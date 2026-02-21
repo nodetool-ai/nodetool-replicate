@@ -33,7 +33,7 @@ class RemoveBackground(ReplicateNode):
             "owner": "cjwbw",
             "is_official": False,
             "paper_url": None,
-            "run_count": 10394333,
+            "run_count": 10558978,
             "url": "https://replicate.com/cjwbw/rembg",
             "visibility": "public",
             "weights_url": None,
@@ -73,7 +73,7 @@ class ModNet(ReplicateNode):
             "owner": "pollinations",
             "is_official": False,
             "paper_url": "https://arxiv.org/pdf/2011.11961.pdf",
-            "run_count": 1534962,
+            "run_count": 1604469,
             "url": "https://replicate.com/pollinations/modnet",
             "visibility": "public",
             "weights_url": None,
@@ -117,7 +117,7 @@ class DD_Color(ReplicateNode):
             "owner": "piddnad",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2212.11613",
-            "run_count": 1635897,
+            "run_count": 1939783,
             "url": "https://replicate.com/piddnad/ddcolor",
             "visibility": "public",
             "weights_url": None,
@@ -171,7 +171,7 @@ class Magic_Style_Transfer(ReplicateNode):
             "owner": "fermatresearch",
             "is_official": False,
             "paper_url": None,
-            "run_count": 51706,
+            "run_count": 51853,
             "url": "https://replicate.com/fermatresearch/magic-style-transfer",
             "visibility": "public",
             "weights_url": None,
@@ -306,7 +306,7 @@ class ObjectRemover(ReplicateNode):
             "owner": "codeplugtech",
             "is_official": False,
             "paper_url": None,
-            "run_count": 17905,
+            "run_count": 18283,
             "url": "https://replicate.com/codeplugtech/object_remover",
             "visibility": "public",
             "weights_url": None,
@@ -350,7 +350,7 @@ class Nano_Banana(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "google/nano-banana:d05a591283da31be3eea28d5634ef9e26989b351718b6489bd308426ebd0a3e8"
+        return "google/nano-banana:5bdc2c7cd642ae33611d8c33f79615f98ff02509ab8db9d8ec1cc6c36d378fba"
 
     @classmethod
     def get_hardware(cls):
@@ -368,7 +368,7 @@ class Nano_Banana(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 72428081,
+            "run_count": 85413193,
             "url": "https://replicate.com/google/nano-banana",
             "visibility": "public",
             "weights_url": None,
@@ -416,7 +416,7 @@ class Expand_Image(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "bria/expand-image:18d2dffd371ca05b45b7a4e9d82bae0f1f356563633f48d48dca4ccf82ec489d"
+        return "bria/expand-image:0d8d951a482d1f94125a7adbde188d7aa280a13fe0a444b9e786fce905e2af9a"
 
     @classmethod
     def get_hardware(cls):
@@ -434,7 +434,7 @@ class Expand_Image(ReplicateNode):
             "owner": "bria",
             "is_official": True,
             "paper_url": None,
-            "run_count": 329915,
+            "run_count": 350587,
             "url": "https://replicate.com/bria/expand-image",
             "visibility": "public",
             "weights_url": "https://huggingface.co/briaai/BRIA-2.3-ControlNet-Inpainting",
@@ -461,15 +461,16 @@ class Expand_Image(ReplicateNode):
     )
     canvas_size: list | None = Field(
         title="Canvas Size",
-        description="Desired output canvas dimensions [width, height]. Default [1000, 1000]",
+        description="Desired output canvas dimensions [width, height]. Default [1000, 1000]. Max 5000x5000 pixels.",
         default=None,
     )
     aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio for expansion.", default="1:1"
+        description="Aspect ratio for expansion. Either aspect_ratio or canvas_size with original_image_size/location must be provided. Can be a predefined string like '1:1', '16:9' etc. or a custom float between 0.5 and 3.0",
+        default="1:1",
     )
     preserve_alpha: bool = Field(
         title="Preserve Alpha",
-        description="Preserve alpha channel in output",
+        description="Preserve alpha channel in output. When true, maintains original transparency. When false, output is fully opaque.",
         default=True,
     )
     negative_prompt: str | None = Field(
