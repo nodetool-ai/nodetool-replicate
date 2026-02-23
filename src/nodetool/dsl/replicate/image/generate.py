@@ -313,6 +313,83 @@ import nodetool.nodes.replicate.image.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Flux_2_Klein_4B(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
+    """
+    Very fast image generation and editing model. 4 steps distilled, sub-second inference for production and near real-time applications.
+    """
+
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4B.Aspect_ratio
+    )
+    Output_format: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4B.Output_format
+    )
+    Output_megapixels: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4B.Output_megapixels
+    )
+
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Random seed. Set for reproducible generation"
+    )
+    images: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="List of input images for image-to-image generation. Maximum 5 images. Must be jpeg, png, gif, or webp.",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt for image generation."
+    )
+    go_fast: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="Run faster predictions with additional optimizations.",
+    )
+    aspect_ratio: (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4B.Aspect_ratio
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Flux_2_Klein_4B.Aspect_ratio(
+            "1:1"
+        ),
+        description="Aspect ratio for the generated image. Use 'match_input_image' to match the aspect ratio of the first input image.",
+    )
+    output_format: (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4B.Output_format
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Flux_2_Klein_4B.Output_format(
+            "jpg"
+        ),
+        description="Format of the output images",
+    )
+    output_quality: int | OutputHandle[int] = connect_field(
+        default=95,
+        description="Quality when saving the output images, from 0 to 100. 100 is best quality, 0 is lowest quality. Not relevant for .png outputs.",
+    )
+    output_megapixels: (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4B.Output_megapixels
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Flux_2_Klein_4B.Output_megapixels(
+            "1"
+        ),
+        description="Resolution of the output image in megapixels",
+    )
+    disable_safety_checker: bool | OutputHandle[bool] = connect_field(
+        default=False, description="Disable safety checker for generated images."
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Flux_2_Klein_4B
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Flux_2_Max(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
     """
     The highest fidelity image model from Black Forest Labs
@@ -3767,6 +3844,51 @@ class Recraft_V3_SVG(SingleOutputGraphNode[types.SVGRef], GraphNode[types.SVGRef
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.image.generate.Recraft_V3_SVG
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class Recraft_V4(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
+    """
+    Recraft's latest image generation model, built around design taste. Strong prompt accuracy, art-directed composition, and integrated text rendering. Fast and cost-efficient at standard resolution.
+    """
+
+    Size: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Recraft_V4.Size
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Recraft_V4.Aspect_ratio
+    )
+
+    size: nodetool.nodes.replicate.image.generate.Recraft_V4.Size = Field(
+        default=nodetool.nodes.replicate.image.generate.Recraft_V4.Size("1024x1024"),
+        description="Width and height of the generated image. Size is ignored if an aspect ratio is set.",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Text prompt for image generation (up to 10,000 characters)",
+    )
+    aspect_ratio: nodetool.nodes.replicate.image.generate.Recraft_V4.Aspect_ratio = (
+        Field(
+            default=nodetool.nodes.replicate.image.generate.Recraft_V4.Aspect_ratio(
+                "Not set"
+            ),
+            description="Aspect ratio of the generated image",
+        )
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Recraft_V4
 
     @classmethod
     def get_node_type(cls):

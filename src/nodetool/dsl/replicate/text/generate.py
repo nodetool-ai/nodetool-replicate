@@ -576,6 +576,128 @@ import nodetool.nodes.replicate.text.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Gemini_3_1_Pro(SingleOutputGraphNode[str], GraphNode[str]):
+    """
+    Google's most intelligent model, with improved reasoning and a new medium thinking level
+    """
+
+    Thinking_level: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.text.generate.Gemini_3_1_Pro.Thinking_level
+    )
+
+    audio: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Input audio to send with the prompt (max 1 audio file, up to 8.4 hours)",
+    )
+    top_p: float | OutputHandle[float] = connect_field(
+        default=0.95,
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass",
+    )
+    images: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input images to send with the prompt (max 10 images, each up to 7MB)",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="The text prompt to send to the model"
+    )
+    videos: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input videos to send with the prompt (max 10 videos, each up to 45 minutes)",
+    )
+    temperature: float | OutputHandle[float] = connect_field(
+        default=1, description="Sampling temperature between 0 and 2"
+    )
+    thinking_level: (
+        nodetool.nodes.replicate.text.generate.Gemini_3_1_Pro.Thinking_level
+    ) = Field(
+        default=nodetool.nodes.replicate.text.generate.Gemini_3_1_Pro.Thinking_level(
+            "high"
+        ),
+        description="Thinking level for reasoning. Controls the maximum depth of the model's internal reasoning process.",
+    )
+    max_output_tokens: int | OutputHandle[int] = connect_field(
+        default=65535, description="Maximum number of tokens to generate"
+    )
+    system_instruction: str | OutputHandle[str] | None = connect_field(
+        default=None, description="System instruction to guide the model's behavior"
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.text.generate.Gemini_3_1_Pro
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.text.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class Gemini_3_Flash(SingleOutputGraphNode[str], GraphNode[str]):
+    """
+    Google's most intelligent model built for speed with frontier intelligence, superior search, and grounding
+    """
+
+    audio: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Input audio to send with the prompt (max 1 audio file, up to 8.4 hours)",
+    )
+    top_p: float | OutputHandle[float] = connect_field(
+        default=0.95,
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass",
+    )
+    images: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input images to send with the prompt (max 10 images, each up to 7MB)",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="The text prompt to send to the model"
+    )
+    videos: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input videos to send with the prompt (max 10 videos, each up to 45 minutes)",
+    )
+    temperature: float | OutputHandle[float] = connect_field(
+        default=1, description="Sampling temperature between 0 and 2"
+    )
+    thinking_level: (
+        nodetool.nodes.replicate.text.generate.Gemini_3_Flash.Thinking_level
+        | OutputHandle[
+            nodetool.nodes.replicate.text.generate.Gemini_3_Flash.Thinking_level
+        ]
+        | None
+    ) = connect_field(
+        default=None,
+        description="Thinking level for reasoning (low or high). Replaces thinking_budget for Gemini 3 models.",
+    )
+    max_output_tokens: int | OutputHandle[int] = connect_field(
+        default=65535, description="Maximum number of tokens to generate"
+    )
+    system_instruction: str | OutputHandle[str] | None = connect_field(
+        default=None, description="System instruction to guide the model's behavior"
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.text.generate.Gemini_3_Flash
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.text.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Kimi_K2_5(SingleOutputGraphNode[str], GraphNode[str]):
     """
     Moonshot AI's latest open model. It unifies vision and text, thinking and non-thinking modes, and single-agent and multi-agent execution into one model

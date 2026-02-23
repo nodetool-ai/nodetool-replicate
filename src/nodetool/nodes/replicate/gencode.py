@@ -1140,6 +1140,47 @@ replicate_nodes = [
         "namespace": "audio.generate",
         "return_type": AudioRef,
     },
+    # === Added 2026-02-23 ===
+    {
+        "model_id": "google/gemini-3.1-pro",
+        "node_name": "Gemini_3_1_Pro",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "google/gemini-3-flash",
+        "node_name": "Gemini_3_Flash",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "runwayml/gen-4.5",
+        "node_name": "Gen_4_5",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "recraft-ai/recraft-v4",
+        "node_name": "Recraft_V4",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
+    {
+        "model_id": "qwen/qwen3-tts",
+        "node_name": "Qwen3_TTS",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+        "overrides": {"reference_audio": AudioRef},
+    },
+    {
+        "model_id": "black-forest-labs/flux-2-klein-4b",
+        "node_name": "Flux_2_Klein_4B",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
 ]
 
 if __name__ == "__main__":

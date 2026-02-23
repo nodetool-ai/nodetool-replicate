@@ -33,7 +33,7 @@ class Llama3_8B(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 51247071,
+            "run_count": 51249137,
             "url": "https://replicate.com/meta/meta-llama-3-8b",
             "visibility": "public",
             "weights_url": None,
@@ -109,7 +109,7 @@ class Llama3_8B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 400127200,
+            "run_count": 400270378,
             "url": "https://replicate.com/meta/meta-llama-3-8b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -185,7 +185,7 @@ class Llama3_70B(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 855568,
+            "run_count": 855690,
             "url": "https://replicate.com/meta/meta-llama-3-70b",
             "visibility": "public",
             "weights_url": None,
@@ -261,7 +261,7 @@ class Llama3_8B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 400127200,
+            "run_count": 400270378,
             "url": "https://replicate.com/meta/meta-llama-3-8b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -337,7 +337,7 @@ class Llama3_70B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 165603090,
+            "run_count": 165681485,
             "url": "https://replicate.com/meta/meta-llama-3-70b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -413,7 +413,7 @@ class Llama3_1_405B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 7118854,
+            "run_count": 7125878,
             "url": "https://replicate.com/meta/meta-llama-3.1-405b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -546,7 +546,7 @@ class LlamaGuard_3_8B(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2407.21783",
-            "run_count": 362818,
+            "run_count": 362949,
             "url": "https://replicate.com/meta/llama-guard-3-8b",
             "visibility": "public",
             "weights_url": "https://huggingface.co/meta-llama/Llama-Guard-3-8B",
@@ -593,7 +593,7 @@ class Snowflake_Arctic_Instruct(ReplicateNode):
             "owner": "snowflake",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1996955,
+            "run_count": 1996965,
             "url": "https://replicate.com/snowflake/snowflake-arctic-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -634,7 +634,7 @@ class Claude_3_7_Sonnet(ReplicateNode):
             "owner": "anthropic",
             "is_official": True,
             "paper_url": None,
-            "run_count": 3798655,
+            "run_count": 3814418,
             "url": "https://replicate.com/anthropic/claude-3.7-sonnet",
             "visibility": "public",
             "weights_url": None,
@@ -696,7 +696,7 @@ class Deepseek_R1(ReplicateNode):
             "owner": "deepseek-ai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 2188684,
+            "run_count": 2189533,
             "url": "https://replicate.com/deepseek-ai/deepseek-r1",
             "visibility": "public",
             "weights_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
@@ -771,7 +771,7 @@ class GPT_5_Structured(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 377851,
+            "run_count": 378534,
             "url": "https://replicate.com/openai/gpt-5-structured",
             "visibility": "public",
             "weights_url": None,
@@ -880,7 +880,7 @@ class GPT_5(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1233047,
+            "run_count": 1251019,
             "url": "https://replicate.com/openai/gpt-5",
             "visibility": "public",
             "weights_url": None,
@@ -963,7 +963,7 @@ class GPT_5_Mini(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1170181,
+            "run_count": 1191321,
             "url": "https://replicate.com/openai/gpt-5-mini",
             "visibility": "public",
             "weights_url": None,
@@ -1046,7 +1046,7 @@ class GPT_5_Nano(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 4761261,
+            "run_count": 4824163,
             "url": "https://replicate.com/openai/gpt-5-nano",
             "visibility": "public",
             "weights_url": None,
@@ -1118,7 +1118,7 @@ class GPT_4_1(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 282571,
+            "run_count": 283859,
             "url": "https://replicate.com/openai/gpt-4.1",
             "visibility": "public",
             "weights_url": None,
@@ -1210,7 +1210,7 @@ class GPT_4_1_Mini(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1607328,
+            "run_count": 1622515,
             "url": "https://replicate.com/openai/gpt-4.1-mini",
             "visibility": "public",
             "weights_url": None,
@@ -1302,7 +1302,7 @@ class GPT_4_1_Nano(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1192871,
+            "run_count": 1200102,
             "url": "https://replicate.com/openai/gpt-4.1-nano",
             "visibility": "public",
             "weights_url": None,
@@ -1398,7 +1398,7 @@ class Deepseek_V3_1(ReplicateNode):
             "owner": "deepseek-ai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 312252,
+            "run_count": 314250,
             "url": "https://replicate.com/deepseek-ai/deepseek-v3.1",
             "visibility": "public",
             "weights_url": None,
@@ -1465,7 +1465,7 @@ class Kimi_K2_5(ReplicateNode):
             "owner": "moonshotai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 15649,
+            "run_count": 16023,
             "url": "https://replicate.com/moonshotai/kimi-k2.5",
             "visibility": "public",
             "weights_url": None,
@@ -1511,4 +1511,187 @@ class Kimi_K2_5(ReplicateNode):
         ge=-2.0,
         le=2.0,
         default=0,
+    )
+
+
+class Gemini_3_1_Pro(ReplicateNode):
+    """Google's most intelligent model, with improved reasoning and a new medium thinking level"""
+
+    class Thinking_level(str, Enum):
+        LOW = "low"
+        MEDIUM = "medium"
+        HIGH = "high"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["audio", "top_p", "images"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "google/gemini-3.1-pro:68423ca56f33c1a05b4e763003d73aee779cb07f0e20903bcc956c1bacc655b6"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/52a1c810-25e8-43ab-86f2-5773fc6a0ff6/gemini-3.1-pro-cover.webp",
+            "created_at": "2026-02-19T18:11:33.307638Z",
+            "description": "Google's most intelligent model, with improved reasoning and a new medium thinking level",
+            "github_url": None,
+            "license_url": None,
+            "name": "gemini-3.1-pro",
+            "owner": "google",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 2287,
+            "url": "https://replicate.com/google/gemini-3.1-pro",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    audio: str | None = Field(
+        title="Audio",
+        description="Input audio to send with the prompt (max 1 audio file, up to 8.4 hours)",
+        default=None,
+    )
+    top_p: float = Field(
+        title="Top P",
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass",
+        ge=0.0,
+        le=1.0,
+        default=0.95,
+    )
+    images: list = Field(
+        title="Images",
+        description="Input images to send with the prompt (max 10 images, each up to 7MB)",
+        default=[],
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="The text prompt to send to the model", default=None
+    )
+    videos: list = Field(
+        title="Videos",
+        description="Input videos to send with the prompt (max 10 videos, each up to 45 minutes)",
+        default=[],
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="Sampling temperature between 0 and 2",
+        ge=0.0,
+        le=2.0,
+        default=1,
+    )
+    thinking_level: Thinking_level = Field(
+        description="Thinking level for reasoning. Controls the maximum depth of the model's internal reasoning process.",
+        default="high",
+    )
+    max_output_tokens: int = Field(
+        title="Max Output Tokens",
+        description="Maximum number of tokens to generate",
+        ge=1.0,
+        le=65535.0,
+        default=65535,
+    )
+    system_instruction: str | None = Field(
+        title="System Instruction",
+        description="System instruction to guide the model's behavior",
+        default=None,
+    )
+
+
+class Gemini_3_Flash(ReplicateNode):
+    """Google's most intelligent model built for speed with frontier intelligence, superior search, and grounding"""
+
+    class Thinking_level(str, Enum):
+        LOW = "low"
+        HIGH = "high"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["audio", "top_p", "images"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "google/gemini-3-flash:12917939800a325e127c528db67c32fe8a23a51c0400690e68c8731c2508c553"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/489d0931-1c41-40b2-a44b-0991de35443b/gemini-3-flash-model-2096x118.webp",
+            "created_at": "2026-01-26T20:21:37.491629Z",
+            "description": "Google's most intelligent model built for speed with frontier intelligence, superior search, and grounding",
+            "github_url": None,
+            "license_url": None,
+            "name": "gemini-3-flash",
+            "owner": "google",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 227425,
+            "url": "https://replicate.com/google/gemini-3-flash",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    audio: str | None = Field(
+        title="Audio",
+        description="Input audio to send with the prompt (max 1 audio file, up to 8.4 hours)",
+        default=None,
+    )
+    top_p: float = Field(
+        title="Top P",
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass",
+        ge=0.0,
+        le=1.0,
+        default=0.95,
+    )
+    images: list = Field(
+        title="Images",
+        description="Input images to send with the prompt (max 10 images, each up to 7MB)",
+        default=[],
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="The text prompt to send to the model", default=None
+    )
+    videos: list = Field(
+        title="Videos",
+        description="Input videos to send with the prompt (max 10 videos, each up to 45 minutes)",
+        default=[],
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="Sampling temperature between 0 and 2",
+        ge=0.0,
+        le=2.0,
+        default=1,
+    )
+    thinking_level: typing.Optional[Thinking_level] = Field(
+        description="Thinking level for reasoning (low or high). Replaces thinking_budget for Gemini 3 models.",
+        default=None,
+    )
+    max_output_tokens: int = Field(
+        title="Max Output Tokens",
+        description="Maximum number of tokens to generate",
+        ge=1.0,
+        le=65535.0,
+        default=65535,
+    )
+    system_instruction: str | None = Field(
+        title="System Instruction",
+        description="System instruction to guide the model's behavior",
+        default=None,
     )
