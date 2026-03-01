@@ -54,7 +54,7 @@ class ReplicateSchemaBundle:
     model_description: str
 
 
-class ReplicateAI(BaseNode):
+class DynamicReplicate(BaseNode):
     """
     Dynamic Replicate node for running any model on replicate.com.
     replicate, schema, dynamic, inference, runtime, model, api
@@ -80,6 +80,14 @@ class ReplicateAI(BaseNode):
         super().__init__(**data)
         self._dynamic_input_types = {}
         self._prime_schema_outputs()
+
+    @classmethod
+    def get_node_type(cls) -> str:
+        return "replicate.DynamicReplicate"
+
+    @classmethod
+    def get_namespace(cls) -> str:
+        return "replicate"
 
     @classmethod
     def get_basic_fields(cls):
@@ -163,6 +171,10 @@ class ReplicateAI(BaseNode):
         arguments: dict[str, Any],
     ) -> Any:
         model_with_version = f"{bundle.model_id}:{bundle.version_id}"
+
+        token = await context.get_secret("REPLICATE_API_TOKEN")
+        if token and "REPLICATE_API_TOKEN" not in context.environment:
+            context.environment["REPLICATE_API_TOKEN"] = token
 
         return await context.run_prediction(
             provider=Provider.Replicate,
@@ -696,7 +708,7 @@ async def resolve_dynamic_schema(
 ) -> dict[str, Any]:
     """
     Resolve the Replicate model schema from a model identifier.
-    Returns a dict the UI can use to populate the ReplicateAI node.
+    Returns a dict the UI can use to populate the DynamicReplicate node.
     """
     owner, name = _normalize_model_info(model_info)
     if not owner or not name:
@@ -705,7 +717,7 @@ async def resolve_dynamic_schema(
             "(e.g. runwayml/gen-4.5) or URL"
         )
 
-    cache_dir = ReplicateAI._cache_dir()
+    cache_dir = DynamicReplicate._cache_dir()
     ck = _cache_key(owner, name)
     cached = _load_cached_schema(cache_dir, ck)
 
