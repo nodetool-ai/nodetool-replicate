@@ -906,6 +906,63 @@ import nodetool.nodes.replicate.text.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Phi_3_Mini_4K_Instruct(SingleOutputGraphNode[str], GraphNode[str]):
+    """
+    Phi-3-Mini-4K-Instruct is a 3.8B parameters, lightweight, state-of-the-art open model trained with the Phi-3 datasets
+    """
+
+    top_k: int | OutputHandle[int] = connect_field(
+        default=50,
+        description="The number of highest probability tokens to consider for generating the output. If > 0, only keep the top k tokens with highest probability (top-k filtering).",
+    )
+    top_p: float | OutputHandle[float] = connect_field(
+        default=0.9,
+        description="A probability threshold for generating the output. If < 1.0, only keep the top tokens with cumulative probability >= top_p (nucleus filtering). Nucleus filtering is described in Holtzman et al. (http://arxiv.org/abs/1904.09751).",
+    )
+    prompt: str | OutputHandle[str] = connect_field(default="", description="Prompt")
+    max_tokens: int | OutputHandle[int] = connect_field(
+        default=512,
+        description="The maximum number of tokens the model should generate as output.",
+    )
+    min_tokens: int | OutputHandle[int] = connect_field(
+        default=0,
+        description="The minimum number of tokens the model should generate as output.",
+    )
+    temperature: float | OutputHandle[float] = connect_field(
+        default=0.6,
+        description="The value used to modulate the next token probabilities.",
+    )
+    system_prompt: str | OutputHandle[str] = connect_field(
+        default="You are a helpful assistant.",
+        description="System prompt to send to the model. This is prepended to the prompt and helps guide system behavior. Ignored for non-chat models.",
+    )
+    stop_sequences: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="A comma-separated list of sequences to stop generation at. For example, '<end>,<stop>' will stop generation at the first instance of 'end' or '<stop>'.",
+    )
+    presence_penalty: float | OutputHandle[float] = connect_field(
+        default=0, description="Presence penalty"
+    )
+    frequency_penalty: float | OutputHandle[float] = connect_field(
+        default=0, description="Frequency penalty"
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.text.generate.Phi_3_Mini_4K_Instruct
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.text.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Snowflake_Arctic_Instruct(SingleOutputGraphNode[str], GraphNode[str]):
     """
     An efficient, intelligent, and truly open-source language model

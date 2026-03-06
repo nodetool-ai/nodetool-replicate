@@ -33,3 +33,15 @@ Repository configured with Claude Code memory and automated sync workflow.
 - Model ID: `google/lyria-2`
 - Namespace: `audio.generate`
 - Description: Google's music generation model producing 48kHz stereo audio from text prompts, 55.1K runs
+
+---
+
+## 2026-03-06 - New Models Added
+
+- Model ID: `microsoft/phi-3-mini-4k-instruct`
+- Namespace: `text.generate`
+- Description: Microsoft's Phi-3-Mini-4K-Instruct, a 3.8B parameter lightweight open model trained with Phi-3 datasets
+
+- Model ID: `deforum-art/deforum-stable-diffusion`
+- Namespace: `video.generate`
+- Description: Deforum Stable Diffusion for creating animated videos with Stable Diffusion

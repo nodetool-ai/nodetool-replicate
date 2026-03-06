@@ -44,7 +44,7 @@ class Ray(ReplicateNode):
             "owner": "luma",
             "is_official": True,
             "paper_url": "https://lumalabs.ai/dream-machine",
-            "run_count": 69432,
+            "run_count": 70745,
             "url": "https://replicate.com/luma/ray",
             "visibility": "public",
             "weights_url": None,
@@ -162,7 +162,7 @@ class HotshotXL(ReplicateNode):
             "owner": "lucataco",
             "is_official": False,
             "paper_url": "https://huggingface.co/hotshotco/SDXL-512",
-            "run_count": 891928,
+            "run_count": 913959,
             "url": "https://replicate.com/lucataco/hotshot-xl",
             "visibility": "public",
             "weights_url": None,
@@ -235,7 +235,7 @@ class Zeroscope_V2_XL(ReplicateNode):
             "owner": "anotherjesse",
             "is_official": False,
             "paper_url": "https://huggingface.co/cerspense/zeroscope_v2_576w",
-            "run_count": 301779,
+            "run_count": 302914,
             "url": "https://replicate.com/anotherjesse/zeroscope-v2-xl",
             "visibility": "public",
             "weights_url": None,
@@ -333,7 +333,7 @@ class RobustVideoMatting(ReplicateNode):
             "owner": "arielreplicate",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2108.11515",
-            "run_count": 72983,
+            "run_count": 84786,
             "url": "https://replicate.com/arielreplicate/robust_video_matting",
             "visibility": "public",
             "weights_url": None,
@@ -376,7 +376,7 @@ class AudioToWaveform(ReplicateNode):
             "owner": "fofr",
             "is_official": False,
             "paper_url": "https://gradio.app/docs/#make_waveform",
-            "run_count": 384002,
+            "run_count": 384189,
             "url": "https://replicate.com/fofr/audio-to-waveform",
             "visibility": "public",
             "weights_url": None,
@@ -438,7 +438,7 @@ class Hunyuan_Video(ReplicateNode):
             "owner": "tencent",
             "is_official": False,
             "paper_url": "https://github.com/Tencent/HunyuanVideo/blob/main/assets/hunyuanvideo.pdf",
-            "run_count": 116232,
+            "run_count": 117015,
             "url": "https://replicate.com/tencent/hunyuan-video",
             "visibility": "public",
             "weights_url": "https://huggingface.co/tencent/HunyuanVideo",
@@ -522,7 +522,7 @@ class Video_01_Live(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 172985,
+            "run_count": 176942,
             "url": "https://replicate.com/minimax/video-01-live",
             "visibility": "public",
             "weights_url": None,
@@ -572,7 +572,7 @@ class Video_01(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 645598,
+            "run_count": 668796,
             "url": "https://replicate.com/minimax/video-01",
             "visibility": "public",
             "weights_url": None,
@@ -639,7 +639,7 @@ class Music_01(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 493273,
+            "run_count": 518437,
             "url": "https://replicate.com/minimax/music-01",
             "visibility": "public",
             "weights_url": None,
@@ -750,7 +750,7 @@ class LTX_Video(ReplicateNode):
             "owner": "lightricks",
             "is_official": False,
             "paper_url": None,
-            "run_count": 164292,
+            "run_count": 165941,
             "url": "https://replicate.com/lightricks/ltx-video",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Lightricks/LTX-Video",
@@ -845,7 +845,7 @@ class Wan_2_1_I2V_480p(ReplicateNode):
             "owner": "wavespeedai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 434093,
+            "run_count": 440257,
             "url": "https://replicate.com/wavespeedai/wan-2.1-i2v-480p",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-14B",
@@ -960,7 +960,7 @@ class Wan_2_1_1_3B(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": "https://wanxai.com/",
-            "run_count": 46436,
+            "run_count": 47587,
             "url": "https://replicate.com/wan-video/wan-2.1-1.3b",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B",
@@ -1069,7 +1069,7 @@ class Pixverse_V5(ReplicateNode):
             "owner": "pixverse",
             "is_official": True,
             "paper_url": None,
-            "run_count": 749848,
+            "run_count": 771277,
             "url": "https://replicate.com/pixverse/pixverse-v5",
             "visibility": "public",
             "weights_url": None,
@@ -1158,7 +1158,7 @@ class Gen4_Turbo(ReplicateNode):
             "owner": "runwayml",
             "is_official": True,
             "paper_url": None,
-            "run_count": 51311,
+            "run_count": 65899,
             "url": "https://replicate.com/runwayml/gen4-turbo",
             "visibility": "public",
             "weights_url": None,
@@ -1222,7 +1222,7 @@ class Gen4_Aleph(ReplicateNode):
             "owner": "runwayml",
             "is_official": True,
             "paper_url": "https://runwayml.com/research/introducing-runway-aleph",
-            "run_count": 115652,
+            "run_count": 154160,
             "url": "https://replicate.com/runwayml/gen4-aleph",
             "visibility": "public",
             "weights_url": None,
@@ -1288,7 +1288,7 @@ class Kling_V2_1(ReplicateNode):
             "owner": "kwaivgi",
             "is_official": True,
             "paper_url": None,
-            "run_count": 3192591,
+            "run_count": 3548209,
             "url": "https://replicate.com/kwaivgi/kling-v2.1",
             "visibility": "public",
             "weights_url": None,
@@ -1400,7 +1400,7 @@ class Kling_Lip_Sync(ReplicateNode):
             "owner": "kwaivgi",
             "is_official": True,
             "paper_url": None,
-            "run_count": 27599,
+            "run_count": 34884,
             "url": "https://replicate.com/kwaivgi/kling-lip-sync",
             "visibility": "public",
             "weights_url": None,
@@ -1479,7 +1479,7 @@ class Hailuo_02(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 303847,
+            "run_count": 343032,
             "url": "https://replicate.com/minimax/hailuo-02",
             "visibility": "public",
             "weights_url": None,
@@ -1550,7 +1550,7 @@ class Wan_2_2_T2V_Fast(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": None,
-            "run_count": 162079,
+            "run_count": 199622,
             "url": "https://replicate.com/wan-video/wan-2.2-t2v-fast",
             "visibility": "public",
             "weights_url": None,
@@ -1664,7 +1664,7 @@ class Wan_2_2_I2V_Fast(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": None,
-            "run_count": 5996008,
+            "run_count": 8403724,
             "url": "https://replicate.com/wan-video/wan-2.2-i2v-fast",
             "visibility": "public",
             "weights_url": None,
@@ -1780,7 +1780,7 @@ class Lipsync_2(ReplicateNode):
             "owner": "sync",
             "is_official": True,
             "paper_url": None,
-            "run_count": 15719,
+            "run_count": 23773,
             "url": "https://replicate.com/sync/lipsync-2",
             "visibility": "public",
             "weights_url": None,
@@ -1848,7 +1848,7 @@ class Lipsync_2_Pro(ReplicateNode):
             "owner": "sync",
             "is_official": True,
             "paper_url": None,
-            "run_count": 9675,
+            "run_count": 18483,
             "url": "https://replicate.com/sync/lipsync-2-pro",
             "visibility": "public",
             "weights_url": None,
@@ -1922,7 +1922,7 @@ class Veo_3_1(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 289367,
+            "run_count": 384036,
             "url": "https://replicate.com/google/veo-3.1",
             "visibility": "public",
             "weights_url": None,
@@ -1969,4 +1969,341 @@ class Veo_3_1(ReplicateNode):
         title="Reference Images",
         description="1 to 3 reference images for subject-consistent generation (reference-to-video, or R2V). Reference images only work with 16:9 aspect ratio and 8-second duration. Last frame is ignored if reference images are provided.",
         default=[],
+    )
+
+
+class Deforum_Stable_Diffusion(ReplicateNode):
+    """Deforum Stable Diffusion"""
+
+    class Width(int, Enum):
+        _128 = 128
+        _256 = 256
+        _384 = 384
+        _448 = 448
+        _512 = 512
+        _576 = 576
+        _640 = 640
+        _704 = 704
+        _768 = 768
+        _832 = 832
+        _896 = 896
+        _960 = 960
+        _1024 = 1024
+
+    class Border(str, Enum):
+        WRAP = "wrap"
+        REPLICATE = "replicate"
+
+    class Height(int, Enum):
+        _128 = 128
+        _256 = 256
+        _384 = 384
+        _448 = 448
+        _512 = 512
+        _576 = 576
+        _640 = 640
+        _704 = 704
+        _768 = 768
+        _832 = 832
+        _896 = 896
+        _960 = 960
+        _1024 = 1024
+
+    class Sampler(str, Enum):
+        KLMS = "klms"
+        DPM2 = "dpm2"
+        DPM2_ANCESTRAL = "dpm2_ancestral"
+        HEUN = "heun"
+        EULER = "euler"
+        EULER_ANCESTRAL = "euler_ancestral"
+        PLMS = "plms"
+        DDIM = "ddim"
+        DPM_FAST = "dpm_fast"
+        DPM_ADAPTIVE = "dpm_adaptive"
+        DPMPP_2S_A = "dpmpp_2s_a"
+        DPMPP_2M = "dpmpp_2m"
+
+    class Clip_name(str, Enum):
+        VIT_L_14 = "ViT-L/14"
+        VIT_L_14_336PX = "ViT-L/14@336px"
+        VIT_B_16 = "ViT-B/16"
+        VIT_B_32 = "ViT-B/32"
+
+    class Padding_mode(str, Enum):
+        BORDER = "border"
+        REFLECTION = "reflection"
+        ZEROS = "zeros"
+
+    class Sampling_mode(str, Enum):
+        BICUBIC = "bicubic"
+        BILINEAR = "bilinear"
+        NEAREST = "nearest"
+
+    class Animation_mode(str, Enum):
+        _2D = "2D"
+        _3D = "3D"
+        VIDEO_INPUT = "Video Input"
+        INTERPOLATION = "Interpolation"
+
+    class Color_coherence(str, Enum):
+        MATCH_FRAME_0_HSV = "Match Frame 0 HSV"
+        MATCH_FRAME_0_LAB = "Match Frame 0 LAB"
+        MATCH_FRAME_0_RGB = "Match Frame 0 RGB"
+        VIDEO_INPUT = "Video Input"
+
+    class Model_checkpoint(str, Enum):
+        V2_1_768_EMA_PRUNED_CKPT = "v2-1_768-ema-pruned.ckpt"
+        V2_1_512_EMA_PRUNED_CKPT = "v2-1_512-ema-pruned.ckpt"
+        _768_V_EMA_CKPT = "768-v-ema.ckpt"
+        _512_BASE_EMA_CKPT = "512-base-ema.ckpt"
+        PROTOGEN_V2_2_CKPT = "Protogen_V2.2.ckpt"
+        V1_5_PRUNED_CKPT = "v1-5-pruned.ckpt"
+        V1_5_PRUNED_EMAONLY_CKPT = "v1-5-pruned-emaonly.ckpt"
+        SD_V1_4_CKPT = "sd-v1-4.ckpt"
+        ROBO_DIFFUSION_V1_CKPT = "robo-diffusion-v1.ckpt"
+        WD_V1_3_FLOAT16_CKPT = "wd-v1-3-float16.ckpt"
+
+    class Diffusion_cadence(str, Enum):
+        _1 = "1"
+        _2 = "2"
+        _3 = "3"
+        _4 = "4"
+        _5 = "5"
+        _6 = "6"
+        _7 = "7"
+        _8 = "8"
+
+    class Hybrid_video_motion(str, Enum):
+        NONE = "None"
+        OPTICAL_FLOW = "Optical Flow"
+        PERSPECTIVE = "Perspective"
+        AFFINE = "Affine"
+
+    class Hybrid_video_flow_method(str, Enum):
+        FARNEBACK = "Farneback"
+        DENSERLOF = "DenseRLOF"
+        SF = "SF"
+
+    class Hybrid_video_comp_mask_type(str, Enum):
+        NONE = "None"
+        DEPTH = "Depth"
+        VIDEO_DEPTH = "Video Depth"
+        BLEND = "Blend"
+        DIFFERENCE = "Difference"
+
+    class Hybrid_video_comp_mask_equalize(str, Enum):
+        NONE = "None"
+        BEFORE = "Before"
+        AFTER = "After"
+        BOTH = "Both"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["fov", "fps", "seed"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "deforum-art/deforum-stable-diffusion:1a98303504c7d866d2b198bae0b03237eab82edc1491a5306895d12b0021d6f6"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://replicate.delivery/pbxt/hUqVJfHsoGTkHq7lfkephIxPJy653jWlqdaKSAmezXPQHb4BB/out.mp4",
+            "created_at": "2023-02-12T10:59:05.306485Z",
+            "description": "Deforum Stable Diffusion",
+            "github_url": "https://github.com/chenxwh/cog-deforum-stable-diffusion",
+            "license_url": "https://github.com/deforum-art/deforum-stable-diffusion/blob/main/LICENSE",
+            "name": "deforum-stable-diffusion",
+            "owner": "deforum-art",
+            "is_official": False,
+            "paper_url": None,
+            "run_count": 73699,
+            "url": "https://replicate.com/deforum-art/deforum-stable-diffusion",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.VideoRef
+
+    fov: int = Field(title="Fov", default=40)
+    fps: int = Field(
+        title="Fps",
+        description="Choose fps for the video.",
+        ge=10.0,
+        le=60.0,
+        default=15,
+    )
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Leave blank to randomize the seed",
+        default=None,
+    )
+    zoom: str = Field(
+        title="Zoom", description="zoom parameter for the motion", default="0:(1.04)"
+    )
+    angle: str = Field(
+        title="Angle", description="angle parameter for the motion", default="0:(0)"
+    )
+    width: Width = Field(
+        description="Width of output video. Reduce if out of memory.", default=512
+    )
+    border: Border = Field(default="replicate")
+    height: Height = Field(
+        description="Height of output image. Reduce if out of memory.", default=512
+    )
+    sampler: Sampler = Field(default="euler_ancestral")
+    use_init: bool = Field(
+        title="Use Init",
+        description="If not using init image, you can skip the next settings to setting the animation_mode.",
+        default=False,
+    )
+    use_mask: bool = Field(title="Use Mask", default=False)
+    clip_name: Clip_name = Field(description="Choose CLIP model", default="ViT-L/14")
+    far_plane: int = Field(title="Far Plane", default=10000)
+    mask_file: str | None = Field(
+        title="Mask File", description="Provide mask_file if use_mask", default=None
+    )
+    init_image: str | None = Field(
+        title="Init Image", description="Provide init_image if use_init", default=None
+    )
+    max_frames: int = Field(
+        title="Max Frames", description="Number of frames for animation", default=200
+    )
+    near_plane: int = Field(title="Near Plane", default=200)
+    invert_mask: bool = Field(title="Invert Mask", default=False)
+    midas_weight: float = Field(title="Midas Weight", default=0.3)
+    padding_mode: Padding_mode = Field(default="border")
+    rotation_3d_x: str = Field(
+        title="Rotation 3D X",
+        description="rotation_3d_x parameter for the 3D motion",
+        default="0:(0)",
+    )
+    rotation_3d_y: str = Field(
+        title="Rotation 3D Y",
+        description="rotation_3d_y parameter for the 3D motion",
+        default="0:(0)",
+    )
+    rotation_3d_z: str = Field(
+        title="Rotation 3D Z",
+        description="rotation_3d_z parameter for the 3D motion",
+        default="0:(0)",
+    )
+    sampling_mode: Sampling_mode = Field(default="bicubic")
+    translation_x: str = Field(
+        title="Translation X",
+        description="translation_x parameter for the 2D motion",
+        default="0:(10*sin(2*3.14*t/10))",
+    )
+    translation_y: str = Field(
+        title="Translation Y",
+        description="translation_y parameter for the 2D motion",
+        default="0:(0)",
+    )
+    translation_z: str = Field(
+        title="Translation Z",
+        description="translation_z parameter for the 2D motion",
+        default="0:(10)",
+    )
+    animation_mode: Animation_mode = Field(
+        description="Choose Animation mode. All parameters below are for setting up animations.",
+        default="2D",
+    )
+    guidance_scale: float = Field(
+        title="Guidance Scale",
+        description="Scale for classifier-free guidance",
+        ge=1.0,
+        le=20.0,
+        default=7,
+    )
+    noise_schedule: str = Field(title="Noise Schedule", default="0: (0.02)")
+    sigma_schedule: str = Field(title="Sigma Schedule", default="0: (1.0)")
+    use_mask_video: bool = Field(title="Use Mask Video", default=False)
+    amount_schedule: str = Field(title="Amount Schedule", default="0: (0.2)")
+    color_coherence: Color_coherence = Field(default="Match Frame 0 LAB")
+    kernel_schedule: str = Field(title="Kernel Schedule", default="0: (5)")
+    video_init_path: str | None = Field(title="Video Init Path", default=None)
+    video_mask_path: str | None = Field(title="Video Mask Path", default=None)
+    model_checkpoint: Model_checkpoint = Field(
+        description="Choose stable diffusion model.", default="Protogen_V2.2.ckpt"
+    )
+    animation_prompts: str = Field(
+        title="Animation Prompts",
+        description="Prompt for animation. Provide 'frame number : prompt at this frame', separate different prompts with '|'. Make sure the frame number does not exceed the max_frames.",
+        default="0: a beautiful apple, trending on Artstation | 50: a beautiful banana, trending on Artstation | 100: a beautiful coconut, trending on Artstation | 150: a beautiful durian, trending on Artstation",
+    )
+    contrast_schedule: str = Field(title="Contrast Schedule", default="0: (1.0)")
+    diffusion_cadence: Diffusion_cadence = Field(default="1")
+    extract_nth_frame: int = Field(title="Extract Nth Frame", default=1)
+    resume_timestring: str = Field(title="Resume Timestring", default="")
+    strength_schedule: str = Field(title="Strength Schedule", default="0: (0.65)")
+    use_depth_warping: bool = Field(title="Use Depth Warping", default=True)
+    threshold_schedule: str = Field(title="Threshold Schedule", default="0: (0.0)")
+    flip_2d_perspective: bool = Field(title="Flip 2D Perspective", default=False)
+    hybrid_video_motion: Hybrid_video_motion = Field(default="None")
+    num_inference_steps: int = Field(
+        title="Num Inference Steps",
+        description="Number of denoising steps",
+        ge=1.0,
+        le=500.0,
+        default=50,
+    )
+    perspective_flip_fv: str = Field(title="Perspective Flip Fv", default="0:(53)")
+    interpolate_x_frames: int = Field(title="Interpolate X Frames", default=4)
+    perspective_flip_phi: str = Field(title="Perspective Flip Phi", default="0:(t%15)")
+    hybrid_video_composite: bool = Field(title="Hybrid Video Composite", default=False)
+    interpolate_key_frames: bool = Field(title="Interpolate Key Frames", default=False)
+    perspective_flip_gamma: str = Field(title="Perspective Flip Gamma", default="0:(0)")
+    perspective_flip_theta: str = Field(title="Perspective Flip Theta", default="0:(0)")
+    resume_from_timestring: bool = Field(title="Resume From Timestring", default=False)
+    hybrid_video_flow_method: Hybrid_video_flow_method = Field(default="Farneback")
+    overwrite_extracted_frames: bool = Field(
+        title="Overwrite Extracted Frames", default=True
+    )
+    hybrid_video_comp_mask_type: Hybrid_video_comp_mask_type = Field(default="None")
+    hybrid_video_comp_mask_inverse: bool = Field(
+        title="Hybrid Video Comp Mask Inverse", default=False
+    )
+    hybrid_video_comp_mask_equalize: Hybrid_video_comp_mask_equalize = Field(
+        default="None"
+    )
+    hybrid_video_comp_alpha_schedule: str = Field(
+        title="Hybrid Video Comp Alpha Schedule", default="0:(1)"
+    )
+    hybrid_video_generate_inputframes: bool = Field(
+        title="Hybrid Video Generate Inputframes", default=False
+    )
+    hybrid_video_comp_save_extra_frames: bool = Field(
+        title="Hybrid Video Comp Save Extra Frames", default=False
+    )
+    hybrid_video_use_video_as_mse_image: bool = Field(
+        title="Hybrid Video Use Video As Mse Image", default=False
+    )
+    color_coherence_video_every_N_frames: int = Field(
+        title="Color Coherence Video Every N Frames", default=1
+    )
+    hybrid_video_comp_mask_auto_contrast: bool = Field(
+        title="Hybrid Video Comp Mask Auto Contrast", default=False
+    )
+    hybrid_video_comp_mask_contrast_schedule: str = Field(
+        title="Hybrid Video Comp Mask Contrast Schedule", default="0:(1)"
+    )
+    hybrid_video_use_first_frame_as_init_image: bool = Field(
+        title="Hybrid Video Use First Frame As Init Image", default=True
+    )
+    hybrid_video_comp_mask_blend_alpha_schedule: str = Field(
+        title="Hybrid Video Comp Mask Blend Alpha Schedule", default="0:(0.5)"
+    )
+    hybrid_video_comp_mask_auto_contrast_cutoff_low_schedule: str = Field(
+        title="Hybrid Video Comp Mask Auto Contrast Cutoff Low Schedule",
+        default="0:(0)",
+    )
+    hybrid_video_comp_mask_auto_contrast_cutoff_high_schedule: str = Field(
+        title="Hybrid Video Comp Mask Auto Contrast Cutoff High Schedule",
+        default="0:(100)",
     )
