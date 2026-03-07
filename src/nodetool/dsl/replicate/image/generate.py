@@ -411,11 +411,11 @@ class Flux_2_Pro(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     width: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     height: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     prompt: str | OutputHandle[str] | None = connect_field(
         default=None, description="Text prompt for image generation"
@@ -2992,6 +2992,80 @@ import nodetool.nodes.replicate.image.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class OpenJourney_V4(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
+    """
+    SD 1.5 trained with +124k MJv4 images by PromptHero
+    """
+
+    Width: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.OpenJourney_V4.Width
+    )
+    Height: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.OpenJourney_V4.Height
+    )
+    Scheduler: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.OpenJourney_V4.Scheduler
+    )
+
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Random seed. Leave blank to randomize the seed"
+    )
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Optional starting image from which to generate variations (aka 'img2img'). If this input is set, the `width` and `height` inputs are ignored and the output will have the same dimensions as the input image.",
+    )
+    width: nodetool.nodes.replicate.image.generate.OpenJourney_V4.Width = Field(
+        default=nodetool.nodes.replicate.image.generate.OpenJourney_V4.Width(512),
+        description="Width of output image. Maximum size is 1024x768 or 768x1024 because of memory limits",
+    )
+    height: nodetool.nodes.replicate.image.generate.OpenJourney_V4.Height = Field(
+        default=nodetool.nodes.replicate.image.generate.OpenJourney_V4.Height(512),
+        description="Height of output image. Maximum size is 1024x768 or 768x1024 because of memory limits",
+    )
+    prompt: str | OutputHandle[str] = connect_field(
+        default="a photo of cjw", description="Input prompt"
+    )
+    scheduler: nodetool.nodes.replicate.image.generate.OpenJourney_V4.Scheduler = Field(
+        default=nodetool.nodes.replicate.image.generate.OpenJourney_V4.Scheduler(
+            "DPMSolverMultistep"
+        ),
+        description="Choose a scheduler.",
+    )
+    num_outputs: int | OutputHandle[int] = connect_field(
+        default=1, description="Number of images to output."
+    )
+    guidance_scale: float | OutputHandle[float] = connect_field(
+        default=7.5, description="Scale for classifier-free guidance"
+    )
+    negative_prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Specify things to not see in the output"
+    )
+    prompt_strength: float | OutputHandle[float] = connect_field(
+        default=0.8,
+        description="Prompt strength when using init image. 1.0 corresponds to full destruction of information in init image",
+    )
+    num_inference_steps: int | OutputHandle[int] = connect_field(
+        default=50, description="Number of denoising steps"
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.OpenJourney_V4
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Photon_Flash(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
     """
     Accelerated variant of Photon prioritizing speed while maintaining quality
@@ -3568,6 +3642,61 @@ import nodetool.nodes.replicate.image.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Realistic_Vision_V5_1(
+    SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]
+):
+    """
+    Implementation of Realistic Vision v5.1 with VAE
+    """
+
+    Scheduler: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Realistic_Vision_V5_1.Scheduler
+    )
+
+    seed: int | OutputHandle[int] = connect_field(
+        default=0, description="Seed (0 = random, maximum: 2147483647)"
+    )
+    steps: int | OutputHandle[int] = connect_field(
+        default=20, description=" num_inference_steps"
+    )
+    width: int | OutputHandle[int] = connect_field(default=512, description="Width")
+    height: int | OutputHandle[int] = connect_field(default=728, description="Height")
+    prompt: str | OutputHandle[str] = connect_field(
+        default="RAW photo, a portrait photo of a latina woman in casual clothes, natural skin, 8k uhd, high quality, film grain, Fujifilm XT3",
+        description=None,
+    )
+    guidance: float | OutputHandle[float] = connect_field(
+        default=5, description="Guidance scale (3.5 - 7)"
+    )
+    scheduler: (
+        nodetool.nodes.replicate.image.generate.Realistic_Vision_V5_1.Scheduler
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Realistic_Vision_V5_1.Scheduler(
+            "EulerA"
+        ),
+        description="Choose a scheduler",
+    )
+    negative_prompt: str | OutputHandle[str] = connect_field(
+        default="(deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck",
+        description=None,
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Realistic_Vision_V5_1
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Recraft_20B(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
     """
     Affordable and fast images
@@ -3898,6 +4027,198 @@ class SDXL_Controlnet(SingleOutputGraphNode[types.ImageRef], GraphNode[types.Ima
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.image.generate.SDXL_Controlnet
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class SDXL_Controlnet_Lora(
+    SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]
+):
+    """
+    Multi-controlnet, lora loading, img2img, inpainting
+    """
+
+    Refine: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Refine
+    )
+    Scheduler: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Scheduler
+    )
+    Controlnet_1: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Controlnet_1
+    )
+    Controlnet_2: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Controlnet_2
+    )
+    Controlnet_3: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Controlnet_3
+    )
+    Sizing_strategy: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Sizing_strategy
+    )
+
+    mask: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Input mask for inpaint mode. Black areas will be preserved, white areas will be inpainted.",
+    )
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Random seed. Leave blank to randomize the seed"
+    )
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Input image for img2img or inpaint mode",
+    )
+    width: int | OutputHandle[int] = connect_field(
+        default=768, description="Width of output image"
+    )
+    height: int | OutputHandle[int] = connect_field(
+        default=768, description="Height of output image"
+    )
+    prompt: str | OutputHandle[str] = connect_field(
+        default="An astronaut riding a rainbow unicorn", description="Input prompt"
+    )
+    refine: nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Refine = Field(
+        default=nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Refine(
+            "no_refiner"
+        ),
+        description="Which refine style to use",
+    )
+    scheduler: (
+        nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Scheduler
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Scheduler(
+            "K_EULER"
+        ),
+        description="scheduler",
+    )
+    lora_scale: float | OutputHandle[float] = connect_field(
+        default=0.6,
+        description="LoRA additive scale. Only applicable on trained models.",
+    )
+    num_outputs: int | OutputHandle[int] = connect_field(
+        default=1, description="Number of images to output"
+    )
+    controlnet_1: (
+        nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Controlnet_1
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Controlnet_1(
+            "none"
+        ),
+        description="Controlnet",
+    )
+    controlnet_2: (
+        nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Controlnet_2
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Controlnet_2(
+            "none"
+        ),
+        description="Controlnet",
+    )
+    controlnet_3: (
+        nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Controlnet_3
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Controlnet_3(
+            "none"
+        ),
+        description="Controlnet",
+    )
+    lora_weights: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Replicate LoRA weights to use. Leave blank to use the default weights.",
+    )
+    refine_steps: int | OutputHandle[int] | None = connect_field(
+        default=None,
+        description="For base_image_refiner, the number of steps to refine, defaults to num_inference_steps",
+    )
+    guidance_scale: float | OutputHandle[float] = connect_field(
+        default=7.5, description="Scale for classifier-free guidance"
+    )
+    apply_watermark: bool | OutputHandle[bool] = connect_field(
+        default=True,
+        description="Applies a watermark to enable determining if an image is generated in downstream applications. If you have other provisions for generating or deploying images safely, you can use this to disable watermarking.",
+    )
+    negative_prompt: str | OutputHandle[str] = connect_field(
+        default="", description="Negative Prompt"
+    )
+    prompt_strength: float | OutputHandle[float] = connect_field(
+        default=0.8,
+        description="Prompt strength when using img2img / inpaint. 1.0 corresponds to full destruction of information in image",
+    )
+    sizing_strategy: (
+        nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Sizing_strategy
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora.Sizing_strategy(
+            "width_height"
+        ),
+        description="Decide how to resize images – use width/height, resize based on input image or control image",
+    )
+    controlnet_1_end: float | OutputHandle[float] = connect_field(
+        default=1, description="When controlnet conditioning ends"
+    )
+    controlnet_2_end: float | OutputHandle[float] = connect_field(
+        default=1, description="When controlnet conditioning ends"
+    )
+    controlnet_3_end: float | OutputHandle[float] = connect_field(
+        default=1, description="When controlnet conditioning ends"
+    )
+    controlnet_1_image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Input image for first controlnet",
+    )
+    controlnet_1_start: float | OutputHandle[float] = connect_field(
+        default=0, description="When controlnet conditioning starts"
+    )
+    controlnet_2_image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Input image for second controlnet",
+    )
+    controlnet_2_start: float | OutputHandle[float] = connect_field(
+        default=0, description="When controlnet conditioning starts"
+    )
+    controlnet_3_image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Input image for third controlnet",
+    )
+    controlnet_3_start: float | OutputHandle[float] = connect_field(
+        default=0, description="When controlnet conditioning starts"
+    )
+    num_inference_steps: int | OutputHandle[int] = connect_field(
+        default=30, description="Number of denoising steps"
+    )
+    disable_safety_checker: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="Disable safety checker for generated images. This feature is only available through the API. See [https://replicate.com/docs/how-does-replicate-work#safety](https://replicate.com/docs/how-does-replicate-work#safety)",
+    )
+    controlnet_1_conditioning_scale: float | OutputHandle[float] = connect_field(
+        default=0.75, description="How strong the controlnet conditioning is"
+    )
+    controlnet_2_conditioning_scale: float | OutputHandle[float] = connect_field(
+        default=0.75, description="How strong the controlnet conditioning is"
+    )
+    controlnet_3_conditioning_scale: float | OutputHandle[float] = connect_field(
+        default=0.75, description="How strong the controlnet conditioning is"
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.SDXL_Controlnet_Lora
 
     @classmethod
     def get_node_type(cls):

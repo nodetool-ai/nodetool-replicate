@@ -45,3 +45,19 @@ Repository configured with Claude Code memory and automated sync workflow.
 - Model ID: `deforum-art/deforum-stable-diffusion`
 - Namespace: `video.generate`
 - Description: Deforum Stable Diffusion for creating animated videos with Stable Diffusion
+
+---
+
+## 2026-03-07 - New Models Added
+
+- Model ID: `fofr/sdxl-controlnet-lora`
+- Namespace: `image.generate`
+- Description: Multi-controlnet SDXL with LoRA loading, img2img, and inpainting capabilities
+
+- Model ID: `lucataco/realistic-vision-v5.1`
+- Namespace: `image.generate`
+- Description: Implementation of Realistic Vision v5.1 with VAE for photorealistic image generation
+
+- Model ID: `prompthero/openjourney-v4`
+- Namespace: `image.generate`
+- Description: SD 1.5 trained with +124k Midjourney v4 images by PromptHero
