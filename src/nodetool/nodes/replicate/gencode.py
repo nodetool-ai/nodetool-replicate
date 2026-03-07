@@ -1121,6 +1121,45 @@ replicate_nodes = [
         "namespace": "audio.generate",
         "return_type": AudioRef,
     },
+    # === Added from Replicate Model Sync (2026-03-06) ===
+    {
+        "model_id": "microsoft/phi-3-mini-4k-instruct",
+        "node_name": "Phi_3_Mini_4K_Instruct",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "deforum-art/deforum-stable-diffusion",
+        "node_name": "Deforum_Stable_Diffusion",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+    },
+    # === Added from Replicate Model Sync (2026-03-07) ===
+    {
+        "model_id": "fofr/sdxl-controlnet-lora",
+        "node_name": "SDXL_Controlnet_Lora",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {
+            "image": ImageRef,
+            "controlnet_1_image": ImageRef,
+            "controlnet_2_image": ImageRef,
+            "controlnet_3_image": ImageRef,
+        },
+    },
+    {
+        "model_id": "lucataco/realistic-vision-v5.1",
+        "node_name": "Realistic_Vision_V5_1",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "prompthero/openjourney-v4",
+        "node_name": "OpenJourney_V4",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
 ]
 
 if __name__ == "__main__":

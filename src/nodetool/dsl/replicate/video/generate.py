@@ -66,6 +66,365 @@ import nodetool.nodes.replicate.video.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Deforum_Stable_Diffusion(
+    SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]
+):
+    """
+    Deforum Stable Diffusion
+    """
+
+    Width: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Width
+    )
+    Border: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Border
+    )
+    Height: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Height
+    )
+    Sampler: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Sampler
+    )
+    Clip_name: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Clip_name
+    )
+    Padding_mode: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Padding_mode
+    )
+    Sampling_mode: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Sampling_mode
+    )
+    Animation_mode: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Animation_mode
+    )
+    Color_coherence: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Color_coherence
+    )
+    Model_checkpoint: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Model_checkpoint
+    )
+    Diffusion_cadence: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Diffusion_cadence
+    )
+    Hybrid_video_motion: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Hybrid_video_motion
+    )
+    Hybrid_video_flow_method: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Hybrid_video_flow_method
+    )
+    Hybrid_video_comp_mask_type: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Hybrid_video_comp_mask_type
+    )
+    Hybrid_video_comp_mask_equalize: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Hybrid_video_comp_mask_equalize
+    )
+
+    fov: int | OutputHandle[int] = connect_field(default=40, description=None)
+    fps: int | OutputHandle[int] = connect_field(
+        default=15, description="Choose fps for the video."
+    )
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Random seed. Leave blank to randomize the seed"
+    )
+    zoom: str | OutputHandle[str] = connect_field(
+        default="0:(1.04)", description="zoom parameter for the motion"
+    )
+    angle: str | OutputHandle[str] = connect_field(
+        default="0:(0)", description="angle parameter for the motion"
+    )
+    width: nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Width = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Width(
+                512
+            ),
+            description="Width of output video. Reduce if out of memory.",
+        )
+    )
+    border: nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Border = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Border(
+                "replicate"
+            ),
+            description=None,
+        )
+    )
+    height: nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Height = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Height(
+                512
+            ),
+            description="Height of output image. Reduce if out of memory.",
+        )
+    )
+    sampler: (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Sampler
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Sampler(
+            "euler_ancestral"
+        ),
+        description=None,
+    )
+    use_init: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="If not using init image, you can skip the next settings to setting the animation_mode.",
+    )
+    use_mask: bool | OutputHandle[bool] = connect_field(default=False, description=None)
+    clip_name: (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Clip_name
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Clip_name(
+            "ViT-L/14"
+        ),
+        description="Choose CLIP model",
+    )
+    far_plane: int | OutputHandle[int] = connect_field(default=10000, description=None)
+    mask_file: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Provide mask_file if use_mask"
+    )
+    init_image: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Provide init_image if use_init"
+    )
+    max_frames: int | OutputHandle[int] = connect_field(
+        default=200, description="Number of frames for animation"
+    )
+    near_plane: int | OutputHandle[int] = connect_field(default=200, description=None)
+    invert_mask: bool | OutputHandle[bool] = connect_field(
+        default=False, description=None
+    )
+    midas_weight: float | OutputHandle[float] = connect_field(
+        default=0.3, description=None
+    )
+    padding_mode: (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Padding_mode
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Padding_mode(
+            "border"
+        ),
+        description=None,
+    )
+    rotation_3d_x: str | OutputHandle[str] = connect_field(
+        default="0:(0)", description="rotation_3d_x parameter for the 3D motion"
+    )
+    rotation_3d_y: str | OutputHandle[str] = connect_field(
+        default="0:(0)", description="rotation_3d_y parameter for the 3D motion"
+    )
+    rotation_3d_z: str | OutputHandle[str] = connect_field(
+        default="0:(0)", description="rotation_3d_z parameter for the 3D motion"
+    )
+    sampling_mode: (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Sampling_mode
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Sampling_mode(
+            "bicubic"
+        ),
+        description=None,
+    )
+    translation_x: str | OutputHandle[str] = connect_field(
+        default="0:(10*sin(2*3.14*t/10))",
+        description="translation_x parameter for the 2D motion",
+    )
+    translation_y: str | OutputHandle[str] = connect_field(
+        default="0:(0)", description="translation_y parameter for the 2D motion"
+    )
+    translation_z: str | OutputHandle[str] = connect_field(
+        default="0:(10)", description="translation_z parameter for the 2D motion"
+    )
+    animation_mode: (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Animation_mode
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Animation_mode(
+            "2D"
+        ),
+        description="Choose Animation mode. All parameters below are for setting up animations.",
+    )
+    guidance_scale: float | OutputHandle[float] = connect_field(
+        default=7, description="Scale for classifier-free guidance"
+    )
+    noise_schedule: str | OutputHandle[str] = connect_field(
+        default="0: (0.02)", description=None
+    )
+    sigma_schedule: str | OutputHandle[str] = connect_field(
+        default="0: (1.0)", description=None
+    )
+    use_mask_video: bool | OutputHandle[bool] = connect_field(
+        default=False, description=None
+    )
+    amount_schedule: str | OutputHandle[str] = connect_field(
+        default="0: (0.2)", description=None
+    )
+    color_coherence: (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Color_coherence
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Color_coherence(
+            "Match Frame 0 LAB"
+        ),
+        description=None,
+    )
+    kernel_schedule: str | OutputHandle[str] = connect_field(
+        default="0: (5)", description=None
+    )
+    video_init_path: str | OutputHandle[str] | None = connect_field(
+        default=None, description=None
+    )
+    video_mask_path: str | OutputHandle[str] | None = connect_field(
+        default=None, description=None
+    )
+    model_checkpoint: (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Model_checkpoint
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Model_checkpoint(
+            "Protogen_V2.2.ckpt"
+        ),
+        description="Choose stable diffusion model.",
+    )
+    animation_prompts: str | OutputHandle[str] = connect_field(
+        default="0: a beautiful apple, trending on Artstation | 50: a beautiful banana, trending on Artstation | 100: a beautiful coconut, trending on Artstation | 150: a beautiful durian, trending on Artstation",
+        description="Prompt for animation. Provide 'frame number : prompt at this frame', separate different prompts with '|'. Make sure the frame number does not exceed the max_frames.",
+    )
+    contrast_schedule: str | OutputHandle[str] = connect_field(
+        default="0: (1.0)", description=None
+    )
+    diffusion_cadence: (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Diffusion_cadence
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Diffusion_cadence(
+            "1"
+        ),
+        description=None,
+    )
+    extract_nth_frame: int | OutputHandle[int] = connect_field(
+        default=1, description=None
+    )
+    resume_timestring: str | OutputHandle[str] = connect_field(
+        default="", description=None
+    )
+    strength_schedule: str | OutputHandle[str] = connect_field(
+        default="0: (0.65)", description=None
+    )
+    use_depth_warping: bool | OutputHandle[bool] = connect_field(
+        default=True, description=None
+    )
+    threshold_schedule: str | OutputHandle[str] = connect_field(
+        default="0: (0.0)", description=None
+    )
+    flip_2d_perspective: bool | OutputHandle[bool] = connect_field(
+        default=False, description=None
+    )
+    hybrid_video_motion: (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Hybrid_video_motion
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Hybrid_video_motion(
+            "None"
+        ),
+        description=None,
+    )
+    num_inference_steps: int | OutputHandle[int] = connect_field(
+        default=50, description="Number of denoising steps"
+    )
+    perspective_flip_fv: str | OutputHandle[str] = connect_field(
+        default="0:(53)", description=None
+    )
+    interpolate_x_frames: int | OutputHandle[int] = connect_field(
+        default=4, description=None
+    )
+    perspective_flip_phi: str | OutputHandle[str] = connect_field(
+        default="0:(t%15)", description=None
+    )
+    hybrid_video_composite: bool | OutputHandle[bool] = connect_field(
+        default=False, description=None
+    )
+    interpolate_key_frames: bool | OutputHandle[bool] = connect_field(
+        default=False, description=None
+    )
+    perspective_flip_gamma: str | OutputHandle[str] = connect_field(
+        default="0:(0)", description=None
+    )
+    perspective_flip_theta: str | OutputHandle[str] = connect_field(
+        default="0:(0)", description=None
+    )
+    resume_from_timestring: bool | OutputHandle[bool] = connect_field(
+        default=False, description=None
+    )
+    hybrid_video_flow_method: (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Hybrid_video_flow_method
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Hybrid_video_flow_method(
+            "Farneback"
+        ),
+        description=None,
+    )
+    overwrite_extracted_frames: bool | OutputHandle[bool] = connect_field(
+        default=True, description=None
+    )
+    hybrid_video_comp_mask_type: (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Hybrid_video_comp_mask_type
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Hybrid_video_comp_mask_type(
+            "None"
+        ),
+        description=None,
+    )
+    hybrid_video_comp_mask_inverse: bool | OutputHandle[bool] = connect_field(
+        default=False, description=None
+    )
+    hybrid_video_comp_mask_equalize: (
+        nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Hybrid_video_comp_mask_equalize
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion.Hybrid_video_comp_mask_equalize(
+            "None"
+        ),
+        description=None,
+    )
+    hybrid_video_comp_alpha_schedule: str | OutputHandle[str] = connect_field(
+        default="0:(1)", description=None
+    )
+    hybrid_video_generate_inputframes: bool | OutputHandle[bool] = connect_field(
+        default=False, description=None
+    )
+    hybrid_video_comp_save_extra_frames: bool | OutputHandle[bool] = connect_field(
+        default=False, description=None
+    )
+    hybrid_video_use_video_as_mse_image: bool | OutputHandle[bool] = connect_field(
+        default=False, description=None
+    )
+    color_coherence_video_every_N_frames: int | OutputHandle[int] = connect_field(
+        default=1, description=None
+    )
+    hybrid_video_comp_mask_auto_contrast: bool | OutputHandle[bool] = connect_field(
+        default=False, description=None
+    )
+    hybrid_video_comp_mask_contrast_schedule: str | OutputHandle[str] = connect_field(
+        default="0:(1)", description=None
+    )
+    hybrid_video_use_first_frame_as_init_image: bool | OutputHandle[bool] = (
+        connect_field(default=True, description=None)
+    )
+    hybrid_video_comp_mask_blend_alpha_schedule: str | OutputHandle[str] = (
+        connect_field(default="0:(0.5)", description=None)
+    )
+    hybrid_video_comp_mask_auto_contrast_cutoff_low_schedule: (
+        str | OutputHandle[str]
+    ) = connect_field(default="0:(0)", description=None)
+    hybrid_video_comp_mask_auto_contrast_cutoff_high_schedule: (
+        str | OutputHandle[str]
+    ) = connect_field(default="0:(100)", description=None)
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.video.generate.Deforum_Stable_Diffusion
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.video.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Gen4_Aleph(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
     """
     A new way to edit, transform and generate video
