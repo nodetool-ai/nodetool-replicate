@@ -1121,6 +1121,31 @@ replicate_nodes = [
         "namespace": "audio.generate",
         "return_type": AudioRef,
     },
+    # === New models added 2026-03-09 ===
+    {
+        "model_id": "lightricks/ltx-2.3-pro",
+        "node_name": "LTX_2_3_Pro",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {
+            "audio": AudioRef,
+            "image": ImageRef,
+            "video": VideoRef,
+            "last_frame_image": ImageRef,
+        },
+    },
+    {
+        "model_id": "deepseek-ai/deepseek-v3",
+        "node_name": "Deepseek_V3",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "minimax/music-2.5",
+        "node_name": "Music_2_5",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
 ]
 
 if __name__ == "__main__":

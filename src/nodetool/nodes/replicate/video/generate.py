@@ -44,7 +44,7 @@ class Ray(ReplicateNode):
             "owner": "luma",
             "is_official": True,
             "paper_url": "https://lumalabs.ai/dream-machine",
-            "run_count": 69432,
+            "run_count": 70838,
             "url": "https://replicate.com/luma/ray",
             "visibility": "public",
             "weights_url": None,
@@ -162,7 +162,7 @@ class HotshotXL(ReplicateNode):
             "owner": "lucataco",
             "is_official": False,
             "paper_url": "https://huggingface.co/hotshotco/SDXL-512",
-            "run_count": 891928,
+            "run_count": 914965,
             "url": "https://replicate.com/lucataco/hotshot-xl",
             "visibility": "public",
             "weights_url": None,
@@ -235,7 +235,7 @@ class Zeroscope_V2_XL(ReplicateNode):
             "owner": "anotherjesse",
             "is_official": False,
             "paper_url": "https://huggingface.co/cerspense/zeroscope_v2_576w",
-            "run_count": 301779,
+            "run_count": 302947,
             "url": "https://replicate.com/anotherjesse/zeroscope-v2-xl",
             "visibility": "public",
             "weights_url": None,
@@ -333,7 +333,7 @@ class RobustVideoMatting(ReplicateNode):
             "owner": "arielreplicate",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2108.11515",
-            "run_count": 72983,
+            "run_count": 85795,
             "url": "https://replicate.com/arielreplicate/robust_video_matting",
             "visibility": "public",
             "weights_url": None,
@@ -376,7 +376,7 @@ class AudioToWaveform(ReplicateNode):
             "owner": "fofr",
             "is_official": False,
             "paper_url": "https://gradio.app/docs/#make_waveform",
-            "run_count": 384002,
+            "run_count": 384191,
             "url": "https://replicate.com/fofr/audio-to-waveform",
             "visibility": "public",
             "weights_url": None,
@@ -438,7 +438,7 @@ class Hunyuan_Video(ReplicateNode):
             "owner": "tencent",
             "is_official": False,
             "paper_url": "https://github.com/Tencent/HunyuanVideo/blob/main/assets/hunyuanvideo.pdf",
-            "run_count": 116232,
+            "run_count": 117045,
             "url": "https://replicate.com/tencent/hunyuan-video",
             "visibility": "public",
             "weights_url": "https://huggingface.co/tencent/HunyuanVideo",
@@ -522,7 +522,7 @@ class Video_01_Live(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 172985,
+            "run_count": 177079,
             "url": "https://replicate.com/minimax/video-01-live",
             "visibility": "public",
             "weights_url": None,
@@ -572,7 +572,7 @@ class Video_01(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 645598,
+            "run_count": 670200,
             "url": "https://replicate.com/minimax/video-01",
             "visibility": "public",
             "weights_url": None,
@@ -639,7 +639,7 @@ class Music_01(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 493273,
+            "run_count": 519362,
             "url": "https://replicate.com/minimax/music-01",
             "visibility": "public",
             "weights_url": None,
@@ -750,7 +750,7 @@ class LTX_Video(ReplicateNode):
             "owner": "lightricks",
             "is_official": False,
             "paper_url": None,
-            "run_count": 164292,
+            "run_count": 166070,
             "url": "https://replicate.com/lightricks/ltx-video",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Lightricks/LTX-Video",
@@ -845,7 +845,7 @@ class Wan_2_1_I2V_480p(ReplicateNode):
             "owner": "wavespeedai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 434093,
+            "run_count": 440535,
             "url": "https://replicate.com/wavespeedai/wan-2.1-i2v-480p",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-14B",
@@ -960,7 +960,7 @@ class Wan_2_1_1_3B(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": "https://wanxai.com/",
-            "run_count": 46436,
+            "run_count": 47682,
             "url": "https://replicate.com/wan-video/wan-2.1-1.3b",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B",
@@ -1069,7 +1069,7 @@ class Pixverse_V5(ReplicateNode):
             "owner": "pixverse",
             "is_official": True,
             "paper_url": None,
-            "run_count": 749848,
+            "run_count": 771635,
             "url": "https://replicate.com/pixverse/pixverse-v5",
             "visibility": "public",
             "weights_url": None,
@@ -1158,7 +1158,7 @@ class Gen4_Turbo(ReplicateNode):
             "owner": "runwayml",
             "is_official": True,
             "paper_url": None,
-            "run_count": 51311,
+            "run_count": 66490,
             "url": "https://replicate.com/runwayml/gen4-turbo",
             "visibility": "public",
             "weights_url": None,
@@ -1222,7 +1222,7 @@ class Gen4_Aleph(ReplicateNode):
             "owner": "runwayml",
             "is_official": True,
             "paper_url": "https://runwayml.com/research/introducing-runway-aleph",
-            "run_count": 115652,
+            "run_count": 156965,
             "url": "https://replicate.com/runwayml/gen4-aleph",
             "visibility": "public",
             "weights_url": None,
@@ -1288,7 +1288,7 @@ class Kling_V2_1(ReplicateNode):
             "owner": "kwaivgi",
             "is_official": True,
             "paper_url": None,
-            "run_count": 3192591,
+            "run_count": 3575595,
             "url": "https://replicate.com/kwaivgi/kling-v2.1",
             "visibility": "public",
             "weights_url": None,
@@ -1400,7 +1400,7 @@ class Kling_Lip_Sync(ReplicateNode):
             "owner": "kwaivgi",
             "is_official": True,
             "paper_url": None,
-            "run_count": 27599,
+            "run_count": 35274,
             "url": "https://replicate.com/kwaivgi/kling-lip-sync",
             "visibility": "public",
             "weights_url": None,
@@ -1479,7 +1479,7 @@ class Hailuo_02(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 303847,
+            "run_count": 344327,
             "url": "https://replicate.com/minimax/hailuo-02",
             "visibility": "public",
             "weights_url": None,
@@ -1550,7 +1550,7 @@ class Wan_2_2_T2V_Fast(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": None,
-            "run_count": 162079,
+            "run_count": 202046,
             "url": "https://replicate.com/wan-video/wan-2.2-t2v-fast",
             "visibility": "public",
             "weights_url": None,
@@ -1664,7 +1664,7 @@ class Wan_2_2_I2V_Fast(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": None,
-            "run_count": 5996008,
+            "run_count": 8526932,
             "url": "https://replicate.com/wan-video/wan-2.2-i2v-fast",
             "visibility": "public",
             "weights_url": None,
@@ -1780,7 +1780,7 @@ class Lipsync_2(ReplicateNode):
             "owner": "sync",
             "is_official": True,
             "paper_url": None,
-            "run_count": 15719,
+            "run_count": 24178,
             "url": "https://replicate.com/sync/lipsync-2",
             "visibility": "public",
             "weights_url": None,
@@ -1848,7 +1848,7 @@ class Lipsync_2_Pro(ReplicateNode):
             "owner": "sync",
             "is_official": True,
             "paper_url": None,
-            "run_count": 9675,
+            "run_count": 18902,
             "url": "https://replicate.com/sync/lipsync-2-pro",
             "visibility": "public",
             "weights_url": None,
@@ -1922,7 +1922,7 @@ class Veo_3_1(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 289367,
+            "run_count": 386908,
             "url": "https://replicate.com/google/veo-3.1",
             "visibility": "public",
             "weights_url": None,
@@ -1969,4 +1969,151 @@ class Veo_3_1(ReplicateNode):
         title="Reference Images",
         description="1 to 3 reference images for subject-consistent generation (reference-to-video, or R2V). Reference images only work with 16:9 aspect ratio and 8-second duration. Last frame is ignored if reference images are provided.",
         default=[],
+    )
+
+
+class LTX_2_3_Pro(ReplicateNode):
+    """High-fidelity video generation with portrait support, audio-to-video, retake, and extend. Text, image, and audio-driven creation up to 4K at 50 FPS."""
+
+    class Fps(int, Enum):
+        _24 = 24
+        _25 = 25
+        _48 = 48
+        _50 = 50
+
+    class Task(str, Enum):
+        TEXT_TO_VIDEO = "text_to_video"
+        IMAGE_TO_VIDEO = "image_to_video"
+        AUDIO_TO_VIDEO = "audio_to_video"
+        RETAKE = "retake"
+        EXTEND = "extend"
+
+    class Duration(int, Enum):
+        _6 = 6
+        _8 = 8
+        _10 = 10
+
+    class Resolution(str, Enum):
+        _1080P = "1080p"
+        _2K = "2k"
+        _4K = "4k"
+
+    class Extend_mode(str, Enum):
+        START = "start"
+        END = "end"
+
+    class Retake_mode(str, Enum):
+        REPLACE_AUDIO = "replace_audio"
+        REPLACE_VIDEO = "replace_video"
+        REPLACE_AUDIO_AND_VIDEO = "replace_audio_and_video"
+
+    class Aspect_ratio(str, Enum):
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+
+    class Camera_motion(str, Enum):
+        NONE = "none"
+        DOLLY_IN = "dolly_in"
+        DOLLY_OUT = "dolly_out"
+        DOLLY_LEFT = "dolly_left"
+        DOLLY_RIGHT = "dolly_right"
+        JIB_UP = "jib_up"
+        JIB_DOWN = "jib_down"
+        STATIC = "static"
+        FOCUS_SHIFT = "focus_shift"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["fps", "task", "audio"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "lightricks/ltx-2.3-pro:2560a82a0a6f2a7586087d51dc292c709248bcc10119160b9c54304f6ed64e85"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/f0eab9c0-fef9-4e7a-a1a8-5bf68d05a32b/replicate-prediction-7va7hbkes.mp4",
+            "created_at": "2026-03-05T20:52:27.843373Z",
+            "description": "High-fidelity video generation with portrait support, audio-to-video, retake, and extend. Text, image, and audio-driven creation up to 4K at 50 FPS.",
+            "github_url": None,
+            "license_url": "https://website.ltx.video/api-license-agreement",
+            "name": "ltx-2.3-pro",
+            "owner": "lightricks",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 670,
+            "url": "https://replicate.com/lightricks/ltx-2.3-pro",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.VideoRef
+
+    fps: Fps = Field(description="Frame rate in frames per second", default=25)
+    task: Task = Field(
+        description="The generation task to perform", default="text_to_video"
+    )
+    audio: types.AudioRef = Field(
+        default=types.AudioRef(), description="Input audio file for audio_to_video task"
+    )
+    image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="First frame image for image-to-video generation",
+    )
+    video: types.VideoRef = Field(
+        default=types.VideoRef(), description="Input video for retake or extend tasks"
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="Text prompt describing the video to generate",
+        default=None,
+    )
+    duration: Duration = Field(
+        description="Duration of the video in seconds", default=6
+    )
+    resolution: Resolution = Field(
+        description="Resolution quality of the generated video. Only 1080p is supported for audio_to_video, retake, and extend tasks.",
+        default="1080p",
+    )
+    extend_mode: Extend_mode = Field(
+        description="Where to extend the video. Used for extend task.", default="end"
+    )
+    retake_mode: Retake_mode = Field(
+        description="What to replace in the retake section. Used for retake task.",
+        default="replace_audio_and_video",
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio of the generated video", default="16:9"
+    )
+    camera_motion: Camera_motion = Field(
+        description="Camera motion effect to apply to the generated video. Use 'none' for no camera motion.",
+        default="none",
+    )
+    generate_audio: bool = Field(
+        title="Generate Audio",
+        description="Generate audio for the video. Used for text_to_video and image_to_video tasks.",
+        default=True,
+    )
+    retake_duration: float = Field(
+        title="Retake Duration",
+        description="Duration in seconds of the section to edit. Must be at least 2 seconds. Used for retake task.",
+        ge=2.0,
+        default=2,
+    )
+    last_frame_image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="Last frame image for image-to-video generation. When provided, the video interpolates between the first frame and this last frame.",
+    )
+    retake_start_time: float = Field(
+        title="Retake Start Time",
+        description="Start time in seconds of the section to edit. Used for retake task.",
+        ge=0.0,
+        default=0,
     )

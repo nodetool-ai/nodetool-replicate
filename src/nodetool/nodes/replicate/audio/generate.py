@@ -59,7 +59,7 @@ class RealisticVoiceCloning(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": None,
-            "run_count": 1411792,
+            "run_count": 1593975,
             "url": "https://replicate.com/zsxkib/realistic-voice-cloning",
             "visibility": "public",
             "weights_url": None,
@@ -314,7 +314,7 @@ class TortoiseTTS(ReplicateNode):
             "owner": "afiaka87",
             "is_official": False,
             "paper_url": "https://github.com/neonbjb/tortoise-tts",
-            "run_count": 173091,
+            "run_count": 173384,
             "url": "https://replicate.com/afiaka87/tortoise-tts",
             "visibility": "public",
             "weights_url": None,
@@ -390,7 +390,7 @@ class StyleTTS2(ReplicateNode):
             "owner": "adirik",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.07691",
-            "run_count": 132130,
+            "run_count": 132468,
             "url": "https://replicate.com/adirik/styletts2",
             "visibility": "public",
             "weights_url": None,
@@ -482,7 +482,7 @@ class Riffusion(ReplicateNode):
             "owner": "riffusion",
             "is_official": False,
             "paper_url": "https://www.riffusion.com/about",
-            "run_count": 1070865,
+            "run_count": 1081178,
             "url": "https://replicate.com/riffusion/riffusion",
             "visibility": "public",
             "weights_url": None,
@@ -573,7 +573,7 @@ class MusicGen(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.05284",
-            "run_count": 3240849,
+            "run_count": 3326545,
             "url": "https://replicate.com/meta/musicgen",
             "visibility": "public",
             "weights_url": None,
@@ -683,7 +683,7 @@ class MMAudio(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": "https://hkchengrex.github.io/MMAudio",
-            "run_count": 4568945,
+            "run_count": 4884474,
             "url": "https://replicate.com/zsxkib/mmaudio",
             "visibility": "public",
             "weights_url": "https://huggingface.co/hkchengrex/MMAudio/tree/main",
@@ -755,7 +755,7 @@ class Lyria_2(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 55092,
+            "run_count": 66838,
             "url": "https://replicate.com/google/lyria-2",
             "visibility": "public",
             "weights_url": None,
@@ -777,4 +777,79 @@ class Lyria_2(ReplicateNode):
         title="Negative Prompt",
         description="Description of what to exclude from the generated audio",
         default=None,
+    )
+
+
+class Music_2_5(ReplicateNode):
+    """Generate full-length songs with vocals, lyrics, and rich instrumentation from a text prompt"""
+
+    class Bitrate(int, Enum):
+        _32000 = 32000
+        _64000 = 64000
+        _128000 = 128000
+        _256000 = 256000
+
+    class Sample_rate(int, Enum):
+        _16000 = 16000
+        _24000 = 24000
+        _32000 = 32000
+        _44100 = 44100
+
+    class Audio_format(str, Enum):
+        MP3 = "mp3"
+        WAV = "wav"
+        PCM = "pcm"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["lyrics", "prompt", "bitrate"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "minimax/music-2.5:671479498076193e8197f6c906cc2ea24daf83412e177144d4c678f47066290f"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/2a3206e0-43f0-4612-9f92-897b7593bb1a/replicate-prediction-rtfwmngd4.png",
+            "created_at": "2026-03-03T19:50:28.576325Z",
+            "description": "Generate full-length songs with vocals, lyrics, and rich instrumentation from a text prompt",
+            "github_url": None,
+            "license_url": "https://www.minimax.io/platform/protocol/terms-of-service",
+            "name": "music-2.5",
+            "owner": "minimax",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 336,
+            "url": "https://replicate.com/minimax/music-2.5",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.AudioRef
+
+    lyrics: str | None = Field(
+        title="Lyrics",
+        description="Lyrics for the song. Use \\n to separate lines. You can add structure tags like [Intro], [Verse], [Pre Chorus], [Chorus], [Interlude], [Bridge], [Outro], [Post Chorus], [Transition], [Break], [Hook], [Build Up], [Inst], [Solo] to control the arrangement. 1-3500 characters.",
+        default=None,
+    )
+    prompt: str = Field(
+        title="Prompt",
+        description="A description of the music style, mood, and scenario. For example: 'Pop, melancholic, perfect for a rainy night'. 0-2000 characters.",
+        default="",
+    )
+    bitrate: Bitrate = Field(
+        description="Bitrate for the generated music", default=256000
+    )
+    sample_rate: Sample_rate = Field(
+        description="Sample rate for the generated music", default=44100
+    )
+    audio_format: Audio_format = Field(
+        description="Audio format for the output", default="mp3"
     )

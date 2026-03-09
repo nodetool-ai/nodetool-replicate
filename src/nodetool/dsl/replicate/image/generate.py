@@ -411,11 +411,11 @@ class Flux_2_Pro(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     width: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     height: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     prompt: str | OutputHandle[str] | None = connect_field(
         default=None, description="Text prompt for image generation"
@@ -3455,7 +3455,7 @@ class Qwen_Image(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     lora_weights: str | OutputHandle[str] | None = connect_field(
         default=None,
-        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/Viktor1717/scandinavian-interior-style1/resolve/main/my_first_flux_lora_v1.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
+        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/flymy-ai/qwen-image-lora/resolve/main/pytorch_lora_weights.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
     )
     output_format: nodetool.nodes.replicate.image.generate.Qwen_Image.Output_format = (
         Field(
@@ -3475,9 +3475,17 @@ class Qwen_Image(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     negative_prompt: str | OutputHandle[str] = connect_field(
         default=" ", description="Negative prompt for generated image"
     )
+    extra_lora_scale: list | OutputHandle[list] | None = connect_field(
+        default=None,
+        description="Scales for additional LoRAs as an array of numbers (e.g., 0.5, 0.7). Must match the number of weights in extra_lora_weights.",
+    )
     replicate_weights: str | OutputHandle[str] | None = connect_field(
         default=None,
         description="Load LoRA weights from Replicate training. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet.",
+    )
+    extra_lora_weights: list | OutputHandle[list] | None = connect_field(
+        default=None,
+        description="Additional LoRA weights as an array of URLs. Same formats supported as lora_weights (e.g., ['https://huggingface.co/flymy-ai/qwen-image-lora/resolve/main/pytorch_lora_weights.safetensors', 'https://huggingface.co/flymy-ai/qwen-image-realism-lora/resolve/main/flymy_realism.safetensors'])",
     )
     num_inference_steps: int | OutputHandle[int] = connect_field(
         default=30,

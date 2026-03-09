@@ -428,6 +428,146 @@ import nodetool.nodes.replicate.video.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class LTX_2_3_Pro(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
+    """
+    High-fidelity video generation with portrait support, audio-to-video, retake, and extend. Text, image, and audio-driven creation up to 4K at 50 FPS.
+    """
+
+    Fps: typing.ClassVar[type] = nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Fps
+    Task: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Task
+    )
+    Duration: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Duration
+    )
+    Resolution: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Resolution
+    )
+    Extend_mode: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Extend_mode
+    )
+    Retake_mode: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Retake_mode
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Aspect_ratio
+    )
+    Camera_motion: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Camera_motion
+    )
+
+    fps: nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Fps = Field(
+        default=nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Fps(25),
+        description="Frame rate in frames per second",
+    )
+    task: nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Task = Field(
+        default=nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Task(
+            "text_to_video"
+        ),
+        description="The generation task to perform",
+    )
+    audio: types.AudioRef | OutputHandle[types.AudioRef] = connect_field(
+        default=types.AudioRef(
+            type="audio", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Input audio file for audio_to_video task",
+    )
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="First frame image for image-to-video generation",
+    )
+    video: types.VideoRef | OutputHandle[types.VideoRef] = connect_field(
+        default=types.VideoRef(
+            type="video",
+            uri="",
+            asset_id=None,
+            data=None,
+            metadata=None,
+            duration=None,
+            format=None,
+        ),
+        description="Input video for retake or extend tasks",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt describing the video to generate"
+    )
+    duration: nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Duration = Field(
+        default=nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Duration(6),
+        description="Duration of the video in seconds",
+    )
+    resolution: nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Resolution = Field(
+        default=nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Resolution("1080p"),
+        description="Resolution quality of the generated video. Only 1080p is supported for audio_to_video, retake, and extend tasks.",
+    )
+    extend_mode: nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Extend_mode = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Extend_mode(
+                "end"
+            ),
+            description="Where to extend the video. Used for extend task.",
+        )
+    )
+    retake_mode: nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Retake_mode = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Retake_mode(
+                "replace_audio_and_video"
+            ),
+            description="What to replace in the retake section. Used for retake task.",
+        )
+    )
+    aspect_ratio: nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Aspect_ratio = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Aspect_ratio(
+                "16:9"
+            ),
+            description="Aspect ratio of the generated video",
+        )
+    )
+    camera_motion: nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Camera_motion = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.LTX_2_3_Pro.Camera_motion(
+                "none"
+            ),
+            description="Camera motion effect to apply to the generated video. Use 'none' for no camera motion.",
+        )
+    )
+    generate_audio: bool | OutputHandle[bool] = connect_field(
+        default=True,
+        description="Generate audio for the video. Used for text_to_video and image_to_video tasks.",
+    )
+    retake_duration: float | OutputHandle[float] = connect_field(
+        default=2,
+        description="Duration in seconds of the section to edit. Must be at least 2 seconds. Used for retake task.",
+    )
+    last_frame_image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Last frame image for image-to-video generation. When provided, the video interpolates between the first frame and this last frame.",
+    )
+    retake_start_time: float | OutputHandle[float] = connect_field(
+        default=0,
+        description="Start time in seconds of the section to edit. Used for retake task.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.video.generate.LTX_2_3_Pro
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.video.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class LTX_Video(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
     """
     LTX-Video is the first DiT-based video generation model capable of generating high-quality videos in real-time. It produces 24 FPS videos at a 768x512 resolution faster than they can be watched.
