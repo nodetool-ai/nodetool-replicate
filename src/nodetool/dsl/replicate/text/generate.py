@@ -98,6 +98,46 @@ import nodetool.nodes.replicate.text.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Deepseek_V3(SingleOutputGraphNode[str], GraphNode[str]):
+    """
+    DeepSeek-V3-0324 is the leading non-reasoning model, a milestone for open source
+    """
+
+    top_p: float | OutputHandle[float] = connect_field(
+        default=1, description="Top-p (nucleus) sampling"
+    )
+    prompt: str | OutputHandle[str] = connect_field(default="", description="Prompt")
+    max_tokens: int | OutputHandle[int] = connect_field(
+        default=2048,
+        description="The maximum number of tokens the model should generate as output.",
+    )
+    temperature: float | OutputHandle[float] = connect_field(
+        default=0.1,
+        description="The value used to modulate the next token probabilities.",
+    )
+    presence_penalty: float | OutputHandle[float] = connect_field(
+        default=0, description="Presence penalty"
+    )
+    frequency_penalty: float | OutputHandle[float] = connect_field(
+        default=0, description="Frequency penalty"
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.text.generate.Deepseek_V3
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.text.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Deepseek_V3_1(SingleOutputGraphNode[str], GraphNode[str]):
     """
     Latest hybrid thinking model from Deepseek

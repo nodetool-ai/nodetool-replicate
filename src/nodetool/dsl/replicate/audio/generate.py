@@ -199,6 +199,62 @@ import nodetool.nodes.replicate.audio.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Music_2_5(SingleOutputGraphNode[types.AudioRef], GraphNode[types.AudioRef]):
+    """
+    Generate full-length songs with vocals, lyrics, and rich instrumentation from a text prompt
+    """
+
+    Bitrate: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.audio.generate.Music_2_5.Bitrate
+    )
+    Sample_rate: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.audio.generate.Music_2_5.Sample_rate
+    )
+    Audio_format: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.audio.generate.Music_2_5.Audio_format
+    )
+
+    lyrics: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Lyrics for the song. Use \\n to separate lines. You can add structure tags like [Intro], [Verse], [Pre Chorus], [Chorus], [Interlude], [Bridge], [Outro], [Post Chorus], [Transition], [Break], [Hook], [Build Up], [Inst], [Solo] to control the arrangement. 1-3500 characters.",
+    )
+    prompt: str | OutputHandle[str] = connect_field(
+        default="",
+        description="A description of the music style, mood, and scenario. For example: 'Pop, melancholic, perfect for a rainy night'. 0-2000 characters.",
+    )
+    bitrate: nodetool.nodes.replicate.audio.generate.Music_2_5.Bitrate = Field(
+        default=nodetool.nodes.replicate.audio.generate.Music_2_5.Bitrate(256000),
+        description="Bitrate for the generated music",
+    )
+    sample_rate: nodetool.nodes.replicate.audio.generate.Music_2_5.Sample_rate = Field(
+        default=nodetool.nodes.replicate.audio.generate.Music_2_5.Sample_rate(44100),
+        description="Sample rate for the generated music",
+    )
+    audio_format: nodetool.nodes.replicate.audio.generate.Music_2_5.Audio_format = (
+        Field(
+            default=nodetool.nodes.replicate.audio.generate.Music_2_5.Audio_format(
+                "mp3"
+            ),
+            description="Audio format for the output",
+        )
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.audio.generate.Music_2_5
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.audio.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class RealisticVoiceCloning(
     SingleOutputGraphNode[types.AudioRef], GraphNode[types.AudioRef]
 ):
