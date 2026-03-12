@@ -89,3 +89,23 @@ Repository configured with Claude Code memory and automated sync workflow.
 - Model ID: `jide/nano-banana-2-transparent`
 - Namespace: `image.generate`
 - Description: Generates images with real RGBA transparency using triangular mesh technology
+
+---
+
+## 2026-03-12 - Additional Image and Video Models (Batch 2)
+
+### Image Generation Models
+
+- Model ID: `google/imagen-4`
+- Namespace: `image.generate`
+- Description: Google's latest high-quality text-to-image model with enhanced detail and photorealism
+
+### Video Generation Models
+
+- Model ID: `google/veo-2`
+- Namespace: `video.generate`
+- Description: Google's Veo 2 video generation model with text-to-video and image-to-video capabilities
+
+- Model ID: `wavespeedai/wan-2.1-t2v-720p`
+- Namespace: `video.generate`
+- Description: Wan 2.1 text-to-video model generating 720p videos with comprehensive video generation capabilities

@@ -1205,6 +1205,26 @@ replicate_nodes = [
         "return_type": ImageRef,
         "overrides": {"image": ImageRef, "mask": ImageRef},
     },
+    # === Additional models added 2026-03-12 (batch 2) ===
+    {
+        "model_id": "google/imagen-4",
+        "node_name": "Imagen_4",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+    },
+    {
+        "model_id": "google/veo-2",
+        "node_name": "Veo_2",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "wavespeedai/wan-2.1-t2v-720p",
+        "node_name": "Wan_2_1_T2V_720p",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+    },
 ]
 
 if __name__ == "__main__":
