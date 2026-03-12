@@ -428,6 +428,106 @@ import nodetool.nodes.replicate.video.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class LTX_2_Fast(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
+    """
+    Ideal for rapid ideation and mobile workflows. Perfect for creators who need instant feedback, real-time previews, or high-throughput content.
+    """
+
+    Duration: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.LTX_2_Fast.Duration
+    )
+    Resolution: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.LTX_2_Fast.Resolution
+    )
+
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="First frame image for image-to-video generation",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt describing the video to generate"
+    )
+    duration: nodetool.nodes.replicate.video.generate.LTX_2_Fast.Duration = Field(
+        default=nodetool.nodes.replicate.video.generate.LTX_2_Fast.Duration(6),
+        description="Duration of the video in seconds. Durations longer than 10 seconds are only available with 1080p resolution.",
+    )
+    resolution: nodetool.nodes.replicate.video.generate.LTX_2_Fast.Resolution = Field(
+        default=nodetool.nodes.replicate.video.generate.LTX_2_Fast.Resolution("1080p"),
+        description="Resolution quality of the generated video",
+    )
+    generate_audio: bool | OutputHandle[bool] = connect_field(
+        default=True,
+        description="Generate audio for the video. Used for text_to_video and image_to_video tasks.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.video.generate.LTX_2_Fast
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.video.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class LTX_2_Pro(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
+    """
+    Delivers high visual fidelity with fast turnaround. Great for daily content creation, marketing teams, and iterative creative workflows.
+    """
+
+    Duration: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.LTX_2_Pro.Duration
+    )
+    Resolution: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.LTX_2_Pro.Resolution
+    )
+
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="First frame image for image-to-video generation",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt describing the video to generate"
+    )
+    duration: nodetool.nodes.replicate.video.generate.LTX_2_Pro.Duration = Field(
+        default=nodetool.nodes.replicate.video.generate.LTX_2_Pro.Duration(6),
+        description="Duration of the video in seconds",
+    )
+    resolution: nodetool.nodes.replicate.video.generate.LTX_2_Pro.Resolution = Field(
+        default=nodetool.nodes.replicate.video.generate.LTX_2_Pro.Resolution("1080p"),
+        description="Resolution quality of the generated video",
+    )
+    generate_audio: bool | OutputHandle[bool] = connect_field(
+        default=True,
+        description="Generate audio for the video. Used for text_to_video and image_to_video tasks.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.video.generate.LTX_2_Pro
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.video.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class LTX_Video(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
     """
     LTX-Video is the first DiT-based video generation model capable of generating high-quality videos in real-time. It produces 24 FPS videos at a 768x512 resolution faster than they can be watched.
@@ -753,71 +853,6 @@ import nodetool.nodes.replicate.video.generate
 from nodetool.workflows.base_node import BaseNode
 
 
-class Ray(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
-    """
-    Fast, high quality text-to-video and image-to-video (Also known as Dream Machine)
-    """
-
-    Aspect_ratio: typing.ClassVar[type] = (
-        nodetool.nodes.replicate.video.generate.Ray.Aspect_ratio
-    )
-
-    loop: bool | OutputHandle[bool] = connect_field(
-        default=False,
-        description="Whether the video should loop, with the last frame matching the first frame for smooth, continuous playback. This input is ignored if end_image or end_video_id are set.",
-    )
-    prompt: str | OutputHandle[str] | None = connect_field(
-        default=None, description="Text prompt for video generation"
-    )
-    end_image: str | OutputHandle[str] | None = connect_field(
-        default=None,
-        description="An optional last frame of the video to use as the ending frame.",
-    )
-    start_image: str | OutputHandle[str] | None = connect_field(
-        default=None,
-        description="An optional first frame of the video to use as the starting frame.",
-    )
-    aspect_ratio: nodetool.nodes.replicate.video.generate.Ray.Aspect_ratio = Field(
-        default=nodetool.nodes.replicate.video.generate.Ray.Aspect_ratio("16:9"),
-        description="Aspect ratio of the video. Ignored if a start frame, end frame or video ID is given.",
-    )
-    end_video_id: str | OutputHandle[str] | None = connect_field(
-        default=None,
-        description="Prepend a new video generation to the beginning of an existing one (Also called 'reverse extend'). You can combine this with start_image, or start_video_id.",
-    )
-    end_image_url: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
-        default=types.ImageRef(
-            type="image", uri="", asset_id=None, data=None, metadata=None
-        ),
-        description="Deprecated: Use end_image instead",
-    )
-    start_video_id: str | OutputHandle[str] | None = connect_field(
-        default=None,
-        description="Continue or extend a video generation with a new generation. You can combine this with end_image, or end_video_id.",
-    )
-    start_image_url: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
-        default=types.ImageRef(
-            type="image", uri="", asset_id=None, data=None, metadata=None
-        ),
-        description="Deprecated: Use start_image instead",
-    )
-
-    @classmethod
-    def get_node_class(cls) -> type[BaseNode]:
-        return nodetool.nodes.replicate.video.generate.Ray
-
-    @classmethod
-    def get_node_type(cls):
-        return cls.get_node_class().get_node_type()
-
-
-import typing
-from pydantic import Field
-from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
-import nodetool.nodes.replicate.video.generate
-from nodetool.workflows.base_node import BaseNode
-
-
 class RobustVideoMatting(
     SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]
 ):
@@ -990,6 +1025,144 @@ class Video_01_Live(SingleOutputGraphNode[types.VideoRef], GraphNode[types.Video
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.video.generate.Video_01_Live
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.video.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class Vidu_Q3_Pro(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
+    """
+    High-fidelity video generation with text-to-video, image-to-video, and start-end-to-video modes. Up to 16 seconds at 1080p with synchronized audio.
+    """
+
+    Resolution: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Vidu_Q3_Pro.Resolution
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Vidu_Q3_Pro.Aspect_ratio
+    )
+
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Random seed. Set for reproducible generation."
+    )
+    audio: bool | OutputHandle[bool] = connect_field(
+        default=True,
+        description="Whether to generate audio synchronized with the video (dialogue and sound effects).",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Text prompt for video generation. Maximum 5000 characters.",
+    )
+    duration: int | OutputHandle[int] = connect_field(
+        default=5, description="Duration of the video in seconds."
+    )
+    end_image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="End frame image for the video. Must be used together with start_image for start-end-to-video mode. The aspect ratios of start and end images must be similar (ratio between 0.8 and 1.25). Supported formats: png, jpeg, jpg, webp.",
+    )
+    resolution: nodetool.nodes.replicate.video.generate.Vidu_Q3_Pro.Resolution = Field(
+        default=nodetool.nodes.replicate.video.generate.Vidu_Q3_Pro.Resolution("720p"),
+        description="Resolution of the output video.",
+    )
+    start_image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Start frame image for the video. When provided without an end_image, the model runs in image-to-video mode. Supported formats: png, jpeg, jpg, webp.",
+    )
+    aspect_ratio: nodetool.nodes.replicate.video.generate.Vidu_Q3_Pro.Aspect_ratio = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.Vidu_Q3_Pro.Aspect_ratio(
+                "16:9"
+            ),
+            description="Aspect ratio of the output video. Only used in text-to-video mode (ignored when images are provided).",
+        )
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.video.generate.Vidu_Q3_Pro
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.video.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class Vidu_Q3_Turbo(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
+    """
+    Fast video generation with text-to-video, image-to-video, and start-end-to-video modes. Up to 16 seconds at 1080p with synchronized audio.
+    """
+
+    Resolution: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Vidu_Q3_Turbo.Resolution
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Vidu_Q3_Turbo.Aspect_ratio
+    )
+
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Random seed. Set for reproducible generation."
+    )
+    audio: bool | OutputHandle[bool] = connect_field(
+        default=True,
+        description="Whether to generate audio synchronized with the video (dialogue and sound effects).",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Text prompt for video generation. Maximum 5000 characters.",
+    )
+    duration: int | OutputHandle[int] = connect_field(
+        default=5, description="Duration of the video in seconds."
+    )
+    end_image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="End frame image for the video. Must be used together with start_image for start-end-to-video mode. The aspect ratios of start and end images must be similar (ratio between 0.8 and 1.25). Supported formats: png, jpeg, jpg, webp.",
+    )
+    resolution: nodetool.nodes.replicate.video.generate.Vidu_Q3_Turbo.Resolution = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.Vidu_Q3_Turbo.Resolution(
+                "720p"
+            ),
+            description="Resolution of the output video.",
+        )
+    )
+    start_image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Start frame image for the video. When provided without an end_image, the model runs in image-to-video mode. Supported formats: png, jpeg, jpg, webp.",
+    )
+    aspect_ratio: nodetool.nodes.replicate.video.generate.Vidu_Q3_Turbo.Aspect_ratio = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.Vidu_Q3_Turbo.Aspect_ratio(
+                "16:9"
+            ),
+            description="Aspect ratio of the output video. Only used in text-to-video mode (ignored when images are provided).",
+        )
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.video.generate.Vidu_Q3_Turbo
 
     @classmethod
     def get_node_type(cls):

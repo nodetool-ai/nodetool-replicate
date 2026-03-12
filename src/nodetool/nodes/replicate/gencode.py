@@ -265,13 +265,13 @@ replicate_nodes = [
         "return_type": ImageRef,
         "overrides": {"image": ImageRef},
     },
-    {
-        "model_id": "luma/ray",
-        "node_name": "Ray",
-        "namespace": "video.generate",
-        "return_type": VideoRef,
-        "overrides": {"start_image_url": ImageRef, "end_image_url": ImageRef},
-    },
+    # {
+    #     "model_id": "luma/ray",
+    #     "node_name": "Ray",
+    #     "namespace": "video.generate",
+    #     "return_type": VideoRef,
+    #     "overrides": {"start_image_url": ImageRef, "end_image_url": ImageRef},
+    # },  # Model returning 404 error - temporarily disabled
     {
         "model_id": "luma/photon-flash",
         "node_name": "Photon_Flash",
@@ -1120,6 +1120,90 @@ replicate_nodes = [
         "node_name": "Lyria_2",
         "namespace": "audio.generate",
         "return_type": AudioRef,
+    },
+    # === New models added 2026-03-12 ===
+    {
+        "model_id": "vidu/q3-pro",
+        "node_name": "Vidu_Q3_Pro",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {
+            "image": ImageRef,
+            "start_image": ImageRef,
+            "end_image": ImageRef,
+        },
+    },
+    {
+        "model_id": "vidu/q3-turbo",
+        "node_name": "Vidu_Q3_Turbo",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {
+            "image": ImageRef,
+            "start_image": ImageRef,
+            "end_image": ImageRef,
+        },
+    },
+    {
+        "model_id": "lightricks/ltx-2-pro",
+        "node_name": "LTX_2_Pro",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef, "video": VideoRef},
+    },
+    {
+        "model_id": "lightricks/ltx-2-fast",
+        "node_name": "LTX_2_Fast",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef, "video": VideoRef},
+    },
+    {
+        "model_id": "inworld/tts-1.5-max",
+        "node_name": "Inworld_TTS_1_5_Max",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
+    {
+        "model_id": "inworld/tts-1.5-mini",
+        "node_name": "Inworld_TTS_1_5_Mini",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
+    {
+        "model_id": "recraft-ai/recraft-vectorize",
+        "node_name": "Recraft_Vectorize",
+        "namespace": "image.process",
+        "return_type": SVGRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "recraft-ai/recraft-remove-background",
+        "node_name": "Recraft_Remove_Background",
+        "namespace": "image.process",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "recraft-ai/recraft-creative-upscale",
+        "node_name": "Recraft_Creative_Upscale",
+        "namespace": "image.upscale",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "recraft-ai/recraft-crisp-upscale",
+        "node_name": "Recraft_Crisp_Upscale",
+        "namespace": "image.upscale",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "jide/nano-banana-2-transparent",
+        "node_name": "Nano_Banana_2_Transparent",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
     },
 ]
 

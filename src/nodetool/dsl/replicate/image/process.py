@@ -81,18 +81,19 @@ class Expand_Image(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageR
     )
     canvas_size: list | OutputHandle[list] | None = connect_field(
         default=None,
-        description="Desired output canvas dimensions [width, height]. Default [1000, 1000]",
+        description="Desired output canvas dimensions [width, height]. Default [1000, 1000]. Max 5000x5000 pixels.",
     )
     aspect_ratio: nodetool.nodes.replicate.image.process.Expand_Image.Aspect_ratio = (
         Field(
             default=nodetool.nodes.replicate.image.process.Expand_Image.Aspect_ratio(
                 "1:1"
             ),
-            description="Aspect ratio for expansion.",
+            description="Aspect ratio for expansion. Either aspect_ratio or canvas_size with original_image_size/location must be provided. Can be a predefined string like '1:1', '16:9' etc. or a custom float between 0.5 and 3.0",
         )
     )
     preserve_alpha: bool | OutputHandle[bool] = connect_field(
-        default=True, description="Preserve alpha channel in output"
+        default=True,
+        description="Preserve alpha channel in output. When true, maintains original transparency. When false, output is fully opaque.",
     )
     negative_prompt: str | OutputHandle[str] | None = connect_field(
         default=None, description="Negative prompt for image generation"
@@ -325,6 +326,64 @@ class ObjectRemover(SingleOutputGraphNode[types.ImageRef], GraphNode[types.Image
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.image.process.ObjectRemover
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.process
+from nodetool.workflows.base_node import BaseNode
+
+
+class Recraft_Remove_Background(
+    SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]
+):
+    """
+    Automated background removal for images. Tuned for AI-generated content, product photos, portraits, and design workflows
+    """
+
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Image to remove background from. Supported formats: PNG, JPG, WEBP. Max 5MB, max 16MP, max dimension 4096px, min dimension 256px.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.process.Recraft_Remove_Background
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.process
+from nodetool.workflows.base_node import BaseNode
+
+
+class Recraft_Vectorize(SingleOutputGraphNode[types.SVGRef], GraphNode[types.SVGRef]):
+    """
+    Convert raster images to high-quality SVG format with precision and clean vector paths, perfect for logos, icons, and scalable graphics.
+    """
+
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Raster image to convert to SVG format. Supported formats: PNG, JPG, WEBP. Max 5MB, max 16MP, max dimension 4096px, min dimension 256px.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.process.Recraft_Vectorize
 
     @classmethod
     def get_node_type(cls):

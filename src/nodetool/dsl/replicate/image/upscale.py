@@ -418,6 +418,66 @@ import nodetool.nodes.replicate.image.upscale
 from nodetool.workflows.base_node import BaseNode
 
 
+class Recraft_Creative_Upscale(
+    SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]
+):
+    """
+    Creative Upscale focuses on enhancing details and refining complex elements in the image. It doesn’t just increase resolution but adds depth by improving textures, fine details, and facial features.
+    """
+
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Image to upscale",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.upscale.Recraft_Creative_Upscale
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.upscale
+from nodetool.workflows.base_node import BaseNode
+
+
+class Recraft_Crisp_Upscale(
+    SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]
+):
+    """
+    Designed to make images sharper and cleaner, Crisp Upscale increases overall quality, making visuals suitable for web use or print-ready materials.
+    """
+
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Image to upscale",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.upscale.Recraft_Crisp_Upscale
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.upscale
+from nodetool.workflows.base_node import BaseNode
+
+
 class Swin2SR(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
     """
     3.5 Million Runs! AI Photorealistic Image Super-Resolution and Restoration

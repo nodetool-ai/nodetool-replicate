@@ -46,7 +46,7 @@ class AdInpaint(ReplicateNode):
             "owner": "logerzhu",
             "is_official": False,
             "paper_url": None,
-            "run_count": 626172,
+            "run_count": 629598,
             "url": "https://replicate.com/logerzhu/ad-inpaint",
             "visibility": "public",
             "weights_url": None,
@@ -126,7 +126,7 @@ class ConsistentCharacter(ReplicateNode):
             "owner": "sdxl-based",
             "is_official": False,
             "paper_url": None,
-            "run_count": 1409940,
+            "run_count": 1451904,
             "url": "https://replicate.com/sdxl-based/consistent-character",
             "visibility": "public",
             "weights_url": None,
@@ -237,7 +237,7 @@ class PulidBase(ReplicateNode):
             "owner": "fofr",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2404.16022",
-            "run_count": 323759,
+            "run_count": 326380,
             "url": "https://replicate.com/fofr/pulid-base",
             "visibility": "public",
             "weights_url": None,
@@ -372,7 +372,7 @@ class StableDiffusion(ReplicateNode):
             "owner": "stability-ai",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2112.10752",
-            "run_count": 110887986,
+            "run_count": 110962830,
             "url": "https://replicate.com/stability-ai/stable-diffusion",
             "visibility": "public",
             "weights_url": None,
@@ -474,7 +474,7 @@ class StableDiffusion3_5_Medium(ReplicateNode):
             "owner": "stability-ai",
             "is_official": True,
             "paper_url": "https://arxiv.org/abs/2403.03206",
-            "run_count": 98801,
+            "run_count": 106949,
             "url": "https://replicate.com/stability-ai/stable-diffusion-3.5-medium",
             "visibility": "public",
             "weights_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium",
@@ -567,7 +567,7 @@ class StableDiffusion3_5_Large(ReplicateNode):
             "owner": "stability-ai",
             "is_official": True,
             "paper_url": "https://arxiv.org/abs/2403.03206",
-            "run_count": 1855424,
+            "run_count": 2014683,
             "url": "https://replicate.com/stability-ai/stable-diffusion-3.5-large",
             "visibility": "public",
             "weights_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
@@ -660,7 +660,7 @@ class StableDiffusion3_5_Large_Turbo(ReplicateNode):
             "owner": "stability-ai",
             "is_official": True,
             "paper_url": "https://arxiv.org/abs/2403.03206",
-            "run_count": 881594,
+            "run_count": 971621,
             "url": "https://replicate.com/stability-ai/stable-diffusion-3.5-large-turbo",
             "visibility": "public",
             "weights_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large-turbo",
@@ -746,7 +746,7 @@ class Photon_Flash(ReplicateNode):
             "owner": "luma",
             "is_official": True,
             "paper_url": None,
-            "run_count": 242402,
+            "run_count": 354213,
             "url": "https://replicate.com/luma/photon-flash",
             "visibility": "public",
             "weights_url": None,
@@ -858,7 +858,7 @@ class StableDiffusionXL(ReplicateNode):
             "owner": "stability-ai",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2307.01952",
-            "run_count": 83593960,
+            "run_count": 84201350,
             "url": "https://replicate.com/stability-ai/sdxl",
             "visibility": "public",
             "weights_url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
@@ -1001,7 +1001,7 @@ class SDXL_Pixar(ReplicateNode):
             "owner": "swartype",
             "is_official": False,
             "paper_url": None,
-            "run_count": 657632,
+            "run_count": 658208,
             "url": "https://replicate.com/swartype/sdxl-pixar",
             "visibility": "public",
             "weights_url": None,
@@ -1144,7 +1144,7 @@ class SDXL_Emoji(ReplicateNode):
             "owner": "fofr",
             "is_official": False,
             "paper_url": None,
-            "run_count": 11602723,
+            "run_count": 11852231,
             "url": "https://replicate.com/fofr/sdxl-emoji",
             "visibility": "public",
             "weights_url": None,
@@ -1317,7 +1317,7 @@ class StableDiffusionInpainting(ReplicateNode):
             "owner": "stability-ai",
             "is_official": False,
             "paper_url": None,
-            "run_count": 20919460,
+            "run_count": 20992652,
             "url": "https://replicate.com/stability-ai/stable-diffusion-inpainting",
             "visibility": "public",
             "weights_url": None,
@@ -1451,7 +1451,7 @@ class Kandinsky_2_2(ReplicateNode):
             "owner": "ai-forever",
             "is_official": False,
             "paper_url": None,
-            "run_count": 10028894,
+            "run_count": 10091268,
             "url": "https://replicate.com/ai-forever/kandinsky-2.2",
             "visibility": "public",
             "weights_url": None,
@@ -1559,7 +1559,7 @@ class Flux_Schnell(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 595976772,
+            "run_count": 630485088,
             "url": "https://replicate.com/black-forest-labs/flux-schnell",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
@@ -1668,7 +1668,7 @@ class Flux_Dev(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 37743277,
+            "run_count": 42640985,
             "url": "https://replicate.com/black-forest-labs/flux-dev",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
@@ -1791,7 +1791,7 @@ class Flux_Pro(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 13823849,
+            "run_count": 14000253,
             "url": "https://replicate.com/black-forest-labs/flux-pro",
             "visibility": "public",
             "weights_url": None,
@@ -1912,7 +1912,7 @@ class Flux_1_1_Pro_Ultra(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": "https://blackforestlabs.ai/flux-1-1-ultra/",
-            "run_count": 19832868,
+            "run_count": 20348156,
             "url": "https://replicate.com/black-forest-labs/flux-1.1-pro-ultra",
             "visibility": "public",
             "weights_url": None,
@@ -2011,7 +2011,7 @@ class Flux_Dev_Lora(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 5517489,
+            "run_count": 5743549,
             "url": "https://replicate.com/black-forest-labs/flux-dev-lora",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
@@ -2172,7 +2172,7 @@ class Flux_Schnell_Lora(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 3636218,
+            "run_count": 3692550,
             "url": "https://replicate.com/black-forest-labs/flux-schnell-lora",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
@@ -2275,7 +2275,7 @@ class Flux_Depth_Pro(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 286435,
+            "run_count": 303760,
             "url": "https://replicate.com/black-forest-labs/flux-depth-pro",
             "visibility": "public",
             "weights_url": None,
@@ -2359,7 +2359,7 @@ class Flux_Canny_Pro(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 406855,
+            "run_count": 422685,
             "url": "https://replicate.com/black-forest-labs/flux-canny-pro",
             "visibility": "public",
             "weights_url": None,
@@ -2453,7 +2453,7 @@ class Flux_Fill_Pro(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 3667504,
+            "run_count": 3830166,
             "url": "https://replicate.com/black-forest-labs/flux-fill-pro",
             "visibility": "public",
             "weights_url": None,
@@ -2553,7 +2553,7 @@ class Flux_Depth_Dev(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1010006,
+            "run_count": 1149371,
             "url": "https://replicate.com/black-forest-labs/flux-depth-dev",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev",
@@ -2663,7 +2663,7 @@ class Hyper_Flux_8Step(ReplicateNode):
             "owner": "bytedance",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2404.13686",
-            "run_count": 20366692,
+            "run_count": 22068284,
             "url": "https://replicate.com/bytedance/hyper-flux-8step",
             "visibility": "public",
             "weights_url": "https://huggingface.co/ByteDance/Hyper-SD",
@@ -2791,7 +2791,7 @@ class Flux_Mona_Lisa(ReplicateNode):
             "owner": "fofr",
             "is_official": False,
             "paper_url": None,
-            "run_count": 3598,
+            "run_count": 3604,
             "url": "https://replicate.com/fofr/flux-mona-lisa",
             "visibility": "public",
             "weights_url": None,
@@ -2972,7 +2972,7 @@ class Flux_Cinestill(ReplicateNode):
             "owner": "adirik",
             "is_official": False,
             "paper_url": None,
-            "run_count": 130123,
+            "run_count": 133448,
             "url": "https://replicate.com/adirik/flux-cinestill",
             "visibility": "public",
             "weights_url": None,
@@ -3153,7 +3153,7 @@ class Flux_Black_Light(ReplicateNode):
             "owner": "fofr",
             "is_official": False,
             "paper_url": None,
-            "run_count": 2817833,
+            "run_count": 3046753,
             "url": "https://replicate.com/fofr/flux-black-light",
             "visibility": "public",
             "weights_url": None,
@@ -3334,7 +3334,7 @@ class Flux_360(ReplicateNode):
             "owner": "igorriti",
             "is_official": False,
             "paper_url": None,
-            "run_count": 19605,
+            "run_count": 20040,
             "url": "https://replicate.com/igorriti/flux-360",
             "visibility": "public",
             "weights_url": "https://huggingface.co/igorriti/flux-360",
@@ -3546,7 +3546,7 @@ class Recraft_V3(ReplicateNode):
             "owner": "recraft-ai",
             "is_official": True,
             "paper_url": "https://recraft.ai",
-            "run_count": 7574702,
+            "run_count": 8066958,
             "url": "https://replicate.com/recraft-ai/recraft-v3",
             "visibility": "public",
             "weights_url": None,
@@ -3661,7 +3661,7 @@ class Recraft_20B(ReplicateNode):
             "owner": "recraft-ai",
             "is_official": True,
             "paper_url": "https://recraft.ai",
-            "run_count": 304798,
+            "run_count": 314136,
             "url": "https://replicate.com/recraft-ai/recraft-20b",
             "visibility": "public",
             "weights_url": None,
@@ -3771,7 +3771,7 @@ class Recraft_20B_SVG(ReplicateNode):
             "owner": "recraft-ai",
             "is_official": True,
             "paper_url": "https://recraft.ai/",
-            "run_count": 86212,
+            "run_count": 103459,
             "url": "https://replicate.com/recraft-ai/recraft-20b-svg",
             "visibility": "public",
             "weights_url": None,
@@ -3865,7 +3865,7 @@ class Recraft_V3_SVG(ReplicateNode):
             "owner": "recraft-ai",
             "is_official": True,
             "paper_url": "https://recraft.ai",
-            "run_count": 347801,
+            "run_count": 379678,
             "url": "https://replicate.com/recraft-ai/recraft-v3-svg",
             "visibility": "public",
             "weights_url": None,
@@ -3925,7 +3925,7 @@ class Flux_Canny_Dev(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 195003,
+            "run_count": 215422,
             "url": "https://replicate.com/black-forest-labs/flux-canny-dev",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-Canny-dev",
@@ -4026,7 +4026,7 @@ class Flux_Fill_Dev(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1376484,
+            "run_count": 1604964,
             "url": "https://replicate.com/black-forest-labs/flux-fill-dev",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev",
@@ -4157,7 +4157,7 @@ class Flux_Redux_Schnell(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 67046,
+            "run_count": 72078,
             "url": "https://replicate.com/black-forest-labs/flux-redux-schnell",
             "visibility": "public",
             "weights_url": None,
@@ -4262,7 +4262,7 @@ class Flux_Redux_Dev(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 286757,
+            "run_count": 311016,
             "url": "https://replicate.com/black-forest-labs/flux-redux-dev",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev",
@@ -4352,7 +4352,7 @@ class SDXL_Controlnet(ReplicateNode):
             "owner": "lucataco",
             "is_official": False,
             "paper_url": None,
-            "run_count": 3444154,
+            "run_count": 3526822,
             "url": "https://replicate.com/lucataco/sdxl-controlnet",
             "visibility": "public",
             "weights_url": None,
@@ -4484,7 +4484,7 @@ class SDXL_Ad_Inpaint(ReplicateNode):
             "owner": "catacolabs",
             "is_official": False,
             "paper_url": None,
-            "run_count": 401404,
+            "run_count": 401552,
             "url": "https://replicate.com/catacolabs/sdxl-ad-inpaint",
             "visibility": "public",
             "weights_url": None,
@@ -4607,7 +4607,7 @@ class Kandinsky(ReplicateNode):
             "owner": "ai-forever",
             "is_official": False,
             "paper_url": None,
-            "run_count": 10028894,
+            "run_count": 10091268,
             "url": "https://replicate.com/ai-forever/kandinsky-2.2",
             "visibility": "public",
             "weights_url": None,
@@ -4703,7 +4703,7 @@ class StableDiffusionXLLightning(ReplicateNode):
             "owner": "bytedance",
             "is_official": False,
             "paper_url": "https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_report.pdf",
-            "run_count": 1031657734,
+            "run_count": 1033773277,
             "url": "https://replicate.com/bytedance/sdxl-lightning-4step",
             "visibility": "public",
             "weights_url": "https://huggingface.co/ByteDance/SDXL-Lightning",
@@ -4808,7 +4808,7 @@ class PlaygroundV2(ReplicateNode):
             "owner": "playgroundai",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2206.00364",
-            "run_count": 2856160,
+            "run_count": 3014926,
             "url": "https://replicate.com/playgroundai/playground-v2.5-1024px-aesthetic",
             "visibility": "public",
             "weights_url": "https://huggingface.co/playgroundai/playground-v2.5-1024px-aesthetic",
@@ -4935,7 +4935,7 @@ class Proteus_V_02(ReplicateNode):
             "owner": "datacte",
             "is_official": False,
             "paper_url": None,
-            "run_count": 11528236,
+            "run_count": 11875101,
             "url": "https://replicate.com/datacte/proteus-v0.2",
             "visibility": "public",
             "weights_url": None,
@@ -5049,7 +5049,7 @@ class Proteus_V_03(ReplicateNode):
             "owner": "datacte",
             "is_official": False,
             "paper_url": None,
-            "run_count": 5151579,
+            "run_count": 5480693,
             "url": "https://replicate.com/datacte/proteus-v0.3",
             "visibility": "public",
             "weights_url": "https://huggingface.co/dataautogpt3/ProteusV0.3",
@@ -5164,7 +5164,7 @@ class StickerMaker(ReplicateNode):
             "owner": "fofr",
             "is_official": False,
             "paper_url": None,
-            "run_count": 1893415,
+            "run_count": 2017308,
             "url": "https://replicate.com/fofr/sticker-maker",
             "visibility": "public",
             "weights_url": None,
@@ -5246,7 +5246,7 @@ class StyleTransfer(ReplicateNode):
             "owner": "fofr",
             "is_official": False,
             "paper_url": None,
-            "run_count": 1275071,
+            "run_count": 1317797,
             "url": "https://replicate.com/fofr/style-transfer",
             "visibility": "public",
             "weights_url": None,
@@ -5354,7 +5354,7 @@ class Illusions(ReplicateNode):
             "owner": "fofr",
             "is_official": False,
             "paper_url": None,
-            "run_count": 61563,
+            "run_count": 61571,
             "url": "https://replicate.com/fofr/illusions",
             "visibility": "public",
             "weights_url": None,
@@ -5544,7 +5544,7 @@ class Ideogram_V2(ReplicateNode):
             "owner": "ideogram-ai",
             "is_official": True,
             "paper_url": "https://ideogram.ai/",
-            "run_count": 2628847,
+            "run_count": 2717144,
             "url": "https://replicate.com/ideogram-ai/ideogram-v2",
             "visibility": "public",
             "weights_url": "https://ideogram.ai/",
@@ -5719,7 +5719,7 @@ class Ideogram_V2_Turbo(ReplicateNode):
             "owner": "ideogram-ai",
             "is_official": True,
             "paper_url": "https://ideogram.ai/",
-            "run_count": 2865720,
+            "run_count": 2906506,
             "url": "https://replicate.com/ideogram-ai/ideogram-v2-turbo",
             "visibility": "public",
             "weights_url": "https://ideogram.ai/",
@@ -5894,7 +5894,7 @@ class Ideogram_V2A(ReplicateNode):
             "owner": "ideogram-ai",
             "is_official": True,
             "paper_url": "https://ideogram.ai/",
-            "run_count": 2008352,
+            "run_count": 2022038,
             "url": "https://replicate.com/ideogram-ai/ideogram-v2a",
             "visibility": "public",
             "weights_url": None,
@@ -5956,7 +5956,7 @@ class Imagen_3(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "google/imagen-3:f01b3b9332c7b6ca2c6193268faff77052d4a13ed024ee18f85ec577e2b0da69"
+        return "google/imagen-3:dd38058a6e74c700dcd05db62896386817f3af627bbe71f869f9a43f02773fd4"
 
     @classmethod
     def get_hardware(cls):
@@ -5974,7 +5974,7 @@ class Imagen_3(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": "https://deepmind.google/technologies/imagen-3/",
-            "run_count": 1914101,
+            "run_count": 1996026,
             "url": "https://replicate.com/google/imagen-3",
             "visibility": "public",
             "weights_url": None,
@@ -6026,7 +6026,7 @@ class Qwen_Image(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "qwen/qwen-image:905e345fe1dfe10d628daac2140dd8dea471c0d99793ef0fdc46a15c688b62fb"
+        return "qwen/qwen-image:0bba9e70f78437359725e0989ead45ca8b09e6c12a070dfe9a09e6856b43a44d"
 
     @classmethod
     def get_hardware(cls):
@@ -6044,7 +6044,7 @@ class Qwen_Image(ReplicateNode):
             "owner": "qwen",
             "is_official": True,
             "paper_url": "https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/Qwen_Image.pdf",
-            "run_count": 1387557,
+            "run_count": 1611017,
             "url": "https://replicate.com/qwen/qwen-image",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Qwen/Qwen-Image",
@@ -6097,7 +6097,7 @@ class Qwen_Image(ReplicateNode):
     )
     lora_weights: str | None = Field(
         title="Lora Weights",
-        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/Viktor1717/scandinavian-interior-style1/resolve/main/my_first_flux_lora_v1.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
+        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/flymy-ai/qwen-image-lora/resolve/main/pytorch_lora_weights.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
         default=None,
     )
     output_format: Output_format = Field(
@@ -6120,9 +6120,19 @@ class Qwen_Image(ReplicateNode):
         description="Negative prompt for generated image",
         default=" ",
     )
+    extra_lora_scale: list | None = Field(
+        title="Extra Lora Scale",
+        description="Scales for additional LoRAs as an array of numbers (e.g., 0.5, 0.7). Must match the number of weights in extra_lora_weights.",
+        default=None,
+    )
     replicate_weights: str | None = Field(
         title="Replicate Weights",
         description="Load LoRA weights from Replicate training. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet.",
+        default=None,
+    )
+    extra_lora_weights: list | None = Field(
+        title="Extra Lora Weights",
+        description="Additional LoRA weights as an array of URLs. Same formats supported as lora_weights (e.g., ['https://huggingface.co/flymy-ai/qwen-image-lora/resolve/main/pytorch_lora_weights.safetensors', 'https://huggingface.co/flymy-ai/qwen-image-realism-lora/resolve/main/flymy_realism.safetensors'])",
         default=None,
     )
     num_inference_steps: int = Field(
@@ -6171,7 +6181,7 @@ class Qwen_Image_Edit(ReplicateNode):
             "owner": "qwen",
             "is_official": True,
             "paper_url": "https://arxiv.org/abs/2508.02324",
-            "run_count": 1475089,
+            "run_count": 1685266,
             "url": "https://replicate.com/qwen/qwen-image-edit",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Qwen/Qwen-Image-Edit",
@@ -6265,7 +6275,7 @@ class Seedream_4(ReplicateNode):
             "owner": "bytedance",
             "is_official": True,
             "paper_url": None,
-            "run_count": 22799617,
+            "run_count": 29265751,
             "url": "https://replicate.com/bytedance/seedream-4",
             "visibility": "public",
             "weights_url": None,
@@ -6348,7 +6358,7 @@ class Imagen_4_Fast(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "google/imagen-4-fast:c0704c9b0a3c3f4853fd28d0dc24d4e820ebc7e4e4ecebd6ce55b4bbea0aa423"
+        return "google/imagen-4-fast:f677c74739e4502130a6db1d02798e99ca80c27810e263a012535e69e1f56b74"
 
     @classmethod
     def get_hardware(cls):
@@ -6366,7 +6376,7 @@ class Imagen_4_Fast(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 3693392,
+            "run_count": 4629754,
             "url": "https://replicate.com/google/imagen-4-fast",
             "visibility": "public",
             "weights_url": None,
@@ -6584,7 +6594,7 @@ class Ideogram_V3_Turbo(ReplicateNode):
             "owner": "ideogram-ai",
             "is_official": True,
             "paper_url": "https://about.ideogram.ai/3.0",
-            "run_count": 6366416,
+            "run_count": 8194594,
             "url": "https://replicate.com/ideogram-ai/ideogram-v3-turbo",
             "visibility": "public",
             "weights_url": None,
@@ -6685,7 +6695,7 @@ class Flux_Kontext_Pro(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 43242915,
+            "run_count": 47111907,
             "url": "https://replicate.com/black-forest-labs/flux-kontext-pro",
             "visibility": "public",
             "weights_url": "https://huggingface.co/black-forest-labs",
@@ -6768,7 +6778,7 @@ class Minimax_Image_01(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 2457411,
+            "run_count": 2679051,
             "url": "https://replicate.com/minimax/image-01",
             "visibility": "public",
             "weights_url": None,
@@ -6833,7 +6843,7 @@ class Flux_2_Pro(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "black-forest-labs/flux-2-pro:285631b5656a1839331cd9af0d82da820e2075db12046d1d061c681b2f206bc6"
+        return "black-forest-labs/flux-2-pro:00b07c32e314ceb5152c1d08e73400e6a61d7d22ba60a405fc76314fc807910c"
 
     @classmethod
     def get_hardware(cls):
@@ -6851,7 +6861,7 @@ class Flux_2_Pro(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1484923,
+            "run_count": 3902764,
             "url": "https://replicate.com/black-forest-labs/flux-2-pro",
             "visibility": "public",
             "weights_url": None,
@@ -6868,14 +6878,14 @@ class Flux_2_Pro(ReplicateNode):
     )
     width: int | None = Field(
         title="Width",
-        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
         ge=256.0,
         le=2048.0,
         default=None,
     )
     height: int | None = Field(
         title="Height",
-        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
         ge=256.0,
         le=2048.0,
         default=None,
@@ -6949,7 +6959,7 @@ class Flux_2_Flex(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "black-forest-labs/flux-2-flex:57df51f07c4bc4457b768277b1bb754a0c35b9f02c2ce48582a8b3a48fe0a2c3"
+        return "black-forest-labs/flux-2-flex:4139a7655e86b5d2f51450b52491369ec5b1250ff9af033f5de28cd121c24906"
 
     @classmethod
     def get_hardware(cls):
@@ -6967,7 +6977,7 @@ class Flux_2_Flex(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 87229,
+            "run_count": 174122,
             "url": "https://replicate.com/black-forest-labs/flux-2-flex",
             "visibility": "public",
             "weights_url": None,
@@ -7088,7 +7098,7 @@ class GPT_Image_1_5(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "openai/gpt-image-1.5:808df09e9b60ff3a6f4b27a9dac13569eddf0b4c552980346a2a3224c3cc2aca"
+        return "openai/gpt-image-1.5:118f53498ea7319519229b2d5bd0d4a69e3d77eb60d6292d5db38125534dc1ca"
 
     @classmethod
     def get_hardware(cls):
@@ -7106,7 +7116,7 @@ class GPT_Image_1_5(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1320774,
+            "run_count": 4977143,
             "url": "https://replicate.com/openai/gpt-image-1.5",
             "visibility": "public",
             "weights_url": None,
@@ -7222,7 +7232,7 @@ class Flux_2_Max(ReplicateNode):
             "owner": "black-forest-labs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 198836,
+            "run_count": 1001112,
             "url": "https://replicate.com/black-forest-labs/flux-2-max",
             "visibility": "public",
             "weights_url": None,
@@ -7283,4 +7293,70 @@ class Flux_2_Max(ReplicateNode):
         ge=1.0,
         le=5.0,
         default=2,
+    )
+
+
+class Nano_Banana_2_Transparent(ReplicateNode):
+    """Nano Banana 2 with alpha transparency. Generates images with real RGBA transparency using triangulation matting — clean edges, proper semi-transparency, and accurate colors. Powered by Google Gemini 3.1 Flash Image."""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["image", "prompt", "alpha_ceil"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "jide/nano-banana-2-transparent:689fe27ffec145cc7e3d76ee4778ab3b0f24bd72eca62f4f534d562f062a2e1d"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://replicate.delivery/xezq/YEQzT7ogIKJyJBLnjj9NJCiYsk9kxgi0qhhtbJVvRaEAU5jF/output.png",
+            "created_at": "2026-03-10T22:21:51.576789Z",
+            "description": "Nano Banana 2 with alpha transparency. Generates images with real RGBA transparency using triangulation matting — clean edges, proper semi-transparency, and accurate colors. Powered by Google Gemini 3.1 Flash Image.",
+            "github_url": None,
+            "license_url": None,
+            "name": "nano-banana-2-transparent",
+            "owner": "jide",
+            "is_official": False,
+            "paper_url": None,
+            "run_count": 21,
+            "url": "https://replicate.com/jide/nano-banana-2-transparent",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    image: types.ImageRef = Field(
+        default=types.ImageRef(), description="Input image to remove background from"
+    )
+    prompt: str = Field(
+        title="Prompt",
+        description="Optional: describe what to isolate (e.g. 'the car', 'the person'). If empty, all foreground elements are kept.",
+        default="",
+    )
+    alpha_ceil: int = Field(
+        title="Alpha Ceil",
+        description="Alpha values at or above this become fully opaque (0-255). Cleans up near-opaque edges.",
+        ge=128.0,
+        le=255.0,
+        default=250,
+    )
+    alpha_floor: int = Field(
+        title="Alpha Floor",
+        description="Alpha values at or below this become fully transparent (0-255). Suppresses faint matte noise.",
+        ge=0.0,
+        le=128.0,
+        default=6,
+    )
+    replicate_api_token: str | None = Field(
+        title="Replicate Api Token",
+        description="Your Replicate API token (from replicate.com/account). Required to call Nano Banana 2 internally.",
+        default=None,
     )

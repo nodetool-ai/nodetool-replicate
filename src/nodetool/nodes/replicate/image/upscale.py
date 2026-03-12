@@ -33,7 +33,7 @@ class RealEsrGan(ReplicateNode):
             "owner": "daanelson",
             "is_official": False,
             "paper_url": None,
-            "run_count": 15280979,
+            "run_count": 15580278,
             "url": "https://replicate.com/daanelson/real-esrgan-a100",
             "visibility": "public",
             "weights_url": None,
@@ -91,7 +91,7 @@ class GFPGAN(ReplicateNode):
             "owner": "tencentarc",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2101.04061",
-            "run_count": 106455518,
+            "run_count": 110643405,
             "url": "https://replicate.com/tencentarc/gfpgan",
             "visibility": "public",
             "weights_url": None,
@@ -223,7 +223,7 @@ class ClarityUpscaler(ReplicateNode):
             "owner": "philz1337x",
             "is_official": False,
             "paper_url": "https://clarityai.co",
-            "run_count": 25772205,
+            "run_count": 27864029,
             "url": "https://replicate.com/philz1337x/clarity-upscaler",
             "visibility": "public",
             "weights_url": None,
@@ -368,7 +368,7 @@ class MagicImageRefiner(ReplicateNode):
             "owner": "fermatresearch",
             "is_official": False,
             "paper_url": None,
-            "run_count": 949413,
+            "run_count": 951078,
             "url": "https://replicate.com/fermatresearch/magic-image-refiner",
             "visibility": "public",
             "weights_url": None,
@@ -464,7 +464,7 @@ class ruDallE_SR(ReplicateNode):
             "owner": "cjwbw",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2107.10833",
-            "run_count": 485596,
+            "run_count": 486223,
             "url": "https://replicate.com/cjwbw/rudalle-sr",
             "visibility": "public",
             "weights_url": None,
@@ -520,7 +520,7 @@ class HighResolutionControlNetTile(ReplicateNode):
             "owner": "fermatresearch",
             "is_official": False,
             "paper_url": None,
-            "run_count": 650094,
+            "run_count": 653026,
             "url": "https://replicate.com/fermatresearch/high-resolution-controlnet-tile",
             "visibility": "public",
             "weights_url": None,
@@ -669,7 +669,7 @@ class UltimateSDUpscale(ReplicateNode):
             "owner": "fewjative",
             "is_official": False,
             "paper_url": None,
-            "run_count": 165445,
+            "run_count": 166072,
             "url": "https://replicate.com/fewjative/ultimate-sd-upscale",
             "visibility": "public",
             "weights_url": None,
@@ -774,7 +774,7 @@ class SwinIR(ReplicateNode):
             "owner": "jingyunliang",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2108.10257",
-            "run_count": 6237256,
+            "run_count": 6263107,
             "url": "https://replicate.com/jingyunliang/swinir",
             "visibility": "public",
             "weights_url": None,
@@ -831,7 +831,7 @@ class Swin2SR(ReplicateNode):
             "owner": "mv-lab",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2209.11345",
-            "run_count": 3575311,
+            "run_count": 3576487,
             "url": "https://replicate.com/mv-lab/swin2sr",
             "visibility": "public",
             "weights_url": None,
@@ -843,3 +843,87 @@ class Swin2SR(ReplicateNode):
 
     task: Task = Field(description="Choose a task", default="real_sr")
     image: types.ImageRef = Field(default=types.ImageRef(), description="Input image")
+
+
+class Recraft_Creative_Upscale(ReplicateNode):
+    """Creative Upscale focuses on enhancing details and refining complex elements in the image. It doesn’t just increase resolution but adds depth by improving textures, fine details, and facial features."""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["image"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "recraft-ai/recraft-creative-upscale:55c7bc47bac03ff7248e74561f7798f1cdcb51646242da191227eed1af2c7e43"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/f04e7787-0bb8-4aad-95f3-f3745489484a/creative_upscale_cover.webp",
+            "created_at": "2025-01-15T09:58:58.894778Z",
+            "description": "Creative Upscale focuses on enhancing details and refining complex elements in the image. It doesn’t just increase resolution but adds depth by improving textures, fine details, and facial features.",
+            "github_url": None,
+            "license_url": None,
+            "name": "recraft-creative-upscale",
+            "owner": "recraft-ai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 13746,
+            "url": "https://replicate.com/recraft-ai/recraft-creative-upscale",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    image: types.ImageRef = Field(
+        default=types.ImageRef(), description="Image to upscale"
+    )
+
+
+class Recraft_Crisp_Upscale(ReplicateNode):
+    """Designed to make images sharper and cleaner, Crisp Upscale increases overall quality, making visuals suitable for web use or print-ready materials."""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["image"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "recraft-ai/recraft-crisp-upscale:2177c1e3a177f5a76c632e467c32b413e424c23d84e43f7b036a965e305f6557"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/d7403392-9e1a-4d94-ab6f-84977c83461a/clarity_upscale_cover.webp",
+            "created_at": "2025-01-15T09:58:42.463498Z",
+            "description": "Designed to make images sharper and cleaner, Crisp Upscale increases overall quality, making visuals suitable for web use or print-ready materials.",
+            "github_url": None,
+            "license_url": None,
+            "name": "recraft-crisp-upscale",
+            "owner": "recraft-ai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 2136181,
+            "url": "https://replicate.com/recraft-ai/recraft-crisp-upscale",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.ImageRef
+
+    image: types.ImageRef = Field(
+        default=types.ImageRef(), description="Image to upscale"
+    )
