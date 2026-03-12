@@ -411,11 +411,11 @@ class Flux_2_Pro(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     width: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     height: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     prompt: str | OutputHandle[str] | None = connect_field(
         default=None, description="Text prompt for image generation"
@@ -2992,6 +2992,52 @@ import nodetool.nodes.replicate.image.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Nano_Banana_2_Transparent(
+    SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]
+):
+    """
+    Nano Banana 2 with alpha transparency. Generates images with real RGBA transparency using triangulation matting — clean edges, proper semi-transparency, and accurate colors. Powered by Google Gemini 3.1 Flash Image.
+    """
+
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Input image to remove background from",
+    )
+    prompt: str | OutputHandle[str] = connect_field(
+        default="",
+        description="Optional: describe what to isolate (e.g. 'the car', 'the person'). If empty, all foreground elements are kept.",
+    )
+    alpha_ceil: int | OutputHandle[int] = connect_field(
+        default=250,
+        description="Alpha values at or above this become fully opaque (0-255). Cleans up near-opaque edges.",
+    )
+    alpha_floor: int | OutputHandle[int] = connect_field(
+        default=6,
+        description="Alpha values at or below this become fully transparent (0-255). Suppresses faint matte noise.",
+    )
+    replicate_api_token: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Your Replicate API token (from replicate.com/account). Required to call Nano Banana 2 internally.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Nano_Banana_2_Transparent
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Photon_Flash(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
     """
     Accelerated variant of Photon prioritizing speed while maintaining quality
@@ -3455,7 +3501,7 @@ class Qwen_Image(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     lora_weights: str | OutputHandle[str] | None = connect_field(
         default=None,
-        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/Viktor1717/scandinavian-interior-style1/resolve/main/my_first_flux_lora_v1.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
+        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/flymy-ai/qwen-image-lora/resolve/main/pytorch_lora_weights.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
     )
     output_format: nodetool.nodes.replicate.image.generate.Qwen_Image.Output_format = (
         Field(
@@ -3475,9 +3521,17 @@ class Qwen_Image(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     negative_prompt: str | OutputHandle[str] = connect_field(
         default=" ", description="Negative prompt for generated image"
     )
+    extra_lora_scale: list | OutputHandle[list] | None = connect_field(
+        default=None,
+        description="Scales for additional LoRAs as an array of numbers (e.g., 0.5, 0.7). Must match the number of weights in extra_lora_weights.",
+    )
     replicate_weights: str | OutputHandle[str] | None = connect_field(
         default=None,
         description="Load LoRA weights from Replicate training. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet.",
+    )
+    extra_lora_weights: list | OutputHandle[list] | None = connect_field(
+        default=None,
+        description="Additional LoRA weights as an array of URLs. Same formats supported as lora_weights (e.g., ['https://huggingface.co/flymy-ai/qwen-image-lora/resolve/main/pytorch_lora_weights.safetensors', 'https://huggingface.co/flymy-ai/qwen-image-realism-lora/resolve/main/flymy_realism.safetensors'])",
     )
     num_inference_steps: int | OutputHandle[int] = connect_field(
         default=30,

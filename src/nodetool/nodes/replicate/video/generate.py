@@ -6,94 +6,6 @@ from nodetool.nodes.replicate.replicate_node import ReplicateNode
 from enum import Enum
 
 
-class Ray(ReplicateNode):
-    """Fast, high quality text-to-video and image-to-video (Also known as Dream Machine)"""
-
-    class Aspect_ratio(str, Enum):
-        _1_1 = "1:1"
-        _3_4 = "3:4"
-        _4_3 = "4:3"
-        _9_16 = "9:16"
-        _16_9 = "16:9"
-        _9_21 = "9:21"
-        _21_9 = "21:9"
-
-    @classmethod
-    def get_basic_fields(cls):
-        return ["loop", "prompt", "end_image"]
-
-    @classmethod
-    def replicate_model_id(cls):
-        return (
-            "luma/ray:ace5984f3394f17c2a712644b0eb9983c4baaf94c6c30a0f94692d2c37bd8964"
-        )
-
-    @classmethod
-    def get_hardware(cls):
-        return "None"
-
-    @classmethod
-    def get_model_info(cls):
-        return {
-            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/496f8ab2-3a87-4fe7-9867-5572460c2b5e/ray-cover.webp",
-            "created_at": "2024-12-12T16:30:42.287210Z",
-            "description": "Fast, high quality text-to-video and image-to-video (Also known as Dream Machine)",
-            "github_url": None,
-            "license_url": "https://lumalabs.ai/dream-machine/api/terms",
-            "name": "ray",
-            "owner": "luma",
-            "is_official": True,
-            "paper_url": "https://lumalabs.ai/dream-machine",
-            "run_count": 69432,
-            "url": "https://replicate.com/luma/ray",
-            "visibility": "public",
-            "weights_url": None,
-        }
-
-    @classmethod
-    def return_type(cls):
-        return types.VideoRef
-
-    loop: bool = Field(
-        title="Loop",
-        description="Whether the video should loop, with the last frame matching the first frame for smooth, continuous playback. This input is ignored if end_image or end_video_id are set.",
-        default=False,
-    )
-    prompt: str | None = Field(
-        title="Prompt", description="Text prompt for video generation", default=None
-    )
-    end_image: str | None = Field(
-        title="End Image",
-        description="An optional last frame of the video to use as the ending frame.",
-        default=None,
-    )
-    start_image: str | None = Field(
-        title="Start Image",
-        description="An optional first frame of the video to use as the starting frame.",
-        default=None,
-    )
-    aspect_ratio: Aspect_ratio = Field(
-        description="Aspect ratio of the video. Ignored if a start frame, end frame or video ID is given.",
-        default="16:9",
-    )
-    end_video_id: str | None = Field(
-        title="End Video Id",
-        description="Prepend a new video generation to the beginning of an existing one (Also called 'reverse extend'). You can combine this with start_image, or start_video_id.",
-        default=None,
-    )
-    end_image_url: types.ImageRef = Field(
-        default=types.ImageRef(), description="Deprecated: Use end_image instead"
-    )
-    start_video_id: str | None = Field(
-        title="Start Video Id",
-        description="Continue or extend a video generation with a new generation. You can combine this with end_image, or end_video_id.",
-        default=None,
-    )
-    start_image_url: types.ImageRef = Field(
-        default=types.ImageRef(), description="Deprecated: Use start_image instead"
-    )
-
-
 class HotshotXL(ReplicateNode):
     """😊 Hotshot-XL is an AI text-to-GIF model trained to work alongside Stable Diffusion XL"""
 
@@ -162,7 +74,7 @@ class HotshotXL(ReplicateNode):
             "owner": "lucataco",
             "is_official": False,
             "paper_url": "https://huggingface.co/hotshotco/SDXL-512",
-            "run_count": 891928,
+            "run_count": 916224,
             "url": "https://replicate.com/lucataco/hotshot-xl",
             "visibility": "public",
             "weights_url": None,
@@ -235,7 +147,7 @@ class Zeroscope_V2_XL(ReplicateNode):
             "owner": "anotherjesse",
             "is_official": False,
             "paper_url": "https://huggingface.co/cerspense/zeroscope_v2_576w",
-            "run_count": 301779,
+            "run_count": 303010,
             "url": "https://replicate.com/anotherjesse/zeroscope-v2-xl",
             "visibility": "public",
             "weights_url": None,
@@ -333,7 +245,7 @@ class RobustVideoMatting(ReplicateNode):
             "owner": "arielreplicate",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2108.11515",
-            "run_count": 72983,
+            "run_count": 87391,
             "url": "https://replicate.com/arielreplicate/robust_video_matting",
             "visibility": "public",
             "weights_url": None,
@@ -376,7 +288,7 @@ class AudioToWaveform(ReplicateNode):
             "owner": "fofr",
             "is_official": False,
             "paper_url": "https://gradio.app/docs/#make_waveform",
-            "run_count": 384002,
+            "run_count": 384192,
             "url": "https://replicate.com/fofr/audio-to-waveform",
             "visibility": "public",
             "weights_url": None,
@@ -438,7 +350,7 @@ class Hunyuan_Video(ReplicateNode):
             "owner": "tencent",
             "is_official": False,
             "paper_url": "https://github.com/Tencent/HunyuanVideo/blob/main/assets/hunyuanvideo.pdf",
-            "run_count": 116232,
+            "run_count": 117084,
             "url": "https://replicate.com/tencent/hunyuan-video",
             "visibility": "public",
             "weights_url": "https://huggingface.co/tencent/HunyuanVideo",
@@ -522,7 +434,7 @@ class Video_01_Live(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 172985,
+            "run_count": 177466,
             "url": "https://replicate.com/minimax/video-01-live",
             "visibility": "public",
             "weights_url": None,
@@ -572,7 +484,7 @@ class Video_01(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 645598,
+            "run_count": 672415,
             "url": "https://replicate.com/minimax/video-01",
             "visibility": "public",
             "weights_url": None,
@@ -639,7 +551,7 @@ class Music_01(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 493273,
+            "run_count": 520420,
             "url": "https://replicate.com/minimax/music-01",
             "visibility": "public",
             "weights_url": None,
@@ -750,7 +662,7 @@ class LTX_Video(ReplicateNode):
             "owner": "lightricks",
             "is_official": False,
             "paper_url": None,
-            "run_count": 164292,
+            "run_count": 166175,
             "url": "https://replicate.com/lightricks/ltx-video",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Lightricks/LTX-Video",
@@ -845,7 +757,7 @@ class Wan_2_1_I2V_480p(ReplicateNode):
             "owner": "wavespeedai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 434093,
+            "run_count": 441025,
             "url": "https://replicate.com/wavespeedai/wan-2.1-i2v-480p",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-14B",
@@ -960,7 +872,7 @@ class Wan_2_1_1_3B(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": "https://wanxai.com/",
-            "run_count": 46436,
+            "run_count": 47793,
             "url": "https://replicate.com/wan-video/wan-2.1-1.3b",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B",
@@ -1069,7 +981,7 @@ class Pixverse_V5(ReplicateNode):
             "owner": "pixverse",
             "is_official": True,
             "paper_url": None,
-            "run_count": 749848,
+            "run_count": 772182,
             "url": "https://replicate.com/pixverse/pixverse-v5",
             "visibility": "public",
             "weights_url": None,
@@ -1158,7 +1070,7 @@ class Gen4_Turbo(ReplicateNode):
             "owner": "runwayml",
             "is_official": True,
             "paper_url": None,
-            "run_count": 51311,
+            "run_count": 67534,
             "url": "https://replicate.com/runwayml/gen4-turbo",
             "visibility": "public",
             "weights_url": None,
@@ -1222,7 +1134,7 @@ class Gen4_Aleph(ReplicateNode):
             "owner": "runwayml",
             "is_official": True,
             "paper_url": "https://runwayml.com/research/introducing-runway-aleph",
-            "run_count": 115652,
+            "run_count": 161148,
             "url": "https://replicate.com/runwayml/gen4-aleph",
             "visibility": "public",
             "weights_url": None,
@@ -1288,7 +1200,7 @@ class Kling_V2_1(ReplicateNode):
             "owner": "kwaivgi",
             "is_official": True,
             "paper_url": None,
-            "run_count": 3192591,
+            "run_count": 3607354,
             "url": "https://replicate.com/kwaivgi/kling-v2.1",
             "visibility": "public",
             "weights_url": None,
@@ -1400,7 +1312,7 @@ class Kling_Lip_Sync(ReplicateNode):
             "owner": "kwaivgi",
             "is_official": True,
             "paper_url": None,
-            "run_count": 27599,
+            "run_count": 35673,
             "url": "https://replicate.com/kwaivgi/kling-lip-sync",
             "visibility": "public",
             "weights_url": None,
@@ -1479,7 +1391,7 @@ class Hailuo_02(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 303847,
+            "run_count": 346118,
             "url": "https://replicate.com/minimax/hailuo-02",
             "visibility": "public",
             "weights_url": None,
@@ -1550,7 +1462,7 @@ class Wan_2_2_T2V_Fast(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": None,
-            "run_count": 162079,
+            "run_count": 204558,
             "url": "https://replicate.com/wan-video/wan-2.2-t2v-fast",
             "visibility": "public",
             "weights_url": None,
@@ -1664,7 +1576,7 @@ class Wan_2_2_I2V_Fast(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": None,
-            "run_count": 5996008,
+            "run_count": 8676609,
             "url": "https://replicate.com/wan-video/wan-2.2-i2v-fast",
             "visibility": "public",
             "weights_url": None,
@@ -1780,7 +1692,7 @@ class Lipsync_2(ReplicateNode):
             "owner": "sync",
             "is_official": True,
             "paper_url": None,
-            "run_count": 15719,
+            "run_count": 24493,
             "url": "https://replicate.com/sync/lipsync-2",
             "visibility": "public",
             "weights_url": None,
@@ -1848,7 +1760,7 @@ class Lipsync_2_Pro(ReplicateNode):
             "owner": "sync",
             "is_official": True,
             "paper_url": None,
-            "run_count": 9675,
+            "run_count": 19474,
             "url": "https://replicate.com/sync/lipsync-2-pro",
             "visibility": "public",
             "weights_url": None,
@@ -1922,7 +1834,7 @@ class Veo_3_1(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 289367,
+            "run_count": 392766,
             "url": "https://replicate.com/google/veo-3.1",
             "visibility": "public",
             "weights_url": None,
@@ -1969,4 +1881,324 @@ class Veo_3_1(ReplicateNode):
         title="Reference Images",
         description="1 to 3 reference images for subject-consistent generation (reference-to-video, or R2V). Reference images only work with 16:9 aspect ratio and 8-second duration. Last frame is ignored if reference images are provided.",
         default=[],
+    )
+
+
+class Vidu_Q3_Pro(ReplicateNode):
+    """High-fidelity video generation with text-to-video, image-to-video, and start-end-to-video modes. Up to 16 seconds at 1080p with synchronized audio."""
+
+    class Resolution(str, Enum):
+        _540P = "540p"
+        _720P = "720p"
+        _1080P = "1080p"
+
+    class Aspect_ratio(str, Enum):
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+        _3_4 = "3:4"
+        _4_3 = "4:3"
+        _1_1 = "1:1"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["seed", "audio", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "vidu/q3-pro:37d59cb70905c58caee8dcfa48a819587f71c598405673cef6ada1ce49dc039c"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://replicate.delivery/xezq/o43QutvhA1qgIF5ohrp2ZffdxUNjyESB7RhTf5ZzewHaUC4YB/tmpqnlgrg2m.mp4",
+            "created_at": "2026-03-02T19:47:37.574216Z",
+            "description": "High-fidelity video generation with text-to-video, image-to-video, and start-end-to-video modes. Up to 16 seconds at 1080p with synchronized audio.",
+            "github_url": None,
+            "license_url": "https://platform.vidu.com/docs/terms-of-use",
+            "name": "q3-pro",
+            "owner": "vidu",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 170,
+            "url": "https://replicate.com/vidu/q3-pro",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.VideoRef
+
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation.",
+        default=None,
+    )
+    audio: bool = Field(
+        title="Audio",
+        description="Whether to generate audio synchronized with the video (dialogue and sound effects).",
+        default=True,
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="Text prompt for video generation. Maximum 5000 characters.",
+        default=None,
+    )
+    duration: int = Field(
+        title="Duration",
+        description="Duration of the video in seconds.",
+        ge=1.0,
+        le=16.0,
+        default=5,
+    )
+    end_image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="End frame image for the video. Must be used together with start_image for start-end-to-video mode. The aspect ratios of start and end images must be similar (ratio between 0.8 and 1.25). Supported formats: png, jpeg, jpg, webp.",
+    )
+    resolution: Resolution = Field(
+        description="Resolution of the output video.", default="720p"
+    )
+    start_image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="Start frame image for the video. When provided without an end_image, the model runs in image-to-video mode. Supported formats: png, jpeg, jpg, webp.",
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio of the output video. Only used in text-to-video mode (ignored when images are provided).",
+        default="16:9",
+    )
+
+
+class Vidu_Q3_Turbo(ReplicateNode):
+    """Fast video generation with text-to-video, image-to-video, and start-end-to-video modes. Up to 16 seconds at 1080p with synchronized audio."""
+
+    class Resolution(str, Enum):
+        _540P = "540p"
+        _720P = "720p"
+        _1080P = "1080p"
+
+    class Aspect_ratio(str, Enum):
+        _16_9 = "16:9"
+        _9_16 = "9:16"
+        _3_4 = "3:4"
+        _4_3 = "4:3"
+        _1_1 = "1:1"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["seed", "audio", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "vidu/q3-turbo:2b927e906c9107287a5080e0f7c1af75d97ae1d201d36f3eab1c2d0e28363dfe"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://replicate.delivery/xezq/sK2HkYPsEp7LMJTJ1of9YenfttJA1nKhoweAerQJdjs6RFwxC/tmpy30onbu8.mp4",
+            "created_at": "2026-03-05T16:33:40.736272Z",
+            "description": "Fast video generation with text-to-video, image-to-video, and start-end-to-video modes. Up to 16 seconds at 1080p with synchronized audio.",
+            "github_url": None,
+            "license_url": None,
+            "name": "q3-turbo",
+            "owner": "vidu",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 69,
+            "url": "https://replicate.com/vidu/q3-turbo",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.VideoRef
+
+    seed: int | None = Field(
+        title="Seed",
+        description="Random seed. Set for reproducible generation.",
+        default=None,
+    )
+    audio: bool = Field(
+        title="Audio",
+        description="Whether to generate audio synchronized with the video (dialogue and sound effects).",
+        default=True,
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="Text prompt for video generation. Maximum 5000 characters.",
+        default=None,
+    )
+    duration: int = Field(
+        title="Duration",
+        description="Duration of the video in seconds.",
+        ge=1.0,
+        le=16.0,
+        default=5,
+    )
+    end_image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="End frame image for the video. Must be used together with start_image for start-end-to-video mode. The aspect ratios of start and end images must be similar (ratio between 0.8 and 1.25). Supported formats: png, jpeg, jpg, webp.",
+    )
+    resolution: Resolution = Field(
+        description="Resolution of the output video.", default="720p"
+    )
+    start_image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="Start frame image for the video. When provided without an end_image, the model runs in image-to-video mode. Supported formats: png, jpeg, jpg, webp.",
+    )
+    aspect_ratio: Aspect_ratio = Field(
+        description="Aspect ratio of the output video. Only used in text-to-video mode (ignored when images are provided).",
+        default="16:9",
+    )
+
+
+class LTX_2_Pro(ReplicateNode):
+    """Delivers high visual fidelity with fast turnaround. Great for daily content creation, marketing teams, and iterative creative workflows."""
+
+    class Duration(int, Enum):
+        _6 = 6
+        _8 = 8
+        _10 = 10
+
+    class Resolution(str, Enum):
+        _1080P = "1080p"
+        _2K = "2k"
+        _4K = "4k"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["image", "prompt", "duration"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "lightricks/ltx-2-pro:6570942213ba1218bc9a4b29c08f4c89675722320c2054683f27ae04a5352bcb"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://replicate.delivery/xezq/M8krcmsXwRrSK1DuufUjOpLjfHs9KGF7zgespA2hugJ1V7DrA/tmpc_m94ikd.mp4",
+            "created_at": "2025-10-22T23:12:40.222263Z",
+            "description": "Delivers high visual fidelity with fast turnaround. Great for daily content creation, marketing teams, and iterative creative workflows.",
+            "github_url": None,
+            "license_url": "https://website.ltx.video/api-license-agreement",
+            "name": "ltx-2-pro",
+            "owner": "lightricks",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 20172,
+            "url": "https://replicate.com/lightricks/ltx-2-pro",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.VideoRef
+
+    image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="First frame image for image-to-video generation",
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="Text prompt describing the video to generate",
+        default=None,
+    )
+    duration: Duration = Field(
+        description="Duration of the video in seconds", default=6
+    )
+    resolution: Resolution = Field(
+        description="Resolution quality of the generated video", default="1080p"
+    )
+    generate_audio: bool = Field(
+        title="Generate Audio",
+        description="Generate audio for the video. Used for text_to_video and image_to_video tasks.",
+        default=True,
+    )
+
+
+class LTX_2_Fast(ReplicateNode):
+    """Ideal for rapid ideation and mobile workflows. Perfect for creators who need instant feedback, real-time previews, or high-throughput content."""
+
+    class Duration(int, Enum):
+        _6 = 6
+        _8 = 8
+        _10 = 10
+        _12 = 12
+        _14 = 14
+        _16 = 16
+        _18 = 18
+        _20 = 20
+
+    class Resolution(str, Enum):
+        _1080P = "1080p"
+        _2K = "2k"
+        _4K = "4k"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["image", "prompt", "duration"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "lightricks/ltx-2-fast:648be07d527d495347de88ea3f37a8f1114834de0d50512a67dd4e77b7e9cfc1"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/e72919bc-17d9-4fca-b90c-79e5d3b93778/ltx-2-lip-sm.mp4",
+            "created_at": "2025-10-22T21:37:41.510705Z",
+            "description": "Ideal for rapid ideation and mobile workflows. Perfect for creators who need instant feedback, real-time previews, or high-throughput content.",
+            "github_url": None,
+            "license_url": "https://website.ltx.video/api-license-agreement",
+            "name": "ltx-2-fast",
+            "owner": "lightricks",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 66751,
+            "url": "https://replicate.com/lightricks/ltx-2-fast",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.VideoRef
+
+    image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="First frame image for image-to-video generation",
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="Text prompt describing the video to generate",
+        default=None,
+    )
+    duration: Duration = Field(
+        description="Duration of the video in seconds. Durations longer than 10 seconds are only available with 1080p resolution.",
+        default=6,
+    )
+    resolution: Resolution = Field(
+        description="Resolution quality of the generated video", default="1080p"
+    )
+    generate_audio: bool = Field(
+        title="Generate Audio",
+        description="Generate audio for the video. Used for text_to_video and image_to_video tasks.",
+        default=True,
     )

@@ -17,6 +17,9 @@ dependencies = ["nodetool-core==0.6.3-rc.42", "replicate"]
 # For exact version pinning in production
 stable = ["nodetool-core==0.6.3-rc.42"]
 
+[dependency-groups]
+dev = ["ruff", "black", "pytest"]
+
 [tool.hatch.metadata]
 
 [tool.hatch.build.targets.wheel]
