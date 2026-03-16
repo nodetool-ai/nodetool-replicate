@@ -19,42 +19,6 @@ import nodetool.nodes.replicate.video.enhance
 from nodetool.workflows.base_node import BaseNode
 
 
-class Runway_Upscale_V1(
-    SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]
-):
-    """
-    Upscale videos by 4x, up to a maximum of 4k
-    """
-
-    video: types.VideoRef | OutputHandle[types.VideoRef] = connect_field(
-        default=types.VideoRef(
-            type="video",
-            uri="",
-            asset_id=None,
-            data=None,
-            metadata=None,
-            duration=None,
-            format=None,
-        ),
-        description="Video to upscale. Videos must be shorter than 40s, less than 4096px per side, and less than 16MB.",
-    )
-
-    @classmethod
-    def get_node_class(cls) -> type[BaseNode]:
-        return nodetool.nodes.replicate.video.enhance.Runway_Upscale_V1
-
-    @classmethod
-    def get_node_type(cls):
-        return cls.get_node_class().get_node_type()
-
-
-import typing
-from pydantic import Field
-from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
-import nodetool.nodes.replicate.video.enhance
-from nodetool.workflows.base_node import BaseNode
-
-
 class Topaz_Video_Upscale(
     SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]
 ):

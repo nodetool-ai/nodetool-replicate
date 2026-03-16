@@ -265,13 +265,14 @@ replicate_nodes = [
         "return_type": ImageRef,
         "overrides": {"image": ImageRef},
     },
-    {
-        "model_id": "luma/ray",
-        "node_name": "Ray",
-        "namespace": "video.generate",
-        "return_type": VideoRef,
-        "overrides": {"start_image_url": ImageRef, "end_image_url": ImageRef},
-    },
+    # Temporarily disabled - model returning 404
+    # {
+    #     "model_id": "luma/ray",
+    #     "node_name": "Ray",
+    #     "namespace": "video.generate",
+    #     "return_type": VideoRef,
+    #     "overrides": {"start_image_url": ImageRef, "end_image_url": ImageRef},
+    # },
     {
         "model_id": "luma/photon-flash",
         "node_name": "Photon_Flash",
@@ -1036,13 +1037,14 @@ replicate_nodes = [
         "return_type": VideoRef,
         "overrides": {"image": ImageRef},
     },
-    {
-        "model_id": "runwayml/upscale-v1",
-        "node_name": "Runway_Upscale_V1",
-        "namespace": "video.enhance",
-        "return_type": VideoRef,
-        "overrides": {"video": VideoRef},
-    },
+    # Temporarily disabled - model returning 404
+    # {
+    #     "model_id": "runwayml/upscale-v1",
+    #     "node_name": "Runway_Upscale_V1",
+    #     "namespace": "video.enhance",
+    #     "return_type": VideoRef,
+    #     "overrides": {"video": VideoRef},
+    # },
     {
         "model_id": "topazlabs/video-upscale",
         "node_name": "Topaz_Video_Upscale",
@@ -1120,6 +1122,14 @@ replicate_nodes = [
         "node_name": "Lyria_2",
         "namespace": "audio.generate",
         "return_type": AudioRef,
+    },
+    # === Added 2026-03-16: New popular models ===
+    {
+        "model_id": "stability-ai/stable-diffusion-3",
+        "node_name": "StableDiffusion3",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
     },
 ]
 

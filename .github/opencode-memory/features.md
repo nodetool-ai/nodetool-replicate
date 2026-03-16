@@ -33,3 +33,15 @@ Repository configured with Claude Code memory and automated sync workflow.
 - Model ID: `google/lyria-2`
 - Namespace: `audio.generate`
 - Description: Google's music generation model producing 48kHz stereo audio from text prompts, 55.1K runs
+
+---
+
+## 2026-03-16 - Stable Diffusion 3 Added
+
+- Model ID: `stability-ai/stable-diffusion-3`
+- Namespace: `image.generate`
+- Description: Stability AI's Stable Diffusion 3 model with improved image generation quality and better text rendering
+
+- **Disabled Models** (404 errors on Replicate):
+  - `luma/ray` - Previously added but no longer available
+  - `runwayml/upscale-v1` - Previously added but no longer available
