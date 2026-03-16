@@ -411,11 +411,11 @@ class Flux_2_Pro(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     width: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     height: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     prompt: str | OutputHandle[str] | None = connect_field(
         default=None, description="Text prompt for image generation"
@@ -3455,7 +3455,7 @@ class Qwen_Image(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     lora_weights: str | OutputHandle[str] | None = connect_field(
         default=None,
-        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/Viktor1717/scandinavian-interior-style1/resolve/main/my_first_flux_lora_v1.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
+        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/flymy-ai/qwen-image-lora/resolve/main/pytorch_lora_weights.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
     )
     output_format: nodetool.nodes.replicate.image.generate.Qwen_Image.Output_format = (
         Field(
@@ -3475,9 +3475,17 @@ class Qwen_Image(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     negative_prompt: str | OutputHandle[str] = connect_field(
         default=" ", description="Negative prompt for generated image"
     )
+    extra_lora_scale: list | OutputHandle[list] | None = connect_field(
+        default=None,
+        description="Scales for additional LoRAs as an array of numbers (e.g., 0.5, 0.7). Must match the number of weights in extra_lora_weights.",
+    )
     replicate_weights: str | OutputHandle[str] | None = connect_field(
         default=None,
         description="Load LoRA weights from Replicate training. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet.",
+    )
+    extra_lora_weights: list | OutputHandle[list] | None = connect_field(
+        default=None,
+        description="Additional LoRA weights as an array of URLs. Same formats supported as lora_weights (e.g., ['https://huggingface.co/flymy-ai/qwen-image-lora/resolve/main/pytorch_lora_weights.safetensors', 'https://huggingface.co/flymy-ai/qwen-image-realism-lora/resolve/main/flymy_realism.safetensors'])",
     )
     num_inference_steps: int | OutputHandle[int] = connect_field(
         default=30,
@@ -4233,6 +4241,82 @@ class StableDiffusion(SingleOutputGraphNode[types.ImageRef], GraphNode[types.Ima
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.image.generate.StableDiffusion
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class StableDiffusion3(
+    SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]
+):
+    """
+    A text-to-image model with greatly improved performance in image quality, typography, complex prompt understanding, and resource-efficiency
+    """
+
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.StableDiffusion3.Aspect_ratio
+    )
+    Output_format: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.StableDiffusion3.Output_format
+    )
+
+    cfg: float | OutputHandle[float] = connect_field(
+        default=3.5,
+        description="The guidance scale tells the model how similar the output should be to the prompt.",
+    )
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Set a seed for reproducibility. Random by default."
+    )
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Input image for image to image mode. The aspect ratio of your output will match this image.",
+    )
+    steps: int | OutputHandle[int] = connect_field(
+        default=28, description="Number of steps to run the sampler for."
+    )
+    prompt: str | OutputHandle[str] = connect_field(default="", description=None)
+    aspect_ratio: (
+        nodetool.nodes.replicate.image.generate.StableDiffusion3.Aspect_ratio
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.StableDiffusion3.Aspect_ratio(
+            "1:1"
+        ),
+        description="The aspect ratio of your output image. This value is ignored if you are using an input image.",
+    )
+    output_format: (
+        nodetool.nodes.replicate.image.generate.StableDiffusion3.Output_format
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.StableDiffusion3.Output_format(
+            "webp"
+        ),
+        description="Format of the output images",
+    )
+    output_quality: int | OutputHandle[int] = connect_field(
+        default=90,
+        description="Quality of the output images, from 0 to 100. 100 is best quality, 0 is lowest quality.",
+    )
+    negative_prompt: str | OutputHandle[str] = connect_field(
+        default="",
+        description="Negative prompts do not really work in SD3. Using a negative prompt will change your output in unpredictable ways.",
+    )
+    prompt_strength: float | OutputHandle[float] = connect_field(
+        default=0.85,
+        description="Prompt strength (or denoising strength) when using image to image. 1.0 corresponds to full destruction of information in image.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.StableDiffusion3
 
     @classmethod
     def get_node_type(cls):

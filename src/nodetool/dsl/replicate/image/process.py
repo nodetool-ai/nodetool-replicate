@@ -81,18 +81,19 @@ class Expand_Image(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageR
     )
     canvas_size: list | OutputHandle[list] | None = connect_field(
         default=None,
-        description="Desired output canvas dimensions [width, height]. Default [1000, 1000]",
+        description="Desired output canvas dimensions [width, height]. Default [1000, 1000]. Max 5000x5000 pixels.",
     )
     aspect_ratio: nodetool.nodes.replicate.image.process.Expand_Image.Aspect_ratio = (
         Field(
             default=nodetool.nodes.replicate.image.process.Expand_Image.Aspect_ratio(
                 "1:1"
             ),
-            description="Aspect ratio for expansion.",
+            description="Aspect ratio for expansion. Either aspect_ratio or canvas_size with original_image_size/location must be provided. Can be a predefined string like '1:1', '16:9' etc. or a custom float between 0.5 and 3.0",
         )
     )
     preserve_alpha: bool | OutputHandle[bool] = connect_field(
-        default=True, description="Preserve alpha channel in output"
+        default=True,
+        description="Preserve alpha channel in output. When true, maintains original transparency. When false, output is fully opaque.",
     )
     negative_prompt: str | OutputHandle[str] | None = connect_field(
         default=None, description="Negative prompt for image generation"
