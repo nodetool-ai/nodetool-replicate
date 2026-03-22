@@ -115,9 +115,7 @@ class DynamicReplicate(BaseNode):
         self._set_dynamic_properties(bundle)
 
         input_values = dict(self.dynamic_properties)
-        arguments = await _build_arguments(
-            bundle.input_schema, input_values, context
-        )
+        arguments = await _build_arguments(bundle.input_schema, input_values, context)
 
         result = await self._run_prediction(context, bundle, arguments)
 
@@ -210,6 +208,7 @@ class DynamicReplicate(BaseNode):
 # Prediction runner for dynamic nodes
 # ---------------------------------------------------------------------------
 
+
 async def _run_replicate_dynamic(
     prediction: Prediction, env: dict[str, str]
 ) -> AsyncGenerator[Prediction | PredictionResult, None]:
@@ -226,9 +225,7 @@ async def _run_replicate_dynamic(
     client = replicate_sdk.Client(token)
     started_at = datetime.now()
 
-    match = re.match(
-        r"^(?P<owner>[^/]+)/(?P<name>[^:]+):(?P<version>.+)$", model_id
-    )
+    match = re.match(r"^(?P<owner>[^/]+)/(?P<name>[^:]+):(?P<version>.+)$", model_id)
     if match:
         replicate_pred = client.predictions.create(
             version=match.group("version"),
@@ -275,15 +272,12 @@ async def _run_replicate_dynamic(
 # Schema fetching & caching
 # ---------------------------------------------------------------------------
 
-async def _fetch_model_info(
-    owner: str, name: str, token: str
-) -> dict[str, Any]:
+
+async def _fetch_model_info(owner: str, name: str, token: str) -> dict[str, Any]:
     url = f"{REPLICATE_API_BASE}/models/{owner}/{name}"
     timeout = httpx.Timeout(20.0)
     async with httpx.AsyncClient(timeout=timeout) as client:
-        resp = await client.get(
-            url, headers={"Authorization": f"Bearer {token}"}
-        )
+        resp = await client.get(url, headers={"Authorization": f"Bearer {token}"})
         resp.raise_for_status()
         return resp.json()
 
@@ -292,9 +286,7 @@ def _cache_key(owner: str, name: str) -> str:
     return hashlib.sha256(f"{owner}/{name}".encode("utf-8")).hexdigest()
 
 
-def _load_cached_schema(
-    cache_dir: Path, cache_key: str
-) -> dict[str, Any] | None:
+def _load_cached_schema(cache_dir: Path, cache_key: str) -> dict[str, Any] | None:
     path = cache_dir / f"{cache_key}.json"
     if not path.exists():
         return None
@@ -304,9 +296,7 @@ def _load_cached_schema(
         return None
 
 
-def _save_cached_schema(
-    cache_dir: Path, cache_key: str, data: dict[str, Any]
-) -> None:
+def _save_cached_schema(cache_dir: Path, cache_key: str, data: dict[str, Any]) -> None:
     cache_dir.mkdir(parents=True, exist_ok=True)
     path = cache_dir / f"{cache_key}.json"
     path.write_text(json.dumps(data), encoding="utf-8")
@@ -315,6 +305,7 @@ def _save_cached_schema(
 # ---------------------------------------------------------------------------
 # Schema parsing
 # ---------------------------------------------------------------------------
+
 
 def _parse_model_data(
     model_data: dict[str, Any], owner: str, name: str
@@ -350,9 +341,7 @@ def _parse_cached_schema(
     return _parse_model_data(cached, owner, name)
 
 
-def _resolve_ref(
-    openapi: dict[str, Any], schema: dict[str, Any]
-) -> dict[str, Any]:
+def _resolve_ref(openapi: dict[str, Any], schema: dict[str, Any]) -> dict[str, Any]:
     if not isinstance(schema, dict):
         return schema
     if "$ref" in schema:
@@ -396,14 +385,13 @@ def _resolve_ref(
 # Input normalization
 # ---------------------------------------------------------------------------
 
+
 def _normalize_model_info(model_info: str) -> tuple[str | None, str | None]:
     raw = model_info.strip()
     if not raw:
         return None, None
 
-    url_match = re.match(
-        r"https?://(?:www\.)?replicate\.com/([^/]+)/([^/?#]+)", raw
-    )
+    url_match = re.match(r"https?://(?:www\.)?replicate\.com/([^/]+)/([^/?#]+)", raw)
     if url_match:
         return url_match.group(1), url_match.group(2)
 
@@ -422,6 +410,7 @@ def _normalize_model_info(model_info: str) -> tuple[str | None, str | None]:
 # ---------------------------------------------------------------------------
 # Type inference
 # ---------------------------------------------------------------------------
+
 
 def _infer_input_type(prop_schema: dict[str, Any]) -> TypeMetadata:
     if "enum" in prop_schema:
@@ -443,9 +432,7 @@ def _infer_input_type(prop_schema: dict[str, Any]) -> TypeMetadata:
         items = prop_schema.get("items", {})
         item_fmt = items.get("format", "")
         if item_fmt in ("uri", "url"):
-            return TypeMetadata(
-                type="list", type_args=[TypeMetadata(type="image")]
-            )
+            return TypeMetadata(type="list", type_args=[TypeMetadata(type="image")])
         return TypeMetadata(type="list", type_args=[TypeMetadata(type="any")])
 
     if kind == "string":
@@ -484,16 +471,10 @@ def _infer_output_type(
         if item_fmt in ("uri", "url") or item_type == "string":
             desc_lower = model_description.lower()
             if _text_suggests_video(desc_lower):
-                return TypeMetadata(
-                    type="list", type_args=[TypeMetadata(type="video")]
-                )
+                return TypeMetadata(type="list", type_args=[TypeMetadata(type="video")])
             if _text_suggests_audio(desc_lower):
-                return TypeMetadata(
-                    type="list", type_args=[TypeMetadata(type="audio")]
-                )
-            return TypeMetadata(
-                type="list", type_args=[TypeMetadata(type="image")]
-            )
+                return TypeMetadata(type="list", type_args=[TypeMetadata(type="audio")])
+            return TypeMetadata(type="list", type_args=[TypeMetadata(type="image")])
         return TypeMetadata(type="list", type_args=[TypeMetadata(type="any")])
 
     if kind == "object":
@@ -512,6 +493,7 @@ def _text_suggests_video(*texts: str) -> bool:
     combined = " ".join(texts).lower()
     return "video" in combined or "mp4" in combined
 
+
 def _text_suggests_audio(*texts: str) -> bool:
     combined = " ".join(texts).lower()
     return "audio" in combined or "music" in combined or "speech" in combined
@@ -520,6 +502,7 @@ def _text_suggests_audio(*texts: str) -> bool:
 # ---------------------------------------------------------------------------
 # Default values
 # ---------------------------------------------------------------------------
+
 
 def _default_value(
     prop_schema: dict[str, Any],
@@ -546,6 +529,7 @@ def _default_value(
 # ---------------------------------------------------------------------------
 # Argument building
 # ---------------------------------------------------------------------------
+
 
 async def _build_arguments(
     input_schema: dict[str, Any],
@@ -577,7 +561,11 @@ async def _coerce_value(
         return await _serialize_asset_ref(asset_ref, context)
 
     if isinstance(value, list):
-        return [await _coerce_value(prop_schema.get("items", {}), v, context) for v in value if v is not None]
+        return [
+            await _coerce_value(prop_schema.get("items", {}), v, context)
+            for v in value
+            if v is not None
+        ]
 
     return value
 
@@ -593,9 +581,7 @@ def _try_as_asset_ref(value: Any) -> AssetRef | None:
     return None
 
 
-async def _serialize_asset_ref(
-    asset_ref: AssetRef, context: ProcessingContext
-) -> str:
+async def _serialize_asset_ref(asset_ref: AssetRef, context: ProcessingContext) -> str:
     if asset_ref.uri and asset_ref.uri.startswith(("http://", "https://", "data:")):
         return asset_ref.uri
     if isinstance(asset_ref, ImageRef):
@@ -604,17 +590,23 @@ async def _serialize_asset_ref(
     asset_bytes = await context.asset_to_bytes(asset_ref)
     if isinstance(asset_ref, AudioRef):
         import base64
+
         return f"data:audio/wav;base64,{base64.b64encode(asset_bytes).decode()}"
     if isinstance(asset_ref, VideoRef):
         import base64
+
         return f"data:video/mp4;base64,{base64.b64encode(asset_bytes).decode()}"
     import base64
-    return f"data:application/octet-stream;base64,{base64.b64encode(asset_bytes).decode()}"
+
+    return (
+        f"data:application/octet-stream;base64,{base64.b64encode(asset_bytes).decode()}"
+    )
 
 
 # ---------------------------------------------------------------------------
 # Output mapping
 # ---------------------------------------------------------------------------
+
 
 def _build_output_types(
     output_schema: dict[str, Any], model_description: str
@@ -645,9 +637,7 @@ def _build_output_types(
     return {"output": _infer_output_type(output_schema, model_description)}
 
 
-def _map_output_values(
-    output_schema: dict[str, Any], result: Any
-) -> dict[str, Any]:
+def _map_output_values(output_schema: dict[str, Any], result: Any) -> dict[str, Any]:
     kind = output_schema.get("type")
     fmt = output_schema.get("format", "")
 
@@ -657,7 +647,10 @@ def _map_output_values(
             return {"output": ref}
 
     if kind == "array" and isinstance(result, list):
-        mapped = [_uri_to_asset_ref(item) if isinstance(item, str) else item for item in result]
+        mapped = [
+            _uri_to_asset_ref(item) if isinstance(item, str) else item
+            for item in result
+        ]
         return {"output": mapped}
 
     if isinstance(result, str):
@@ -666,7 +659,14 @@ def _map_output_values(
         return {"output": result}
 
     if isinstance(result, list):
-        mapped = [_uri_to_asset_ref(item) if isinstance(item, str) and _looks_like_file_url(item) else item for item in result]
+        mapped = [
+            (
+                _uri_to_asset_ref(item)
+                if isinstance(item, str) and _looks_like_file_url(item)
+                else item
+            )
+            for item in result
+        ]
         return {"output": mapped}
 
     return {"output": result}
@@ -687,21 +687,35 @@ def _looks_like_file_url(url: str) -> bool:
     return url.startswith("http") and (
         "replicate.delivery" in url
         or "replicate.com" in url
-        or any(ext in url.lower() for ext in (
-            ".mp4", ".mov", ".webm", ".png", ".jpg", ".jpeg", ".webp",
-            ".gif", ".mp3", ".wav", ".flac",
-        ))
+        or any(
+            ext in url.lower()
+            for ext in (
+                ".mp4",
+                ".mov",
+                ".webm",
+                ".png",
+                ".jpg",
+                ".jpeg",
+                ".webp",
+                ".gif",
+                ".mp3",
+                ".wav",
+                ".flac",
+            )
+        )
     )
 
 
 def _make_output_slot(name: str, type_metadata: TypeMetadata):
     from nodetool.metadata.types import OutputSlot
+
     return OutputSlot(type=type_metadata, name=name)
 
 
 # ---------------------------------------------------------------------------
 # Public API for schema resolution (called by backend endpoint)
 # ---------------------------------------------------------------------------
+
 
 async def resolve_dynamic_schema(
     model_info: str, api_token: str = ""

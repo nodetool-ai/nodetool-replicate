@@ -906,6 +906,57 @@ import nodetool.nodes.replicate.text.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Phi_3_Mini_128K_Instruct(SingleOutputGraphNode[str], GraphNode[str]):
+    """
+    Phi-3-Mini-128K-Instruct is a 3.8 billion-parameter, lightweight, state-of-the-art open model trained using the Phi-3 datasets
+    """
+
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="The seed for the random number generator"
+    )
+    top_k: int | OutputHandle[int] = connect_field(
+        default=1,
+        description="When decoding text, samples from the top k most likely tokens; lower to ignore less likely tokens.",
+    )
+    top_p: float | OutputHandle[float] = connect_field(
+        default=1,
+        description="When decoding text, samples from the top p percentage of most likely tokens; lower to ignore less likely tokens.",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt to send to the model."
+    )
+    max_length: int | OutputHandle[int] = connect_field(
+        default=200,
+        description="Maximum number of tokens to generate. A word is generally 2-3 tokens.",
+    )
+    temperature: float | OutputHandle[float] = connect_field(
+        default=0.1,
+        description="Adjusts randomness of outputs, greater than 1 is random and 0 is deterministic.",
+    )
+    system_prompt: str | OutputHandle[str] = connect_field(
+        default="You are a helpful AI assistant.", description="System prompt."
+    )
+    repetition_penalty: float | OutputHandle[float] = connect_field(
+        default=1.1,
+        description="Penalty for repeated words in generated text; 1 is no penalty, values greater than 1 discourage repetition, less than 1 encourage it.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.text.generate.Phi_3_Mini_128K_Instruct
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.text.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Snowflake_Arctic_Instruct(SingleOutputGraphNode[str], GraphNode[str]):
     """
     An efficient, intelligent, and truly open-source language model
