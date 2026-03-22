@@ -265,13 +265,14 @@ replicate_nodes = [
         "return_type": ImageRef,
         "overrides": {"image": ImageRef},
     },
-    {
-        "model_id": "luma/ray",
-        "node_name": "Ray",
-        "namespace": "video.generate",
-        "return_type": VideoRef,
-        "overrides": {"start_image_url": ImageRef, "end_image_url": ImageRef},
-    },
+    # Disabled: Model returns 404 Not Found
+    # {
+    #     "model_id": "luma/ray",
+    #     "node_name": "Ray",
+    #     "namespace": "video.generate",
+    #     "return_type": VideoRef,
+    #     "overrides": {"start_image_url": ImageRef, "end_image_url": ImageRef},
+    # },
     {
         "model_id": "luma/photon-flash",
         "node_name": "Photon_Flash",
@@ -1036,13 +1037,14 @@ replicate_nodes = [
         "return_type": VideoRef,
         "overrides": {"image": ImageRef},
     },
-    {
-        "model_id": "runwayml/upscale-v1",
-        "node_name": "Runway_Upscale_V1",
-        "namespace": "video.enhance",
-        "return_type": VideoRef,
-        "overrides": {"video": VideoRef},
-    },
+    # Disabled: Model returns 404 Not Found
+    # {
+    #     "model_id": "runwayml/upscale-v1",
+    #     "node_name": "Runway_Upscale_V1",
+    #     "namespace": "video.enhance",
+    #     "return_type": VideoRef,
+    #     "overrides": {"video": VideoRef},
+    # },
     {
         "model_id": "topazlabs/video-upscale",
         "node_name": "Topaz_Video_Upscale",
@@ -1120,6 +1122,26 @@ replicate_nodes = [
         "node_name": "Lyria_2",
         "namespace": "audio.generate",
         "return_type": AudioRef,
+    },
+    # === Added from Replicate Explore (2026-03-22) ===
+    {
+        "model_id": "microsoft/phi-3-mini-128k-instruct",
+        "node_name": "Phi_3_Mini_128K_Instruct",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "fofr/sdxl-controlnet-lora",
+        "node_name": "SDXL_ControlNet_Lora",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
+    {
+        "model_id": "lucataco/animate-diff",
+        "node_name": "AnimateDiff",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
     },
 ]
 

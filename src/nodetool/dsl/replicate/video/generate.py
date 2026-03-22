@@ -19,6 +19,65 @@ import nodetool.nodes.replicate.video.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class AnimateDiff(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
+    """
+    Animate Your Personalized Text-to-Image Diffusion Models
+    """
+
+    Path: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.AnimateDiff.Path
+    )
+    Motion_module: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.AnimateDiff.Motion_module
+    )
+
+    path: nodetool.nodes.replicate.video.generate.AnimateDiff.Path = Field(
+        default=nodetool.nodes.replicate.video.generate.AnimateDiff.Path(
+            "toonyou_beta3.safetensors"
+        ),
+        description="Select a Module",
+    )
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Seed (0 = random, maximum: 2147483647)"
+    )
+    steps: int | OutputHandle[int] = connect_field(
+        default=25, description="Number of inference steps"
+    )
+    prompt: str | OutputHandle[str] = connect_field(
+        default="masterpiece, best quality, 1girl, solo, cherry blossoms, hanami, pink flower, white flower, spring season, wisteria, petals, flower, plum blossoms, outdoors, falling petals, white hair, black eyes",
+        description="Input prompt",
+    )
+    n_prompt: str | OutputHandle[str] = connect_field(
+        default="", description="Negative prompt"
+    )
+    motion_module: nodetool.nodes.replicate.video.generate.AnimateDiff.Motion_module = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.AnimateDiff.Motion_module(
+                "mm_sd_v14"
+            ),
+            description="Select a Motion Model",
+        )
+    )
+    guidance_scale: float | OutputHandle[float] = connect_field(
+        default=7.5, description="guidance scale"
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.video.generate.AnimateDiff
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.video.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class AudioToWaveform(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
     """
     Create a waveform video from audio
@@ -740,71 +799,6 @@ class Pixverse_V5(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRe
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.video.generate.Pixverse_V5
-
-    @classmethod
-    def get_node_type(cls):
-        return cls.get_node_class().get_node_type()
-
-
-import typing
-from pydantic import Field
-from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
-import nodetool.nodes.replicate.video.generate
-from nodetool.workflows.base_node import BaseNode
-
-
-class Ray(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
-    """
-    Fast, high quality text-to-video and image-to-video (Also known as Dream Machine)
-    """
-
-    Aspect_ratio: typing.ClassVar[type] = (
-        nodetool.nodes.replicate.video.generate.Ray.Aspect_ratio
-    )
-
-    loop: bool | OutputHandle[bool] = connect_field(
-        default=False,
-        description="Whether the video should loop, with the last frame matching the first frame for smooth, continuous playback. This input is ignored if end_image or end_video_id are set.",
-    )
-    prompt: str | OutputHandle[str] | None = connect_field(
-        default=None, description="Text prompt for video generation"
-    )
-    end_image: str | OutputHandle[str] | None = connect_field(
-        default=None,
-        description="An optional last frame of the video to use as the ending frame.",
-    )
-    start_image: str | OutputHandle[str] | None = connect_field(
-        default=None,
-        description="An optional first frame of the video to use as the starting frame.",
-    )
-    aspect_ratio: nodetool.nodes.replicate.video.generate.Ray.Aspect_ratio = Field(
-        default=nodetool.nodes.replicate.video.generate.Ray.Aspect_ratio("16:9"),
-        description="Aspect ratio of the video. Ignored if a start frame, end frame or video ID is given.",
-    )
-    end_video_id: str | OutputHandle[str] | None = connect_field(
-        default=None,
-        description="Prepend a new video generation to the beginning of an existing one (Also called 'reverse extend'). You can combine this with start_image, or start_video_id.",
-    )
-    end_image_url: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
-        default=types.ImageRef(
-            type="image", uri="", asset_id=None, data=None, metadata=None
-        ),
-        description="Deprecated: Use end_image instead",
-    )
-    start_video_id: str | OutputHandle[str] | None = connect_field(
-        default=None,
-        description="Continue or extend a video generation with a new generation. You can combine this with end_image, or end_video_id.",
-    )
-    start_image_url: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
-        default=types.ImageRef(
-            type="image", uri="", asset_id=None, data=None, metadata=None
-        ),
-        description="Deprecated: Use start_image instead",
-    )
-
-    @classmethod
-    def get_node_class(cls) -> type[BaseNode]:
-        return nodetool.nodes.replicate.video.generate.Ray
 
     @classmethod
     def get_node_type(cls):

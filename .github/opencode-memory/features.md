@@ -33,3 +33,29 @@ Repository configured with Claude Code memory and automated sync workflow.
 - Model ID: `google/lyria-2`
 - Namespace: `audio.generate`
 - Description: Google's music generation model producing 48kHz stereo audio from text prompts, 55.1K runs
+
+---
+
+## 2026-03-22 - New Models Added
+
+- Model ID: `microsoft/phi-3-mini-128k-instruct`
+- Namespace: `text.generate`
+- Description: Phi-3-Mini-128K-Instruct is a 3.8 billion-parameter, lightweight, state-of-the-art open model trained using the Phi-3 datasets
+
+- Model ID: `fofr/sdxl-controlnet-lora`
+- Namespace: `image.generate`
+- Description: Multi-controlnet, lora loading, img2img, inpainting for SDXL
+
+- Model ID: `lucataco/animate-diff`
+- Namespace: `video.generate`
+- Description: Animate Your Personalized Text-to-Image Diffusion Models for video generation
+
+---
+
+## 2026-03-22 - Models Disabled
+
+- Model ID: `luma/ray`
+- Reason: Model returns 404 Not Found - no longer available on Replicate
+
+- Model ID: `runwayml/upscale-v1`
+- Reason: Model returns 404 Not Found - no longer available on Replicate
