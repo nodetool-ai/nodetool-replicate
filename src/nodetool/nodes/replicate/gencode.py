@@ -266,13 +266,6 @@ replicate_nodes = [
         "overrides": {"image": ImageRef},
     },
     {
-        "model_id": "luma/ray",
-        "node_name": "Ray",
-        "namespace": "video.generate",
-        "return_type": VideoRef,
-        "overrides": {"start_image_url": ImageRef, "end_image_url": ImageRef},
-    },
-    {
         "model_id": "luma/photon-flash",
         "node_name": "Photon_Flash",
         "namespace": "image.generate",
@@ -642,12 +635,6 @@ replicate_nodes = [
     {
         "model_id": "meta/meta-llama-3-70b-instruct",
         "node_name": "Llama3_70B_Instruct",
-        "namespace": "text.generate",
-        "return_type": str,
-    },
-    {
-        "model_id": "meta/meta-llama-3.1-405b-instruct",
-        "node_name": "Llama3_1_405B_Instruct",
         "namespace": "text.generate",
         "return_type": str,
     },
@@ -1037,13 +1024,6 @@ replicate_nodes = [
         "overrides": {"image": ImageRef},
     },
     {
-        "model_id": "runwayml/upscale-v1",
-        "node_name": "Runway_Upscale_V1",
-        "namespace": "video.enhance",
-        "return_type": VideoRef,
-        "overrides": {"video": VideoRef},
-    },
-    {
         "model_id": "topazlabs/video-upscale",
         "node_name": "Topaz_Video_Upscale",
         "namespace": "video.enhance",
@@ -1120,6 +1100,60 @@ replicate_nodes = [
         "node_name": "Lyria_2",
         "namespace": "audio.generate",
         "return_type": AudioRef,
+    },
+    # === Added 2026-03-27 ===
+    {
+        "model_id": "inworld/tts-1.5-max",
+        "node_name": "TTS_1_5_Max",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
+    {
+        "model_id": "bytedance/seedream-5-lite",
+        "node_name": "Seedream_5_Lite",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
+    {
+        "model_id": "runwayml/gen-4.5",
+        "node_name": "Gen_4_5",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+    },
+    # === Added 2026-03-27 (Additional) ===
+    {
+        "model_id": "google/gemini-3-flash",
+        "node_name": "Gemini_3_Flash",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "black-forest-labs/flux-2-klein-4b",
+        "node_name": "Flux_2_Klein_4b",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "google/nano-banana-2",
+        "node_name": "Nano_Banana_2",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
+    {
+        "model_id": "elevenlabs/music",
+        "node_name": "ElevenLabs_Music",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
+    {
+        "model_id": "xai/grok-imagine-video",
+        "node_name": "Grok_Imagine_Video",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef},
     },
 ]
 

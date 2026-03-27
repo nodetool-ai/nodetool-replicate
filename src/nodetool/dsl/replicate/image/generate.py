@@ -247,11 +247,11 @@ class Flux_2_Flex(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRe
     )
     width: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     height: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     prompt: str | OutputHandle[str] | None = connect_field(
         default=None, description="Text prompt for image generation"
@@ -313,6 +313,83 @@ import nodetool.nodes.replicate.image.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Flux_2_Klein_4b(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
+    """
+    Very fast image generation and editing model. 4 steps distilled, sub-second inference for production and near real-time applications.
+    """
+
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Aspect_ratio
+    )
+    Output_format: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Output_format
+    )
+    Output_megapixels: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Output_megapixels
+    )
+
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Random seed. Set for reproducible generation"
+    )
+    images: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="List of input images for image-to-image generation. Maximum 5 images. Must be jpeg, png, gif, or webp.",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt for image generation."
+    )
+    go_fast: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="Run faster predictions with additional optimizations.",
+    )
+    aspect_ratio: (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Aspect_ratio
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Aspect_ratio(
+            "1:1"
+        ),
+        description="Aspect ratio for the generated image. Use 'match_input_image' to match the aspect ratio of the first input image.",
+    )
+    output_format: (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Output_format
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Output_format(
+            "jpg"
+        ),
+        description="Format of the output images",
+    )
+    output_quality: int | OutputHandle[int] = connect_field(
+        default=95,
+        description="Quality when saving the output images, from 0 to 100. 100 is best quality, 0 is lowest quality. Not relevant for .png outputs.",
+    )
+    output_megapixels: (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Output_megapixels
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Output_megapixels(
+            "1"
+        ),
+        description="Resolution of the output image in megapixels",
+    )
+    disable_safety_checker: bool | OutputHandle[bool] = connect_field(
+        default=False, description="Disable safety checker for generated images."
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Flux_2_Max(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
     """
     The highest fidelity image model from Black Forest Labs
@@ -333,11 +410,11 @@ class Flux_2_Max(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     width: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     height: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     prompt: str | OutputHandle[str] | None = connect_field(
         default=None, description="Text prompt for image generation"
@@ -411,11 +488,11 @@ class Flux_2_Pro(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     width: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     height: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     prompt: str | OutputHandle[str] | None = connect_field(
         default=None, description="Text prompt for image generation"
@@ -2992,6 +3069,77 @@ import nodetool.nodes.replicate.image.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Nano_Banana_2(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
+    """
+    Google's fast image generation model with conversational editing, multi-image fusion, and character consistency
+    """
+
+    Resolution: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Nano_Banana_2.Resolution
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Nano_Banana_2.Aspect_ratio
+    )
+    Output_format: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Nano_Banana_2.Output_format
+    )
+
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="A text description of the image you want to generate"
+    )
+    resolution: nodetool.nodes.replicate.image.generate.Nano_Banana_2.Resolution = (
+        Field(
+            default=nodetool.nodes.replicate.image.generate.Nano_Banana_2.Resolution(
+                "1K"
+            ),
+            description="Resolution of the generated image. Higher resolutions take longer to generate.",
+        )
+    )
+    image_input: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input images to transform or use as reference (supports up to 14 images)",
+    )
+    aspect_ratio: nodetool.nodes.replicate.image.generate.Nano_Banana_2.Aspect_ratio = (
+        Field(
+            default=nodetool.nodes.replicate.image.generate.Nano_Banana_2.Aspect_ratio(
+                "match_input_image"
+            ),
+            description="Aspect ratio of the generated image",
+        )
+    )
+    image_search: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="Use Google Image Search grounding to find web images as visual context for generation. When enabled, web search is also used automatically.",
+    )
+    google_search: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="Use Google Web Search grounding to generate images based on real-time information (e.g. weather, sports scores, recent events).",
+    )
+    output_format: (
+        nodetool.nodes.replicate.image.generate.Nano_Banana_2.Output_format
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Nano_Banana_2.Output_format(
+            "jpg"
+        ),
+        description="Format of the output image",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Nano_Banana_2
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Photon_Flash(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
     """
     Accelerated variant of Photon prioritizing speed while maintaining quality
@@ -3455,7 +3603,7 @@ class Qwen_Image(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     lora_weights: str | OutputHandle[str] | None = connect_field(
         default=None,
-        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/Viktor1717/scandinavian-interior-style1/resolve/main/my_first_flux_lora_v1.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
+        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/flymy-ai/qwen-image-lora/resolve/main/pytorch_lora_weights.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
     )
     output_format: nodetool.nodes.replicate.image.generate.Qwen_Image.Output_format = (
         Field(
@@ -3475,9 +3623,17 @@ class Qwen_Image(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     negative_prompt: str | OutputHandle[str] = connect_field(
         default=" ", description="Negative prompt for generated image"
     )
+    extra_lora_scale: list | OutputHandle[list] | None = connect_field(
+        default=None,
+        description="Scales for additional LoRAs as an array of numbers (e.g., 0.5, 0.7). Must match the number of weights in extra_lora_weights.",
+    )
     replicate_weights: str | OutputHandle[str] | None = connect_field(
         default=None,
         description="Load LoRA weights from Replicate training. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet.",
+    )
+    extra_lora_weights: list | OutputHandle[list] | None = connect_field(
+        default=None,
+        description="Additional LoRA weights as an array of URLs. Same formats supported as lora_weights (e.g., ['https://huggingface.co/flymy-ai/qwen-image-lora/resolve/main/pytorch_lora_weights.safetensors', 'https://huggingface.co/flymy-ai/qwen-image-realism-lora/resolve/main/flymy_realism.safetensors'])",
     )
     num_inference_steps: int | OutputHandle[int] = connect_field(
         default=30,
@@ -4167,6 +4323,80 @@ class Seedream_4(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.image.generate.Seedream_4
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class Seedream_5_Lite(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
+    """
+    Seedream 5.0 lite: image generation with built-in reasoning, example-based editing, and deep domain knowledge
+    """
+
+    Size: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Size
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Aspect_ratio
+    )
+    Output_format: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Output_format
+    )
+    Sequential_image_generation: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Sequential_image_generation
+    )
+
+    size: nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Size = Field(
+        default=nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Size("2K"),
+        description="Image resolution: 2K (2048px) or 3K (3072px).",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt for image generation"
+    )
+    max_images: int | OutputHandle[int] = connect_field(
+        default=1,
+        description="Maximum number of images to generate when sequential_image_generation='auto'. Range: 1-15. Total images (input + generated) cannot exceed 15.",
+    )
+    image_input: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input image(s) for image-to-image generation. List of 1-14 images for single or multi-reference generation.",
+    )
+    aspect_ratio: (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Aspect_ratio
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Aspect_ratio(
+            "match_input_image"
+        ),
+        description="Image aspect ratio. Use 'match_input_image' to automatically match the input image's aspect ratio.",
+    )
+    output_format: (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Output_format
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Output_format(
+            "png"
+        ),
+        description="Output image format.",
+    )
+    sequential_image_generation: (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Sequential_image_generation
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Sequential_image_generation(
+            "disabled"
+        ),
+        description="Group image generation mode. 'disabled' generates a single image. 'auto' lets the model decide whether to generate multiple related images (e.g., story scenes, character variations).",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Seedream_5_Lite
 
     @classmethod
     def get_node_type(cls):

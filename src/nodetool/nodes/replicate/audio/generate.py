@@ -59,7 +59,7 @@ class RealisticVoiceCloning(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": None,
-            "run_count": 1411792,
+            "run_count": 1648984,
             "url": "https://replicate.com/zsxkib/realistic-voice-cloning",
             "visibility": "public",
             "weights_url": None,
@@ -314,7 +314,7 @@ class TortoiseTTS(ReplicateNode):
             "owner": "afiaka87",
             "is_official": False,
             "paper_url": "https://github.com/neonbjb/tortoise-tts",
-            "run_count": 173091,
+            "run_count": 173486,
             "url": "https://replicate.com/afiaka87/tortoise-tts",
             "visibility": "public",
             "weights_url": None,
@@ -390,7 +390,7 @@ class StyleTTS2(ReplicateNode):
             "owner": "adirik",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.07691",
-            "run_count": 132130,
+            "run_count": 132486,
             "url": "https://replicate.com/adirik/styletts2",
             "visibility": "public",
             "weights_url": None,
@@ -482,7 +482,7 @@ class Riffusion(ReplicateNode):
             "owner": "riffusion",
             "is_official": False,
             "paper_url": "https://www.riffusion.com/about",
-            "run_count": 1070865,
+            "run_count": 1084947,
             "url": "https://replicate.com/riffusion/riffusion",
             "visibility": "public",
             "weights_url": None,
@@ -573,7 +573,7 @@ class MusicGen(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.05284",
-            "run_count": 3240849,
+            "run_count": 3348526,
             "url": "https://replicate.com/meta/musicgen",
             "visibility": "public",
             "weights_url": None,
@@ -683,7 +683,7 @@ class MMAudio(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": "https://hkchengrex.github.io/MMAudio",
-            "run_count": 4568945,
+            "run_count": 4962747,
             "url": "https://replicate.com/zsxkib/mmaudio",
             "visibility": "public",
             "weights_url": "https://huggingface.co/hkchengrex/MMAudio/tree/main",
@@ -755,7 +755,7 @@ class Lyria_2(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 55092,
+            "run_count": 80674,
             "url": "https://replicate.com/google/lyria-2",
             "visibility": "public",
             "weights_url": None,
@@ -777,4 +777,165 @@ class Lyria_2(ReplicateNode):
         title="Negative Prompt",
         description="Description of what to exclude from the generated audio",
         default=None,
+    )
+
+
+class TTS_1_5_Max(ReplicateNode):
+    """Highest-quality text-to-speech with <200ms latency, emotion control, and 15-language support"""
+
+    class Sample_rate(int, Enum):
+        _8000 = 8000
+        _16000 = 16000
+        _22050 = 22050
+        _24000 = 24000
+        _32000 = 32000
+        _44100 = 44100
+        _48000 = 48000
+
+    class Audio_format(str, Enum):
+        MP3 = "mp3"
+        WAV = "wav"
+        OGG_OPUS = "ogg_opus"
+        FLAC = "flac"
+
+    class Text_normalization(str, Enum):
+        AUTO = "auto"
+        ON = "on"
+        OFF = "off"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["text", "voice_id", "sample_rate"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "inworld/tts-1.5-max:cd3daef10bdf2569116cfc09be2a8d3c686622ad9c45bd7e072eea8232c1075a"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/099327e7-d10c-470c-9816-52e5ef0b7a4b/inworld-max.jpg",
+            "created_at": "2026-03-10T20:20:47.573692Z",
+            "description": "Highest-quality text-to-speech with <200ms latency, emotion control, and 15-language support",
+            "github_url": None,
+            "license_url": None,
+            "name": "tts-1.5-max",
+            "owner": "inworld",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 15027,
+            "url": "https://replicate.com/inworld/tts-1.5-max",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.AudioRef
+
+    text: str | None = Field(
+        title="Text",
+        description='The text to convert to speech. Maximum 2,000 characters. Supports SSML break tags for pauses (e.g. `<break time="1s" />`), emotion markups (e.g. `[happy]`, `[sad]`), and non-verbal vocalizations (e.g. `[laugh]`, `[sigh]`).',
+        default=None,
+    )
+    voice_id: str = Field(
+        title="Voice Id",
+        description="The voice to use. Use a preset voice name (e.g. 'Ashley', 'Dennis', 'Alex') or a custom cloned voice ID.",
+        default="Ashley",
+    )
+    sample_rate: Sample_rate = Field(
+        description="Audio sample rate in Hz.", default=48000
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="Controls randomness when generating audio. Higher values produce more expressive results, lower values are more deterministic.",
+        ge=0.0,
+        le=2.0,
+        default=1,
+    )
+    audio_format: Audio_format = Field(
+        description="Output audio format.", default="mp3"
+    )
+    speaking_rate: float = Field(
+        title="Speaking Rate",
+        description="Speaking speed multiplier. Set to 0 for normal speed (1.0).",
+        ge=0.0,
+        le=1.5,
+        default=0,
+    )
+    text_normalization: Text_normalization = Field(
+        description="Controls whether numbers, dates, and abbreviations are expanded before synthesis. 'auto' lets the model decide, 'on' always normalizes, 'off' reads text as-is.",
+        default="auto",
+    )
+
+
+class ElevenLabs_Music(ReplicateNode):
+    """Compose a song from a prompt or a composition plan"""
+
+    class Output_format(str, Enum):
+        MP3_STANDARD = "mp3_standard"
+        MP3_HIGH_QUALITY = "mp3_high_quality"
+        WAV_16KHZ = "wav_16khz"
+        WAV_22KHZ = "wav_22khz"
+        WAV_24KHZ = "wav_24khz"
+        WAV_CD_QUALITY = "wav_cd_quality"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["prompt", "output_format", "music_length_ms"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "elevenlabs/music:66fa53d463ca3a0fd826c06b5b44804b32f74185c0c905162bb052c3a60a39fa"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/adb81a1b-6fa8-4909-9845-5987c98ecbf3/tmpshrzz1vs.jpg",
+            "created_at": "2025-10-29T17:35:59.013415Z",
+            "description": "Compose a song from a prompt or a composition plan",
+            "github_url": None,
+            "license_url": None,
+            "name": "music",
+            "owner": "elevenlabs",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 25899,
+            "url": "https://replicate.com/elevenlabs/music",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.AudioRef
+
+    prompt: str | None = Field(
+        title="Prompt",
+        description="Description of the music you want to generate",
+        default=None,
+    )
+    output_format: Output_format = Field(
+        description="Audio output format: mp3_standard (128kbps MP3, balanced quality/size), mp3_high_quality (192kbps MP3, higher quality), wav_16khz (16kHz WAV, good for voice), wav_22khz (22kHz WAV), wav_24khz (24kHz WAV), wav_cd_quality (44.1kHz WAV, uncompressed CD quality)",
+        default="mp3_standard",
+    )
+    music_length_ms: int = Field(
+        title="Music Length Ms",
+        description="Target duration of the music in milliseconds (optional, defaults to ~10 seconds)",
+        ge=5000.0,
+        le=300000.0,
+        default=10000,
+    )
+    force_instrumental: bool = Field(
+        title="Force Instrumental",
+        description="If true, removes vocal elements from the generated music",
+        default=True,
     )

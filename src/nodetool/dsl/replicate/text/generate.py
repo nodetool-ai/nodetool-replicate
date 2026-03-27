@@ -576,54 +576,53 @@ import nodetool.nodes.replicate.text.generate
 from nodetool.workflows.base_node import BaseNode
 
 
-class Llama3_1_405B_Instruct(SingleOutputGraphNode[str], GraphNode[str]):
+class Gemini_3_Flash(SingleOutputGraphNode[str], GraphNode[str]):
     """
-    Meta's flagship 405 billion parameter language model, fine-tuned for chat completions
+    Google's most intelligent model built for speed with frontier intelligence, superior search, and grounding
     """
 
-    top_k: int | OutputHandle[int] = connect_field(
-        default=50,
-        description="The number of highest probability tokens to consider for generating the output. If > 0, only keep the top k tokens with highest probability (top-k filtering).",
+    audio: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Input audio to send with the prompt (max 1 audio file, up to 8.4 hours)",
     )
     top_p: float | OutputHandle[float] = connect_field(
-        default=0.9,
-        description="A probability threshold for generating the output. If < 1.0, only keep the top tokens with cumulative probability >= top_p (nucleus filtering). Nucleus filtering is described in Holtzman et al. (http://arxiv.org/abs/1904.09751).",
+        default=0.95,
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass",
     )
-    prompt: str | OutputHandle[str] = connect_field(default="", description="Prompt")
-    max_tokens: int | OutputHandle[int] = connect_field(
-        default=512,
-        description="The maximum number of tokens the model should generate as output.",
+    images: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input images to send with the prompt (max 10 images, each up to 7MB)",
     )
-    min_tokens: int | OutputHandle[int] = connect_field(
-        default=0,
-        description="The minimum number of tokens the model should generate as output.",
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="The text prompt to send to the model"
+    )
+    videos: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input videos to send with the prompt (max 10 videos, each up to 45 minutes)",
     )
     temperature: float | OutputHandle[float] = connect_field(
-        default=0.6,
-        description="The value used to modulate the next token probabilities.",
+        default=1, description="Sampling temperature between 0 and 2"
     )
-    system_prompt: str | OutputHandle[str] = connect_field(
-        default="You are a helpful assistant.",
-        description="System prompt to send to the model. This is prepended to the prompt and helps guide system behavior. Ignored for non-chat models.",
+    thinking_level: (
+        nodetool.nodes.replicate.text.generate.Gemini_3_Flash.Thinking_level
+        | OutputHandle[
+            nodetool.nodes.replicate.text.generate.Gemini_3_Flash.Thinking_level
+        ]
+        | None
+    ) = connect_field(
+        default=None,
+        description="Thinking level for reasoning (low or high). Replaces thinking_budget for Gemini 3 models.",
     )
-    stop_sequences: str | OutputHandle[str] = connect_field(
-        default="",
-        description="A comma-separated list of sequences to stop generation at. For example, '<end>,<stop>' will stop generation at the first instance of 'end' or '<stop>'.",
+    max_output_tokens: int | OutputHandle[int] = connect_field(
+        default=65535, description="Maximum number of tokens to generate"
     )
-    prompt_template: str | OutputHandle[str] = connect_field(
-        default="",
-        description="A template to format the prompt with. If not provided, the default prompt template will be used.",
-    )
-    presence_penalty: float | OutputHandle[float] = connect_field(
-        default=0, description="Presence penalty"
-    )
-    frequency_penalty: float | OutputHandle[float] = connect_field(
-        default=0, description="Frequency penalty"
+    system_instruction: str | OutputHandle[str] | None = connect_field(
+        default=None, description="System instruction to guide the model's behavior"
     )
 
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
-        return nodetool.nodes.replicate.text.generate.Llama3_1_405B_Instruct
+        return nodetool.nodes.replicate.text.generate.Gemini_3_Flash
 
     @classmethod
     def get_node_type(cls):
