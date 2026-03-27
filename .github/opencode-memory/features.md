@@ -20,6 +20,22 @@ Repository configured with Claude Code memory and automated sync workflow.
 
 ---
 
+## 2026-03-09 - New Video, Text, and Audio Models
+
+- Model ID: `lightricks/ltx-2.3-pro`
+- Namespace: `video.generate`
+- Description: High-fidelity video generation with portrait support, audio-to-video, retake, and extend. Text, image, and audio-driven video creation
+
+- Model ID: `deepseek-ai/deepseek-v3`
+- Namespace: `text.generate`
+- Description: DeepSeek-V3-0324 is the leading non-reasoning model, a milestone for open source
+
+- Model ID: `minimax/music-2.5`
+- Namespace: `audio.generate`
+- Description: Generate full-length songs with vocals, lyrics, and rich instrumentation from a text prompt
+
+---
+
 ## 2026-01-18 - Featured Models Added
 
 - Model ID: `openai/gpt-image-1.5`
