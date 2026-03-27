@@ -34,6 +34,26 @@ Repository configured with Claude Code memory and automated sync workflow.
 - Namespace: `video.generate`
 - Description: State-of-the-art video motion quality, prompt adherence and visual fidelity, 41K runs
 
+- Model ID: `google/gemini-3-flash`
+- Namespace: `text.generate`
+- Description: Google's most intelligent model built for speed with frontier intelligence, superior search, and grounding, 645.4K runs
+
+- Model ID: `black-forest-labs/flux-2-klein-4b`
+- Namespace: `image.generate`
+- Description: Very fast image generation and editing model. 4 steps distilled, sub-second inference for production and near real-time applications, 7.9M runs
+
+- Model ID: `google/nano-banana-2`
+- Namespace: `image.generate`
+- Description: Google's fast image generation model with conversational editing, multi-image fusion, and character consistency, 3.7M runs
+
+- Model ID: `elevenlabs/music`
+- Namespace: `audio.generate`
+- Description: Compose a song from a prompt or a composition plan, 21.2K runs
+
+- Model ID: `xai/grok-imagine-video`
+- Namespace: `video.generate`
+- Description: Generate videos using xAI's Grok Imagine Video model, 239.3K runs
+
 ---
 
 ## 2026-01-18 - Featured Models Added

@@ -6,49 +6,6 @@ from nodetool.nodes.replicate.replicate_node import ReplicateNode
 from enum import Enum
 
 
-class Runway_Upscale_V1(ReplicateNode):
-    """Upscale videos by 4x, up to a maximum of 4k"""
-
-    @classmethod
-    def get_basic_fields(cls):
-        return ["video"]
-
-    @classmethod
-    def replicate_model_id(cls):
-        return "runwayml/upscale-v1:079ac0e1e0f92616024bc63f2fd60142fc9967c7dcc3fce274875f60e10c958e"
-
-    @classmethod
-    def get_hardware(cls):
-        return "None"
-
-    @classmethod
-    def get_model_info(cls):
-        return {
-            "cover_image_url": "https://replicate.delivery/xezq/NJxpchtMgYI5GdFnuUFrBUbNOoQe8GGpfrECUWID5HWQAXDVA/tmp1vhr_qld.mp4",
-            "created_at": "2025-07-22T16:20:08.063207Z",
-            "description": "Upscale videos by 4x, up to a maximum of 4k",
-            "github_url": None,
-            "license_url": None,
-            "name": "upscale-v1",
-            "owner": "runwayml",
-            "is_official": True,
-            "paper_url": None,
-            "run_count": 25998,
-            "url": "https://replicate.com/runwayml/upscale-v1",
-            "visibility": "public",
-            "weights_url": None,
-        }
-
-    @classmethod
-    def return_type(cls):
-        return types.VideoRef
-
-    video: types.VideoRef = Field(
-        default=types.VideoRef(),
-        description="Video to upscale. Videos must be shorter than 40s, less than 4096px per side, and less than 16MB.",
-    )
-
-
 class Topaz_Video_Upscale(ReplicateNode):
     """Video Upscaling from Topaz Labs"""
 
@@ -81,7 +38,7 @@ class Topaz_Video_Upscale(ReplicateNode):
             "owner": "topazlabs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 811086,
+            "run_count": 851206,
             "url": "https://replicate.com/topazlabs/video-upscale",
             "visibility": "public",
             "weights_url": None,

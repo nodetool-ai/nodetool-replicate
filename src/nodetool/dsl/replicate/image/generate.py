@@ -313,6 +313,83 @@ import nodetool.nodes.replicate.image.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Flux_2_Klein_4b(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
+    """
+    Very fast image generation and editing model. 4 steps distilled, sub-second inference for production and near real-time applications.
+    """
+
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Aspect_ratio
+    )
+    Output_format: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Output_format
+    )
+    Output_megapixels: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Output_megapixels
+    )
+
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Random seed. Set for reproducible generation"
+    )
+    images: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="List of input images for image-to-image generation. Maximum 5 images. Must be jpeg, png, gif, or webp.",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt for image generation."
+    )
+    go_fast: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="Run faster predictions with additional optimizations.",
+    )
+    aspect_ratio: (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Aspect_ratio
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Aspect_ratio(
+            "1:1"
+        ),
+        description="Aspect ratio for the generated image. Use 'match_input_image' to match the aspect ratio of the first input image.",
+    )
+    output_format: (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Output_format
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Output_format(
+            "jpg"
+        ),
+        description="Format of the output images",
+    )
+    output_quality: int | OutputHandle[int] = connect_field(
+        default=95,
+        description="Quality when saving the output images, from 0 to 100. 100 is best quality, 0 is lowest quality. Not relevant for .png outputs.",
+    )
+    output_megapixels: (
+        nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Output_megapixels
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b.Output_megapixels(
+            "1"
+        ),
+        description="Resolution of the output image in megapixels",
+    )
+    disable_safety_checker: bool | OutputHandle[bool] = connect_field(
+        default=False, description="Disable safety checker for generated images."
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Flux_2_Klein_4b
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Flux_2_Max(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
     """
     The highest fidelity image model from Black Forest Labs
@@ -2979,6 +3056,77 @@ class Minimax_Image_01(
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.image.generate.Minimax_Image_01
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class Nano_Banana_2(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
+    """
+    Google's fast image generation model with conversational editing, multi-image fusion, and character consistency
+    """
+
+    Resolution: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Nano_Banana_2.Resolution
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Nano_Banana_2.Aspect_ratio
+    )
+    Output_format: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Nano_Banana_2.Output_format
+    )
+
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="A text description of the image you want to generate"
+    )
+    resolution: nodetool.nodes.replicate.image.generate.Nano_Banana_2.Resolution = (
+        Field(
+            default=nodetool.nodes.replicate.image.generate.Nano_Banana_2.Resolution(
+                "1K"
+            ),
+            description="Resolution of the generated image. Higher resolutions take longer to generate.",
+        )
+    )
+    image_input: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input images to transform or use as reference (supports up to 14 images)",
+    )
+    aspect_ratio: nodetool.nodes.replicate.image.generate.Nano_Banana_2.Aspect_ratio = (
+        Field(
+            default=nodetool.nodes.replicate.image.generate.Nano_Banana_2.Aspect_ratio(
+                "match_input_image"
+            ),
+            description="Aspect ratio of the generated image",
+        )
+    )
+    image_search: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="Use Google Image Search grounding to find web images as visual context for generation. When enabled, web search is also used automatically.",
+    )
+    google_search: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="Use Google Web Search grounding to generate images based on real-time information (e.g. weather, sports scores, recent events).",
+    )
+    output_format: (
+        nodetool.nodes.replicate.image.generate.Nano_Banana_2.Output_format
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Nano_Banana_2.Output_format(
+            "jpg"
+        ),
+        description="Format of the output image",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Nano_Banana_2
 
     @classmethod
     def get_node_type(cls):
