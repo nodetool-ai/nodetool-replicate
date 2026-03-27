@@ -1121,6 +1121,26 @@ replicate_nodes = [
         "namespace": "audio.generate",
         "return_type": AudioRef,
     },
+    # === Added 2026-03-27 ===
+    {
+        "model_id": "inworld/tts-1.5-max",
+        "node_name": "TTS_1_5_Max",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
+    {
+        "model_id": "bytedance/seedream-5-lite",
+        "node_name": "Seedream_5_Lite",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef, "mask": ImageRef},
+    },
+    {
+        "model_id": "runwayml/gen-4.5",
+        "node_name": "Gen_4_5",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+    },
 ]
 
 if __name__ == "__main__":

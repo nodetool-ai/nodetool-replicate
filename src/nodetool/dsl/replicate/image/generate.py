@@ -247,11 +247,11 @@ class Flux_2_Flex(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRe
     )
     width: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     height: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     prompt: str | OutputHandle[str] | None = connect_field(
         default=None, description="Text prompt for image generation"
@@ -333,11 +333,11 @@ class Flux_2_Max(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     width: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     height: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     prompt: str | OutputHandle[str] | None = connect_field(
         default=None, description="Text prompt for image generation"
@@ -411,11 +411,11 @@ class Flux_2_Pro(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     width: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Width of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     height: int | OutputHandle[int] | None = connect_field(
         default=None,
-        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 32 (if it's not, it will be rounded to nearest multiple of 32).",
+        description="Height of the generated image. Only used when aspect_ratio=custom. Must be a multiple of 16 (if it's not, it will be rounded to nearest multiple of 16).",
     )
     prompt: str | OutputHandle[str] | None = connect_field(
         default=None, description="Text prompt for image generation"
@@ -3455,7 +3455,7 @@ class Qwen_Image(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     )
     lora_weights: str | OutputHandle[str] | None = connect_field(
         default=None,
-        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/Viktor1717/scandinavian-interior-style1/resolve/main/my_first_flux_lora_v1.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
+        description="Load LoRA weights. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet (for example, 'https://huggingface.co/flymy-ai/qwen-image-lora/resolve/main/pytorch_lora_weights.safetensors', 'https://example.com/lora_weights.tar.gz', or 'https://example.com/lora_weights.zip')",
     )
     output_format: nodetool.nodes.replicate.image.generate.Qwen_Image.Output_format = (
         Field(
@@ -3475,9 +3475,17 @@ class Qwen_Image(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     negative_prompt: str | OutputHandle[str] = connect_field(
         default=" ", description="Negative prompt for generated image"
     )
+    extra_lora_scale: list | OutputHandle[list] | None = connect_field(
+        default=None,
+        description="Scales for additional LoRAs as an array of numbers (e.g., 0.5, 0.7). Must match the number of weights in extra_lora_weights.",
+    )
     replicate_weights: str | OutputHandle[str] | None = connect_field(
         default=None,
         description="Load LoRA weights from Replicate training. Only works with text to image pipeline. Supports arbitrary .safetensors URLs, tar files, and zip files from the Internet.",
+    )
+    extra_lora_weights: list | OutputHandle[list] | None = connect_field(
+        default=None,
+        description="Additional LoRA weights as an array of URLs. Same formats supported as lora_weights (e.g., ['https://huggingface.co/flymy-ai/qwen-image-lora/resolve/main/pytorch_lora_weights.safetensors', 'https://huggingface.co/flymy-ai/qwen-image-realism-lora/resolve/main/flymy_realism.safetensors'])",
     )
     num_inference_steps: int | OutputHandle[int] = connect_field(
         default=30,
@@ -4167,6 +4175,80 @@ class Seedream_4(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.image.generate.Seedream_4
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class Seedream_5_Lite(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
+    """
+    Seedream 5.0 lite: image generation with built-in reasoning, example-based editing, and deep domain knowledge
+    """
+
+    Size: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Size
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Aspect_ratio
+    )
+    Output_format: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Output_format
+    )
+    Sequential_image_generation: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Sequential_image_generation
+    )
+
+    size: nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Size = Field(
+        default=nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Size("2K"),
+        description="Image resolution: 2K (2048px) or 3K (3072px).",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt for image generation"
+    )
+    max_images: int | OutputHandle[int] = connect_field(
+        default=1,
+        description="Maximum number of images to generate when sequential_image_generation='auto'. Range: 1-15. Total images (input + generated) cannot exceed 15.",
+    )
+    image_input: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input image(s) for image-to-image generation. List of 1-14 images for single or multi-reference generation.",
+    )
+    aspect_ratio: (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Aspect_ratio
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Aspect_ratio(
+            "match_input_image"
+        ),
+        description="Image aspect ratio. Use 'match_input_image' to automatically match the input image's aspect ratio.",
+    )
+    output_format: (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Output_format
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Output_format(
+            "png"
+        ),
+        description="Output image format.",
+    )
+    sequential_image_generation: (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Sequential_image_generation
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Sequential_image_generation(
+            "disabled"
+        ),
+        description="Group image generation mode. 'disabled' generates a single image. 'auto' lets the model decide whether to generate multiple related images (e.g., story scenes, character variations).",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Seedream_5_Lite
 
     @classmethod
     def get_node_type(cls):

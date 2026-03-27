@@ -428,6 +428,78 @@ import nodetool.nodes.replicate.audio.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class TTS_1_5_Max(SingleOutputGraphNode[types.AudioRef], GraphNode[types.AudioRef]):
+    """
+    Highest-quality text-to-speech with <200ms latency, emotion control, and 15-language support
+    """
+
+    Sample_rate: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.audio.generate.TTS_1_5_Max.Sample_rate
+    )
+    Audio_format: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.audio.generate.TTS_1_5_Max.Audio_format
+    )
+    Text_normalization: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.audio.generate.TTS_1_5_Max.Text_normalization
+    )
+
+    text: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description='The text to convert to speech. Maximum 2,000 characters. Supports SSML break tags for pauses (e.g. `<break time="1s" />`), emotion markups (e.g. `[happy]`, `[sad]`), and non-verbal vocalizations (e.g. `[laugh]`, `[sigh]`).',
+    )
+    voice_id: str | OutputHandle[str] = connect_field(
+        default="Ashley",
+        description="The voice to use. Use a preset voice name (e.g. 'Ashley', 'Dennis', 'Alex') or a custom cloned voice ID.",
+    )
+    sample_rate: nodetool.nodes.replicate.audio.generate.TTS_1_5_Max.Sample_rate = (
+        Field(
+            default=nodetool.nodes.replicate.audio.generate.TTS_1_5_Max.Sample_rate(
+                48000
+            ),
+            description="Audio sample rate in Hz.",
+        )
+    )
+    temperature: float | OutputHandle[float] = connect_field(
+        default=1,
+        description="Controls randomness when generating audio. Higher values produce more expressive results, lower values are more deterministic.",
+    )
+    audio_format: nodetool.nodes.replicate.audio.generate.TTS_1_5_Max.Audio_format = (
+        Field(
+            default=nodetool.nodes.replicate.audio.generate.TTS_1_5_Max.Audio_format(
+                "mp3"
+            ),
+            description="Output audio format.",
+        )
+    )
+    speaking_rate: float | OutputHandle[float] = connect_field(
+        default=0,
+        description="Speaking speed multiplier. Set to 0 for normal speed (1.0).",
+    )
+    text_normalization: (
+        nodetool.nodes.replicate.audio.generate.TTS_1_5_Max.Text_normalization
+    ) = Field(
+        default=nodetool.nodes.replicate.audio.generate.TTS_1_5_Max.Text_normalization(
+            "auto"
+        ),
+        description="Controls whether numbers, dates, and abbreviations are expanded before synthesis. 'auto' lets the model decide, 'on' always normalizes, 'off' reads text as-is.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.audio.generate.TTS_1_5_Max
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.audio.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class TortoiseTTS(SingleOutputGraphNode[types.AudioRef], GraphNode[types.AudioRef]):
     """
     Generate speech from text, clone voices from mp3 files. From James Betker AKA "neonbjb".
