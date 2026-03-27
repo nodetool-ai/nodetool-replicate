@@ -20,6 +20,22 @@ Repository configured with Claude Code memory and automated sync workflow.
 
 ---
 
+## 2026-03-27 - Featured Models Added
+
+- Model ID: `inworld/tts-1.5-max`
+- Namespace: `audio.generate`
+- Description: Highest-quality text-to-speech with <200ms latency, emotion control, and 15-language support, 12.3K runs
+
+- Model ID: `bytedance/seedream-5-lite`
+- Namespace: `image.generate`
+- Description: Seedream 5.0 lite: image generation with built-in reasoning, example-based editing, and deep domain knowledge, 279.6K runs
+
+- Model ID: `runwayml/gen-4.5`
+- Namespace: `video.generate`
+- Description: State-of-the-art video motion quality, prompt adherence and visual fidelity, 41K runs
+
+---
+
 ## 2026-01-18 - Featured Models Added
 
 - Model ID: `openai/gpt-image-1.5`
