@@ -265,13 +265,14 @@ replicate_nodes = [
         "return_type": ImageRef,
         "overrides": {"image": ImageRef},
     },
-    {
-        "model_id": "luma/ray",
-        "node_name": "Ray",
-        "namespace": "video.generate",
-        "return_type": VideoRef,
-        "overrides": {"start_image_url": ImageRef, "end_image_url": ImageRef},
-    },
+    # Temporarily skipping luma/ray due to 404 error on API
+    # {
+    #     "model_id": "luma/ray",
+    #     "node_name": "Ray",
+    #     "namespace": "video.generate",
+    #     "return_type": VideoRef,
+    #     "overrides": {"start_image_url": ImageRef, "end_image_url": ImageRef},
+    # },
     {
         "model_id": "luma/photon-flash",
         "node_name": "Photon_Flash",
@@ -645,12 +646,13 @@ replicate_nodes = [
         "namespace": "text.generate",
         "return_type": str,
     },
-    {
-        "model_id": "meta/meta-llama-3.1-405b-instruct",
-        "node_name": "Llama3_1_405B_Instruct",
-        "namespace": "text.generate",
-        "return_type": str,
-    },
+    # Temporarily skipping meta/meta-llama-3.1-405b-instruct due to 404 error on API
+    # {
+    #     "model_id": "meta/meta-llama-3.1-405b-instruct",
+    #     "node_name": "Llama3_1_405B_Instruct",
+    #     "namespace": "text.generate",
+    #     "return_type": str,
+    # },
     {
         "model_id": "meta/llama-guard-3-11b-vision",
         "node_name": "LlamaGuard_3_11B_Vision",
@@ -1036,13 +1038,14 @@ replicate_nodes = [
         "return_type": VideoRef,
         "overrides": {"image": ImageRef},
     },
-    {
-        "model_id": "runwayml/upscale-v1",
-        "node_name": "Runway_Upscale_V1",
-        "namespace": "video.enhance",
-        "return_type": VideoRef,
-        "overrides": {"video": VideoRef},
-    },
+    # Temporarily skipping runwayml/upscale-v1 due to 404 error on API
+    # {
+    #     "model_id": "runwayml/upscale-v1",
+    #     "node_name": "Runway_Upscale_V1",
+    #     "namespace": "video.enhance",
+    #     "return_type": VideoRef,
+    #     "overrides": {"video": VideoRef},
+    # },
     {
         "model_id": "topazlabs/video-upscale",
         "node_name": "Topaz_Video_Upscale",
@@ -1118,6 +1121,41 @@ replicate_nodes = [
     {
         "model_id": "google/lyria-2",
         "node_name": "Lyria_2",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
+    # === Added 2026-03-28 - Recent Featured Models ===
+    {
+        "model_id": "google/gemini-3-flash",
+        "node_name": "Gemini_3_Flash",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    # Temporarily skipping prunaai/p-video due to API timeout issues
+    # {
+    #     "model_id": "prunaai/p-video",
+    #     "node_name": "P_Video",
+    #     "namespace": "video.generate",
+    #     "return_type": VideoRef,
+    #     "overrides": {"image": ImageRef, "audio": AudioRef},
+    # },
+    {
+        "model_id": "black-forest-labs/flux-2-klein-4b",
+        "node_name": "Flux_2_Klein_4B",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "google/nano-banana-2",
+        "node_name": "Nano_Banana_2",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "inworld/tts-1.5-max",
+        "node_name": "TTS_1_5_Max",
         "namespace": "audio.generate",
         "return_type": AudioRef,
     },
