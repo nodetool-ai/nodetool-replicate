@@ -199,6 +199,69 @@ import nodetool.nodes.replicate.audio.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Qwen3_TTS(SingleOutputGraphNode[types.AudioRef], GraphNode[types.AudioRef]):
+    """
+    A unified Text-to-Speech demo featuring three powerful modes: Voice, Clone and Design
+    """
+
+    Mode: typing.ClassVar[type] = nodetool.nodes.replicate.audio.generate.Qwen3_TTS.Mode
+    Speaker: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.audio.generate.Qwen3_TTS.Speaker
+    )
+    Language: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.audio.generate.Qwen3_TTS.Language
+    )
+
+    mode: nodetool.nodes.replicate.audio.generate.Qwen3_TTS.Mode = Field(
+        default=nodetool.nodes.replicate.audio.generate.Qwen3_TTS.Mode("custom_voice"),
+        description="TTS mode: 'custom_voice' uses preset speakers, 'voice_clone' clones from reference audio, 'voice_design' creates voice from description",
+    )
+    text: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text to synthesize into speech"
+    )
+    speaker: nodetool.nodes.replicate.audio.generate.Qwen3_TTS.Speaker = Field(
+        default=nodetool.nodes.replicate.audio.generate.Qwen3_TTS.Speaker("Serena"),
+        description="Preset speaker voice (only for 'custom_voice' mode)",
+    )
+    language: nodetool.nodes.replicate.audio.generate.Qwen3_TTS.Language = Field(
+        default=nodetool.nodes.replicate.audio.generate.Qwen3_TTS.Language("auto"),
+        description="Language of the text (use 'auto' for automatic detection)",
+    )
+    reference_text: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Transcript of the reference audio (recommended for 'voice_clone' mode)",
+    )
+    reference_audio: types.AudioRef | OutputHandle[types.AudioRef] = connect_field(
+        default=types.AudioRef(
+            type="audio", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Reference audio file for voice cloning (only for 'voice_clone' mode)",
+    )
+    style_instruction: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Optional style/emotion instruction (e.g., 'speak slowly and calmly', 'excited tone')",
+    )
+    voice_description: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Natural language description of desired voice (only for 'voice_design' mode). Example: 'A warm, friendly female voice with a slight British accent'",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.audio.generate.Qwen3_TTS
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.audio.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class RealisticVoiceCloning(
     SingleOutputGraphNode[types.AudioRef], GraphNode[types.AudioRef]
 ):

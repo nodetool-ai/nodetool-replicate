@@ -59,7 +59,7 @@ class RealisticVoiceCloning(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": None,
-            "run_count": 1650577,
+            "run_count": 1654242,
             "url": "https://replicate.com/zsxkib/realistic-voice-cloning",
             "visibility": "public",
             "weights_url": None,
@@ -314,7 +314,7 @@ class TortoiseTTS(ReplicateNode):
             "owner": "afiaka87",
             "is_official": False,
             "paper_url": "https://github.com/neonbjb/tortoise-tts",
-            "run_count": 173488,
+            "run_count": 173490,
             "url": "https://replicate.com/afiaka87/tortoise-tts",
             "visibility": "public",
             "weights_url": None,
@@ -482,7 +482,7 @@ class Riffusion(ReplicateNode):
             "owner": "riffusion",
             "is_official": False,
             "paper_url": "https://www.riffusion.com/about",
-            "run_count": 1085039,
+            "run_count": 1085294,
             "url": "https://replicate.com/riffusion/riffusion",
             "visibility": "public",
             "weights_url": None,
@@ -573,7 +573,7 @@ class MusicGen(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.05284",
-            "run_count": 3348936,
+            "run_count": 3350096,
             "url": "https://replicate.com/meta/musicgen",
             "visibility": "public",
             "weights_url": None,
@@ -683,7 +683,7 @@ class MMAudio(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": "https://hkchengrex.github.io/MMAudio",
-            "run_count": 4965056,
+            "run_count": 4970378,
             "url": "https://replicate.com/zsxkib/mmaudio",
             "visibility": "public",
             "weights_url": "https://huggingface.co/hkchengrex/MMAudio/tree/main",
@@ -755,7 +755,7 @@ class Lyria_2(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 80830,
+            "run_count": 81283,
             "url": "https://replicate.com/google/lyria-2",
             "visibility": "public",
             "weights_url": None,
@@ -827,7 +827,7 @@ class TTS_1_5_Max(ReplicateNode):
             "owner": "inworld",
             "is_official": True,
             "paper_url": None,
-            "run_count": 15355,
+            "run_count": 17386,
             "url": "https://replicate.com/inworld/tts-1.5-max",
             "visibility": "public",
             "weights_url": None,
@@ -870,4 +870,106 @@ class TTS_1_5_Max(ReplicateNode):
     text_normalization: Text_normalization = Field(
         description="Controls whether numbers, dates, and abbreviations are expanded before synthesis. 'auto' lets the model decide, 'on' always normalizes, 'off' reads text as-is.",
         default="auto",
+    )
+
+
+class Qwen3_TTS(ReplicateNode):
+    """A unified Text-to-Speech demo featuring three powerful modes: Voice, Clone and Design"""
+
+    class Mode(str, Enum):
+        CUSTOM_VOICE = "custom_voice"
+        VOICE_CLONE = "voice_clone"
+        VOICE_DESIGN = "voice_design"
+
+    class Speaker(str, Enum):
+        AIDEN = "Aiden"
+        DYLAN = "Dylan"
+        ERIC = "Eric"
+        ONO_ANNA = "Ono_anna"
+        RYAN = "Ryan"
+        SERENA = "Serena"
+        SOHEE = "Sohee"
+        UNCLE_FU = "Uncle_fu"
+        VIVIAN = "Vivian"
+
+    class Language(str, Enum):
+        AUTO = "auto"
+        CHINESE = "Chinese"
+        ENGLISH = "English"
+        JAPANESE = "Japanese"
+        KOREAN = "Korean"
+        FRENCH = "French"
+        GERMAN = "German"
+        ITALIAN = "Italian"
+        SPANISH = "Spanish"
+        PORTUGUESE = "Portuguese"
+        RUSSIAN = "Russian"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["mode", "text", "speaker"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "qwen/qwen3-tts:23e60a41e34ca385573d6b7922fe9b6cb09b88344471157cc7fa562600962970"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/b77cfc0f-207d-47c5-918b-0f824a368605/qwen3.jpg",
+            "created_at": "2026-01-23T18:16:45.747430Z",
+            "description": "A unified Text-to-Speech demo featuring three powerful modes: Voice, Clone and Design",
+            "github_url": None,
+            "license_url": "https://huggingface.co/datasets/choosealicense/licenses/blob/main/markdown/apache-2.0.md",
+            "name": "qwen3-tts",
+            "owner": "qwen",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 202466,
+            "url": "https://replicate.com/qwen/qwen3-tts",
+            "visibility": "public",
+            "weights_url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.AudioRef
+
+    mode: Mode = Field(
+        description="TTS mode: 'custom_voice' uses preset speakers, 'voice_clone' clones from reference audio, 'voice_design' creates voice from description",
+        default="custom_voice",
+    )
+    text: str | None = Field(
+        title="Text", description="Text to synthesize into speech", default=None
+    )
+    speaker: Speaker = Field(
+        description="Preset speaker voice (only for 'custom_voice' mode)",
+        default="Serena",
+    )
+    language: Language = Field(
+        description="Language of the text (use 'auto' for automatic detection)",
+        default="auto",
+    )
+    reference_text: str | None = Field(
+        title="Reference Text",
+        description="Transcript of the reference audio (recommended for 'voice_clone' mode)",
+        default=None,
+    )
+    reference_audio: types.AudioRef = Field(
+        default=types.AudioRef(),
+        description="Reference audio file for voice cloning (only for 'voice_clone' mode)",
+    )
+    style_instruction: str | None = Field(
+        title="Style Instruction",
+        description="Optional style/emotion instruction (e.g., 'speak slowly and calmly', 'excited tone')",
+        default=None,
+    )
+    voice_description: str | None = Field(
+        title="Voice Description",
+        description="Natural language description of desired voice (only for 'voice_design' mode). Example: 'A warm, friendly female voice with a slight British accent'",
+        default=None,
     )

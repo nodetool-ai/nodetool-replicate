@@ -38,7 +38,7 @@ class Topaz_Video_Upscale(ReplicateNode):
             "owner": "topazlabs",
             "is_official": True,
             "paper_url": None,
-            "run_count": 851373,
+            "run_count": 851756,
             "url": "https://replicate.com/topazlabs/video-upscale",
             "visibility": "public",
             "weights_url": None,

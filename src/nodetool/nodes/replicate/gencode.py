@@ -1159,6 +1159,28 @@ replicate_nodes = [
         "namespace": "audio.generate",
         "return_type": AudioRef,
     },
+    # === Added 2026-03-29 - New Popular Models ===
+    {
+        "model_id": "google/veo-3.1-fast",
+        "node_name": "Veo_3_1_Fast",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef, "last_frame": ImageRef},
+    },
+    {
+        "model_id": "qwen/qwen3-tts",
+        "node_name": "Qwen3_TTS",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+        "overrides": {"reference_audio": AudioRef},
+    },
+    {
+        "model_id": "bytedance/seedream-4.5",
+        "node_name": "Seedream_4_5",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image_input": ImageRef},
+    },
 ]
 
 if __name__ == "__main__":

@@ -870,6 +870,81 @@ import nodetool.nodes.replicate.video.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Veo_3_1_Fast(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
+    """
+    New and improved version of Veo 3 Fast, with higher-fidelity video, context-aware audio and last frame support
+    """
+
+    Duration: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Veo_3_1_Fast.Duration
+    )
+    Resolution: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Veo_3_1_Fast.Resolution
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Veo_3_1_Fast.Aspect_ratio
+    )
+
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Random seed. Omit for random generations"
+    )
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Input image to start generating from. Ideal images are 16:9 or 9:16 and 1280x720 or 720x1280, depending on the aspect ratio you choose.",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt for video generation"
+    )
+    duration: nodetool.nodes.replicate.video.generate.Veo_3_1_Fast.Duration = Field(
+        default=nodetool.nodes.replicate.video.generate.Veo_3_1_Fast.Duration(8),
+        description="Video duration in seconds",
+    )
+    last_frame: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Ending image for interpolation. When provided with an input image, creates a transition between the two images.",
+    )
+    resolution: nodetool.nodes.replicate.video.generate.Veo_3_1_Fast.Resolution = Field(
+        default=nodetool.nodes.replicate.video.generate.Veo_3_1_Fast.Resolution(
+            "1080p"
+        ),
+        description="Resolution of the generated video",
+    )
+    aspect_ratio: nodetool.nodes.replicate.video.generate.Veo_3_1_Fast.Aspect_ratio = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.Veo_3_1_Fast.Aspect_ratio(
+                "16:9"
+            ),
+            description="Video aspect ratio",
+        )
+    )
+    generate_audio: bool | OutputHandle[bool] = connect_field(
+        default=True, description="Generate audio with the video"
+    )
+    negative_prompt: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Description of what to exclude from the generated video",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.video.generate.Veo_3_1_Fast
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.video.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Video_01(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
     """
     Generate 6s videos with prompts or images. (Also known as Hailuo). Use a subject reference to make a video with a character and the S2V-01 model.
