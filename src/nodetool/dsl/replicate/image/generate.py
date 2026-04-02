@@ -4405,6 +4405,82 @@ import nodetool.nodes.replicate.image.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Seedream_5_Lite(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
+    """
+    Seedream 5.0 lite: image generation with built-in reasoning, example-based editing, and deep domain knowledge
+    """
+
+    Size: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Size
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Aspect_ratio
+    )
+    Output_format: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Output_format
+    )
+    Sequential_image_generation: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Sequential_image_generation
+    )
+
+    size: nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Size = Field(
+        default=nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Size("2K"),
+        description="Image resolution: 2K (2048px) or 3K (3072px).",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt for image generation"
+    )
+    max_images: int | OutputHandle[int] = connect_field(
+        default=1,
+        description="Maximum number of images to generate when sequential_image_generation='auto'. Range: 1-15. Total images (input + generated) cannot exceed 15.",
+    )
+    image_input: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Input image(s) for image-to-image generation. List of 1-14 images for single or multi-reference generation.",
+    )
+    aspect_ratio: (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Aspect_ratio
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Aspect_ratio(
+            "match_input_image"
+        ),
+        description="Image aspect ratio. Use 'match_input_image' to automatically match the input image's aspect ratio.",
+    )
+    output_format: (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Output_format
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Output_format(
+            "png"
+        ),
+        description="Output image format.",
+    )
+    sequential_image_generation: (
+        nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Sequential_image_generation
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Seedream_5_Lite.Sequential_image_generation(
+            "disabled"
+        ),
+        description="Group image generation mode. 'disabled' generates a single image. 'auto' lets the model decide whether to generate multiple related images (e.g., story scenes, character variations).",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Seedream_5_Lite
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class StableDiffusion(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
     """
     A latent text-to-image diffusion model capable of generating photo-realistic images given any text input

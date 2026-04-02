@@ -1181,6 +1181,27 @@ replicate_nodes = [
         "return_type": ImageRef,
         "overrides": {"image_input": ImageRef},
     },
+    # === Added 2026-04-02 - Latest Popular Models ===
+    {
+        "model_id": "bytedance/seedream-5-lite",
+        "node_name": "Seedream_5_Lite",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image_input": ImageRef},
+    },
+    {
+        "model_id": "runwayml/gen-4.5",
+        "node_name": "Gen_4_5",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+    },
+    {
+        "model_id": "xai/grok-imagine-video",
+        "node_name": "Grok_Imagine_Video",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef},
+    },
 ]
 
 if __name__ == "__main__":

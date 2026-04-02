@@ -164,6 +164,117 @@ import nodetool.nodes.replicate.video.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Gen_4_5(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
+    """
+    State-of-the-art video motion quality, prompt adherence and visual fidelity
+    """
+
+    Duration: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Gen_4_5.Duration
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Gen_4_5.Aspect_ratio
+    )
+
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Random seed. Set for reproducible generation"
+    )
+    image: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Optional initial image for video generation (first frame). If not provided, video will be generated from text only.",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt for video generation"
+    )
+    duration: nodetool.nodes.replicate.video.generate.Gen_4_5.Duration = Field(
+        default=nodetool.nodes.replicate.video.generate.Gen_4_5.Duration(5),
+        description="Duration of the output video in seconds",
+    )
+    aspect_ratio: nodetool.nodes.replicate.video.generate.Gen_4_5.Aspect_ratio = Field(
+        default=nodetool.nodes.replicate.video.generate.Gen_4_5.Aspect_ratio("16:9"),
+        description="Video aspect ratio",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.video.generate.Gen_4_5
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.video.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class Grok_Imagine_Video(
+    SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]
+):
+    """
+    Generate videos using xAI's Grok Imagine Video model
+    """
+
+    Resolution: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Grok_Imagine_Video.Resolution
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Grok_Imagine_Video.Aspect_ratio
+    )
+
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Input image to generate video from (image-to-video). Supports jpg, jpeg, png, webp.",
+    )
+    video: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Input video to edit (video editing mode). Must be a direct link, max 8.7 seconds. Supports mp4, mov, webm.",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt for video generation"
+    )
+    duration: int | OutputHandle[int] = connect_field(
+        default=5,
+        description="Duration of the video in seconds (1-15). Ignored when editing a video.",
+    )
+    resolution: (
+        nodetool.nodes.replicate.video.generate.Grok_Imagine_Video.Resolution
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Grok_Imagine_Video.Resolution(
+            "720p"
+        ),
+        description="Resolution of the video. Ignored when editing a video.",
+    )
+    aspect_ratio: (
+        nodetool.nodes.replicate.video.generate.Grok_Imagine_Video.Aspect_ratio
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Grok_Imagine_Video.Aspect_ratio(
+            "auto"
+        ),
+        description="Aspect ratio of the video. For text-to-video, defaults to 16:9. For image-to-video, defaults to the input image's native aspect ratio. Ignored when editing a video.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.video.generate.Grok_Imagine_Video
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.video.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Hailuo_02(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
     """
     Hailuo 2 is a text-to-video and image-to-video model that can make 6s or 10s videos at 768p (standard) or 1080p (pro). It excels at real world physics.

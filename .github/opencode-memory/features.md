@@ -76,3 +76,22 @@ Repository configured with Claude Code memory and automated sync workflow.
 
 **Notes:**
 - Total node count increased from 158 to 161 nodes
+
+---
+
+## 2026-04-02 - Latest Popular Models Added
+
+- Model ID: `bytedance/seedream-5-lite`
+- Namespace: `image.generate`
+- Description: ByteDance's latest image generation model with built-in reasoning, example-based editing, and deep domain knowledge. Generate up to 3K resolution images, edit with reference examples, and create batch image sets, 580,900+ runs
+
+- Model ID: `runwayml/gen-4.5`
+- Namespace: `video.generate`
+- Description: State-of-the-art video generation model delivering unprecedented visual fidelity, cinematic realism, and precise creative control. Ranked #1 in Artificial Analysis Text-to-Video Leaderboard with 1,247 Elo score, 64,100+ runs
+
+- Model ID: `xai/grok-imagine-video`
+- Namespace: `video.generate`
+- Description: xAI's image-to-video model that animates still images into short videos with synchronized audio. Uses Aurora autoregressive mixture-of-experts architecture for realistic motion, object interactions, and automatically generated sound, 342,500+ runs
+
+**Notes:**
+- Total node count increased from 161 to 164 nodes
