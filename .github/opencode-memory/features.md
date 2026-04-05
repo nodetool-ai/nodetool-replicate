@@ -95,3 +95,22 @@ Repository configured with Claude Code memory and automated sync workflow.
 
 **Notes:**
 - Total node count increased from 161 to 164 nodes
+
+---
+
+## 2026-04-05 - Latest Featured Models Added
+
+- Model ID: `recraft-ai/recraft-v4`
+- Namespace: `image.generate`
+- Description: Recraft AI's latest image generation model with brand design, vector art, and realistic photography capabilities. Features text-to-image, image-to-image, and natural image editing with consistent style and brand alignment, 210.4K+ runs
+
+- Model ID: `google/lyria-3-pro`
+- Namespace: `audio.generate`
+- Description: Google's most advanced music generation model producing high-quality instrumental music with improved coherence, structure, and audio fidelity. Generates diverse musical styles and genres from text prompts, very recent release with growing adoption
+
+- Model ID: `inworld/tts-1.5-mini`
+- Namespace: `audio.generate`
+- Description: InWorld's lightweight text-to-speech model optimized for speed and efficiency while maintaining high voice quality. Features low latency speech synthesis with emotion control and multi-language support, 5.7K+ runs
+
+**Notes:**
+- Total node count increased from 164 to 167 nodes

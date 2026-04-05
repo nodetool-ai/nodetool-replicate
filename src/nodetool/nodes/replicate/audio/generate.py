@@ -59,7 +59,7 @@ class RealisticVoiceCloning(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": None,
-            "run_count": 1665658,
+            "run_count": 1675926,
             "url": "https://replicate.com/zsxkib/realistic-voice-cloning",
             "visibility": "public",
             "weights_url": None,
@@ -314,7 +314,7 @@ class TortoiseTTS(ReplicateNode):
             "owner": "afiaka87",
             "is_official": False,
             "paper_url": "https://github.com/neonbjb/tortoise-tts",
-            "run_count": 173504,
+            "run_count": 173515,
             "url": "https://replicate.com/afiaka87/tortoise-tts",
             "visibility": "public",
             "weights_url": None,
@@ -390,7 +390,7 @@ class StyleTTS2(ReplicateNode):
             "owner": "adirik",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.07691",
-            "run_count": 132491,
+            "run_count": 132492,
             "url": "https://replicate.com/adirik/styletts2",
             "visibility": "public",
             "weights_url": None,
@@ -482,7 +482,7 @@ class Riffusion(ReplicateNode):
             "owner": "riffusion",
             "is_official": False,
             "paper_url": "https://www.riffusion.com/about",
-            "run_count": 1088343,
+            "run_count": 1088962,
             "url": "https://replicate.com/riffusion/riffusion",
             "visibility": "public",
             "weights_url": None,
@@ -573,7 +573,7 @@ class MusicGen(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.05284",
-            "run_count": 3353853,
+            "run_count": 3356660,
             "url": "https://replicate.com/meta/musicgen",
             "visibility": "public",
             "weights_url": None,
@@ -683,7 +683,7 @@ class MMAudio(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": "https://hkchengrex.github.io/MMAudio",
-            "run_count": 4988698,
+            "run_count": 5001694,
             "url": "https://replicate.com/zsxkib/mmaudio",
             "visibility": "public",
             "weights_url": "https://huggingface.co/hkchengrex/MMAudio/tree/main",
@@ -755,7 +755,7 @@ class Lyria_2(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 88158,
+            "run_count": 99273,
             "url": "https://replicate.com/google/lyria-2",
             "visibility": "public",
             "weights_url": None,
@@ -827,7 +827,7 @@ class TTS_1_5_Max(ReplicateNode):
             "owner": "inworld",
             "is_official": True,
             "paper_url": None,
-            "run_count": 20818,
+            "run_count": 24638,
             "url": "https://replicate.com/inworld/tts-1.5-max",
             "visibility": "public",
             "weights_url": None,
@@ -911,7 +911,7 @@ class Qwen3_TTS(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "qwen/qwen3-tts:23e60a41e34ca385573d6b7922fe9b6cb09b88344471157cc7fa562600962970"
+        return "qwen/qwen3-tts:0b366549c7541af95a69454651f4ebf02c699036841cd20b78b9e2a26b4b2750"
 
     @classmethod
     def get_hardware(cls):
@@ -929,7 +929,7 @@ class Qwen3_TTS(ReplicateNode):
             "owner": "qwen",
             "is_official": True,
             "paper_url": None,
-            "run_count": 213067,
+            "run_count": 224381,
             "url": "https://replicate.com/qwen/qwen3-tts",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base",
@@ -972,4 +972,146 @@ class Qwen3_TTS(ReplicateNode):
         title="Voice Description",
         description="Natural language description of desired voice (only for 'voice_design' mode). Example: 'A warm, friendly female voice with a slight British accent'",
         default=None,
+    )
+
+
+class Lyria_3_Pro(ReplicateNode):
+    """Generate full-length songs up to 3 minutes from text prompts or images with Lyria 3 Pro, Google's most capable music generation model"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["images", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "google/lyria-3-pro:e889d1f3874b51b977c8cd14bff43cacde7789ad00ff14b2779d6fdb7167c64a"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/22671d81-7e89-4db5-bd35-0d2c514fd74e/Lyria-3-Pro_thumbnail.width-13.png",
+            "created_at": "2026-04-02T14:10:03.506260Z",
+            "description": "Generate full-length songs up to 3 minutes from text prompts or images with Lyria 3 Pro, Google's most capable music generation model",
+            "github_url": None,
+            "license_url": None,
+            "name": "lyria-3-pro",
+            "owner": "google",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 329,
+            "url": "https://replicate.com/google/lyria-3-pro",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.AudioRef
+
+    images: list = Field(
+        title="Images",
+        description="Input images to inspire the music composition (up to 10 images)",
+        default=[],
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="Text prompt describing the song to generate. Include details like genre, instruments, mood, tempo, lyrics, and song structure (e.g. [Verse], [Chorus], [Bridge]) for best results. You can also use timestamps like [0:00 - 0:30] to control timing.",
+        default=None,
+    )
+
+
+class TTS_1_5_Mini(ReplicateNode):
+    """Ultra-fast, cost-efficient text-to-speech with ~120ms latency and 15-language support"""
+
+    class Sample_rate(int, Enum):
+        _8000 = 8000
+        _16000 = 16000
+        _22050 = 22050
+        _24000 = 24000
+        _32000 = 32000
+        _44100 = 44100
+        _48000 = 48000
+
+    class Audio_format(str, Enum):
+        MP3 = "mp3"
+        WAV = "wav"
+        OGG_OPUS = "ogg_opus"
+        FLAC = "flac"
+
+    class Text_normalization(str, Enum):
+        AUTO = "auto"
+        ON = "on"
+        OFF = "off"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["text", "voice_id", "sample_rate"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "inworld/tts-1.5-mini:69d70021ccd22bb05789f356e0a60992124384ab9692640e25dc74fe6718c104"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/a6840701-0041-4a1f-a25b-77152468c505/tmpmk9wkimd.jpg",
+            "created_at": "2026-03-10T20:20:48.180891Z",
+            "description": "Ultra-fast, cost-efficient text-to-speech with ~120ms latency and 15-language support",
+            "github_url": None,
+            "license_url": None,
+            "name": "tts-1.5-mini",
+            "owner": "inworld",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 5879,
+            "url": "https://replicate.com/inworld/tts-1.5-mini",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.AudioRef
+
+    text: str | None = Field(
+        title="Text",
+        description='The text to convert to speech. Maximum 2,000 characters. Supports SSML break tags for pauses (e.g. `<break time="1s" />`), emotion markups (e.g. `[happy]`, `[sad]`), and non-verbal vocalizations (e.g. `[laugh]`, `[sigh]`).',
+        default=None,
+    )
+    voice_id: str = Field(
+        title="Voice Id",
+        description="The voice to use. Use a preset voice name (e.g. 'Ashley', 'Dennis', 'Alex') or a custom cloned voice ID.",
+        default="Ashley",
+    )
+    sample_rate: Sample_rate = Field(
+        description="Audio sample rate in Hz.", default=48000
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="Controls randomness when generating audio. Higher values produce more expressive results, lower values are more deterministic.",
+        ge=0.0,
+        le=2.0,
+        default=1,
+    )
+    audio_format: Audio_format = Field(
+        description="Output audio format.", default="mp3"
+    )
+    speaking_rate: float = Field(
+        title="Speaking Rate",
+        description="Speaking speed multiplier. Set to 0 for normal speed (1.0).",
+        ge=0.0,
+        le=1.5,
+        default=0,
+    )
+    text_normalization: Text_normalization = Field(
+        description="Controls whether numbers, dates, and abbreviations are expanded before synthesis. 'auto' lets the model decide, 'on' always normalizes, 'off' reads text as-is.",
+        default="auto",
     )

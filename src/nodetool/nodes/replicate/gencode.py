@@ -1202,6 +1202,26 @@ replicate_nodes = [
         "return_type": VideoRef,
         "overrides": {"image": ImageRef},
     },
+    # === Added 2026-04-05 - Latest Featured Models ===
+    {
+        "model_id": "recraft-ai/recraft-v4",
+        "node_name": "Recraft_V4",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "google/lyria-3-pro",
+        "node_name": "Lyria_3_Pro",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
+    {
+        "model_id": "inworld/tts-1.5-mini",
+        "node_name": "TTS_1_5_Mini",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
 ]
 
 if __name__ == "__main__":
