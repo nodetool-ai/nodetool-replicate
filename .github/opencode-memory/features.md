@@ -114,3 +114,22 @@ Repository configured with Claude Code memory and automated sync workflow.
 
 **Notes:**
 - Total node count increased from 164 to 167 nodes
+
+---
+
+## 2026-04-08 - Latest Featured Models Added
+
+- Model ID: `wan-video/wan-2.7-image-pro`
+- Namespace: `image.generate`
+- Description: Alibaba's Wan 2.7 Pro image generation model with 4K output, thinking mode, text-to-image, multi-image editing, and image set generation. High-quality image generation with advanced editing capabilities, 3.8K+ runs
+
+- Model ID: `kwaivgi/kling-v3-motion-control`
+- Namespace: `video.generate`
+- Description: Kling 3.0 motion control model that transfers motion from reference videos to character images with improved consistency and quality. Advanced video motion synthesis for character animation, 83.1K+ runs
+
+- Model ID: `qwen/qwen-image-2-pro`
+- Namespace: `image.generate`
+- Description: Qwen Image 2 Pro from Alibaba's Qwen team with enhanced text rendering, realism, and semantic adherence for high-quality image generation and editing. Professional-grade image generation with superior text handling, 15.2K+ runs
+
+**Notes:**
+- Total node count increased from 167 to 170 nodes

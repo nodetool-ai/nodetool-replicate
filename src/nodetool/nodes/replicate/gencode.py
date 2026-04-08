@@ -1222,6 +1222,28 @@ replicate_nodes = [
         "namespace": "audio.generate",
         "return_type": AudioRef,
     },
+    # === Added 2026-04-08 - Latest Featured Models ===
+    {
+        "model_id": "wan-video/wan-2.7-image-pro",
+        "node_name": "Wan_2_7_Image_Pro",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
+    {
+        "model_id": "kwaivgi/kling-v3-motion-control",
+        "node_name": "Kling_V3_Motion_Control",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef, "motion_video": VideoRef},
+    },
+    {
+        "model_id": "qwen/qwen-image-2-pro",
+        "node_name": "Qwen_Image_2_Pro",
+        "namespace": "image.generate",
+        "return_type": ImageRef,
+        "overrides": {"image": ImageRef},
+    },
 ]
 
 if __name__ == "__main__":

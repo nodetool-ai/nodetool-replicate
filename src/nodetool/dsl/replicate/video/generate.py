@@ -539,6 +539,69 @@ import nodetool.nodes.replicate.video.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Kling_V3_Motion_Control(
+    SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]
+):
+    """
+    Kling 3.0 motion control: transfer motion from a reference video to any character image with improved consistency and quality.
+    """
+
+    Mode: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Kling_V3_Motion_Control.Mode
+    )
+    Character_orientation: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Kling_V3_Motion_Control.Character_orientation
+    )
+
+    mode: nodetool.nodes.replicate.video.generate.Kling_V3_Motion_Control.Mode = Field(
+        default=nodetool.nodes.replicate.video.generate.Kling_V3_Motion_Control.Mode(
+            "pro"
+        ),
+        description="Video generation mode. 'std': Standard mode (720p, cost-effective). 'pro': Professional mode (1080p, higher quality).",
+    )
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Reference image. The characters, backgrounds, and other elements in the generated video are based on the reference image. Supports .jpg/.jpeg/.png, max 10MB, dimensions 340px-3850px, aspect ratio 1:2.5 to 2.5:1.",
+    )
+    video: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Reference video. The character actions in the generated video are consistent with the reference video. Supports .mp4/.mov, max 100MB, 3-30 seconds duration depending on character_orientation.",
+    )
+    prompt: str | OutputHandle[str] = connect_field(
+        default="",
+        description="Text prompt for video generation. You can add elements to the screen and achieve motion effects through prompt words.",
+    )
+    keep_original_sound: bool | OutputHandle[bool] = connect_field(
+        default=True,
+        description="Whether to keep the original sound of the reference video",
+    )
+    character_orientation: (
+        nodetool.nodes.replicate.video.generate.Kling_V3_Motion_Control.Character_orientation
+    ) = Field(
+        default=nodetool.nodes.replicate.video.generate.Kling_V3_Motion_Control.Character_orientation(
+            "image"
+        ),
+        description="Orientation of the character in the generated video. 'image': same orientation as the person in the picture (max 10s video). 'video': consistent with the orientation of the characters in the video (max 30s video). When binding elements, only 'video' orientation is supported.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.video.generate.Kling_V3_Motion_Control
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.video.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class LTX_Video(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
     """
     LTX-Video is the first DiT-based video generation model capable of generating high-quality videos in real-time. It produces 24 FPS videos at a 768x512 resolution faster than they can be watched.

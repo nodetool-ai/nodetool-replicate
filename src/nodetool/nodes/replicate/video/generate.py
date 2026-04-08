@@ -74,7 +74,7 @@ class HotshotXL(ReplicateNode):
             "owner": "lucataco",
             "is_official": False,
             "paper_url": "https://huggingface.co/hotshotco/SDXL-512",
-            "run_count": 923748,
+            "run_count": 925205,
             "url": "https://replicate.com/lucataco/hotshot-xl",
             "visibility": "public",
             "weights_url": None,
@@ -147,7 +147,7 @@ class Zeroscope_V2_XL(ReplicateNode):
             "owner": "anotherjesse",
             "is_official": False,
             "paper_url": "https://huggingface.co/cerspense/zeroscope_v2_576w",
-            "run_count": 303462,
+            "run_count": 303574,
             "url": "https://replicate.com/anotherjesse/zeroscope-v2-xl",
             "visibility": "public",
             "weights_url": None,
@@ -245,7 +245,7 @@ class RobustVideoMatting(ReplicateNode):
             "owner": "arielreplicate",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2108.11515",
-            "run_count": 95687,
+            "run_count": 99268,
             "url": "https://replicate.com/arielreplicate/robust_video_matting",
             "visibility": "public",
             "weights_url": None,
@@ -288,7 +288,7 @@ class AudioToWaveform(ReplicateNode):
             "owner": "fofr",
             "is_official": False,
             "paper_url": "https://gradio.app/docs/#make_waveform",
-            "run_count": 384252,
+            "run_count": 384288,
             "url": "https://replicate.com/fofr/audio-to-waveform",
             "visibility": "public",
             "weights_url": None,
@@ -350,7 +350,7 @@ class Hunyuan_Video(ReplicateNode):
             "owner": "tencent",
             "is_official": False,
             "paper_url": "https://github.com/Tencent/HunyuanVideo/blob/main/assets/hunyuanvideo.pdf",
-            "run_count": 117398,
+            "run_count": 117464,
             "url": "https://replicate.com/tencent/hunyuan-video",
             "visibility": "public",
             "weights_url": "https://huggingface.co/tencent/HunyuanVideo",
@@ -434,7 +434,7 @@ class Video_01_Live(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 181077,
+            "run_count": 182263,
             "url": "https://replicate.com/minimax/video-01-live",
             "visibility": "public",
             "weights_url": None,
@@ -484,7 +484,7 @@ class Video_01(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 685770,
+            "run_count": 689823,
             "url": "https://replicate.com/minimax/video-01",
             "visibility": "public",
             "weights_url": None,
@@ -551,7 +551,7 @@ class Music_01(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 526217,
+            "run_count": 527710,
             "url": "https://replicate.com/minimax/music-01",
             "visibility": "public",
             "weights_url": None,
@@ -662,7 +662,7 @@ class LTX_Video(ReplicateNode):
             "owner": "lightricks",
             "is_official": False,
             "paper_url": None,
-            "run_count": 167723,
+            "run_count": 168010,
             "url": "https://replicate.com/lightricks/ltx-video",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Lightricks/LTX-Video",
@@ -757,7 +757,7 @@ class Wan_2_1_I2V_480p(ReplicateNode):
             "owner": "wavespeedai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 444451,
+            "run_count": 445215,
             "url": "https://replicate.com/wavespeedai/wan-2.1-i2v-480p",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-14B",
@@ -872,7 +872,7 @@ class Wan_2_1_1_3B(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": "https://wanxai.com/",
-            "run_count": 48447,
+            "run_count": 48608,
             "url": "https://replicate.com/wan-video/wan-2.1-1.3b",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B",
@@ -981,7 +981,7 @@ class Pixverse_V5(ReplicateNode):
             "owner": "pixverse",
             "is_official": True,
             "paper_url": None,
-            "run_count": 774818,
+            "run_count": 775624,
             "url": "https://replicate.com/pixverse/pixverse-v5",
             "visibility": "public",
             "weights_url": None,
@@ -1070,7 +1070,7 @@ class Gen4_Turbo(ReplicateNode):
             "owner": "runwayml",
             "is_official": True,
             "paper_url": None,
-            "run_count": 73074,
+            "run_count": 75535,
             "url": "https://replicate.com/runwayml/gen4-turbo",
             "visibility": "public",
             "weights_url": None,
@@ -1134,7 +1134,7 @@ class Gen4_Aleph(ReplicateNode):
             "owner": "runwayml",
             "is_official": True,
             "paper_url": "https://runwayml.com/research/introducing-runway-aleph",
-            "run_count": 192301,
+            "run_count": 200616,
             "url": "https://replicate.com/runwayml/gen4-aleph",
             "visibility": "public",
             "weights_url": None,
@@ -1200,7 +1200,7 @@ class Kling_V2_1(ReplicateNode):
             "owner": "kwaivgi",
             "is_official": True,
             "paper_url": None,
-            "run_count": 3771386,
+            "run_count": 3819770,
             "url": "https://replicate.com/kwaivgi/kling-v2.1",
             "visibility": "public",
             "weights_url": None,
@@ -1312,7 +1312,7 @@ class Kling_Lip_Sync(ReplicateNode):
             "owner": "kwaivgi",
             "is_official": True,
             "paper_url": None,
-            "run_count": 39732,
+            "run_count": 40402,
             "url": "https://replicate.com/kwaivgi/kling-lip-sync",
             "visibility": "public",
             "weights_url": None,
@@ -1391,7 +1391,7 @@ class Hailuo_02(ReplicateNode):
             "owner": "minimax",
             "is_official": True,
             "paper_url": None,
-            "run_count": 357602,
+            "run_count": 360089,
             "url": "https://replicate.com/minimax/hailuo-02",
             "visibility": "public",
             "weights_url": None,
@@ -1462,7 +1462,7 @@ class Wan_2_2_T2V_Fast(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": None,
-            "run_count": 239191,
+            "run_count": 246412,
             "url": "https://replicate.com/wan-video/wan-2.2-t2v-fast",
             "visibility": "public",
             "weights_url": None,
@@ -1576,7 +1576,7 @@ class Wan_2_2_I2V_Fast(ReplicateNode):
             "owner": "wan-video",
             "is_official": True,
             "paper_url": None,
-            "run_count": 9684876,
+            "run_count": 9925472,
             "url": "https://replicate.com/wan-video/wan-2.2-i2v-fast",
             "visibility": "public",
             "weights_url": None,
@@ -1692,7 +1692,7 @@ class Lipsync_2(ReplicateNode):
             "owner": "sync",
             "is_official": True,
             "paper_url": None,
-            "run_count": 27162,
+            "run_count": 27799,
             "url": "https://replicate.com/sync/lipsync-2",
             "visibility": "public",
             "weights_url": None,
@@ -1760,7 +1760,7 @@ class Lipsync_2_Pro(ReplicateNode):
             "owner": "sync",
             "is_official": True,
             "paper_url": None,
-            "run_count": 23409,
+            "run_count": 24703,
             "url": "https://replicate.com/sync/lipsync-2-pro",
             "visibility": "public",
             "weights_url": None,
@@ -1834,7 +1834,7 @@ class Veo_3_1(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 425296,
+            "run_count": 432382,
             "url": "https://replicate.com/google/veo-3.1",
             "visibility": "public",
             "weights_url": None,
@@ -1924,7 +1924,7 @@ class Veo_3_1_Fast(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 539102,
+            "run_count": 549198,
             "url": "https://replicate.com/google/veo-3.1-fast",
             "visibility": "public",
             "weights_url": None,
@@ -2006,7 +2006,7 @@ class Gen_4_5(ReplicateNode):
             "owner": "runwayml",
             "is_official": True,
             "paper_url": None,
-            "run_count": 64141,
+            "run_count": 77759,
             "url": "https://replicate.com/runwayml/gen-4.5",
             "visibility": "public",
             "weights_url": None,
@@ -2076,7 +2076,7 @@ class Grok_Imagine_Video(ReplicateNode):
             "owner": "xai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 342571,
+            "run_count": 395078,
             "url": "https://replicate.com/xai/grok-imagine-video",
             "visibility": "public",
             "weights_url": None,
@@ -2112,4 +2112,78 @@ class Grok_Imagine_Video(ReplicateNode):
     aspect_ratio: Aspect_ratio = Field(
         description="Aspect ratio of the video. For text-to-video, defaults to 16:9. For image-to-video, defaults to the input image's native aspect ratio. Ignored when editing a video.",
         default="auto",
+    )
+
+
+class Kling_V3_Motion_Control(ReplicateNode):
+    """Kling 3.0 motion control: transfer motion from a reference video to any character image with improved consistency and quality."""
+
+    class Mode(str, Enum):
+        STD = "std"
+        PRO = "pro"
+
+    class Character_orientation(str, Enum):
+        IMAGE = "image"
+        VIDEO = "video"
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["mode", "image", "video"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "kwaivgi/kling-v3-motion-control:15430b300f8c044e8f9e3567fd6daadf6d62e9bb0cee23fdb7969d3b26542f40"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://replicate.delivery/xezq/i748h9oPvLp6Ktupd1oFRcNbzcGl5j9gZCfDyHsv4MrN07GLA/tmp7gzjazeo.mp4",
+            "created_at": "2026-03-05T16:50:16.385004Z",
+            "description": "Kling 3.0 motion control: transfer motion from a reference video to any character image with improved consistency and quality.",
+            "github_url": "https://github.com/replicate/cog-kwai-proxy",
+            "license_url": None,
+            "name": "kling-v3-motion-control",
+            "owner": "kwaivgi",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 89017,
+            "url": "https://replicate.com/kwaivgi/kling-v3-motion-control",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.VideoRef
+
+    mode: Mode = Field(
+        description="Video generation mode. 'std': Standard mode (720p, cost-effective). 'pro': Professional mode (1080p, higher quality).",
+        default="pro",
+    )
+    image: types.ImageRef = Field(
+        default=types.ImageRef(),
+        description="Reference image. The characters, backgrounds, and other elements in the generated video are based on the reference image. Supports .jpg/.jpeg/.png, max 10MB, dimensions 340px-3850px, aspect ratio 1:2.5 to 2.5:1.",
+    )
+    video: str | None = Field(
+        title="Video",
+        description="Reference video. The character actions in the generated video are consistent with the reference video. Supports .mp4/.mov, max 100MB, 3-30 seconds duration depending on character_orientation.",
+        default=None,
+    )
+    prompt: str = Field(
+        title="Prompt",
+        description="Text prompt for video generation. You can add elements to the screen and achieve motion effects through prompt words.",
+        default="",
+    )
+    keep_original_sound: bool = Field(
+        title="Keep Original Sound",
+        description="Whether to keep the original sound of the reference video",
+        default=True,
+    )
+    character_orientation: Character_orientation = Field(
+        description="Orientation of the character in the generated video. 'image': same orientation as the person in the picture (max 10s video). 'video': consistent with the orientation of the characters in the video (max 30s video). When binding elements, only 'video' orientation is supported.",
+        default="image",
     )

@@ -3659,6 +3659,67 @@ import nodetool.nodes.replicate.image.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Qwen_Image_2_Pro(
+    SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]
+):
+    """
+    The pro version of Qwen Image 2 from Alibaba's Qwen team. Enhanced text rendering, realism, and semantic adherence for high-quality image generation and editing.
+    """
+
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Qwen_Image_2_Pro.Aspect_ratio
+    )
+
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None,
+        description="Random seed for reproducible generation. Range: 0-2147483647",
+    )
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Optional reference image for image editing, style transfer, or image-to-image generation",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt for image generation or editing"
+    )
+    aspect_ratio: (
+        nodetool.nodes.replicate.image.generate.Qwen_Image_2_Pro.Aspect_ratio
+    ) = Field(
+        default=nodetool.nodes.replicate.image.generate.Qwen_Image_2_Pro.Aspect_ratio(
+            "1:1"
+        ),
+        description="Aspect ratio of the generated image",
+    )
+    negative_prompt: str | OutputHandle[str] = connect_field(
+        default="",
+        description="Negative prompt to specify elements to avoid in the generated image",
+    )
+    match_input_image: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="When true and an image is provided, use the input image's aspect ratio and resolution instead of the aspect_ratio parameter",
+    )
+    enable_prompt_expansion: bool | OutputHandle[bool] = connect_field(
+        default=True,
+        description="Automatically expand and optimize the prompt for better results",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Qwen_Image_2_Pro
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Qwen_Image_Edit(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
     """
     Edit images using a prompt. This model extends Qwen-Image’s unique text rendering capabilities to image editing tasks, enabling precise text editing
@@ -3915,6 +3976,51 @@ class Recraft_V3_SVG(SingleOutputGraphNode[types.SVGRef], GraphNode[types.SVGRef
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.image.generate.Recraft_V3_SVG
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class Recraft_V4(SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]):
+    """
+    Recraft's latest image generation model, built around design taste. Strong prompt accuracy, art-directed composition, and integrated text rendering. Fast and cost-efficient at standard resolution.
+    """
+
+    Size: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Recraft_V4.Size
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Recraft_V4.Aspect_ratio
+    )
+
+    size: nodetool.nodes.replicate.image.generate.Recraft_V4.Size = Field(
+        default=nodetool.nodes.replicate.image.generate.Recraft_V4.Size("1024x1024"),
+        description="Width and height of the generated image. Size is ignored if an aspect ratio is set.",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Text prompt for image generation (up to 10,000 characters)",
+    )
+    aspect_ratio: nodetool.nodes.replicate.image.generate.Recraft_V4.Aspect_ratio = (
+        Field(
+            default=nodetool.nodes.replicate.image.generate.Recraft_V4.Aspect_ratio(
+                "Not set"
+            ),
+            description="Aspect ratio of the generated image",
+        )
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Recraft_V4
 
     @classmethod
     def get_node_type(cls):
@@ -5146,6 +5252,61 @@ class StyleTransfer(SingleOutputGraphNode[types.ImageRef], GraphNode[types.Image
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.image.generate.StyleTransfer
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.image.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class Wan_2_7_Image_Pro(
+    SingleOutputGraphNode[types.ImageRef], GraphNode[types.ImageRef]
+):
+    """
+    Generate and edit high-quality images with Alibaba's Wan 2.7 Pro with 4K output, thinking mode, text-to-image, multi-image editing, and image set generation
+    """
+
+    Size: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.image.generate.Wan_2_7_Image_Pro.Size
+    )
+
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None,
+        description="Random seed for reproducible generation. Range: 0-2147483647",
+    )
+    size: nodetool.nodes.replicate.image.generate.Wan_2_7_Image_Pro.Size = Field(
+        default=nodetool.nodes.replicate.image.generate.Wan_2_7_Image_Pro.Size("2K"),
+        description="Output image resolution. '1K', '2K', and '4K' auto-size based on input images. 4K is only available for text-to-image.",
+    )
+    images: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input images for editing, style transfer, or multi-reference generation (up to 9 images, jpg/png/bmp/webp). When provided, the model operates in image editing mode.",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt for image generation or editing"
+    )
+    num_outputs: int | OutputHandle[int] = connect_field(
+        default=1,
+        description="Number of images to generate (1-4 for standard mode, 1-12 for image set mode)",
+    )
+    thinking_mode: bool | OutputHandle[bool] = connect_field(
+        default=True,
+        description="Enable enhanced reasoning for improved image quality. Only applies to text-to-image (no input images, no image set mode). Increases generation time.",
+    )
+    image_set_mode: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="Generate a coherent set of related images from a single prompt (e.g. a character across seasons). When enabled, num_outputs can be up to 12.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.image.generate.Wan_2_7_Image_Pro
 
     @classmethod
     def get_node_type(cls):
