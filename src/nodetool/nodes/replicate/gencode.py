@@ -1244,6 +1244,24 @@ replicate_nodes = [
         "return_type": ImageRef,
         "overrides": {"image": ImageRef},
     },
+    {
+        "model_id": "moonshotai/kimi-k2.5",
+        "node_name": "Kimi_K2_5",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "elevenlabs/music",
+        "node_name": "ElevenLabs_Music",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
+    {
+        "model_id": "google/lyria-3",
+        "node_name": "Lyria_3",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
 ]
 
 if __name__ == "__main__":
