@@ -133,3 +133,22 @@ Repository configured with Claude Code memory and automated sync workflow.
 
 **Notes:**
 - Total node count increased from 167 to 170 nodes
+
+---
+
+## 2026-04-18 - Latest Featured Models Added
+
+- Model ID: `moonshotai/kimi-k2.5`
+- Namespace: `text.generate`
+- Description: Moonshot AI's latest open model. It unifies vision and text, thinking and non-thinking modes, and single-agent and multi-agent execution into one model. Advanced multimodal LLM with reasoning capabilities, 34.4K+ runs
+
+- Model ID: `bytedance/seedance-2.0`
+- Namespace: `video.generate`
+- Description: ByteDance's multimodal video generation model with native audio, multimodal reference inputs, and intelligent duration control. State-of-the-art video generation with high visual fidelity and audio synchronization, 38.9K+ runs
+
+- Model ID: `google/lyria-3`
+- Namespace: `audio.generate`
+- Description: Google's music generation model that generates 30-second music clips from text prompts or images. Professional music generation with high-quality audio output, 2.2K+ runs
+
+**Notes:**
+- Total node count increased from 170 to 173 nodes

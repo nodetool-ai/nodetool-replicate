@@ -33,7 +33,7 @@ class TextExtractOCR(ReplicateNode):
             "owner": "abiruyt",
             "is_official": False,
             "paper_url": None,
-            "run_count": 90141856,
+            "run_count": 90169561,
             "url": "https://replicate.com/abiruyt/text-extract-ocr",
             "visibility": "public",
             "weights_url": None,

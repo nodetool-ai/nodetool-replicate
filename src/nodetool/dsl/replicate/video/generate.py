@@ -975,6 +975,83 @@ import nodetool.nodes.replicate.video.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Seedance_2_0(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
+    """
+    ByteDance's multimodal video generation model with native audio, multimodal reference inputs, and intelligent duration control.
+    """
+
+    Resolution: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Seedance_2_0.Resolution
+    )
+    Aspect_ratio: typing.ClassVar[type] = (
+        nodetool.nodes.replicate.video.generate.Seedance_2_0.Aspect_ratio
+    )
+
+    seed: int | OutputHandle[int] | None = connect_field(
+        default=None, description="Random seed. Set for reproducible generation."
+    )
+    image: types.ImageRef | OutputHandle[types.ImageRef] = connect_field(
+        default=types.ImageRef(
+            type="image", uri="", asset_id=None, data=None, metadata=None
+        ),
+        description="Input image for image-to-video generation (first frame). Cannot be combined with reference images.",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Text prompt for video generation"
+    )
+    duration: int | OutputHandle[int] = connect_field(
+        default=5,
+        description="Video duration in seconds. Set to -1 for intelligent duration (model picks the best length).",
+    )
+    resolution: nodetool.nodes.replicate.video.generate.Seedance_2_0.Resolution = Field(
+        default=nodetool.nodes.replicate.video.generate.Seedance_2_0.Resolution("720p"),
+        description="Video resolution.",
+    )
+    aspect_ratio: nodetool.nodes.replicate.video.generate.Seedance_2_0.Aspect_ratio = (
+        Field(
+            default=nodetool.nodes.replicate.video.generate.Seedance_2_0.Aspect_ratio(
+                "16:9"
+            ),
+            description="Video aspect ratio. Set to 'adaptive' to let the model choose the best ratio based on inputs.",
+        )
+    )
+    generate_audio: bool | OutputHandle[bool] = connect_field(
+        default=True,
+        description="Generate synchronized audio with the video, including dialogue (use double quotes in prompt), sound effects, and background music.",
+    )
+    last_frame_image: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Input image for last frame generation. Only works if a first frame image is also provided. Cannot be combined with reference images.",
+    )
+    reference_audios: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Reference audio files (up to 3, total duration max 15s) for audio-driven generation and lip-sync. Requires at least one reference image or video. Reference them in your prompt as [Audio1], [Audio2], etc.",
+    )
+    reference_images: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Reference images (up to 9) for character consistency, style guidance, and scene composition. Cannot be used together with first/last frame images. You can reference them in your prompt as [Image1], [Image2], etc.",
+    )
+    reference_videos: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Reference videos (up to 3, total duration max 15s) for motion transfer, style reference, and editing. Reference them in your prompt as [Video1], [Video2], etc.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.video.generate.Seedance_2_0
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.video.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Veo_3_1(SingleOutputGraphNode[types.VideoRef], GraphNode[types.VideoRef]):
     """
     New and improved version of Veo 3, with higher-fidelity video, context-aware audio, reference image and last frame support

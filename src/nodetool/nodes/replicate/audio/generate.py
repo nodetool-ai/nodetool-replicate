@@ -59,7 +59,7 @@ class RealisticVoiceCloning(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": None,
-            "run_count": 1685009,
+            "run_count": 1714523,
             "url": "https://replicate.com/zsxkib/realistic-voice-cloning",
             "visibility": "public",
             "weights_url": None,
@@ -314,7 +314,7 @@ class TortoiseTTS(ReplicateNode):
             "owner": "afiaka87",
             "is_official": False,
             "paper_url": "https://github.com/neonbjb/tortoise-tts",
-            "run_count": 173521,
+            "run_count": 173540,
             "url": "https://replicate.com/afiaka87/tortoise-tts",
             "visibility": "public",
             "weights_url": None,
@@ -390,7 +390,7 @@ class StyleTTS2(ReplicateNode):
             "owner": "adirik",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.07691",
-            "run_count": 132494,
+            "run_count": 132495,
             "url": "https://replicate.com/adirik/styletts2",
             "visibility": "public",
             "weights_url": None,
@@ -482,7 +482,7 @@ class Riffusion(ReplicateNode):
             "owner": "riffusion",
             "is_official": False,
             "paper_url": "https://www.riffusion.com/about",
-            "run_count": 1089517,
+            "run_count": 1091336,
             "url": "https://replicate.com/riffusion/riffusion",
             "visibility": "public",
             "weights_url": None,
@@ -573,7 +573,7 @@ class MusicGen(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2306.05284",
-            "run_count": 3359401,
+            "run_count": 3366929,
             "url": "https://replicate.com/meta/musicgen",
             "visibility": "public",
             "weights_url": None,
@@ -683,7 +683,7 @@ class MMAudio(ReplicateNode):
             "owner": "zsxkib",
             "is_official": False,
             "paper_url": "https://hkchengrex.github.io/MMAudio",
-            "run_count": 5014097,
+            "run_count": 5059086,
             "url": "https://replicate.com/zsxkib/mmaudio",
             "visibility": "public",
             "weights_url": "https://huggingface.co/hkchengrex/MMAudio/tree/main",
@@ -755,7 +755,7 @@ class Lyria_2(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 109749,
+            "run_count": 137346,
             "url": "https://replicate.com/google/lyria-2",
             "visibility": "public",
             "weights_url": None,
@@ -809,7 +809,7 @@ class TTS_1_5_Max(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "inworld/tts-1.5-max:cd3daef10bdf2569116cfc09be2a8d3c686622ad9c45bd7e072eea8232c1075a"
+        return "inworld/tts-1.5-max:4a2e51066a48d694207736b7598590ac44a8c780d3ee50147951c5ddf3e52e1d"
 
     @classmethod
     def get_hardware(cls):
@@ -827,7 +827,7 @@ class TTS_1_5_Max(ReplicateNode):
             "owner": "inworld",
             "is_official": True,
             "paper_url": None,
-            "run_count": 28808,
+            "run_count": 48202,
             "url": "https://replicate.com/inworld/tts-1.5-max",
             "visibility": "public",
             "weights_url": None,
@@ -852,10 +852,10 @@ class TTS_1_5_Max(ReplicateNode):
     )
     temperature: float = Field(
         title="Temperature",
-        description="Controls randomness when generating audio. Higher values produce more expressive results, lower values are more deterministic.",
+        description="Controls randomness when generating audio. Higher values produce more expressive results, lower values are more deterministic. Set to 0 to use the model default (1.1).",
         ge=0.0,
         le=2.0,
-        default=1,
+        default=0,
     )
     audio_format: Audio_format = Field(
         description="Output audio format.", default="mp3"
@@ -929,7 +929,7 @@ class Qwen3_TTS(ReplicateNode):
             "owner": "qwen",
             "is_official": True,
             "paper_url": None,
-            "run_count": 232329,
+            "run_count": 259706,
             "url": "https://replicate.com/qwen/qwen3-tts",
             "visibility": "public",
             "weights_url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base",
@@ -1002,7 +1002,7 @@ class Lyria_3_Pro(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1391,
+            "run_count": 3739,
             "url": "https://replicate.com/google/lyria-3-pro",
             "visibility": "public",
             "weights_url": None,
@@ -1053,7 +1053,7 @@ class TTS_1_5_Mini(ReplicateNode):
 
     @classmethod
     def replicate_model_id(cls):
-        return "inworld/tts-1.5-mini:69d70021ccd22bb05789f356e0a60992124384ab9692640e25dc74fe6718c104"
+        return "inworld/tts-1.5-mini:787e87b8a178054348a86663750877f97187237604ad294931b6447c3d3f680c"
 
     @classmethod
     def get_hardware(cls):
@@ -1071,7 +1071,7 @@ class TTS_1_5_Mini(ReplicateNode):
             "owner": "inworld",
             "is_official": True,
             "paper_url": None,
-            "run_count": 7711,
+            "run_count": 14817,
             "url": "https://replicate.com/inworld/tts-1.5-mini",
             "visibility": "public",
             "weights_url": None,
@@ -1096,10 +1096,10 @@ class TTS_1_5_Mini(ReplicateNode):
     )
     temperature: float = Field(
         title="Temperature",
-        description="Controls randomness when generating audio. Higher values produce more expressive results, lower values are more deterministic.",
+        description="Controls randomness when generating audio. Higher values produce more expressive results, lower values are more deterministic. Set to 0 to use the model default (1.1).",
         ge=0.0,
         le=2.0,
-        default=1,
+        default=0,
     )
     audio_format: Audio_format = Field(
         description="Output audio format.", default="mp3"
@@ -1114,4 +1114,53 @@ class TTS_1_5_Mini(ReplicateNode):
     text_normalization: Text_normalization = Field(
         description="Controls whether numbers, dates, and abbreviations are expanded before synthesis. 'auto' lets the model decide, 'on' always normalizes, 'off' reads text as-is.",
         default="auto",
+    )
+
+
+class Lyria_3(ReplicateNode):
+    """Generate 30-second music clips from text prompts or images with Lyria 3, Google's music generation model"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["images", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "google/lyria-3:e723695412fa6c3f28aa6dbe7fae3094cf8d0cb51230594272d4efde972f59d6"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/ad0818bb-cdfe-407b-b383-35ede1b0f8c4/image-1.jpg",
+            "created_at": "2026-04-02T14:10:02.907036Z",
+            "description": "Generate 30-second music clips from text prompts or images with Lyria 3, Google's music generation model",
+            "github_url": None,
+            "license_url": None,
+            "name": "lyria-3",
+            "owner": "google",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 7320,
+            "url": "https://replicate.com/google/lyria-3",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return types.AudioRef
+
+    images: list = Field(
+        title="Images",
+        description="Input images to inspire the music composition (up to 10 images)",
+        default=[],
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="Text prompt describing the music to generate. Be specific about genre, instruments, mood, tempo, and style for best results.",
+        default=None,
     )

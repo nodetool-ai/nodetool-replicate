@@ -51,6 +51,36 @@ import nodetool.nodes.replicate.audio.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Lyria_3(SingleOutputGraphNode[types.AudioRef], GraphNode[types.AudioRef]):
+    """
+    Generate 30-second music clips from text prompts or images with Lyria 3, Google's music generation model
+    """
+
+    images: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input images to inspire the music composition (up to 10 images)",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Text prompt describing the music to generate. Be specific about genre, instruments, mood, tempo, and style for best results.",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.audio.generate.Lyria_3
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.audio.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Lyria_3_Pro(SingleOutputGraphNode[types.AudioRef], GraphNode[types.AudioRef]):
     """
     Generate full-length songs up to 3 minutes from text prompts or images with Lyria 3 Pro, Google's most capable music generation model
@@ -553,8 +583,8 @@ class TTS_1_5_Max(SingleOutputGraphNode[types.AudioRef], GraphNode[types.AudioRe
         )
     )
     temperature: float | OutputHandle[float] = connect_field(
-        default=1,
-        description="Controls randomness when generating audio. Higher values produce more expressive results, lower values are more deterministic.",
+        default=0,
+        description="Controls randomness when generating audio. Higher values produce more expressive results, lower values are more deterministic. Set to 0 to use the model default (1.1).",
     )
     audio_format: nodetool.nodes.replicate.audio.generate.TTS_1_5_Max.Audio_format = (
         Field(
@@ -625,8 +655,8 @@ class TTS_1_5_Mini(SingleOutputGraphNode[types.AudioRef], GraphNode[types.AudioR
         )
     )
     temperature: float | OutputHandle[float] = connect_field(
-        default=1,
-        description="Controls randomness when generating audio. Higher values produce more expressive results, lower values are more deterministic.",
+        default=0,
+        description="Controls randomness when generating audio. Higher values produce more expressive results, lower values are more deterministic. Set to 0 to use the model default (1.1).",
     )
     audio_format: nodetool.nodes.replicate.audio.generate.TTS_1_5_Mini.Audio_format = (
         Field(

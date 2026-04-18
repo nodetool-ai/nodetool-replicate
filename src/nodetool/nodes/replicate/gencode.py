@@ -1244,6 +1244,26 @@ replicate_nodes = [
         "return_type": ImageRef,
         "overrides": {"image": ImageRef},
     },
+    # === Added 2026-04-18 - Latest Featured Models ===
+    {
+        "model_id": "moonshotai/kimi-k2.5",
+        "node_name": "Kimi_K2_5",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "bytedance/seedance-2.0",
+        "node_name": "Seedance_2_0",
+        "namespace": "video.generate",
+        "return_type": VideoRef,
+        "overrides": {"image": ImageRef, "audio": AudioRef},
+    },
+    {
+        "model_id": "google/lyria-3",
+        "node_name": "Lyria_3",
+        "namespace": "audio.generate",
+        "return_type": AudioRef,
+    },
 ]
 
 if __name__ == "__main__":
