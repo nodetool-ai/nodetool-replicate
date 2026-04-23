@@ -1264,6 +1264,37 @@ replicate_nodes = [
         "namespace": "audio.generate",
         "return_type": AudioRef,
     },
+    # === Added 2026-04-23 - Latest Featured LLM Models ===
+    {
+        "model_id": "openai/gpt-4o",
+        "node_name": "GPT_4o",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "openai/gpt-4o-mini",
+        "node_name": "GPT_4o_Mini",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "anthropic/claude-4-sonnet",
+        "node_name": "Claude_4_Sonnet",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "google/gemini-2.5-flash",
+        "node_name": "Gemini_2_5_Flash",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
+    {
+        "model_id": "deepseek-ai/deepseek-v3",
+        "node_name": "Deepseek_V3",
+        "namespace": "text.generate",
+        "return_type": str,
+    },
 ]
 
 if __name__ == "__main__":

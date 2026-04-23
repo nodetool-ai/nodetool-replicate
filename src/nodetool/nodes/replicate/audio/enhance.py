@@ -33,7 +33,7 @@ class AudioSuperResolution(ReplicateNode):
             "owner": "nateraw",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2309.07314",
-            "run_count": 67368,
+            "run_count": 67462,
             "url": "https://replicate.com/nateraw/audio-super-resolution",
             "visibility": "public",
             "weights_url": None,

@@ -58,6 +58,53 @@ import nodetool.nodes.replicate.text.generate
 from nodetool.workflows.base_node import BaseNode
 
 
+class Claude_4_Sonnet(SingleOutputGraphNode[str], GraphNode[str]):
+    """
+    Claude Sonnet 4 is a significant upgrade to 3.7, delivering superior coding and reasoning while responding more precisely to your instructions
+    """
+
+    image: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="Optional input image. Images are priced as (width px * height px)/750 input tokens",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="Input prompt"
+    )
+    max_tokens: int | OutputHandle[int] = connect_field(
+        default=8192, description="Maximum number of output tokens"
+    )
+    system_prompt: str | OutputHandle[str] = connect_field(
+        default="", description="System prompt"
+    )
+    extended_thinking: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="Whether to enable extended thinking mode (only supported for Sonnet 3.7 and Sonnet 4)",
+    )
+    max_image_resolution: float | OutputHandle[float] = connect_field(
+        default=0.5,
+        description="Maximum image resolution in megapixels. Scales down image before sending it to Claude, to save time and money.",
+    )
+    thinking_budget_tokens: int | OutputHandle[int] = connect_field(
+        default=1024,
+        description="Maximum number of tokens to use for extended thinking when enabled (only supported for Sonnet 3.7 and Sonnet 4)",
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.text.generate.Claude_4_Sonnet
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.text.generate
+from nodetool.workflows.base_node import BaseNode
+
+
 class Deepseek_R1(SingleOutputGraphNode[str], GraphNode[str]):
     """
     A reasoning model trained with reinforcement learning, on par with OpenAI o1
@@ -85,6 +132,46 @@ class Deepseek_R1(SingleOutputGraphNode[str], GraphNode[str]):
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.text.generate.Deepseek_R1
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.text.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class Deepseek_V3(SingleOutputGraphNode[str], GraphNode[str]):
+    """
+    DeepSeek-V3-0324 is the leading non-reasoning model, a milestone for open source
+    """
+
+    top_p: float | OutputHandle[float] = connect_field(
+        default=1, description="Top-p (nucleus) sampling"
+    )
+    prompt: str | OutputHandle[str] = connect_field(default="", description="Prompt")
+    max_tokens: int | OutputHandle[int] = connect_field(
+        default=2048,
+        description="The maximum number of tokens the model should generate as output.",
+    )
+    temperature: float | OutputHandle[float] = connect_field(
+        default=0.1,
+        description="The value used to modulate the next token probabilities.",
+    )
+    presence_penalty: float | OutputHandle[float] = connect_field(
+        default=0, description="Presence penalty"
+    )
+    frequency_penalty: float | OutputHandle[float] = connect_field(
+        default=0, description="Frequency penalty"
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.text.generate.Deepseek_V3
 
     @classmethod
     def get_node_type(cls):
@@ -297,6 +384,114 @@ class GPT_4_1_Nano(SingleOutputGraphNode[str], GraphNode[str]):
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.text.generate.GPT_4_1_Nano
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.text.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class GPT_4o(SingleOutputGraphNode[str], GraphNode[str]):
+    """
+    OpenAI's high-intelligence chat model
+    """
+
+    top_p: float | OutputHandle[float] = connect_field(
+        default=1,
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass. (0.1 means only the tokens comprising the top 10% probability mass are considered.)",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="The prompt to send to the model. Do not use if using messages.",
+    )
+    messages: list | OutputHandle[list] = connect_field(
+        default=[],
+        description='A JSON string representing a list of messages. For example: [{"role": "user", "content": "Hello, how are you?"}]. If provided, prompt and system_prompt are ignored.',
+    )
+    image_input: list | OutputHandle[list] = connect_field(
+        default=[], description="List of images to send to the model"
+    )
+    temperature: float | OutputHandle[float] = connect_field(
+        default=1, description="Sampling temperature between 0 and 2"
+    )
+    system_prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="System prompt to set the assistant's behavior"
+    )
+    presence_penalty: float | OutputHandle[float] = connect_field(
+        default=0,
+        description="Presence penalty parameter - positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+    )
+    frequency_penalty: float | OutputHandle[float] = connect_field(
+        default=0,
+        description="Frequency penalty parameter - positive values penalize the repetition of tokens.",
+    )
+    max_completion_tokens: int | OutputHandle[int] = connect_field(
+        default=4096, description="Maximum number of completion tokens to generate"
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.text.generate.GPT_4o
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.text.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class GPT_4o_Mini(SingleOutputGraphNode[str], GraphNode[str]):
+    """
+    Low latency, low cost version of OpenAI's GPT-4o model
+    """
+
+    top_p: float | OutputHandle[float] = connect_field(
+        default=1,
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass. (0.1 means only the tokens comprising the top 10% probability mass are considered.)",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None,
+        description="The prompt to send to the model. Do not use if using messages.",
+    )
+    messages: list | OutputHandle[list] = connect_field(
+        default=[],
+        description='A JSON string representing a list of messages. For example: [{"role": "user", "content": "Hello, how are you?"}]. If provided, prompt and system_prompt are ignored.',
+    )
+    image_input: list | OutputHandle[list] = connect_field(
+        default=[], description="List of images to send to the model"
+    )
+    temperature: float | OutputHandle[float] = connect_field(
+        default=1, description="Sampling temperature between 0 and 2"
+    )
+    system_prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="System prompt to set the assistant's behavior"
+    )
+    presence_penalty: float | OutputHandle[float] = connect_field(
+        default=0,
+        description="Presence penalty parameter - positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+    )
+    frequency_penalty: float | OutputHandle[float] = connect_field(
+        default=0,
+        description="Frequency penalty parameter - positive values penalize the repetition of tokens.",
+    )
+    max_completion_tokens: int | OutputHandle[int] = connect_field(
+        default=4096, description="Maximum number of completion tokens to generate"
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.text.generate.GPT_4o_Mini
 
     @classmethod
     def get_node_type(cls):
@@ -563,6 +758,60 @@ class GPT_5_Structured(SingleOutputGraphNode[str], GraphNode[str]):
     @classmethod
     def get_node_class(cls) -> type[BaseNode]:
         return nodetool.nodes.replicate.text.generate.GPT_5_Structured
+
+    @classmethod
+    def get_node_type(cls):
+        return cls.get_node_class().get_node_type()
+
+
+import typing
+from pydantic import Field
+from nodetool.dsl.handles import OutputHandle, OutputsProxy, connect_field
+import nodetool.nodes.replicate.text.generate
+from nodetool.workflows.base_node import BaseNode
+
+
+class Gemini_2_5_Flash(SingleOutputGraphNode[str], GraphNode[str]):
+    """
+    Google’s hybrid “thinking” AI model optimized for speed and cost-efficiency
+    """
+
+    top_p: float | OutputHandle[float] = connect_field(
+        default=0.95,
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass",
+    )
+    images: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input images to send with the prompt (max 10 images, each up to 7MB)",
+    )
+    prompt: str | OutputHandle[str] | None = connect_field(
+        default=None, description="The text prompt to send to the model"
+    )
+    videos: list | OutputHandle[list] = connect_field(
+        default=[],
+        description="Input videos to send with the prompt (max 10 videos, each up to 45 minutes)",
+    )
+    temperature: float | OutputHandle[float] = connect_field(
+        default=1, description="Sampling temperature between 0 and 2"
+    )
+    thinking_budget: int | OutputHandle[int] | None = connect_field(
+        default=None,
+        description="Thinking budget for reasoning (0 to disable thinking, higher values allow more reasoning)",
+    )
+    dynamic_thinking: bool | OutputHandle[bool] = connect_field(
+        default=False,
+        description="Enable dynamic thinking - the model will adjust the thinking budget based on the complexity of the request (overrides thinking_budget parameter)",
+    )
+    max_output_tokens: int | OutputHandle[int] = connect_field(
+        default=65535, description="Maximum number of tokens to generate"
+    )
+    system_instruction: str | OutputHandle[str] | None = connect_field(
+        default=None, description="System instruction to guide the model's behavior"
+    )
+
+    @classmethod
+    def get_node_class(cls) -> type[BaseNode]:
+        return nodetool.nodes.replicate.text.generate.Gemini_2_5_Flash
 
     @classmethod
     def get_node_type(cls):

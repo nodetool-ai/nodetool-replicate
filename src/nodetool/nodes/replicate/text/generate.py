@@ -33,7 +33,7 @@ class Llama3_8B(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 51304152,
+            "run_count": 51307362,
             "url": "https://replicate.com/meta/meta-llama-3-8b",
             "visibility": "public",
             "weights_url": None,
@@ -109,7 +109,7 @@ class Llama3_8B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 406180647,
+            "run_count": 407556072,
             "url": "https://replicate.com/meta/meta-llama-3-8b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -185,7 +185,7 @@ class Llama3_70B(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 860188,
+            "run_count": 866447,
             "url": "https://replicate.com/meta/meta-llama-3-70b",
             "visibility": "public",
             "weights_url": None,
@@ -261,7 +261,7 @@ class Llama3_8B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 406180647,
+            "run_count": 407556072,
             "url": "https://replicate.com/meta/meta-llama-3-8b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -337,7 +337,7 @@ class Llama3_70B_Instruct(ReplicateNode):
             "owner": "meta",
             "is_official": True,
             "paper_url": None,
-            "run_count": 167708766,
+            "run_count": 167837182,
             "url": "https://replicate.com/meta/meta-llama-3-70b-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -460,7 +460,7 @@ class LlamaGuard_3_8B(ReplicateNode):
             "owner": "meta",
             "is_official": False,
             "paper_url": "https://arxiv.org/abs/2407.21783",
-            "run_count": 365147,
+            "run_count": 365306,
             "url": "https://replicate.com/meta/llama-guard-3-8b",
             "visibility": "public",
             "weights_url": "https://huggingface.co/meta-llama/Llama-Guard-3-8B",
@@ -507,7 +507,7 @@ class Snowflake_Arctic_Instruct(ReplicateNode):
             "owner": "snowflake",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1997626,
+            "run_count": 1997673,
             "url": "https://replicate.com/snowflake/snowflake-arctic-instruct",
             "visibility": "public",
             "weights_url": None,
@@ -548,7 +548,7 @@ class Claude_3_7_Sonnet(ReplicateNode):
             "owner": "anthropic",
             "is_official": True,
             "paper_url": None,
-            "run_count": 4055432,
+            "run_count": 4066855,
             "url": "https://replicate.com/anthropic/claude-3.7-sonnet",
             "visibility": "public",
             "weights_url": None,
@@ -610,7 +610,7 @@ class Deepseek_R1(ReplicateNode):
             "owner": "deepseek-ai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 2221955,
+            "run_count": 2223534,
             "url": "https://replicate.com/deepseek-ai/deepseek-r1",
             "visibility": "public",
             "weights_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
@@ -685,7 +685,7 @@ class GPT_5_Structured(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 418434,
+            "run_count": 423286,
             "url": "https://replicate.com/openai/gpt-5-structured",
             "visibility": "public",
             "weights_url": None,
@@ -794,7 +794,7 @@ class GPT_5(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1654678,
+            "run_count": 1688567,
             "url": "https://replicate.com/openai/gpt-5",
             "visibility": "public",
             "weights_url": None,
@@ -877,7 +877,7 @@ class GPT_5_Mini(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1791545,
+            "run_count": 1827810,
             "url": "https://replicate.com/openai/gpt-5-mini",
             "visibility": "public",
             "weights_url": None,
@@ -960,7 +960,7 @@ class GPT_5_Nano(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 9928083,
+            "run_count": 10403820,
             "url": "https://replicate.com/openai/gpt-5-nano",
             "visibility": "public",
             "weights_url": None,
@@ -1032,7 +1032,7 @@ class GPT_4_1(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 309702,
+            "run_count": 315114,
             "url": "https://replicate.com/openai/gpt-4.1",
             "visibility": "public",
             "weights_url": None,
@@ -1124,7 +1124,7 @@ class GPT_4_1_Mini(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 2069965,
+            "run_count": 2098792,
             "url": "https://replicate.com/openai/gpt-4.1-mini",
             "visibility": "public",
             "weights_url": None,
@@ -1216,7 +1216,7 @@ class GPT_4_1_Nano(ReplicateNode):
             "owner": "openai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1548614,
+            "run_count": 1624539,
             "url": "https://replicate.com/openai/gpt-4.1-nano",
             "visibility": "public",
             "weights_url": None,
@@ -1312,7 +1312,7 @@ class Deepseek_V3_1(ReplicateNode):
             "owner": "deepseek-ai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 455804,
+            "run_count": 457836,
             "url": "https://replicate.com/deepseek-ai/deepseek-v3.1",
             "visibility": "public",
             "weights_url": None,
@@ -1383,7 +1383,7 @@ class Gemini_3_Flash(ReplicateNode):
             "owner": "google",
             "is_official": True,
             "paper_url": None,
-            "run_count": 1287117,
+            "run_count": 1432973,
             "url": "https://replicate.com/google/gemini-3-flash",
             "visibility": "public",
             "weights_url": None,
@@ -1470,7 +1470,7 @@ class Kimi_K2_5(ReplicateNode):
             "owner": "moonshotai",
             "is_official": True,
             "paper_url": None,
-            "run_count": 34617,
+            "run_count": 35772,
             "url": "https://replicate.com/moonshotai/kimi-k2.5",
             "visibility": "public",
             "weights_url": None,
@@ -1516,4 +1516,411 @@ class Kimi_K2_5(ReplicateNode):
         ge=-2.0,
         le=2.0,
         default=0,
+    )
+
+
+class GPT_4o(ReplicateNode):
+    """OpenAI's high-intelligence chat model"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["top_p", "prompt", "messages"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "openai/gpt-4o:42f4eb858641c70ce390c381605f5aed04eeb37554d299459429e14a33f88933"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/c0841fcc-b236-4634-8f13-65627b2d5af6/Screenshot_2025-05-18_at_1.14.36.webp",
+            "created_at": "2025-05-15T19:46:39.965430Z",
+            "description": "OpenAI's high-intelligence chat model",
+            "github_url": None,
+            "license_url": "https://openai.com/policies/",
+            "name": "gpt-4o",
+            "owner": "openai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 643666,
+            "url": "https://replicate.com/openai/gpt-4o",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    top_p: float = Field(
+        title="Top P",
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass. (0.1 means only the tokens comprising the top 10% probability mass are considered.)",
+        ge=0.0,
+        le=1.0,
+        default=1,
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="The prompt to send to the model. Do not use if using messages.",
+        default=None,
+    )
+    messages: list = Field(
+        title="Messages",
+        description='A JSON string representing a list of messages. For example: [{"role": "user", "content": "Hello, how are you?"}]. If provided, prompt and system_prompt are ignored.',
+        default=[],
+    )
+    image_input: list = Field(
+        title="Image Input",
+        description="List of images to send to the model",
+        default=[],
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="Sampling temperature between 0 and 2",
+        ge=0.0,
+        le=2.0,
+        default=1,
+    )
+    system_prompt: str | None = Field(
+        title="System Prompt",
+        description="System prompt to set the assistant's behavior",
+        default=None,
+    )
+    presence_penalty: float = Field(
+        title="Presence Penalty",
+        description="Presence penalty parameter - positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        ge=-2.0,
+        le=2.0,
+        default=0,
+    )
+    frequency_penalty: float = Field(
+        title="Frequency Penalty",
+        description="Frequency penalty parameter - positive values penalize the repetition of tokens.",
+        ge=-2.0,
+        le=2.0,
+        default=0,
+    )
+    max_completion_tokens: int = Field(
+        title="Max Completion Tokens",
+        description="Maximum number of completion tokens to generate",
+        default=4096,
+    )
+
+
+class GPT_4o_Mini(ReplicateNode):
+    """Low latency, low cost version of OpenAI's GPT-4o model"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["top_p", "prompt", "messages"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "openai/gpt-4o-mini:86d7f12d34e3f9b6e149231f42154d0f41081d91484932e3f1ee608fc207f7d9"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/274e635d-c3e7-4d26-919a-43d5f1431b00/Screenshot_2025-05-14_at_8.21.53P.png",
+            "created_at": "2025-05-15T02:52:44.476045Z",
+            "description": "Low latency, low cost version of OpenAI's GPT-4o model",
+            "github_url": None,
+            "license_url": "https://openai.com/policies/",
+            "name": "gpt-4o-mini",
+            "owner": "openai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 37560797,
+            "url": "https://replicate.com/openai/gpt-4o-mini",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    top_p: float = Field(
+        title="Top P",
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass. (0.1 means only the tokens comprising the top 10% probability mass are considered.)",
+        ge=0.0,
+        le=1.0,
+        default=1,
+    )
+    prompt: str | None = Field(
+        title="Prompt",
+        description="The prompt to send to the model. Do not use if using messages.",
+        default=None,
+    )
+    messages: list = Field(
+        title="Messages",
+        description='A JSON string representing a list of messages. For example: [{"role": "user", "content": "Hello, how are you?"}]. If provided, prompt and system_prompt are ignored.',
+        default=[],
+    )
+    image_input: list = Field(
+        title="Image Input",
+        description="List of images to send to the model",
+        default=[],
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="Sampling temperature between 0 and 2",
+        ge=0.0,
+        le=2.0,
+        default=1,
+    )
+    system_prompt: str | None = Field(
+        title="System Prompt",
+        description="System prompt to set the assistant's behavior",
+        default=None,
+    )
+    presence_penalty: float = Field(
+        title="Presence Penalty",
+        description="Presence penalty parameter - positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        ge=-2.0,
+        le=2.0,
+        default=0,
+    )
+    frequency_penalty: float = Field(
+        title="Frequency Penalty",
+        description="Frequency penalty parameter - positive values penalize the repetition of tokens.",
+        ge=-2.0,
+        le=2.0,
+        default=0,
+    )
+    max_completion_tokens: int = Field(
+        title="Max Completion Tokens",
+        description="Maximum number of completion tokens to generate",
+        default=4096,
+    )
+
+
+class Claude_4_Sonnet(ReplicateNode):
+    """Claude Sonnet 4 is a significant upgrade to 3.7, delivering superior coding and reasoning while responding more precisely to your instructions"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["image", "prompt", "max_tokens"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "anthropic/claude-4-sonnet:3380fe4ca9cac053c89d1df86a5ba850e61cbef1d474a24abded9516e5a73a04"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/a4e07111-b44f-43b1-a346-5be824f64913/9890d1bb39c15c41772af22d2282e.webp",
+            "created_at": "2025-05-22T20:42:44.724405Z",
+            "description": "Claude Sonnet 4 is a significant upgrade to 3.7, delivering superior coding and reasoning while responding more precisely to your instructions",
+            "github_url": None,
+            "license_url": None,
+            "name": "claude-4-sonnet",
+            "owner": "anthropic",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 2882093,
+            "url": "https://replicate.com/anthropic/claude-4-sonnet",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    image: str | None = Field(
+        title="Image",
+        description="Optional input image. Images are priced as (width px * height px)/750 input tokens",
+        default=None,
+    )
+    prompt: str | None = Field(title="Prompt", description="Input prompt", default=None)
+    max_tokens: int = Field(
+        title="Max Tokens",
+        description="Maximum number of output tokens",
+        ge=1024.0,
+        le=64000.0,
+        default=8192,
+    )
+    system_prompt: str = Field(
+        title="System Prompt", description="System prompt", default=""
+    )
+    extended_thinking: bool = Field(
+        title="Extended Thinking",
+        description="Whether to enable extended thinking mode (only supported for Sonnet 3.7 and Sonnet 4)",
+        default=False,
+    )
+    max_image_resolution: float = Field(
+        title="Max Image Resolution",
+        description="Maximum image resolution in megapixels. Scales down image before sending it to Claude, to save time and money.",
+        ge=0.001,
+        le=2.0,
+        default=0.5,
+    )
+    thinking_budget_tokens: int = Field(
+        title="Thinking Budget Tokens",
+        description="Maximum number of tokens to use for extended thinking when enabled (only supported for Sonnet 3.7 and Sonnet 4)",
+        ge=1024.0,
+        le=64000.0,
+        default=1024,
+    )
+
+
+class Gemini_2_5_Flash(ReplicateNode):
+    """Google’s hybrid “thinking” AI model optimized for speed and cost-efficiency"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["top_p", "images", "prompt"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "google/gemini-2.5-flash:6585308f2652e91c80134f0e070d01bd66107b68590f50ff601860ea6902e813"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/54c863ab-74f0-41f2-bd75-27085f3dfa55/Gemini-2.5-Flash-Image-1024x576.webp",
+            "created_at": "2025-10-03T20:33:26.026273Z",
+            "description": "Google’s hybrid “thinking” AI model optimized for speed and cost-efficiency",
+            "github_url": None,
+            "license_url": None,
+            "name": "gemini-2.5-flash",
+            "owner": "google",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 4450789,
+            "url": "https://replicate.com/google/gemini-2.5-flash",
+            "visibility": "public",
+            "weights_url": None,
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    top_p: float = Field(
+        title="Top P",
+        description="Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass",
+        ge=0.0,
+        le=1.0,
+        default=0.95,
+    )
+    images: list = Field(
+        title="Images",
+        description="Input images to send with the prompt (max 10 images, each up to 7MB)",
+        default=[],
+    )
+    prompt: str | None = Field(
+        title="Prompt", description="The text prompt to send to the model", default=None
+    )
+    videos: list = Field(
+        title="Videos",
+        description="Input videos to send with the prompt (max 10 videos, each up to 45 minutes)",
+        default=[],
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="Sampling temperature between 0 and 2",
+        ge=0.0,
+        le=2.0,
+        default=1,
+    )
+    thinking_budget: int | None = Field(
+        title="Thinking Budget",
+        description="Thinking budget for reasoning (0 to disable thinking, higher values allow more reasoning)",
+        ge=0.0,
+        le=24576.0,
+        default=None,
+    )
+    dynamic_thinking: bool = Field(
+        title="Dynamic Thinking",
+        description="Enable dynamic thinking - the model will adjust the thinking budget based on the complexity of the request (overrides thinking_budget parameter)",
+        default=False,
+    )
+    max_output_tokens: int = Field(
+        title="Max Output Tokens",
+        description="Maximum number of tokens to generate",
+        ge=1.0,
+        le=65535.0,
+        default=65535,
+    )
+    system_instruction: str | None = Field(
+        title="System Instruction",
+        description="System instruction to guide the model's behavior",
+        default=None,
+    )
+
+
+class Deepseek_V3(ReplicateNode):
+    """DeepSeek-V3-0324 is the leading non-reasoning model, a milestone for open source"""
+
+    @classmethod
+    def get_basic_fields(cls):
+        return ["top_p", "prompt", "max_tokens"]
+
+    @classmethod
+    def replicate_model_id(cls):
+        return "deepseek-ai/deepseek-v3:b65d70e71acdaa2c26b32eb763b0b691eae862f3f9c34a5e5c2167565b2caff1"
+
+    @classmethod
+    def get_hardware(cls):
+        return "None"
+
+    @classmethod
+    def get_model_info(cls):
+        return {
+            "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/1fb6b760-d41b-4421-94f9-9539fc928fce/deepseek-v3-cover.jpg",
+            "created_at": "2025-03-25T20:54:06.267598Z",
+            "description": "DeepSeek-V3-0324 is the leading non-reasoning model, a milestone for open source",
+            "github_url": "https://github.com/deepseek-ai/DeepSeek-V3",
+            "license_url": "https://github.com/deepseek-ai/DeepSeek-V3/blob/main/LICENSE-MODEL",
+            "name": "deepseek-v3",
+            "owner": "deepseek-ai",
+            "is_official": True,
+            "paper_url": None,
+            "run_count": 5099828,
+            "url": "https://replicate.com/deepseek-ai/deepseek-v3",
+            "visibility": "public",
+            "weights_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3-0324",
+        }
+
+    @classmethod
+    def return_type(cls):
+        return str
+
+    top_p: float = Field(
+        title="Top P", description="Top-p (nucleus) sampling", default=1
+    )
+    prompt: str = Field(title="Prompt", description="Prompt", default="")
+    max_tokens: int = Field(
+        title="Max Tokens",
+        description="The maximum number of tokens the model should generate as output.",
+        default=2048,
+    )
+    temperature: float = Field(
+        title="Temperature",
+        description="The value used to modulate the next token probabilities.",
+        default=0.1,
+    )
+    presence_penalty: float = Field(
+        title="Presence Penalty", description="Presence penalty", default=0
+    )
+    frequency_penalty: float = Field(
+        title="Frequency Penalty", description="Frequency penalty", default=0
     )

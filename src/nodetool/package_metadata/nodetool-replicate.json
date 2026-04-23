@@ -105,8 +105,115 @@
         "owner": "anthropic",
         "is_official": true,
         "paper_url": null,
-        "run_count": 4055432,
+        "run_count": 4066855,
         "url": "https://replicate.com/anthropic/claude-3.7-sonnet",
+        "visibility": "public",
+        "weights_url": null
+      },
+      "basic_fields": [
+        "image",
+        "prompt",
+        "max_tokens"
+      ]
+    },
+    {
+      "title": "Claude 4 Sonnet",
+      "description": "Claude Sonnet 4 is a significant upgrade to 3.7, delivering superior coding and reasoning while responding more precisely to your instructions",
+      "namespace": "replicate.text.generate",
+      "node_type": "replicate.text.generate.Claude_4_Sonnet",
+      "properties": [
+        {
+          "name": "image",
+          "type": {
+            "type": "str",
+            "optional": true
+          },
+          "default": null,
+          "title": "Image",
+          "description": "Optional input image. Images are priced as (width px * height px)/750 input tokens"
+        },
+        {
+          "name": "prompt",
+          "type": {
+            "type": "str",
+            "optional": true
+          },
+          "default": null,
+          "title": "Prompt",
+          "description": "Input prompt"
+        },
+        {
+          "name": "max_tokens",
+          "type": {
+            "type": "int"
+          },
+          "default": 8192,
+          "title": "Max Tokens",
+          "description": "Maximum number of output tokens",
+          "min": 1024.0,
+          "max": 64000.0
+        },
+        {
+          "name": "system_prompt",
+          "type": {
+            "type": "str"
+          },
+          "default": "",
+          "title": "System Prompt",
+          "description": "System prompt"
+        },
+        {
+          "name": "extended_thinking",
+          "type": {
+            "type": "bool"
+          },
+          "default": false,
+          "title": "Extended Thinking",
+          "description": "Whether to enable extended thinking mode (only supported for Sonnet 3.7 and Sonnet 4)"
+        },
+        {
+          "name": "max_image_resolution",
+          "type": {
+            "type": "float"
+          },
+          "default": 0.5,
+          "title": "Max Image Resolution",
+          "description": "Maximum image resolution in megapixels. Scales down image before sending it to Claude, to save time and money.",
+          "min": 0.001,
+          "max": 2.0
+        },
+        {
+          "name": "thinking_budget_tokens",
+          "type": {
+            "type": "int"
+          },
+          "default": 1024,
+          "title": "Thinking Budget Tokens",
+          "description": "Maximum number of tokens to use for extended thinking when enabled (only supported for Sonnet 3.7 and Sonnet 4)",
+          "min": 1024.0,
+          "max": 64000.0
+        }
+      ],
+      "outputs": [
+        {
+          "type": {
+            "type": "str"
+          },
+          "name": "output"
+        }
+      ],
+      "the_model_info": {
+        "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/a4e07111-b44f-43b1-a346-5be824f64913/9890d1bb39c15c41772af22d2282e.webp",
+        "created_at": "2025-05-22T20:42:44.724405Z",
+        "description": "Claude Sonnet 4 is a significant upgrade to 3.7, delivering superior coding and reasoning while responding more precisely to your instructions",
+        "github_url": null,
+        "license_url": null,
+        "name": "claude-4-sonnet",
+        "owner": "anthropic",
+        "is_official": true,
+        "paper_url": null,
+        "run_count": 2882093,
+        "url": "https://replicate.com/anthropic/claude-4-sonnet",
         "visibility": "public",
         "weights_url": null
       },
@@ -195,10 +302,100 @@
         "owner": "deepseek-ai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 2221955,
+        "run_count": 2223534,
         "url": "https://replicate.com/deepseek-ai/deepseek-r1",
         "visibility": "public",
         "weights_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1"
+      },
+      "basic_fields": [
+        "top_p",
+        "prompt",
+        "max_tokens"
+      ]
+    },
+    {
+      "title": "Deepseek V3",
+      "description": "DeepSeek-V3-0324 is the leading non-reasoning model, a milestone for open source",
+      "namespace": "replicate.text.generate",
+      "node_type": "replicate.text.generate.Deepseek_V3",
+      "properties": [
+        {
+          "name": "top_p",
+          "type": {
+            "type": "float"
+          },
+          "default": 1,
+          "title": "Top P",
+          "description": "Top-p (nucleus) sampling"
+        },
+        {
+          "name": "prompt",
+          "type": {
+            "type": "str"
+          },
+          "default": "",
+          "title": "Prompt",
+          "description": "Prompt"
+        },
+        {
+          "name": "max_tokens",
+          "type": {
+            "type": "int"
+          },
+          "default": 2048,
+          "title": "Max Tokens",
+          "description": "The maximum number of tokens the model should generate as output."
+        },
+        {
+          "name": "temperature",
+          "type": {
+            "type": "float"
+          },
+          "default": 0.1,
+          "title": "Temperature",
+          "description": "The value used to modulate the next token probabilities."
+        },
+        {
+          "name": "presence_penalty",
+          "type": {
+            "type": "float"
+          },
+          "default": 0,
+          "title": "Presence Penalty",
+          "description": "Presence penalty"
+        },
+        {
+          "name": "frequency_penalty",
+          "type": {
+            "type": "float"
+          },
+          "default": 0,
+          "title": "Frequency Penalty",
+          "description": "Frequency penalty"
+        }
+      ],
+      "outputs": [
+        {
+          "type": {
+            "type": "str"
+          },
+          "name": "output"
+        }
+      ],
+      "the_model_info": {
+        "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/1fb6b760-d41b-4421-94f9-9539fc928fce/deepseek-v3-cover.jpg",
+        "created_at": "2025-03-25T20:54:06.267598Z",
+        "description": "DeepSeek-V3-0324 is the leading non-reasoning model, a milestone for open source",
+        "github_url": "https://github.com/deepseek-ai/DeepSeek-V3",
+        "license_url": "https://github.com/deepseek-ai/DeepSeek-V3/blob/main/LICENSE-MODEL",
+        "name": "deepseek-v3",
+        "owner": "deepseek-ai",
+        "is_official": true,
+        "paper_url": null,
+        "run_count": 5099828,
+        "url": "https://replicate.com/deepseek-ai/deepseek-v3",
+        "visibility": "public",
+        "weights_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3-0324"
       },
       "basic_fields": [
         "top_p",
@@ -299,7 +496,7 @@
         "owner": "deepseek-ai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 455804,
+        "run_count": 457836,
         "url": "https://replicate.com/deepseek-ai/deepseek-v3.1",
         "visibility": "public",
         "weights_url": null
@@ -426,7 +623,7 @@
         "owner": "openai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 309702,
+        "run_count": 315114,
         "url": "https://replicate.com/openai/gpt-4.1",
         "visibility": "public",
         "weights_url": null
@@ -553,7 +750,7 @@
         "owner": "openai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 2069965,
+        "run_count": 2098792,
         "url": "https://replicate.com/openai/gpt-4.1-mini",
         "visibility": "public",
         "weights_url": null
@@ -680,8 +877,262 @@
         "owner": "openai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 1548614,
+        "run_count": 1624539,
         "url": "https://replicate.com/openai/gpt-4.1-nano",
+        "visibility": "public",
+        "weights_url": null
+      },
+      "basic_fields": [
+        "top_p",
+        "prompt",
+        "messages"
+      ]
+    },
+    {
+      "title": "GPT 4 o",
+      "description": "OpenAI's high-intelligence chat model",
+      "namespace": "replicate.text.generate",
+      "node_type": "replicate.text.generate.GPT_4o",
+      "properties": [
+        {
+          "name": "top_p",
+          "type": {
+            "type": "float"
+          },
+          "default": 1,
+          "title": "Top P",
+          "description": "Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass. (0.1 means only the tokens comprising the top 10% probability mass are considered.)",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "name": "prompt",
+          "type": {
+            "type": "str",
+            "optional": true
+          },
+          "default": null,
+          "title": "Prompt",
+          "description": "The prompt to send to the model. Do not use if using messages."
+        },
+        {
+          "name": "messages",
+          "type": {
+            "type": "list"
+          },
+          "default": [],
+          "title": "Messages",
+          "description": "A JSON string representing a list of messages. For example: [{\"role\": \"user\", \"content\": \"Hello, how are you?\"}]. If provided, prompt and system_prompt are ignored."
+        },
+        {
+          "name": "image_input",
+          "type": {
+            "type": "list"
+          },
+          "default": [],
+          "title": "Image Input",
+          "description": "List of images to send to the model"
+        },
+        {
+          "name": "temperature",
+          "type": {
+            "type": "float"
+          },
+          "default": 1,
+          "title": "Temperature",
+          "description": "Sampling temperature between 0 and 2",
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "name": "system_prompt",
+          "type": {
+            "type": "str",
+            "optional": true
+          },
+          "default": null,
+          "title": "System Prompt",
+          "description": "System prompt to set the assistant's behavior"
+        },
+        {
+          "name": "presence_penalty",
+          "type": {
+            "type": "float"
+          },
+          "default": 0,
+          "title": "Presence Penalty",
+          "description": "Presence penalty parameter - positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "name": "frequency_penalty",
+          "type": {
+            "type": "float"
+          },
+          "default": 0,
+          "title": "Frequency Penalty",
+          "description": "Frequency penalty parameter - positive values penalize the repetition of tokens.",
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "name": "max_completion_tokens",
+          "type": {
+            "type": "int"
+          },
+          "default": 4096,
+          "title": "Max Completion Tokens",
+          "description": "Maximum number of completion tokens to generate"
+        }
+      ],
+      "outputs": [
+        {
+          "type": {
+            "type": "str"
+          },
+          "name": "output"
+        }
+      ],
+      "the_model_info": {
+        "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/c0841fcc-b236-4634-8f13-65627b2d5af6/Screenshot_2025-05-18_at_1.14.36.webp",
+        "created_at": "2025-05-15T19:46:39.965430Z",
+        "description": "OpenAI's high-intelligence chat model",
+        "github_url": null,
+        "license_url": "https://openai.com/policies/",
+        "name": "gpt-4o",
+        "owner": "openai",
+        "is_official": true,
+        "paper_url": null,
+        "run_count": 643666,
+        "url": "https://replicate.com/openai/gpt-4o",
+        "visibility": "public",
+        "weights_url": null
+      },
+      "basic_fields": [
+        "top_p",
+        "prompt",
+        "messages"
+      ]
+    },
+    {
+      "title": "GPT 4 o Mini",
+      "description": "Low latency, low cost version of OpenAI's GPT-4o model",
+      "namespace": "replicate.text.generate",
+      "node_type": "replicate.text.generate.GPT_4o_Mini",
+      "properties": [
+        {
+          "name": "top_p",
+          "type": {
+            "type": "float"
+          },
+          "default": 1,
+          "title": "Top P",
+          "description": "Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass. (0.1 means only the tokens comprising the top 10% probability mass are considered.)",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "name": "prompt",
+          "type": {
+            "type": "str",
+            "optional": true
+          },
+          "default": null,
+          "title": "Prompt",
+          "description": "The prompt to send to the model. Do not use if using messages."
+        },
+        {
+          "name": "messages",
+          "type": {
+            "type": "list"
+          },
+          "default": [],
+          "title": "Messages",
+          "description": "A JSON string representing a list of messages. For example: [{\"role\": \"user\", \"content\": \"Hello, how are you?\"}]. If provided, prompt and system_prompt are ignored."
+        },
+        {
+          "name": "image_input",
+          "type": {
+            "type": "list"
+          },
+          "default": [],
+          "title": "Image Input",
+          "description": "List of images to send to the model"
+        },
+        {
+          "name": "temperature",
+          "type": {
+            "type": "float"
+          },
+          "default": 1,
+          "title": "Temperature",
+          "description": "Sampling temperature between 0 and 2",
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "name": "system_prompt",
+          "type": {
+            "type": "str",
+            "optional": true
+          },
+          "default": null,
+          "title": "System Prompt",
+          "description": "System prompt to set the assistant's behavior"
+        },
+        {
+          "name": "presence_penalty",
+          "type": {
+            "type": "float"
+          },
+          "default": 0,
+          "title": "Presence Penalty",
+          "description": "Presence penalty parameter - positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "name": "frequency_penalty",
+          "type": {
+            "type": "float"
+          },
+          "default": 0,
+          "title": "Frequency Penalty",
+          "description": "Frequency penalty parameter - positive values penalize the repetition of tokens.",
+          "min": -2.0,
+          "max": 2.0
+        },
+        {
+          "name": "max_completion_tokens",
+          "type": {
+            "type": "int"
+          },
+          "default": 4096,
+          "title": "Max Completion Tokens",
+          "description": "Maximum number of completion tokens to generate"
+        }
+      ],
+      "outputs": [
+        {
+          "type": {
+            "type": "str"
+          },
+          "name": "output"
+        }
+      ],
+      "the_model_info": {
+        "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/274e635d-c3e7-4d26-919a-43d5f1431b00/Screenshot_2025-05-14_at_8.21.53P.png",
+        "created_at": "2025-05-15T02:52:44.476045Z",
+        "description": "Low latency, low cost version of OpenAI's GPT-4o model",
+        "github_url": null,
+        "license_url": "https://openai.com/policies/",
+        "name": "gpt-4o-mini",
+        "owner": "openai",
+        "is_official": true,
+        "paper_url": null,
+        "run_count": 37560797,
+        "url": "https://replicate.com/openai/gpt-4o-mini",
         "visibility": "public",
         "weights_url": null
       },
@@ -795,7 +1246,7 @@
         "owner": "openai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 1654678,
+        "run_count": 1688567,
         "url": "https://replicate.com/openai/gpt-5",
         "visibility": "public",
         "weights_url": null
@@ -910,7 +1361,7 @@
         "owner": "openai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 1791545,
+        "run_count": 1827810,
         "url": "https://replicate.com/openai/gpt-5-mini",
         "visibility": "public",
         "weights_url": null
@@ -1025,7 +1476,7 @@
         "owner": "openai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 9928083,
+        "run_count": 10403820,
         "url": "https://replicate.com/openai/gpt-5-nano",
         "visibility": "public",
         "weights_url": null
@@ -1201,7 +1652,7 @@
         "owner": "openai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 418434,
+        "run_count": 423286,
         "url": "https://replicate.com/openai/gpt-5-structured",
         "visibility": "public",
         "weights_url": null
@@ -1209,6 +1660,134 @@
       "basic_fields": [
         "model",
         "tools",
+        "prompt"
+      ]
+    },
+    {
+      "title": "Gemini 2 5 Flash",
+      "description": "Google\u2019s hybrid \u201cthinking\u201d AI model optimized for speed and cost-efficiency",
+      "namespace": "replicate.text.generate",
+      "node_type": "replicate.text.generate.Gemini_2_5_Flash",
+      "properties": [
+        {
+          "name": "top_p",
+          "type": {
+            "type": "float"
+          },
+          "default": 0.95,
+          "title": "Top P",
+          "description": "Nucleus sampling parameter - the model considers the results of the tokens with top_p probability mass",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "name": "images",
+          "type": {
+            "type": "list"
+          },
+          "default": [],
+          "title": "Images",
+          "description": "Input images to send with the prompt (max 10 images, each up to 7MB)"
+        },
+        {
+          "name": "prompt",
+          "type": {
+            "type": "str",
+            "optional": true
+          },
+          "default": null,
+          "title": "Prompt",
+          "description": "The text prompt to send to the model"
+        },
+        {
+          "name": "videos",
+          "type": {
+            "type": "list"
+          },
+          "default": [],
+          "title": "Videos",
+          "description": "Input videos to send with the prompt (max 10 videos, each up to 45 minutes)"
+        },
+        {
+          "name": "temperature",
+          "type": {
+            "type": "float"
+          },
+          "default": 1,
+          "title": "Temperature",
+          "description": "Sampling temperature between 0 and 2",
+          "min": 0.0,
+          "max": 2.0
+        },
+        {
+          "name": "thinking_budget",
+          "type": {
+            "type": "int",
+            "optional": true
+          },
+          "default": null,
+          "title": "Thinking Budget",
+          "description": "Thinking budget for reasoning (0 to disable thinking, higher values allow more reasoning)",
+          "min": 0.0,
+          "max": 24576.0
+        },
+        {
+          "name": "dynamic_thinking",
+          "type": {
+            "type": "bool"
+          },
+          "default": false,
+          "title": "Dynamic Thinking",
+          "description": "Enable dynamic thinking - the model will adjust the thinking budget based on the complexity of the request (overrides thinking_budget parameter)"
+        },
+        {
+          "name": "max_output_tokens",
+          "type": {
+            "type": "int"
+          },
+          "default": 65535,
+          "title": "Max Output Tokens",
+          "description": "Maximum number of tokens to generate",
+          "min": 1.0,
+          "max": 65535.0
+        },
+        {
+          "name": "system_instruction",
+          "type": {
+            "type": "str",
+            "optional": true
+          },
+          "default": null,
+          "title": "System Instruction",
+          "description": "System instruction to guide the model's behavior"
+        }
+      ],
+      "outputs": [
+        {
+          "type": {
+            "type": "str"
+          },
+          "name": "output"
+        }
+      ],
+      "the_model_info": {
+        "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/54c863ab-74f0-41f2-bd75-27085f3dfa55/Gemini-2.5-Flash-Image-1024x576.webp",
+        "created_at": "2025-10-03T20:33:26.026273Z",
+        "description": "Google\u2019s hybrid \u201cthinking\u201d AI model optimized for speed and cost-efficiency",
+        "github_url": null,
+        "license_url": null,
+        "name": "gemini-2.5-flash",
+        "owner": "google",
+        "is_official": true,
+        "paper_url": null,
+        "run_count": 4450789,
+        "url": "https://replicate.com/google/gemini-2.5-flash",
+        "visibility": "public",
+        "weights_url": null
+      },
+      "basic_fields": [
+        "top_p",
+        "images",
         "prompt"
       ]
     },
@@ -1333,7 +1912,7 @@
         "owner": "google",
         "is_official": true,
         "paper_url": null,
-        "run_count": 1287117,
+        "run_count": 1432973,
         "url": "https://replicate.com/google/gemini-3-flash",
         "visibility": "public",
         "weights_url": null
@@ -1443,7 +2022,7 @@
         "owner": "moonshotai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 34617,
+        "run_count": 35772,
         "url": "https://replicate.com/moonshotai/kimi-k2.5",
         "visibility": "public",
         "weights_url": null
@@ -1560,7 +2139,7 @@
         "owner": "meta",
         "is_official": true,
         "paper_url": null,
-        "run_count": 860188,
+        "run_count": 866447,
         "url": "https://replicate.com/meta/meta-llama-3-70b",
         "visibility": "public",
         "weights_url": null
@@ -1677,7 +2256,7 @@
         "owner": "meta",
         "is_official": true,
         "paper_url": null,
-        "run_count": 167708766,
+        "run_count": 167837182,
         "url": "https://replicate.com/meta/meta-llama-3-70b-instruct",
         "visibility": "public",
         "weights_url": null
@@ -1794,7 +2373,7 @@
         "owner": "meta",
         "is_official": true,
         "paper_url": null,
-        "run_count": 51304152,
+        "run_count": 51307362,
         "url": "https://replicate.com/meta/meta-llama-3-8b",
         "visibility": "public",
         "weights_url": null
@@ -1911,7 +2490,7 @@
         "owner": "meta",
         "is_official": true,
         "paper_url": null,
-        "run_count": 406180647,
+        "run_count": 407556072,
         "url": "https://replicate.com/meta/meta-llama-3-8b-instruct",
         "visibility": "public",
         "weights_url": null
@@ -2020,7 +2599,7 @@
         "owner": "meta",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2407.21783",
-        "run_count": 365147,
+        "run_count": 365306,
         "url": "https://replicate.com/meta/llama-guard-3-8b",
         "visibility": "public",
         "weights_url": "https://huggingface.co/meta-llama/Llama-Guard-3-8B"
@@ -2073,7 +2652,7 @@
         "owner": "snowflake",
         "is_official": true,
         "paper_url": null,
-        "run_count": 1997626,
+        "run_count": 1997673,
         "url": "https://replicate.com/snowflake/snowflake-arctic-instruct",
         "visibility": "public",
         "weights_url": null
@@ -2151,7 +2730,7 @@
         "owner": "topazlabs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 863465,
+        "run_count": 866644,
         "url": "https://replicate.com/topazlabs/video-upscale",
         "visibility": "public",
         "weights_url": null
@@ -2256,7 +2835,7 @@
         "owner": "fofr",
         "is_official": false,
         "paper_url": "https://gradio.app/docs/#make_waveform",
-        "run_count": 384314,
+        "run_count": 384336,
         "url": "https://replicate.com/fofr/audio-to-waveform",
         "visibility": "public",
         "weights_url": null
@@ -2350,7 +2929,7 @@
         "owner": "runwayml",
         "is_official": true,
         "paper_url": "https://runwayml.com/research/introducing-runway-aleph",
-        "run_count": 210511,
+        "run_count": 215283,
         "url": "https://replicate.com/runwayml/gen4-aleph",
         "visibility": "public",
         "weights_url": null
@@ -2448,7 +3027,7 @@
         "owner": "runwayml",
         "is_official": true,
         "paper_url": null,
-        "run_count": 80996,
+        "run_count": 83466,
         "url": "https://replicate.com/runwayml/gen4-turbo",
         "visibility": "public",
         "weights_url": null
@@ -2546,7 +3125,7 @@
         "owner": "runwayml",
         "is_official": true,
         "paper_url": null,
-        "run_count": 109638,
+        "run_count": 124493,
         "url": "https://replicate.com/runwayml/gen-4.5",
         "visibility": "public",
         "weights_url": null
@@ -2662,7 +3241,7 @@
         "owner": "xai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 495935,
+        "run_count": 578024,
         "url": "https://replicate.com/xai/grok-imagine-video",
         "visibility": "public",
         "weights_url": null
@@ -2766,7 +3345,7 @@
         "owner": "minimax",
         "is_official": true,
         "paper_url": null,
-        "run_count": 366283,
+        "run_count": 370769,
         "url": "https://replicate.com/minimax/hailuo-02",
         "visibility": "public",
         "weights_url": null
@@ -2921,7 +3500,7 @@
         "owner": "lucataco",
         "is_official": false,
         "paper_url": "https://huggingface.co/hotshotco/SDXL-512",
-        "run_count": 927753,
+        "run_count": 929262,
         "url": "https://replicate.com/lucataco/hotshot-xl",
         "visibility": "public",
         "weights_url": null
@@ -3040,7 +3619,7 @@
         "owner": "tencent",
         "is_official": false,
         "paper_url": "https://github.com/Tencent/HunyuanVideo/blob/main/assets/hunyuanvideo.pdf",
-        "run_count": 117558,
+        "run_count": 117603,
         "url": "https://replicate.com/tencent/hunyuan-video",
         "visibility": "public",
         "weights_url": "https://huggingface.co/tencent/HunyuanVideo"
@@ -3185,7 +3764,7 @@
         "owner": "kwaivgi",
         "is_official": true,
         "paper_url": null,
-        "run_count": 41690,
+        "run_count": 42461,
         "url": "https://replicate.com/kwaivgi/kling-lip-sync",
         "visibility": "public",
         "weights_url": null
@@ -3288,7 +3867,7 @@
         "owner": "kwaivgi",
         "is_official": true,
         "paper_url": null,
-        "run_count": 3863215,
+        "run_count": 3880783,
         "url": "https://replicate.com/kwaivgi/kling-v2.1",
         "visibility": "public",
         "weights_url": null
@@ -3395,7 +3974,7 @@
         "owner": "kwaivgi",
         "is_official": true,
         "paper_url": null,
-        "run_count": 115422,
+        "run_count": 124758,
         "url": "https://replicate.com/kwaivgi/kling-v3-motion-control",
         "visibility": "public",
         "weights_url": null
@@ -3585,7 +4164,7 @@
         "owner": "lightricks",
         "is_official": false,
         "paper_url": null,
-        "run_count": 168834,
+        "run_count": 169090,
         "url": "https://replicate.com/lightricks/ltx-video",
         "visibility": "public",
         "weights_url": "https://huggingface.co/Lightricks/LTX-Video"
@@ -3690,7 +4269,7 @@
         "owner": "sync",
         "is_official": true,
         "paper_url": null,
-        "run_count": 28870,
+        "run_count": 29579,
         "url": "https://replicate.com/sync/lipsync-2",
         "visibility": "public",
         "weights_url": null
@@ -3795,7 +4374,7 @@
         "owner": "sync",
         "is_official": true,
         "paper_url": null,
-        "run_count": 26707,
+        "run_count": 27848,
         "url": "https://replicate.com/sync/lipsync-2-pro",
         "visibility": "public",
         "weights_url": null
@@ -3932,7 +4511,7 @@
         "owner": "minimax",
         "is_official": true,
         "paper_url": null,
-        "run_count": 530347,
+        "run_count": 531657,
         "url": "https://replicate.com/minimax/music-01",
         "visibility": "public",
         "weights_url": null
@@ -4090,7 +4669,7 @@
         "owner": "pixverse",
         "is_official": true,
         "paper_url": null,
-        "run_count": 776930,
+        "run_count": 777982,
         "url": "https://replicate.com/pixverse/pixverse-v5",
         "visibility": "public",
         "weights_url": null
@@ -4157,7 +4736,7 @@
         "owner": "arielreplicate",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2108.11515",
-        "run_count": 110471,
+        "run_count": 119349,
         "url": "https://replicate.com/arielreplicate/robust_video_matting",
         "visibility": "public",
         "weights_url": null
@@ -4225,7 +4804,8 @@
             "type": "enum",
             "values": [
               "480p",
-              "720p"
+              "720p",
+              "1080p"
             ],
             "type_name": "nodetool.nodes.replicate.video.generate.Seedance_2_0.Resolution"
           },
@@ -4318,7 +4898,7 @@
         "owner": "bytedance",
         "is_official": true,
         "paper_url": null,
-        "run_count": 53208,
+        "run_count": 86669,
         "url": "https://replicate.com/bytedance/seedance-2.0",
         "visibility": "public",
         "weights_url": null
@@ -4465,7 +5045,7 @@
         "owner": "google",
         "is_official": true,
         "paper_url": null,
-        "run_count": 446088,
+        "run_count": 452689,
         "url": "https://replicate.com/google/veo-3.1",
         "visibility": "public",
         "weights_url": null
@@ -4613,7 +5193,7 @@
         "owner": "google",
         "is_official": true,
         "paper_url": null,
-        "run_count": 571172,
+        "run_count": 582305,
         "url": "https://replicate.com/google/veo-3.1-fast",
         "visibility": "public",
         "weights_url": null
@@ -4688,7 +5268,7 @@
         "owner": "minimax",
         "is_official": true,
         "paper_url": null,
-        "run_count": 694539,
+        "run_count": 696661,
         "url": "https://replicate.com/minimax/video-01",
         "visibility": "public",
         "weights_url": null
@@ -4753,7 +5333,7 @@
         "owner": "minimax",
         "is_official": true,
         "paper_url": null,
-        "run_count": 183875,
+        "run_count": 184265,
         "url": "https://replicate.com/minimax/video-01-live",
         "visibility": "public",
         "weights_url": null
@@ -4886,7 +5466,7 @@
         "owner": "wan-video",
         "is_official": true,
         "paper_url": "https://wanxai.com/",
-        "run_count": 48785,
+        "run_count": 48870,
         "url": "https://replicate.com/wan-video/wan-2.1-1.3b",
         "visibility": "public",
         "weights_url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B"
@@ -5058,7 +5638,7 @@
         "owner": "wavespeedai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 446397,
+        "run_count": 447249,
         "url": "https://replicate.com/wavespeedai/wan-2.1-i2v-480p",
         "visibility": "public",
         "weights_url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-14B"
@@ -5251,7 +5831,7 @@
         "owner": "wan-video",
         "is_official": true,
         "paper_url": null,
-        "run_count": 10253148,
+        "run_count": 10442817,
         "url": "https://replicate.com/wan-video/wan-2.2-i2v-fast",
         "visibility": "public",
         "weights_url": null
@@ -5442,7 +6022,7 @@
         "owner": "wan-video",
         "is_official": true,
         "paper_url": null,
-        "run_count": 260365,
+        "run_count": 266530,
         "url": "https://replicate.com/wan-video/wan-2.2-t2v-fast",
         "visibility": "public",
         "weights_url": null
@@ -5621,7 +6201,7 @@
         "owner": "anotherjesse",
         "is_official": false,
         "paper_url": "https://huggingface.co/cerspense/zeroscope_v2_576w",
-        "run_count": 303698,
+        "run_count": 303785,
         "url": "https://replicate.com/anotherjesse/zeroscope-v2-xl",
         "visibility": "public",
         "weights_url": null
@@ -5704,7 +6284,7 @@
         "owner": "nateraw",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2309.07314",
-        "run_count": 67368,
+        "run_count": 67462,
         "url": "https://replicate.com/nateraw/audio-super-resolution",
         "visibility": "public",
         "weights_url": null
@@ -5928,7 +6508,7 @@
         "owner": "ryan5453",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2111.03600",
-        "run_count": 1312131,
+        "run_count": 1333490,
         "url": "https://replicate.com/ryan5453/demucs",
         "visibility": "public",
         "weights_url": null
@@ -5994,7 +6574,7 @@
         "owner": "google",
         "is_official": true,
         "paper_url": null,
-        "run_count": 137346,
+        "run_count": 138815,
         "url": "https://replicate.com/google/lyria-2",
         "visibility": "public",
         "weights_url": null
@@ -6049,7 +6629,7 @@
         "owner": "google",
         "is_official": true,
         "paper_url": null,
-        "run_count": 7320,
+        "run_count": 25543,
         "url": "https://replicate.com/google/lyria-3",
         "visibility": "public",
         "weights_url": null
@@ -6103,7 +6683,7 @@
         "owner": "google",
         "is_official": true,
         "paper_url": null,
-        "run_count": 3739,
+        "run_count": 4516,
         "url": "https://replicate.com/google/lyria-3-pro",
         "visibility": "public",
         "weights_url": null
@@ -6216,7 +6796,7 @@
         "owner": "zsxkib",
         "is_official": false,
         "paper_url": "https://hkchengrex.github.io/MMAudio",
-        "run_count": 5059086,
+        "run_count": 5082663,
         "url": "https://replicate.com/zsxkib/mmaudio",
         "visibility": "public",
         "weights_url": "https://huggingface.co/hkchengrex/MMAudio/tree/main"
@@ -6412,7 +6992,7 @@
         "owner": "meta",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2306.05284",
-        "run_count": 3366929,
+        "run_count": 3371454,
         "url": "https://replicate.com/meta/musicgen",
         "visibility": "public",
         "weights_url": null
@@ -6562,7 +7142,7 @@
         "owner": "qwen",
         "is_official": true,
         "paper_url": null,
-        "run_count": 259706,
+        "run_count": 282175,
         "url": "https://replicate.com/qwen/qwen3-tts",
         "visibility": "public",
         "weights_url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base"
@@ -6822,7 +7402,7 @@
         "owner": "zsxkib",
         "is_official": false,
         "paper_url": null,
-        "run_count": 1714523,
+        "run_count": 1732129,
         "url": "https://replicate.com/zsxkib/realistic-voice-cloning",
         "visibility": "public",
         "weights_url": null
@@ -6932,7 +7512,7 @@
         "owner": "riffusion",
         "is_official": false,
         "paper_url": "https://www.riffusion.com/about",
-        "run_count": 1091336,
+        "run_count": 1093495,
         "url": "https://replicate.com/riffusion/riffusion",
         "visibility": "public",
         "weights_url": null
@@ -7056,7 +7636,7 @@
         "owner": "adirik",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2306.07691",
-        "run_count": 132495,
+        "run_count": 132500,
         "url": "https://replicate.com/adirik/styletts2",
         "visibility": "public",
         "weights_url": null
@@ -7183,7 +7763,7 @@
         "owner": "inworld",
         "is_official": true,
         "paper_url": null,
-        "run_count": 48202,
+        "run_count": 54138,
         "url": "https://replicate.com/inworld/tts-1.5-max",
         "visibility": "public",
         "weights_url": null
@@ -7310,7 +7890,7 @@
         "owner": "inworld",
         "is_official": true,
         "paper_url": null,
-        "run_count": 14817,
+        "run_count": 19598,
         "url": "https://replicate.com/inworld/tts-1.5-mini",
         "visibility": "public",
         "weights_url": null
@@ -7541,7 +8121,7 @@
         "owner": "afiaka87",
         "is_official": false,
         "paper_url": "https://github.com/neonbjb/tortoise-tts",
-        "run_count": 173540,
+        "run_count": 173549,
         "url": "https://replicate.com/afiaka87/tortoise-tts",
         "visibility": "public",
         "weights_url": null
@@ -7618,7 +8198,7 @@
         "owner": "openai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 40308,
+        "run_count": 41356,
         "url": "https://replicate.com/openai/gpt-4o-transcribe",
         "visibility": "public",
         "weights_url": null
@@ -7838,7 +8418,7 @@
         "owner": "vaibhavs10",
         "is_official": false,
         "paper_url": null,
-        "run_count": 31071491,
+        "run_count": 31621579,
         "url": "https://replicate.com/vaibhavs10/incredibly-fast-whisper",
         "visibility": "public",
         "weights_url": null
@@ -7933,7 +8513,7 @@
         "owner": "abiruyt",
         "is_official": false,
         "paper_url": null,
-        "run_count": 90169561,
+        "run_count": 90215511,
         "url": "https://replicate.com/abiruyt/text-extract-ocr",
         "visibility": "public",
         "weights_url": null
@@ -8017,7 +8597,7 @@
         "owner": "salesforce",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2201.12086",
-        "run_count": 172550700,
+        "run_count": 172606128,
         "url": "https://replicate.com/salesforce/blip",
         "visibility": "public",
         "weights_url": null
@@ -8116,7 +8696,7 @@
         "owner": "andreasjansson",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2301.12597",
-        "run_count": 31629157,
+        "run_count": 31651848,
         "url": "https://replicate.com/andreasjansson/blip-2",
         "visibility": "public",
         "weights_url": null
@@ -8166,7 +8746,7 @@
         "owner": "andreasjansson",
         "is_official": false,
         "paper_url": null,
-        "run_count": 150559849,
+        "run_count": 151522532,
         "url": "https://replicate.com/andreasjansson/clip-features",
         "visibility": "public",
         "weights_url": null
@@ -8246,7 +8826,7 @@
         "owner": "pharmapsychotic",
         "is_official": false,
         "paper_url": null,
-        "run_count": 4895977,
+        "run_count": 4897384,
         "url": "https://replicate.com/pharmapsychotic/clip-interrogator",
         "visibility": "public",
         "weights_url": null
@@ -8297,7 +8877,7 @@
         "owner": "methexis-inc",
         "is_official": false,
         "paper_url": null,
-        "run_count": 2660580,
+        "run_count": 2660626,
         "url": "https://replicate.com/methexis-inc/img2prompt",
         "visibility": "public",
         "weights_url": null
@@ -8387,7 +8967,7 @@
         "owner": "yorickvp",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2310.03744",
-        "run_count": 34929666,
+        "run_count": 35141194,
         "url": "https://replicate.com/yorickvp/llava-13b",
         "visibility": "public",
         "weights_url": null
@@ -8447,7 +9027,7 @@
         "owner": "lucataco",
         "is_official": false,
         "paper_url": null,
-        "run_count": 10944515,
+        "run_count": 11174020,
         "url": "https://replicate.com/lucataco/moondream2",
         "visibility": "public",
         "weights_url": null
@@ -8492,7 +9072,7 @@
         "owner": "falcons-ai",
         "is_official": true,
         "paper_url": "https://arxiv.org/abs/2010.11929",
-        "run_count": 92833214,
+        "run_count": 94507267,
         "url": "https://replicate.com/falcons-ai/nsfw_image_detection",
         "visibility": "public",
         "weights_url": "https://huggingface.co/Falconsai/nsfw_image_detection"
@@ -8555,7 +9135,7 @@
         "owner": "lucataco",
         "is_official": false,
         "paper_url": null,
-        "run_count": 848757,
+        "run_count": 848758,
         "url": "https://replicate.com/lucataco/sdxl-clip-interrogator",
         "visibility": "public",
         "weights_url": null
@@ -8733,7 +9313,7 @@
         "owner": "fofr",
         "is_official": false,
         "paper_url": null,
-        "run_count": 821314,
+        "run_count": 823124,
         "url": "https://replicate.com/fofr/become-image",
         "visibility": "public",
         "weights_url": null
@@ -8894,7 +9474,7 @@
         "owner": "fofr",
         "is_official": false,
         "paper_url": null,
-        "run_count": 15052131,
+        "run_count": 15060366,
         "url": "https://replicate.com/fofr/face-to-many",
         "visibility": "public",
         "weights_url": null
@@ -9056,7 +9636,7 @@
         "owner": "fofr",
         "is_official": false,
         "paper_url": null,
-        "run_count": 1668557,
+        "run_count": 1670536,
         "url": "https://replicate.com/fofr/face-to-sticker",
         "visibility": "public",
         "weights_url": null
@@ -9409,7 +9989,7 @@
         "owner": "zsxkib",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2401.07519",
-        "run_count": 1033585,
+        "run_count": 1036467,
         "url": "https://replicate.com/zsxkib/instant-id",
         "visibility": "public",
         "weights_url": null
@@ -9544,7 +10124,7 @@
         "owner": "grandlineai",
         "is_official": false,
         "paper_url": null,
-        "run_count": 12525,
+        "run_count": 12549,
         "url": "https://replicate.com/grandlineai/instant-id-artistic",
         "visibility": "public",
         "weights_url": null
@@ -9679,7 +10259,7 @@
         "owner": "grandlineai",
         "is_official": false,
         "paper_url": null,
-        "run_count": 45974,
+        "run_count": 46006,
         "url": "https://replicate.com/grandlineai/instant-id-photorealistic",
         "visibility": "public",
         "weights_url": null
@@ -9861,7 +10441,7 @@
         "owner": "tencentarc",
         "is_official": false,
         "paper_url": "https://huggingface.co/papers/2312.04461",
-        "run_count": 9015719,
+        "run_count": 9032795,
         "url": "https://replicate.com/tencentarc/photomaker",
         "visibility": "public",
         "weights_url": null
@@ -10063,7 +10643,7 @@
         "owner": "tencentarc",
         "is_official": false,
         "paper_url": "https://huggingface.co/papers/2312.04461",
-        "run_count": 1587079,
+        "run_count": 1588325,
         "url": "https://replicate.com/tencentarc/photomaker-style",
         "visibility": "public",
         "weights_url": null
@@ -10123,7 +10703,7 @@
         "owner": "piddnad",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2212.11613",
-        "run_count": 2209894,
+        "run_count": 2257140,
         "url": "https://replicate.com/piddnad/ddcolor",
         "visibility": "public",
         "weights_url": null
@@ -10291,7 +10871,7 @@
         "owner": "bria",
         "is_official": true,
         "paper_url": null,
-        "run_count": 368453,
+        "run_count": 369985,
         "url": "https://replicate.com/bria/expand-image",
         "visibility": "public",
         "weights_url": "https://huggingface.co/briaai/BRIA-2.3-ControlNet-Inpainting"
@@ -10531,7 +11111,7 @@
         "owner": "fermatresearch",
         "is_official": false,
         "paper_url": null,
-        "run_count": 52062,
+        "run_count": 52090,
         "url": "https://replicate.com/fermatresearch/magic-style-transfer",
         "visibility": "public",
         "weights_url": null
@@ -10582,7 +11162,7 @@
         "owner": "pollinations",
         "is_official": false,
         "paper_url": "https://arxiv.org/pdf/2011.11961.pdf",
-        "run_count": 1668268,
+        "run_count": 1672994,
         "url": "https://replicate.com/pollinations/modnet",
         "visibility": "public",
         "weights_url": null
@@ -10672,7 +11252,7 @@
         "owner": "google",
         "is_official": true,
         "paper_url": null,
-        "run_count": 100859162,
+        "run_count": 102085792,
         "url": "https://replicate.com/google/nano-banana",
         "visibility": "public",
         "weights_url": null
@@ -10738,7 +11318,7 @@
         "owner": "codeplugtech",
         "is_official": false,
         "paper_url": null,
-        "run_count": 18759,
+        "run_count": 18794,
         "url": "https://replicate.com/codeplugtech/object_remover",
         "visibility": "public",
         "weights_url": null
@@ -10788,7 +11368,7 @@
         "owner": "cjwbw",
         "is_official": false,
         "paper_url": null,
-        "run_count": 10863501,
+        "run_count": 10915820,
         "url": "https://replicate.com/cjwbw/rembg",
         "visibility": "public",
         "weights_url": null
@@ -10875,7 +11455,7 @@
         "owner": "lucataco",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2206.11253",
-        "run_count": 10147295,
+        "run_count": 10205859,
         "url": "https://replicate.com/lucataco/codeformer",
         "visibility": "public",
         "weights_url": null
@@ -10950,7 +11530,7 @@
         "owner": "google-research",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2201.02973",
-        "run_count": 573290,
+        "run_count": 573540,
         "url": "https://replicate.com/google-research/maxim",
         "visibility": "public",
         "weights_url": null
@@ -11000,7 +11580,7 @@
         "owner": "cjwbw",
         "is_official": false,
         "paper_url": "https://arxiv.org/pdf/2207.10564.pdf",
-        "run_count": 44107,
+        "run_count": 44115,
         "url": "https://replicate.com/cjwbw/night-enhancement",
         "visibility": "public",
         "weights_url": null
@@ -11067,7 +11647,7 @@
         "owner": "microsoft",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2004.09484",
-        "run_count": 1220486,
+        "run_count": 1222012,
         "url": "https://replicate.com/microsoft/bringing-old-photos-back-to-life",
         "visibility": "public",
         "weights_url": null
@@ -11273,7 +11853,7 @@
         "owner": "cjwbw",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2401.13627",
-        "run_count": 20746,
+        "run_count": 20771,
         "url": "https://replicate.com/cjwbw/supir-v0f",
         "visibility": "public",
         "weights_url": null
@@ -11479,7 +12059,7 @@
         "owner": "cjwbw",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2401.13627",
-        "run_count": 120944,
+        "run_count": 120998,
         "url": "https://replicate.com/cjwbw/supir-v0q",
         "visibility": "public",
         "weights_url": null
@@ -11818,7 +12398,7 @@
         "owner": "philz1337x",
         "is_official": false,
         "paper_url": "https://clarityai.co",
-        "run_count": 28735316,
+        "run_count": 28851242,
         "url": "https://replicate.com/philz1337x/clarity-upscaler",
         "visibility": "public",
         "weights_url": null
@@ -11894,7 +12474,7 @@
         "owner": "tencentarc",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2101.04061",
-        "run_count": 113068266,
+        "run_count": 113439520,
         "url": "https://replicate.com/tencentarc/gfpgan",
         "visibility": "public",
         "weights_url": null
@@ -12103,7 +12683,7 @@
         "owner": "fermatresearch",
         "is_official": false,
         "paper_url": null,
-        "run_count": 654786,
+        "run_count": 655031,
         "url": "https://replicate.com/fermatresearch/high-resolution-controlnet-tile",
         "visibility": "public",
         "weights_url": null
@@ -12291,7 +12871,7 @@
         "owner": "fermatresearch",
         "is_official": false,
         "paper_url": null,
-        "run_count": 952088,
+        "run_count": 952256,
         "url": "https://replicate.com/fermatresearch/magic-image-refiner",
         "visibility": "public",
         "weights_url": null
@@ -12362,7 +12942,7 @@
         "owner": "daanelson",
         "is_official": false,
         "paper_url": null,
-        "run_count": 15798246,
+        "run_count": 15826948,
         "url": "https://replicate.com/daanelson/real-esrgan-a100",
         "visibility": "public",
         "weights_url": null
@@ -12428,7 +13008,7 @@
         "owner": "mv-lab",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2209.11345",
-        "run_count": 3577357,
+        "run_count": 3577456,
         "url": "https://replicate.com/mv-lab/swin2sr",
         "visibility": "public",
         "weights_url": null
@@ -12519,7 +13099,7 @@
         "owner": "jingyunliang",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2108.10257",
-        "run_count": 6278449,
+        "run_count": 6281353,
         "url": "https://replicate.com/jingyunliang/swinir",
         "visibility": "public",
         "weights_url": null
@@ -12830,7 +13410,7 @@
         "owner": "fewjative",
         "is_official": false,
         "paper_url": null,
-        "run_count": 166421,
+        "run_count": 166451,
         "url": "https://replicate.com/fewjative/ultimate-sd-upscale",
         "visibility": "public",
         "weights_url": null
@@ -12896,7 +13476,7 @@
         "owner": "cjwbw",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2107.10833",
-        "run_count": 486717,
+        "run_count": 486900,
         "url": "https://replicate.com/cjwbw/rudalle-sr",
         "visibility": "public",
         "weights_url": null
@@ -13047,7 +13627,7 @@
         "owner": "logerzhu",
         "is_official": false,
         "paper_url": null,
-        "run_count": 629875,
+        "run_count": 629909,
         "url": "https://replicate.com/logerzhu/ad-inpaint",
         "visibility": "public",
         "weights_url": null
@@ -13192,7 +13772,7 @@
         "owner": "sdxl-based",
         "is_official": false,
         "paper_url": null,
-        "run_count": 1467358,
+        "run_count": 1468907,
         "url": "https://replicate.com/sdxl-based/consistent-character",
         "visibility": "public",
         "weights_url": null
@@ -13326,7 +13906,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": "https://blackforestlabs.ai/flux-1-1-ultra/",
-        "run_count": 20623497,
+        "run_count": 20662181,
         "url": "https://replicate.com/black-forest-labs/flux-1.1-pro-ultra",
         "visibility": "public",
         "weights_url": null
@@ -13523,7 +14103,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 223844,
+        "run_count": 233393,
         "url": "https://replicate.com/black-forest-labs/flux-2-flex",
         "visibility": "public",
         "weights_url": null
@@ -13673,7 +14253,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 11458825,
+        "run_count": 12274564,
         "url": "https://replicate.com/black-forest-labs/flux-2-klein-4b",
         "visibility": "public",
         "weights_url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B"
@@ -13839,7 +14419,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 1726988,
+        "run_count": 1811929,
         "url": "https://replicate.com/black-forest-labs/flux-2-max",
         "visibility": "public",
         "weights_url": null
@@ -14005,7 +14585,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 5404740,
+        "run_count": 5643391,
         "url": "https://replicate.com/black-forest-labs/flux-2-pro",
         "visibility": "public",
         "weights_url": null
@@ -14297,7 +14877,7 @@
         "owner": "igorriti",
         "is_official": false,
         "paper_url": null,
-        "run_count": 20281,
+        "run_count": 20325,
         "url": "https://replicate.com/igorriti/flux-360",
         "visibility": "public",
         "weights_url": "https://huggingface.co/igorriti/flux-360"
@@ -14589,7 +15169,7 @@
         "owner": "fofr",
         "is_official": false,
         "paper_url": null,
-        "run_count": 3206638,
+        "run_count": 3231160,
         "url": "https://replicate.com/fofr/flux-black-light",
         "visibility": "public",
         "weights_url": null
@@ -14743,7 +15323,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 229325,
+        "run_count": 231079,
         "url": "https://replicate.com/black-forest-labs/flux-canny-dev",
         "visibility": "public",
         "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-Canny-dev"
@@ -14870,7 +15450,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 432727,
+        "run_count": 433922,
         "url": "https://replicate.com/black-forest-labs/flux-canny-pro",
         "visibility": "public",
         "weights_url": null
@@ -15162,7 +15742,7 @@
         "owner": "adirik",
         "is_official": false,
         "paper_url": null,
-        "run_count": 133895,
+        "run_count": 134024,
         "url": "https://replicate.com/adirik/flux-cinestill",
         "visibility": "public",
         "weights_url": null
@@ -15316,7 +15896,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 1214487,
+        "run_count": 1224701,
         "url": "https://replicate.com/black-forest-labs/flux-depth-dev",
         "visibility": "public",
         "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev"
@@ -15443,7 +16023,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 315930,
+        "run_count": 317740,
         "url": "https://replicate.com/black-forest-labs/flux-depth-pro",
         "visibility": "public",
         "weights_url": null
@@ -15634,7 +16214,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 45273580,
+        "run_count": 45719507,
         "url": "https://replicate.com/black-forest-labs/flux-dev",
         "visibility": "public",
         "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev"
@@ -15892,7 +16472,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 5841199,
+        "run_count": 5853299,
         "url": "https://replicate.com/black-forest-labs/flux-dev-lora",
         "visibility": "public",
         "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-dev"
@@ -16072,7 +16652,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 1807333,
+        "run_count": 1817531,
         "url": "https://replicate.com/black-forest-labs/flux-fill-dev",
         "visibility": "public",
         "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev"
@@ -16224,7 +16804,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 3919033,
+        "run_count": 3932167,
         "url": "https://replicate.com/black-forest-labs/flux-fill-pro",
         "visibility": "public",
         "weights_url": null
@@ -16350,7 +16930,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 49109038,
+        "run_count": 49387777,
         "url": "https://replicate.com/black-forest-labs/flux-kontext-pro",
         "visibility": "public",
         "weights_url": "https://huggingface.co/black-forest-labs"
@@ -16833,7 +17413,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 14069408,
+        "run_count": 14078149,
         "url": "https://replicate.com/black-forest-labs/flux-pro",
         "visibility": "public",
         "weights_url": null
@@ -16999,7 +17579,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 322252,
+        "run_count": 324072,
         "url": "https://replicate.com/black-forest-labs/flux-redux-dev",
         "visibility": "public",
         "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev"
@@ -17154,7 +17734,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 73463,
+        "run_count": 74115,
         "url": "https://replicate.com/black-forest-labs/flux-redux-schnell",
         "visibility": "public",
         "weights_url": null
@@ -17313,7 +17893,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 649128812,
+        "run_count": 652082862,
         "url": "https://replicate.com/black-forest-labs/flux-schnell",
         "visibility": "public",
         "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell"
@@ -17493,7 +18073,7 @@
         "owner": "black-forest-labs",
         "is_official": true,
         "paper_url": null,
-        "run_count": 3715309,
+        "run_count": 3718138,
         "url": "https://replicate.com/black-forest-labs/flux-schnell-lora",
         "visibility": "public",
         "weights_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell"
@@ -17680,7 +18260,7 @@
         "owner": "openai",
         "is_official": true,
         "paper_url": null,
-        "run_count": 9144434,
+        "run_count": 9931567,
         "url": "https://replicate.com/openai/gpt-image-1.5",
         "visibility": "public",
         "weights_url": null
@@ -17849,7 +18429,7 @@
         "owner": "bytedance",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2404.13686",
-        "run_count": 22729384,
+        "run_count": 22820605,
         "url": "https://replicate.com/bytedance/hyper-flux-8step",
         "visibility": "public",
         "weights_url": "https://huggingface.co/ByteDance/Hyper-SD"
@@ -18084,7 +18664,7 @@
         "owner": "ideogram-ai",
         "is_official": true,
         "paper_url": "https://ideogram.ai/",
-        "run_count": 2767543,
+        "run_count": 2775365,
         "url": "https://replicate.com/ideogram-ai/ideogram-v2",
         "visibility": "public",
         "weights_url": "https://ideogram.ai/"
@@ -18279,7 +18859,7 @@
         "owner": "ideogram-ai",
         "is_official": true,
         "paper_url": "https://ideogram.ai/",
-        "run_count": 2040287,
+        "run_count": 2042410,
         "url": "https://replicate.com/ideogram-ai/ideogram-v2a",
         "visibility": "public",
         "weights_url": null
@@ -18514,7 +19094,7 @@
         "owner": "ideogram-ai",
         "is_official": true,
         "paper_url": "https://ideogram.ai/",
-        "run_count": 2915515,
+        "run_count": 2917171,
         "url": "https://replicate.com/ideogram-ai/ideogram-v2-turbo",
         "visibility": "public",
         "weights_url": "https://ideogram.ai/"
@@ -18827,7 +19407,7 @@
         "owner": "ideogram-ai",
         "is_official": true,
         "paper_url": "https://about.ideogram.ai/3.0",
-        "run_count": 8597801,
+        "run_count": 8662335,
         "url": "https://replicate.com/ideogram-ai/ideogram-v3-turbo",
         "visibility": "public",
         "weights_url": null
@@ -19120,7 +19700,7 @@
         "owner": "google",
         "is_official": true,
         "paper_url": "https://deepmind.google/technologies/imagen-3/",
-        "run_count": 2098172,
+        "run_count": 2104614,
         "url": "https://replicate.com/google/imagen-3",
         "visibility": "public",
         "weights_url": null
@@ -19212,7 +19792,7 @@
         "owner": "google",
         "is_official": true,
         "paper_url": null,
-        "run_count": 5161235,
+        "run_count": 5268913,
         "url": "https://replicate.com/google/imagen-4-fast",
         "visibility": "public",
         "weights_url": null
@@ -19375,7 +19955,7 @@
         "owner": "ai-forever",
         "is_official": false,
         "paper_url": null,
-        "run_count": 10091784,
+        "run_count": 10091842,
         "url": "https://replicate.com/ai-forever/kandinsky-2.2",
         "visibility": "public",
         "weights_url": null
@@ -19538,7 +20118,7 @@
         "owner": "ai-forever",
         "is_official": false,
         "paper_url": null,
-        "run_count": 10091784,
+        "run_count": 10091842,
         "url": "https://replicate.com/ai-forever/kandinsky-2.2",
         "visibility": "public",
         "weights_url": null
@@ -19634,7 +20214,7 @@
         "owner": "minimax",
         "is_official": true,
         "paper_url": null,
-        "run_count": 2904398,
+        "run_count": 2925126,
         "url": "https://replicate.com/minimax/image-01",
         "visibility": "public",
         "weights_url": null
@@ -19763,7 +20343,7 @@
         "owner": "google",
         "is_official": true,
         "paper_url": null,
-        "run_count": 6333486,
+        "run_count": 6784880,
         "url": "https://replicate.com/google/nano-banana-2",
         "visibility": "public",
         "weights_url": null
@@ -19935,7 +20515,7 @@
         "owner": "luma",
         "is_official": true,
         "paper_url": null,
-        "run_count": 482023,
+        "run_count": 496361,
         "url": "https://replicate.com/luma/photon-flash",
         "visibility": "public",
         "weights_url": null
@@ -20128,7 +20708,7 @@
         "owner": "playgroundai",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2206.00364",
-        "run_count": 3110573,
+        "run_count": 3127408,
         "url": "https://replicate.com/playgroundai/playground-v2.5-1024px-aesthetic",
         "visibility": "public",
         "weights_url": "https://huggingface.co/playgroundai/playground-v2.5-1024px-aesthetic"
@@ -20321,7 +20901,7 @@
         "owner": "datacte",
         "is_official": false,
         "paper_url": null,
-        "run_count": 12091739,
+        "run_count": 12121575,
         "url": "https://replicate.com/datacte/proteus-v0.2",
         "visibility": "public",
         "weights_url": null
@@ -20515,7 +21095,7 @@
         "owner": "datacte",
         "is_official": false,
         "paper_url": null,
-        "run_count": 5685365,
+        "run_count": 5714293,
         "url": "https://replicate.com/datacte/proteus-v0.3",
         "visibility": "public",
         "weights_url": "https://huggingface.co/dataautogpt3/ProteusV0.3"
@@ -20683,7 +21263,7 @@
         "owner": "fofr",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2404.16022",
-        "run_count": 327789,
+        "run_count": 327893,
         "url": "https://replicate.com/fofr/pulid-base",
         "visibility": "public",
         "weights_url": null
@@ -20931,7 +21511,7 @@
         "owner": "qwen",
         "is_official": true,
         "paper_url": "https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/Qwen_Image.pdf",
-        "run_count": 1689965,
+        "run_count": 1707317,
         "url": "https://replicate.com/qwen/qwen-image",
         "visibility": "public",
         "weights_url": "https://huggingface.co/Qwen/Qwen-Image"
@@ -21050,7 +21630,7 @@
         "owner": "qwen",
         "is_official": true,
         "paper_url": "https://arxiv.org/abs/2508.02324",
-        "run_count": 20293,
+        "run_count": 21850,
         "url": "https://replicate.com/qwen/qwen-image-2-pro",
         "visibility": "public",
         "weights_url": null
@@ -21165,7 +21745,7 @@
         "owner": "qwen",
         "is_official": true,
         "paper_url": "https://arxiv.org/abs/2508.02324",
-        "run_count": 1784417,
+        "run_count": 1803283,
         "url": "https://replicate.com/qwen/qwen-image-edit",
         "visibility": "public",
         "weights_url": "https://huggingface.co/Qwen/Qwen-Image-Edit"
@@ -21304,7 +21884,7 @@
         "owner": "recraft-ai",
         "is_official": true,
         "paper_url": "https://recraft.ai",
-        "run_count": 322401,
+        "run_count": 323690,
         "url": "https://replicate.com/recraft-ai/recraft-20b",
         "visibility": "public",
         "weights_url": null
@@ -21438,7 +22018,7 @@
         "owner": "recraft-ai",
         "is_official": true,
         "paper_url": "https://recraft.ai/",
-        "run_count": 115387,
+        "run_count": 116492,
         "url": "https://replicate.com/recraft-ai/recraft-20b-svg",
         "visibility": "public",
         "weights_url": null
@@ -21570,7 +22150,7 @@
         "owner": "recraft-ai",
         "is_official": true,
         "paper_url": "https://recraft.ai",
-        "run_count": 8187401,
+        "run_count": 8205537,
         "url": "https://replicate.com/recraft-ai/recraft-v3",
         "visibility": "public",
         "weights_url": null
@@ -21688,7 +22268,7 @@
         "owner": "recraft-ai",
         "is_official": true,
         "paper_url": "https://recraft.ai",
-        "run_count": 396925,
+        "run_count": 399464,
         "url": "https://replicate.com/recraft-ai/recraft-v3-svg",
         "visibility": "public",
         "weights_url": null
@@ -21787,7 +22367,7 @@
         "owner": "recraft-ai",
         "is_official": true,
         "paper_url": "https://www.recraft.ai/blog/introducing-recraft-v4-design-taste-meets-image-generation",
-        "run_count": 410545,
+        "run_count": 495980,
         "url": "https://replicate.com/recraft-ai/recraft-v4",
         "visibility": "public",
         "weights_url": null
@@ -22007,7 +22587,7 @@
         "owner": "catacolabs",
         "is_official": false,
         "paper_url": null,
-        "run_count": 401658,
+        "run_count": 401670,
         "url": "https://replicate.com/catacolabs/sdxl-ad-inpaint",
         "visibility": "public",
         "weights_url": null
@@ -22107,7 +22687,7 @@
         "owner": "lucataco",
         "is_official": false,
         "paper_url": null,
-        "run_count": 3580671,
+        "run_count": 3587567,
         "url": "https://replicate.com/lucataco/sdxl-controlnet",
         "visibility": "public",
         "weights_url": null
@@ -22357,7 +22937,7 @@
         "owner": "fofr",
         "is_official": false,
         "paper_url": null,
-        "run_count": 12036650,
+        "run_count": 12066546,
         "url": "https://replicate.com/fofr/sdxl-emoji",
         "visibility": "public",
         "weights_url": null
@@ -22607,7 +23187,7 @@
         "owner": "swartype",
         "is_official": false,
         "paper_url": null,
-        "run_count": 658341,
+        "run_count": 658362,
         "url": "https://replicate.com/swartype/sdxl-pixar",
         "visibility": "public",
         "weights_url": null
@@ -22755,7 +23335,7 @@
         "owner": "bytedance",
         "is_official": true,
         "paper_url": null,
-        "run_count": 33066073,
+        "run_count": 33508076,
         "url": "https://replicate.com/bytedance/seedream-4",
         "visibility": "public",
         "weights_url": null
@@ -22885,7 +23465,7 @@
         "owner": "bytedance",
         "is_official": true,
         "paper_url": null,
-        "run_count": 7692155,
+        "run_count": 8630078,
         "url": "https://replicate.com/bytedance/seedream-4.5",
         "visibility": "public",
         "weights_url": null
@@ -23020,7 +23600,7 @@
         "owner": "bytedance",
         "is_official": true,
         "paper_url": null,
-        "run_count": 1263606,
+        "run_count": 1430403,
         "url": "https://replicate.com/bytedance/seedream-5-lite",
         "visibility": "public",
         "weights_url": null
@@ -23192,7 +23772,7 @@
         "owner": "stability-ai",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2112.10752",
-        "run_count": 111017712,
+        "run_count": 111024461,
         "url": "https://replicate.com/stability-ai/stable-diffusion",
         "visibility": "public",
         "weights_url": null
@@ -23331,7 +23911,7 @@
         "owner": "stability-ai",
         "is_official": true,
         "paper_url": "https://arxiv.org/abs/2403.03206",
-        "run_count": 2047074,
+        "run_count": 2052966,
         "url": "https://replicate.com/stability-ai/stable-diffusion-3.5-large",
         "visibility": "public",
         "weights_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large"
@@ -23470,7 +24050,7 @@
         "owner": "stability-ai",
         "is_official": true,
         "paper_url": "https://arxiv.org/abs/2403.03206",
-        "run_count": 1070209,
+        "run_count": 1079557,
         "url": "https://replicate.com/stability-ai/stable-diffusion-3.5-large-turbo",
         "visibility": "public",
         "weights_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large-turbo"
@@ -23609,7 +24189,7 @@
         "owner": "stability-ai",
         "is_official": true,
         "paper_url": "https://arxiv.org/abs/2403.03206",
-        "run_count": 113115,
+        "run_count": 113728,
         "url": "https://replicate.com/stability-ai/stable-diffusion-3.5-medium",
         "visibility": "public",
         "weights_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium"
@@ -23820,7 +24400,7 @@
         "owner": "stability-ai",
         "is_official": false,
         "paper_url": null,
-        "run_count": 21095706,
+        "run_count": 21098113,
         "url": "https://replicate.com/stability-ai/stable-diffusion-inpainting",
         "visibility": "public",
         "weights_url": null
@@ -24070,7 +24650,7 @@
         "owner": "stability-ai",
         "is_official": false,
         "paper_url": "https://arxiv.org/abs/2307.01952",
-        "run_count": 84838153,
+        "run_count": 84973729,
         "url": "https://replicate.com/stability-ai/sdxl",
         "visibility": "public",
         "weights_url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0"
@@ -24217,7 +24797,7 @@
         "owner": "bytedance",
         "is_official": false,
         "paper_url": "https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_report.pdf",
-        "run_count": 1034956851,
+        "run_count": 1035140154,
         "url": "https://replicate.com/bytedance/sdxl-lightning-4step",
         "visibility": "public",
         "weights_url": "https://huggingface.co/ByteDance/SDXL-Lightning"
@@ -24341,7 +24921,7 @@
         "owner": "fofr",
         "is_official": false,
         "paper_url": null,
-        "run_count": 2112022,
+        "run_count": 2128072,
         "url": "https://replicate.com/fofr/sticker-maker",
         "visibility": "public",
         "weights_url": null
@@ -24529,7 +25109,7 @@
         "owner": "fofr",
         "is_official": false,
         "paper_url": null,
-        "run_count": 1343528,
+        "run_count": 1347228,
         "url": "https://replicate.com/fofr/style-transfer",
         "visibility": "public",
         "weights_url": null
@@ -24653,7 +25233,7 @@
         "owner": "wan-video",
         "is_official": true,
         "paper_url": null,
-        "run_count": 18884,
+        "run_count": 24691,
         "url": "https://replicate.com/wan-video/wan-2.7-image-pro",
         "visibility": "public",
         "weights_url": null

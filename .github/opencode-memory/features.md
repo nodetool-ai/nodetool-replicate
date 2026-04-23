@@ -152,3 +152,31 @@ Repository configured with Claude Code memory and automated sync workflow.
 
 **Notes:**
 - Total node count increased from 170 to 173 nodes
+
+---
+
+## 2026-04-23 - Latest LLM Models Added
+
+- Model ID: `openai/gpt-4o`
+- Namespace: `text.generate`
+- Description: OpenAI's high-intelligence chat model with multimodal capabilities. Latest GPT-4o model with superior performance across text, image, and audio understanding
+
+- Model ID: `openai/gpt-4o-mini`
+- Namespace: `text.generate`
+- Description: Low latency, low cost version of OpenAI's GPT-4o model. Optimized for speed and efficiency while maintaining strong performance
+
+- Model ID: `anthropic/claude-4-sonnet`
+- Namespace: `text.generate`
+- Description: Claude Sonnet 4 is a significant upgrade to 3.7, delivering superior coding and reasoning while responding more precisely to your instructions. Latest generation Claude model
+
+- Model ID: `google/gemini-2.5-flash`
+- Namespace: `text.generate`
+- Description: Google's hybrid "thinking" AI model optimized for speed and cost-efficiency. Next-generation Gemini with improved reasoning capabilities
+
+- Model ID: `deepseek-ai/deepseek-v3`
+- Namespace: `text.generate`
+- Description: DeepSeek-V3 is the leading non-reasoning model, a milestone for open source. State-of-the-art open weights model with competitive performance
+
+**Notes:**
+- Total node count increased from 173 to 178 nodes
+- All new models are text generation LLMs from major AI providers
